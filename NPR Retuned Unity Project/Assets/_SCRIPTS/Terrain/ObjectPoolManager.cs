@@ -22,6 +22,9 @@ public class ObjectPool
         GameObject returnObj = Pool.Dequeue();
         returnObj.SetActive(true);
         tile.Object = returnObj;
+
+        Pool.Enqueue(returnObj);
+        
         return returnObj;
     }
     public void Return(GameObject obj, Tile tile)

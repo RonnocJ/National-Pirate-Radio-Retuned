@@ -1,0 +1,54 @@
+.AudioEnumTreeView {
+    width: 18%;
+    height: 100%;
+    flex-grow: 0;
+    flex-basis: auto;
+    color: rgb(175, 175, 175);
+    font-size: 13px;
+    background-color: rgba(56, 56, 56, 0);
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: center;
+    align-self: flex-start;
+    align-content: flex-start;
+    overflow: hidden;
+    flex-shrink: 1;
+    letter-spacing: -1px;
+    -unity-text-outline-color: rgba(255, 255, 255, 0.88);
+    -unity-text-outline-width: 0.5px;
+    word-spacing: -1px;
+    position: absolute;
+    top: 2px;
+    -unity-font-definition: url("project://database/Assets/Addons/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans");
+}
+
+.Divider {
+    flex-grow: 1;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 2px;
+    background-color: rgb(120, 120, 120);
+    align-self: center;
+}
+
+.Label {
+    align-items: stretch;
+    align-self: center;
+    justify-content: center;
+    bottom: auto;
+    white-space: normal;
+    position: absolute;
+    left: 0;
+    top: auto;
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+    width: 17.5%;
+    font-size: 125%;
+    text-overflow: clip;
+    height: 100%;
+    flex-basis: 0;
+    flex-direction: row;
+    overflow: hidden;
+    -unity-font-definition: url("project://database/Assets/Addons/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans");
+}

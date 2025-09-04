@@ -1,0 +1,296 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8153aa43677a54cd4a574677dc8afc61, type: 3}
+  m_Name: BankDictionary
+  m_EditorClassIdentifier: 
+  serializedEvents:
+  - eventName: playBanditDie
+    bankName: EnemySFX
+    eventId: 1497679377
+  - eventName: playBanditHey
+    bankName: EnemySFX
+    eventId: 760155893
+  - eventName: playBanditKill
+    bankName: EnemySFX
+    eventId: 292190593
+  - eventName: playBanditShoot
+    bankName: EnemySFX
+    eventId: 1811505402
+  - eventName: playBanditSpit
+    bankName: EnemySFX
+    eventId: 3560876975
+  - eventName: playMegaZombieAttack
+    bankName: EnemySFX
+    eventId: 900348891
+  - eventName: playMegaZombieIdle
+    bankName: EnemySFX
+    eventId: 1955906517
+  - eventName: playMegaZombieKill
+    bankName: EnemySFX
+    eventId: 843734399
+  - eventName: playSkeletonDie
+    bankName: EnemySFX
+    eventId: 829146376
+  - eventName: playSkeletonIdle
+    bankName: EnemySFX
+    eventId: 1497265408
+  - eventName: playZombieDie
+    bankName: EnemySFX
+    eventId: 503516373
+  - eventName: playZombieIdle
+    bankName: EnemySFX
+    eventId: 2910118167
+  - eventName: playZombieKill
+    bankName: EnemySFX
+    eventId: 4132654893
+  - eventName: playRoaming
+    bankName: OutsideMusic
+    eventId: 822197136
+  - eventName: pauseSFX
+    bankName: PersistentSounds
+    eventId: 3383430110
+  - eventName: playAnvilHit
+    bankName: PersistentSounds
+    eventId: 1308629318
+  - eventName: playArrowClick
+    bankName: PersistentSounds
+    eventId: 217988234
+  - eventName: playBlackhole
+    bankName: PersistentSounds
+    eventId: 2559627354
+  - eventName: playButtonBack
+    bankName: PersistentSounds
+    eventId: 3715694642
+  - eventName: playButtonClick
+    bankName: PersistentSounds
+    eventId: 3105979793
+  - eventName: playButtonHeavyClick
+    bankName: PersistentSounds
+    eventId: 136873084
+  - eventName: playButtonHover
+    bankName: PersistentSounds
+    eventId: 1134229243
+  - eventName: playButtonWrong
+    bankName: PersistentSounds
+    eventId: 2826513846
+  - eventName: playChestOpen
+    bankName: PersistentSounds
+    eventId: 2112865866
+  - eventName: playClick
+    bankName: PersistentSounds
+    eventId: 2002511053
+  - eventName: playCyborgKill
+    bankName: PersistentSounds
+    eventId: 1073312507
+  - eventName: playCyborgShootRocket
+    bankName: PersistentSounds
+    eventId: 3542968520
+  - eventName: playCyborgThrowTrap
+    bankName: PersistentSounds
+    eventId: 4189315952
+  - eventName: playEnergyShield
+    bankName: PersistentSounds
+    eventId: 1905145288
+  - eventName: playHealComplete
+    bankName: PersistentSounds
+    eventId: 4152351360
+  - eventName: playHealInProgress
+    bankName: PersistentSounds
+    eventId: 2678545057
+  - eventName: playItemGet
+    bankName: PersistentSounds
+    eventId: 1707287486
+  - eventName: playLaserEyes
+    bankName: PersistentSounds
+    eventId: 4220460930
+  - eventName: playMetalCollide
+    bankName: PersistentSounds
+    eventId: 2042833190
+  - eventName: playQuestComplete
+    bankName: PersistentSounds
+    eventId: 3866241638
+  - eventName: playRadiationDie
+    bankName: PersistentSounds
+    eventId: 1690082298
+  - eventName: playRingPlatformPress
+    bankName: PersistentSounds
+    eventId: 3098157409
+  - eventName: playScrapHit
+    bankName: PersistentSounds
+    eventId: 4172868777
+  - eventName: playScrapKill
+    bankName: PersistentSounds
+    eventId: 2983220778
+  - eventName: playScrapLand
+    bankName: PersistentSounds
+    eventId: 3496348513
+  - eventName: playStoneRoll
+    bankName: PersistentSounds
+    eventId: 4271614991
+  - eventName: playTakeDamage
+    bankName: PersistentSounds
+    eventId: 2781553081
+  - eventName: playThump
+    bankName: PersistentSounds
+    eventId: 1649950571
+  - eventName: playTirePop
+    bankName: PersistentSounds
+    eventId: 57832890
+  - eventName: playWoodCollide
+    bankName: PersistentSounds
+    eventId: 2365992778
+  - eventName: resumeSFX
+    bankName: PersistentSounds
+    eventId: 3076081969
+  - eventName: stopAllSFX
+    bankName: PersistentSounds
+    eventId: 658567367
+  - eventName: playStartingCity
+    bankName: StartingCityMusic
+    eventId: 1312030930
+  - eventName: playStartingCityStrike
+    bankName: StartingCityMusic
+    eventId: 1024408708
+  - eventName: playTitle
+    bankName: TitleMusic
+    eventId: 3593803035
+  - eventName: playGateOpen
+    bankName: EnvironmentalSFX
+    eventId: 3595076854
+  - eventName: playGateRing
+    bankName: EnvironmentalSFX
+    eventId: 1230537104
+  - eventName: playAcidSprayerBullet
+    bankName: PlayerSFX
+    eventId: 315461342
+  - eventName: playAcidSprayerFull
+    bankName: PlayerSFX
+    eventId: 4152896357
+  - eventName: playAcidSprayerLoop
+    bankName: PlayerSFX
+    eventId: 877208516
+  - eventName: playAcidSprayerRelease
+    bankName: PlayerSFX
+    eventId: 1625026149
+  - eventName: playBrakeSqueal
+    bankName: PlayerSFX
+    eventId: 3346890785
+  - eventName: playCarHorn
+    bankName: PlayerSFX
+    eventId: 3069772268
+  - eventName: playClimbLadder
+    bankName: PlayerSFX
+    eventId: 3384431326
+  - eventName: playDie
+    bankName: PlayerSFX
+    eventId: 1836766147
+  - eventName: playDoorClose
+    bankName: PlayerSFX
+    eventId: 2318322021
+  - eventName: playDrift
+    bankName: PlayerSFX
+    eventId: 1709085828
+  - eventName: playDriverChange
+    bankName: PlayerSFX
+    eventId: 1358724929
+  - eventName: playEMPPulserBullet
+    bankName: PlayerSFX
+    eventId: 1482356572
+  - eventName: playExhaustBurst
+    bankName: PlayerSFX
+    eventId: 4005567859
+  - eventName: playFlamethrowerFull
+    bankName: PlayerSFX
+    eventId: 2887306790
+  - eventName: playFlamethrowerLoop
+    bankName: PlayerSFX
+    eventId: 3981026767
+  - eventName: playFlamethrowerRelease
+    bankName: PlayerSFX
+    eventId: 2754886276
+  - eventName: playFootstep
+    bankName: PlayerSFX
+    eventId: 1712852617
+  - eventName: playFrostCannonBullet
+    bankName: PlayerSFX
+    eventId: 2724220876
+  - eventName: playMachineGunBullet
+    bankName: PlayerSFX
+    eventId: 3821841956
+  - eventName: playMachineGunImpact
+    bankName: PlayerSFX
+    eventId: 1250273058
+  - eventName: playMissileFly
+    bankName: PlayerSFX
+    eventId: 1559470536
+  - eventName: playMissileLaunch
+    bankName: PlayerSFX
+    eventId: 4053069180
+  - eventName: playMissleExplode
+    bankName: PlayerSFX
+    eventId: 4288875801
+  - eventName: playMoneyCollected
+    bankName: PlayerSFX
+    eventId: 2604530950
+  - eventName: startCarSounds
+    bankName: PlayerSFX
+    eventId: 3518370875
+  - eventName: stopBrakeSqueal
+    bankName: PlayerSFX
+    eventId: 2794157771
+  - eventName: test
+    bankName: PlayerSFX
+    eventId: 3157003241
+  serializedRTPCs:
+  - Name: isPaused
+    Min: 0
+    Max: 100
+  - Name: brakeIntensity
+    Min: 0
+    Max: 100
+  - Name: carSpeed
+    Min: 0
+    Max: 165
+  - Name: carThrottle
+    Min: 0
+    Max: 1
+  - Name: climbSpeed
+    Min: 0
+    Max: 15
+  - Name: missilePitch
+    Min: 0
+    Max: 50
+  - Name: combatIntensity
+    Min: 0
+    Max: 100
+  - Name: distanceToGate
+    Min: 0
+    Max: 100
+  - Name: arrowClickPitch
+    Min: 0
+    Max: 100
+  - Name: dialogueVolumeSlider
+    Min: 0
+    Max: 100
+  - Name: mainVolumeSlider
+    Min: 0
+    Max: 100
+  - Name: musicVolumeSlider
+    Min: 0
+    Max: 100
+  - Name: soundEffectsVolumeSlider
+    Min: 0
+    Max: 100
+  - Name: uiVolumeSlider
+    Min: 0
+    Max: 100
+  BankNames: []

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private int maxCollisionChecks;
     [SerializeField] private float collisionRadius;
     [SerializeField] private LayerMask collisionInclusions;
+    [SerializeField] private ArmAnimator[] arms;
     private bool _cameraMoveable;
     private float _currentYaw;
     private float _currentPitch;
@@ -18,16 +20,31 @@ public class CameraManager : MonoBehaviour
     private Vector3 _desiredPosition;
     private Transform _target => VanController.root.transform;
 
-    void Start()
+    IEnumerator Start()
     {
         _cameraMoveable = false;
-        PInputManager.root.actions[PlayerActionType.Switch].bAction += SwitchMode;
+        GameManager.root.OnPStateSwitch += SwitchMode;
+
+        yield return null;
+
+        foreach (var arm in arms)
+        {
+            arm.GetComponent<Animator>().enabled = _cameraMoveable;
+        }
     }
-    private void SwitchMode()
+    private void SwitchMode(PlayerState newState)
     {
-        _cameraMoveable = !_cameraMoveable;
+        if (newState is PlayerState.Utility or PlayerState.Weapon)
+        {
+            _cameraMoveable = !_cameraMoveable;
+
+            foreach (var arm in arms)
+            {
+                arm.GetComponent<Animator>().enabled = _cameraMoveable;
+            }
+        }
     }
-    void Update()
+    void FixedUpdate()
     {
         if (_cameraMoveable) MoveableCamera();
         else FixedCamera();

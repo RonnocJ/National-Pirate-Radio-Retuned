@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="project://database/Assets/_CUSTOMUI/UWFullPicker.uss?fileID=7433441132597879392&amp;guid=6af61092d55d44fb38cd27c488613e74&amp;type=3#UWFullPicker" />
+    <ui:VisualElement name="SectionBgs" style="flex-grow: 0; width: 100%; height: 100%; justify-content: center; align-self: center; align-content: center; flex-shrink: 0;">
+        <ui:VisualElement name="Bg1" style="flex-grow: 1; width: 100%; height: 100%; background-color: rgb(20, 0, 60); position: absolute; left: 0;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="Labels" style="flex-grow: 1; width: 100%; height: 24px; bottom: auto; position: absolute; background-color: rgb(4, 0, 24); border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px;">
+        <ui:Label text="Triggers&#10;" name="TriggersLabel" double-click-selects-word="false" triple-click-selects-line="false" style="align-items: stretch; align-self: center; justify-content: center; bottom: auto; white-space: normal; position: absolute; left: 2px; top: auto; -unity-text-align: upper-center; -unity-font-style: bold; width: 100%; font-size: 15px; text-overflow: clip; height: 100%; flex-basis: 0; flex-direction: row; overflow: hidden;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="TreeView" style="background-color: rgba(24, 0, 0, 0); height: 85%; width: 100%; flex-basis: 100%; position: absolute; top: 24px; bottom: auto;">
+        <ui:TreeView name="TriggerView" fixed-item-height="20" horizontal-scrolling="true" class="AudioEnumTreeView" style="position: absolute; left: 1%; width: 100%;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="Dividers" enabled="true" picking-mode="Ignore" style="flex-grow: 0; flex-shrink: 0; align-self: center; align-items: center; width: 100%; height: 100%; flex-direction: column; flex-basis: 0; position: absolute;">
+        <ui:VisualElement name="Divider1" style="flex-grow: 1; position: absolute; left: 0; height: 100%; width: 2px; background-color: rgb(255, 255, 255); align-self: center;" />
+        <ui:VisualElement name="Divider2" style="flex-grow: 1; position: absolute; left: 99%; height: 100%; width: 2px; background-color: rgb(255, 255, 255); align-self: center;" />
+    </ui:VisualElement>
+</ui:UXML>

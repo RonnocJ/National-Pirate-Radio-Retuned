@@ -37,14 +37,6 @@ public class TerrainGenerator : MonoBehaviour
     private Dictionary<TConType, TConData> _tileConDict = new();
     private Vector3 _playerPos => VanController.root.transform.position;
 
-    [Header("Performance Settings")]
-    [SerializeField] private int colliderUpdatesPerFrame = 4;
-    private struct PendingCollider
-    {
-        public MeshCollider collider;
-        public Mesh mesh;
-    }
-    private readonly List<PendingCollider> _pendingColliderUpdates = new List<PendingCollider>(128);
     IEnumerator Start()
     {
         foreach (var con in constructs)
@@ -58,6 +50,15 @@ public class TerrainGenerator : MonoBehaviour
             }
         }
 
+        for (int x = -1; x <= 1; x++)
+        {
+            for (int z = -1; z <= 1; z++)
+            {
+                Tile garageTile = AddTile(TConType.Garage, new Vector3(x * cellSize, 0, z * cellSize));
+            }
+        }
+
+
         int poolCount = (2 * (viewDistance + cullMargin) + 1) * (2 * (viewDistance + cullMargin) + 1);
         _grassPool = new ObjectPool(poolCount, _tileConDict[TConType.Grass].Prefab, grassParent);
 
@@ -67,19 +68,16 @@ public class TerrainGenerator : MonoBehaviour
             int pX = Mathf.FloorToInt(p.x / cellSize);
             int pZ = Mathf.FloorToInt(p.z / cellSize);
 
-            HashSet<Vector3> cullKeep = new HashSet<Vector3>();
-
             for (int x = pX - viewDistance - cullMargin; x <= pX + viewDistance + cullMargin; x++)
             {
                 for (int z = pZ - viewDistance - cullMargin; z <= pZ + viewDistance + cullMargin; z++)
                 {
                     Vector3 pos = new Vector3(x * cellSize, 0, z * cellSize);
-                    cullKeep.Add(pos);
                     if (Mathf.Abs(x - pX) <= viewDistance && Mathf.Abs(z - pZ) <= viewDistance)
                     {
-                        Tile tile = AddTile(pos);
+                        Tile tile = AddTile(TConType.Grass, pos);
 
-                        if (tile.Object == null)
+                        if (tile.Object == null && tile.Type == TConType.Grass)
                         {
                             PlaceTile(tile, _grassPool, pos);
                         }
@@ -87,30 +85,18 @@ public class TerrainGenerator : MonoBehaviour
                 }
             }
 
-            CullTiles(cullKeep, _grassPool);
-
-            int toApply = math.min(colliderUpdatesPerFrame, _pendingColliderUpdates.Count);
-            for (int i = 0; i < toApply; i++)
-            {
-                var upd = _pendingColliderUpdates[0];
-                _pendingColliderUpdates.RemoveAt(0);
-                if (upd.collider == null) continue;
-                upd.collider.sharedMesh = null;
-                upd.collider.sharedMesh = upd.mesh;
-            }
-
             yield return null;
         }
     }
 
-    Tile AddTile(Vector3 checkPos, float yRot = 0)
+    Tile AddTile(TConType type, Vector3 checkPos, float yRot = 0)
     {
         if (!_tileDict.ContainsKey(checkPos))
         {
-            Tile tile = new Tile(TConType.Grass);
+            Tile tile = new Tile(type);
             tile.YRot = yRot;
             tile.Position = checkPos;
-            tile.OriginalVertices = _tileConDict[TConType.Grass].DefaultMeshes.vertices;
+            tile.OriginalVertices = _tileConDict[type].DefaultMeshes.vertices;
             _tileDict[checkPos] = tile;
             return tile;
         }
@@ -128,40 +114,25 @@ public class TerrainGenerator : MonoBehaviour
         ResetMesh(newObj);
         MoveObject(newObj, tile.Position, newPos);
     }
-    void CullTiles(HashSet<Vector3> desired, ObjectPool poolType)
-    {
-        var toRemove = new List<Vector3>();
-        foreach (var kv in _tileDict)
-        {
-            if (!desired.Contains(kv.Key))
-            {
-                Tile tile = kv.Value;
-                if (tile.Object != null)
-                {
-                    poolType.Return(tile.Object, tile);
-                }
-                toRemove.Add(kv.Key);
-            }
-        }
-        foreach (var key in toRemove)
-        {
-            _tileDict.Remove(key);
-        }
-    }
     public void ResetMesh(GameObject movingObj)
     {
         if (_tileDict.TryGetValue(movingObj.transform.position, out Tile oldTile))
         {
-            oldTile.Object = null;
+            // Only clear and reset if this object actually belonged to that tile
+            if (oldTile.Object == movingObj)
+            {
+                oldTile.Object = null;
 
-            MeshFilter oldFilter = movingObj.GetComponent<MeshFilter>();
+                MeshFilter oldFilter = movingObj.GetComponent<MeshFilter>();
 
-            var mesh = oldFilter.mesh;
-            mesh.vertices = _tileConDict[oldTile.Type].DefaultMeshes.vertices;
-            mesh.triangles = _tileConDict[oldTile.Type].DefaultMeshes.triangles;
+                var mesh = oldFilter.mesh;
+                mesh.Clear();
+                mesh.vertices = _tileConDict[oldTile.Type].DefaultMeshes.vertices;
+                mesh.triangles = _tileConDict[oldTile.Type].DefaultMeshes.triangles;
 
-            mesh.RecalculateNormals();
-            mesh.RecalculateBounds();
+                mesh.RecalculateNormals();
+                mesh.RecalculateBounds();
+            }
         }
     }
     public void MoveObject(GameObject movingObj, Vector3 oldPos, Vector3 newPos)
@@ -200,13 +171,19 @@ public class TerrainGenerator : MonoBehaviour
         {
             float3 v = original[index];
 
-            float xCoord = (tilePos.x + (v.x * cosYaw) - (v.z * sinYaw)) / noiseScale;
-            float zCoord = (tilePos.z + (v.x * sinYaw) + (v.z * cosYaw)) / noiseScale;
-            float amplitude = heightScale;
+            float worldX = tilePos.x + (v.x * cosYaw) - (v.z * sinYaw);
+            float worldZ = tilePos.z + (v.x * sinYaw) + (v.z * cosYaw);
+            float xCoord = worldX / noiseScale;
+            float zCoord = worldZ / noiseScale;
+            float amplitude = Mathf.Min(Vector3.Distance(Vector3.zero, new Vector3(worldX, 0, worldZ)) - 192f, 1024f) / 1024f * heightScale;
+
+            if (amplitude < 0) amplitude = 0;
 
             float n = noise.snoise(new float2(xCoord, zCoord)) * 0.5f + 0.5f;
+            float baseY = original[index].y + n * amplitude;
 
-            deformed[index] = new float3(v.x, original[index].y + n * amplitude, v.z);
+
+            deformed[index] = new float3(v.x, baseY, v.z);
         }
     }
 
@@ -219,7 +196,6 @@ public class TerrainGenerator : MonoBehaviour
         float3 tilePos = new float3(worldPos.x, worldPos.y, worldPos.z);
 
         Vector3[] originalVerts = tile.OriginalVertices;
-
         var orig = new NativeArray<float3>(originalVerts.Length, Allocator.TempJob);
         var deformed = new NativeArray<float3>(originalVerts.Length, Allocator.TempJob);
         for (int i = 0; i < originalVerts.Length; i++)
@@ -236,7 +212,7 @@ public class TerrainGenerator : MonoBehaviour
             cosYaw = cosYaw,
             sinYaw = sinYaw,
             noiseScale = noiseScale,
-            heightScale = heightScale
+            heightScale = heightScale,
         };
 
         JobHandle handle = job.Schedule(originalVerts.Length, 64);
@@ -257,7 +233,11 @@ public class TerrainGenerator : MonoBehaviour
         orig.Dispose();
         deformed.Dispose();
 
-        MeshCollider meshCol = tile.Object.GetComponent<MeshCollider>();
-        _pendingColliderUpdates.Add(new PendingCollider { collider = meshCol, mesh = tile.Meshes });
+        var meshCols = tile.Object.GetComponentsInChildren<MeshCollider>();
+        for (int m = 0; m < meshCols.Length; m++)
+        {
+            if (meshCols[m] != null)
+                meshCols[m].sharedMesh = tile.Meshes;
+        }
     }
 }

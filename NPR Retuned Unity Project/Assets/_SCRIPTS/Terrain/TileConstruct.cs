@@ -3,6 +3,7 @@ using UnityEngine;
 public enum TConType
 {
     Grass,
+    Garage
 }
 
 [CreateAssetMenu(fileName = "NewData", menuName = "Objects/World/TileConstruct", order = 1)]

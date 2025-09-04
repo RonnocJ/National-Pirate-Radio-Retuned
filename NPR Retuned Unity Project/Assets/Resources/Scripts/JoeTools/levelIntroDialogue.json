@@ -1,0 +1,81 @@
+{
+    "scenarios": [
+        {
+            "name": "Neutral",
+            "clusters": [
+                {
+                    "id": 0,
+                    "pauseBefore": 1.5,
+                    "lines": [
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "Ready when you are.",
+                            "wait": 1,
+                            "speed": 0.05
+                        },
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "Let's get this show rolling!",
+                            "wait": 1,
+                            "speed": 0.05
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "pauseBefore": 1,
+                    "lines": [
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "Wish the weather was nicer...",
+                            "wait": 1,
+                            "speed": 0.05
+                        },
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "You'll have to make do with the fog.",
+                            "wait": 1,
+                            "speed": 0.05
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "pauseBefore": 1,
+                    "lines": [
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "I messed with the transmission some",
+                            "wait": 1,
+                            "speed": 0.05
+                        },
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "It shouldn't break... probably",
+                            "wait": 1,
+                            "speed": 0.05
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "pauseBefore": 1,
+                    "lines": [
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "I got a new song in there, \nbut please don't play it!",
+                            "wait": 1,
+                            "speed": 0.05
+                        },
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "It's not very good",
+                            "wait": 1,
+                            "speed": 0.05
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
