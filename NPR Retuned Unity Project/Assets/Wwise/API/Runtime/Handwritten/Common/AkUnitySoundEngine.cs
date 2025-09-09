@@ -20,6 +20,7 @@ Copyright (c) 2025 Audiokinetic Inc.
 /// 
 /// The AkUnitySoundEngine class contains functions converted to C# from the following C++ namespaces: 
 /// - AK::Monitor
+/// - AK::MusicEngine
 /// - AK::SoundEngine
 /// - AK::SoundEngine::DynamicDialogue
 /// - AK::SoundEngine::Query

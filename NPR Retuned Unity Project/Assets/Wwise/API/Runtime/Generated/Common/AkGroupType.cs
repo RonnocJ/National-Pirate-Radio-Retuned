@@ -10,11 +10,8 @@
 //------------------------------------------------------------------------------
 
 
-///  Game sync group type
 public enum AkGroupType {
-  ///  Type switch
   AkGroupType_Switch = 0,
-  ///  Type state
   AkGroupType_State = 1
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

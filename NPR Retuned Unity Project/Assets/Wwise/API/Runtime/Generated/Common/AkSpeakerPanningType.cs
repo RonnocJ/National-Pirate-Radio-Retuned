@@ -10,15 +10,10 @@
 //------------------------------------------------------------------------------
 
 
-///  Speaker panning type: type of panning logic when object is not 3D spatialized (i.e. when Ak3DSpatializationMode is AK_SpatializationMode_None).
-public enum AkSpeakerPanningType {
-  ///  No panning: route to matching channels between input and output.
+public enum AkSpeakerPanningType : byte {
   AK_DirectSpeakerAssignment = 0,
-  ///  Balance-Fade-Height: Traditional "box" or "car"-like panner.
   AK_BalanceFadeHeight = 1,
-  ///  Steering panner.
   AK_SteeringPanner = 2,
-  ///  End of enum, invalid value.
   AkSpeakerPanning_Last
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

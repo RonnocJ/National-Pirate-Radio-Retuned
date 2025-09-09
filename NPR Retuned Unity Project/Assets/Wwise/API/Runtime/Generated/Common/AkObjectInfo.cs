@@ -9,7 +9,6 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-///  Object information structure for QueryAudioObjectsIDs
 
 public class AkObjectInfo : global::System.IDisposable {
   private global::System.IntPtr swigCPtr;
@@ -51,15 +50,12 @@ public class AkObjectInfo : global::System.IDisposable {
     }
   }
 
-  ///  Object ID
   public uint objID { set { AkUnitySoundEnginePINVOKE.CSharp_AkObjectInfo_objID_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkObjectInfo_objID_get(swigCPtr); } 
   }
 
-  ///  Object ID of the parent
   public uint parentID { set { AkUnitySoundEnginePINVOKE.CSharp_AkObjectInfo_parentID_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkObjectInfo_parentID_get(swigCPtr); } 
   }
 
-  ///  Depth in tree
   public int iDepth { set { AkUnitySoundEnginePINVOKE.CSharp_AkObjectInfo_iDepth_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkObjectInfo_iDepth_get(swigCPtr); } 
   }
 

@@ -405,12 +405,11 @@ public static class AkCallbackManager
 			{
 				var pPackage = AkUnitySoundEnginePINVOKE.CSharp_AkSerializedCallbackHeader_pPackage_get(pNext);
 				var eType = (AkCallbackType) AkUnitySoundEnginePINVOKE.CSharp_AkSerializedCallbackHeader_eType_get(pNext);
-				var eCallbackCategory = (AkCallbackCategory) AkUnitySoundEnginePINVOKE.CSharp_AkSerializedCallbackHeader_eCategory_get(pNext);
 				var pData = AkUnitySoundEnginePINVOKE.CSharp_AkSerializedCallbackHeader_GetData(pNext);
 
-				switch (eCallbackCategory)
+				switch (eType)
 				{
-					case AkCallbackCategory.AudioInterruption:
+					case AkCallbackType.AK_AudioInterruption:
 #if UNITY_IOS && !UNITY_EDITOR
 						if (ms_interruptCallbackPkg != null && ms_interruptCallbackPkg.m_Callback != null)
 						{
@@ -420,7 +419,7 @@ public static class AkCallbackManager
 #endif // #if UNITY_IOS && ! UNITY_EDITOR
 						break;
 
-					case AkCallbackCategory.AudioSourceChange:
+					case AkCallbackType.AK_AudioSourceChange:
 						if (ms_sourceChangeCallbackPkg != null && ms_sourceChangeCallbackPkg.m_Callback != null)
 						{
 							AkAudioSourceChangeCallbackInfo.setCPtr(pData);
@@ -429,7 +428,7 @@ public static class AkCallbackManager
 						}
 						break;
 
-					case AkCallbackCategory.Monitoring:
+					case AkCallbackType.AK_Monitoring:
 						if (m_MonitoringCB != null)
 						{
 							AkMonitoringCallbackInfo.setCPtr(pData);
@@ -453,7 +452,7 @@ public static class AkCallbackManager
 #endif
 						break;
 
-					case AkCallbackCategory.Bank:
+					case AkCallbackType.AK_Bank:
 						BankCallbackPackage bankPkg = null;
 						if (!m_mapBankCallbacks.TryGetValue((int) pPackage, out bankPkg))
 						{
@@ -470,7 +469,7 @@ public static class AkCallbackManager
 						}
 						break;
 
-					case AkCallbackCategory.Event:
+					default:
 						EventCallbackPackage eventPkg = null;
 						if (!m_mapEventCallbacks.TryGetValue((int) pPackage, out eventPkg))
 						{

@@ -92,14 +92,14 @@ public class UWPicker : EditorWindow {
 
             rtpcSlider.RegisterValueChangedCallback(c => {
                 if (Enum.TryParse(rtpcName, out AudioRTPC rtpcEnum))
-                    AkSoundEngine.SetRTPCValue(rtpcEnum.ToString(), c.newValue, cam.gameObject);
+                    AkUnitySoundEngine.SetRTPCValue(rtpcEnum.ToString(), c.newValue, cam.gameObject);
             });
 
             generateSoundbanks.RegisterCallback<PointerEnterEvent>(_ => generateSoundbanks.style.backgroundColor = new Color(0.15f, 0.15f, 0.25f, 1));
             generateSoundbanks.RegisterCallback<PointerLeaveEvent>(_ => generateSoundbanks.style.backgroundColor = new Color(0.25f, 0.25f, 0.35f, 1));
             generateSoundbanks.clicked += () => {
-                if (AkUtilities.IsSoundbankGenerationAvailable()) {
-                    AkUtilities.GenerateSoundbanks();
+                if (AkUtilities.IsSoundbankGenerationAvailable(AkWwiseEditorSettings.Instance.WwiseInstallationPath)) {
+                    AkUtilities.GenerateSoundbanks(AkWwiseEditorSettings.Instance.WwiseInstallationPath, AkWwiseEditorSettings.WwiseProjectAbsolutePath);
                 }
 
                 UWAudioEnumGenerator.GenerateEnum();
@@ -160,7 +160,7 @@ public class UWPicker : EditorWindow {
     }
     private void TryPlayEvent() {
         if (playingEventId != 0) {
-            AkSoundEngine.StopPlayingID(playingEventId);
+            AkUnitySoundEngine.StopPlayingID(playingEventId);
             playingEvent.text = "Now Playing: \n None";
             playingEventId = 0;
 
@@ -170,7 +170,7 @@ public class UWPicker : EditorWindow {
         }
 
         if (queuedEventId != 0) {
-            playingEventId = AkSoundEngine.PostEvent(queuedEventId, cam.gameObject);
+            playingEventId = AkUnitySoundEngine.PostEvent(queuedEventId, cam.gameObject);
             playingEventName = queuedEventName;
             playingEvent.text = $"Now Playing: \n {playingEventName.Replace("start", string.Empty).Replace("play", string.Empty)}";
         }
@@ -194,7 +194,7 @@ public class UWPicker : EditorWindow {
                 if (selectedItem.children.ToList().Count() == 0) {
                     int parentId = stateView.GetParentIdForIndex(selectedIndices.First());
 
-                    AkSoundEngine.SetState(stateView.GetItemDataForId<string>(parentId), selectedItem.data);
+                    AkUnitySoundEngine.SetState(stateView.GetItemDataForId<string>(parentId), selectedItem.data);
 
                     State.text = $"Current State: \n {stateView.GetItemDataForId<string>(parentId)} -> {selectedItem.data}";
                     setNewState = true;
@@ -215,7 +215,7 @@ public class UWPicker : EditorWindow {
                 if (selectedItem.children.ToList().Count() == 0) {
                     int parentId = switchView.GetParentIdForIndex(selectedIndices.First());
 
-                    AkSoundEngine.SetSwitch(switchView.GetItemDataForId<string>(parentId), selectedItem.data, cam.gameObject);
+                    AkUnitySoundEngine.SetSwitch(switchView.GetItemDataForId<string>(parentId), selectedItem.data, cam.gameObject);
 
                     currentSwitch.text = $"Current Switch: \n {switchView.GetItemDataForId<string>(parentId)} -> {selectedItem.data}";
                     setNewSwitch = true;
@@ -229,7 +229,7 @@ public class UWPicker : EditorWindow {
     }
     private void TrySetTrigger() {
         if (triggerView.selectedItem != null && Enum.TryParse(triggerView.selectedItem.ToString(), out AudioTrigger triggerToSet)) {
-            AkSoundEngine.PostTrigger(triggerToSet.ToString(), cam.gameObject);
+            AkUnitySoundEngine.PostTrigger(triggerToSet.ToString(), cam.gameObject);
         }
     }
     private void TrySetRTPC() {

@@ -486,7 +486,7 @@ public class WaapiKeywords
 	/// </summary>
 	public static ReadOnlyDictionary<string, string> FolderDisplaynames = new ReadOnlyDictionary<string, string>(new Dictionary<string, string>()
 	{
-		{"Busses", "Auxiliary Busses" },
+		{"Master-Mixer Hierarchy", "Auxiliary Busses" },
 		{ "Events", "Events"},
 		{ "States", "States"},
 		{ "SoundBanks", "SoundBanks"},

@@ -50,7 +50,6 @@ public class AkIterator : global::System.IDisposable {
     }
   }
 
-  ///  Pointer to the item in the array.
   public AkPlaylistItem pItem { set { AkUnitySoundEnginePINVOKE.CSharp_AkIterator_pItem_set(swigCPtr, AkPlaylistItem.getCPtr(value)); } 
     get {
       global::System.IntPtr cPtr = AkUnitySoundEnginePINVOKE.CSharp_AkIterator_pItem_get(swigCPtr);
@@ -59,28 +58,23 @@ public class AkIterator : global::System.IDisposable {
     } 
   }
 
-  ///  ++ operator
   public AkIterator NextIter() {
     AkIterator ret = new AkIterator(AkUnitySoundEnginePINVOKE.CSharp_AkIterator_NextIter(swigCPtr), false);
     return ret;
   }
 
-  ///  -- operator
   public AkIterator PrevIter() {
     AkIterator ret = new AkIterator(AkUnitySoundEnginePINVOKE.CSharp_AkIterator_PrevIter(swigCPtr), false);
     return ret;
   }
 
-  /// operator
   public AkPlaylistItem GetItem() {
     AkPlaylistItem ret = new AkPlaylistItem(AkUnitySoundEnginePINVOKE.CSharp_AkIterator_GetItem(swigCPtr), false);
     return ret;
   }
 
-  ///  == operator
   public bool IsEqualTo(AkIterator in_rOp) { return AkUnitySoundEnginePINVOKE.CSharp_AkIterator_IsEqualTo(swigCPtr, AkIterator.getCPtr(in_rOp)); }
 
-  /// = operator
   public bool IsDifferentFrom(AkIterator in_rOp) { return AkUnitySoundEnginePINVOKE.CSharp_AkIterator_IsDifferentFrom(swigCPtr, AkIterator.getCPtr(in_rOp)); }
 
   public AkIterator() : this(AkUnitySoundEnginePINVOKE.CSharp_new_AkIterator(), true) {

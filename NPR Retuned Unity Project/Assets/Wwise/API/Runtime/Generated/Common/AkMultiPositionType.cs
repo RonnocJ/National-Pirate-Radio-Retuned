@@ -10,19 +10,10 @@
 //------------------------------------------------------------------------------
 
 
-///  AkMultiPositionType.
-///
-///  - If a sound has diffraction enabled, it is treated as AkMultiPositionType_MultiDirections. AkMultiPositionType_MultiSources is not supported in this case.
-/// <seealso cref="
-///  - AK.SoundEngine.SetMultiplePosition"/>
-public enum AkMultiPositionType {
-  ///  Used for normal sounds, not expected to pass to AK::SoundEngine::SetMultiplePosition() (if done, only the first position will be used).
-  AkMultiPositionType_SingleSource,
-  ///  Simulate multiple sources in one sound playing, adding volumes. For instance, all the torches on your level emitting using only one sound.
-  AkMultiPositionType_MultiSources,
-  ///  Simulate one sound coming from multiple directions. Useful for repositionning sounds based on wall openings or to simulate areas like forest or rivers ( in combination with spreading in the attenuation of the sounds ).
-  AkMultiPositionType_MultiDirections,
-  ///  End of enum, invalid value.
-  AkMultiPositionType_Last
+public enum AkMultiPositionType : byte {
+  MultiPositionType_SingleSource,
+  MultiPositionType_MultiSources,
+  MultiPositionType_MultiDirections,
+  MultiPositionType_Last
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

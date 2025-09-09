@@ -85,6 +85,14 @@ public class AkInitializationSettings : global::System.IDisposable {
     } 
   }
 
+  public AkMusicSettings musicSettings { set { AkUnitySoundEnginePINVOKE.CSharp_AkInitializationSettings_musicSettings_set(swigCPtr, AkMusicSettings.getCPtr(value)); } 
+    get {
+      global::System.IntPtr cPtr = AkUnitySoundEnginePINVOKE.CSharp_AkInitializationSettings_musicSettings_get(swigCPtr);
+      AkMusicSettings ret = (cPtr == global::System.IntPtr.Zero) ? null : new AkMusicSettings(cPtr, false);
+      return ret;
+    } 
+  }
+
   public uint uMemoryPrimarySbaInitSize { set { AkUnitySoundEnginePINVOKE.CSharp_AkInitializationSettings_uMemoryPrimarySbaInitSize_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkInitializationSettings_uMemoryPrimarySbaInitSize_get(swigCPtr); } 
   }
 

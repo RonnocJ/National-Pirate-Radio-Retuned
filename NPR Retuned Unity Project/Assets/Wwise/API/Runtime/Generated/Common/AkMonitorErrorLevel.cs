@@ -10,7 +10,6 @@
 //------------------------------------------------------------------------------
 
 
-///   ErrorLevel
 public enum AkMonitorErrorLevel {
   ErrorLevel_Message = (1 << 0),
   ErrorLevel_Error = (1 << 1),

@@ -23,99 +23,10 @@ using UnityEngine;
 
 public class AkWwiseTreeViewItem : TreeViewItem, System.IEquatable<AkWwiseTreeViewItem>
 {
-	public bool IsUpToDate
-	{
-		get
-		{
-			if (objectType == WwiseObjectType.Soundbank)
-			{
-				return displayName == waapiName && !bNewInWwise && !bDifferentGuid;
-			}
-			return waapiPath == path && displayName == waapiName && !bNewInWwise && !bDifferentGuid;
-		}
-	}
-
-	public bool IsFolder()
-	{
-		return objectType == WwiseObjectType.Folder || objectType == WwiseObjectType.PhysicalFolder || objectType == WwiseObjectType.WorkUnit;
-	}
-
-	public string status
-	{
-		get
-		{
-			if (IsFolder() || !AkWaapiUtilities.IsConnected())
-			{
-				return "";
-			}
-
-			if (IsUpToDate)
-			{
-				return "SoundBank Up to Date";
-			}
-
-			if (IsDeletedInWwise)
-			{
-				return "Deleted in Wwise";
-			}
-
-			if (bNewInWwise)
-			{
-				return "New in Wwise";
-			}
-
-			if (IsRenamedInWwise)
-			{
-				return "Renamed in Wwise";
-			}
-
-			if (IsMovedInWwise)
-			{
-				return "Moved in Wwise";
-			}
-
-			if (bDifferentGuid)
-			{
-				return "SoundBank needs Update";
-			}
-			return "";
-		}
-	}
-
-	public bool IsMovedInWwise
-	{
-		get { return waapiPath != path; }
-	}
-
-	public bool IsDeletedInWwise
-	{
-		get { return waapiName.Length == 0; }
-	}
-
-	public bool IsRenamedInWwise
-	{
-		get { return waapiName != name; }
-	}
-
-	static public GUIStyle OutOfDateStyle
-	{
-		get
-		{
-			var style = new GUIStyle();
-			style.normal.textColor = new Color(1, 0.33f, 0);
-			return style;
-		}
-	}
-
 	public System.Guid objectGuid;
 	public WwiseObjectType objectType;
 	public int numChildren;
 	public bool isSorted;
-	public string path = "";
-	public string waapiPath = "";
-	public string waapiName = "";
-	public bool bNewInWwise = false;
-	public bool bDifferentGuid = false;
 
 	public string name
 	{
@@ -151,8 +62,6 @@ public class AkWwiseTreeViewItem : TreeViewItem, System.IEquatable<AkWwiseTreeVi
 		objectGuid = info.objectGUID;
 		objectType = info.type;
 		numChildren = info.childrenCount;
-		path = info.path;
-		waapiPath = info.path;
 
 		if (objectType == WwiseObjectType.Event)
 		{
@@ -184,11 +93,6 @@ public class AkWwiseTreeViewItem : TreeViewItem, System.IEquatable<AkWwiseTreeVi
 	{
 		objectGuid = other.objectGuid;
 		objectType = other.objectType;
-		path = other.path;
-		waapiPath = other.waapiPath;
-		waapiName = other.waapiName;
-		bDifferentGuid = other.bDifferentGuid;
-		bNewInWwise = other.bNewInWwise;
 		children = new List<TreeViewItem>();
 		this.depth = other.depth;
 	}
@@ -285,16 +189,6 @@ public class AkWwiseTreeViewItem : TreeViewItem, System.IEquatable<AkWwiseTreeVi
 			if ((child as AkWwiseTreeViewItem).WwiseTypeInChildren(t)) return true;
 		}
 		return false;
-	}
-
-	public AkWwiseTreeViewItem Copy()
-	{
-		AkWwiseTreeViewItem copy = new AkWwiseTreeViewItem(this);
-		foreach (var child in children)
-		{
-			copy.AddWwiseItemChild((child as AkWwiseTreeViewItem).Copy());
-		}
-		return copy;
 	}
 }
 #endif

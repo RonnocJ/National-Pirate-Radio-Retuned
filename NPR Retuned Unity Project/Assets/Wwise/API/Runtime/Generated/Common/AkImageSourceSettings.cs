@@ -9,7 +9,6 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-///  Settings for individual image sources.
 
 public class AkImageSourceSettings : global::System.IDisposable {
   private global::System.IntPtr swigCPtr;
@@ -51,18 +50,14 @@ public class AkImageSourceSettings : global::System.IDisposable {
     }
   }
 
-  ///  Constructor
   public AkImageSourceSettings() : this(AkUnitySoundEnginePINVOKE.CSharp_new_AkImageSourceSettings__SWIG_0(), true) {
   }
 
-  ///  Constructor with parameters
   public AkImageSourceSettings(AkVector64 in_sourcePosition, float in_fDistanceScalingFactor, float in_fLevel) : this(AkUnitySoundEnginePINVOKE.CSharp_new_AkImageSourceSettings__SWIG_1(in_sourcePosition, in_fDistanceScalingFactor, in_fLevel), true) {
   }
 
-  ///  Helper function to set a single acoustic texture.
   public void SetOneTexture(uint in_texture) { AkUnitySoundEnginePINVOKE.CSharp_AkImageSourceSettings_SetOneTexture(swigCPtr, in_texture); }
 
-  ///  Image source parameters.
   public AkImageSourceParams params_ { set { AkUnitySoundEnginePINVOKE.CSharp_AkImageSourceSettings_params__set(swigCPtr, AkImageSourceParams.getCPtr(value)); } 
     get {
       global::System.IntPtr cPtr = AkUnitySoundEnginePINVOKE.CSharp_AkImageSourceSettings_params__get(swigCPtr);

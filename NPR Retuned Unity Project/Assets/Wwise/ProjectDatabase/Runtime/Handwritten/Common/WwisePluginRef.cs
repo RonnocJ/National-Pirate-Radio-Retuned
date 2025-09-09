@@ -17,24 +17,24 @@ Copyright (c) 2025 Audiokinetic Inc.
 #if UNITY_EDITOR
 public class WwisePluginRef: global::System.IDisposable
 {
-    private global::System.IntPtr projectDatabasePtr;
-    protected bool bDeletesManually;
+    private global::System.IntPtr swigCPtr;
+    protected bool swigCMemOwn;
 
     internal WwisePluginRef(global::System.IntPtr cPtr, bool cMemoryOwn)
     {
-        bDeletesManually = cMemoryOwn;
-        projectDatabasePtr = cPtr;
+        swigCMemOwn = cMemoryOwn;
+        swigCPtr = cPtr;
     }
 
     internal static global::System.IntPtr getCPtr(WwisePluginRef obj)
     {
-        return (obj == null) ? global::System.IntPtr.Zero : obj.projectDatabasePtr;
+        return (obj == null) ? global::System.IntPtr.Zero : obj.swigCPtr;
     }
 
     internal virtual void setCPtr(global::System.IntPtr cPtr)
     {
         Dispose();
-        projectDatabasePtr = cPtr;
+        swigCPtr = cPtr;
     }
 
     ~WwisePluginRef()
@@ -52,15 +52,15 @@ public class WwisePluginRef: global::System.IDisposable
     {
         lock (this)
         {
-            if (projectDatabasePtr != global::System.IntPtr.Zero)
+            if (swigCPtr != global::System.IntPtr.Zero)
             {
-                if (bDeletesManually)
+                if (swigCMemOwn)
                 {
-                    bDeletesManually = false;
-                    WwiseProjectDatabase.DeletePluginRef(projectDatabasePtr);
+                    swigCMemOwn = false;
+                    WwiseProjectDatabase.DeletePluginRef(swigCPtr);
                 }
 
-                projectDatabasePtr = global::System.IntPtr.Zero;
+                swigCPtr = global::System.IntPtr.Zero;
             }
 
             global::System.GC.SuppressFinalize(this);
@@ -70,9 +70,9 @@ public class WwisePluginRef: global::System.IDisposable
     {
     }
     
-    public uint Id => WwiseProjectDatabase.GetPluginId(projectDatabasePtr);
-    public string Name => WwiseProjectDatabase.GetPluginName(projectDatabasePtr);
-    public string DLL => WwiseProjectDatabase.GetPluginDLL(projectDatabasePtr);
-    public string StaticLib => WwiseProjectDatabase.GetPluginStaticLib(projectDatabasePtr);
+    public uint Id => WwiseProjectDatabase.GetPluginId(swigCPtr);
+    public string Name => WwiseProjectDatabase.GetPluginName(swigCPtr);
+    public string DLL => WwiseProjectDatabase.GetPluginDLL(swigCPtr);
+    public string StaticLib => WwiseProjectDatabase.GetPluginStaticLib(swigCPtr);
 }
 #endif

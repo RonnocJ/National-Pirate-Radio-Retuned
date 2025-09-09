@@ -40,19 +40,15 @@ public class AkMusicPlaylistCallbackInfo : AkEventCallbackInfo {
     }
   }
 
-  ///  ID of playlist node
   public uint playlistID { get { return AkUnitySoundEnginePINVOKE.CSharp_AkMusicPlaylistCallbackInfo_playlistID_get(swigCPtr); } 
   }
 
-  ///  Number of items in playlist node (may be segments or other playlists)
   public uint uNumPlaylistItems { get { return AkUnitySoundEnginePINVOKE.CSharp_AkMusicPlaylistCallbackInfo_uNumPlaylistItems_get(swigCPtr); } 
   }
 
-  ///  Selection: set by sound engine, modified by callback function (if not in range 0 &lt;= uPlaylistSelection &lt; uNumPlaylistItems then ignored).
   public uint uPlaylistSelection { get { return AkUnitySoundEnginePINVOKE.CSharp_AkMusicPlaylistCallbackInfo_uPlaylistSelection_get(swigCPtr); } 
   }
 
-  ///  Playlist node done: set by sound engine, modified by callback function (if set to anything but 0 then the current playlist item is done, and uPlaylistSelection is ignored)
   public uint uPlaylistItemDone { get { return AkUnitySoundEnginePINVOKE.CSharp_AkMusicPlaylistCallbackInfo_uPlaylistItemDone_get(swigCPtr); } 
   }
 

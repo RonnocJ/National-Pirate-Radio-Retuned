@@ -9,10 +9,6 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-///  List of items to play in a Dynamic Sequence.
-/// <seealso cref="
-///  - AK.SoundEngine.DynamicSequence.LockPlaylist
-///  - AK.SoundEngine.DynamicSequence.UnlockPlaylist"/>
 
 public class AkPlaylist : AkPlaylistArray {
   private global::System.IntPtr swigCPtr;
@@ -44,39 +40,14 @@ public class AkPlaylist : AkPlaylistArray {
     }
   }
 
-  ///  Enqueue an Audio Node.
-  /// <returns>AK_Success if successful, AK_Fail otherwise</returns> 
-  /// <param name="in_audioNodeID"> Unique ID of Audio Node</param> 
-  /// <param name="in_msDelay"> Delay before playing this item, in milliseconds</param> 
-  /// <param name="in_pCustomInfo"> Optional user data</param> 
-  /// <param name="in_cExternals"> Optional count of external source structures</param> 
-  /// <param name="in_pExternalSources"> Optional array of external source resolution information</param>
   public AKRESULT Enqueue(uint in_audioNodeID, int in_msDelay, global::System.IntPtr in_pCustomInfo, uint in_cExternals, AkExternalSourceInfoArray in_pExternalSources) { return (AKRESULT)AkUnitySoundEnginePINVOKE.CSharp_AkPlaylist_Enqueue__SWIG_0(swigCPtr, in_audioNodeID, in_msDelay, in_pCustomInfo, in_cExternals, in_pExternalSources.GetBuffer()); }
 
-  ///  Enqueue an Audio Node.
-  /// <returns>AK_Success if successful, AK_Fail otherwise</returns> 
-  /// <param name="in_audioNodeID"> Unique ID of Audio Node</param> 
-  /// <param name="in_msDelay"> Delay before playing this item, in milliseconds</param> 
-  /// <param name="in_pCustomInfo"> Optional user data</param> 
-  /// <param name="in_cExternals"> Optional count of external source structures</param>
   public AKRESULT Enqueue(uint in_audioNodeID, int in_msDelay, global::System.IntPtr in_pCustomInfo, uint in_cExternals) { return (AKRESULT)AkUnitySoundEnginePINVOKE.CSharp_AkPlaylist_Enqueue__SWIG_1(swigCPtr, in_audioNodeID, in_msDelay, in_pCustomInfo, in_cExternals); }
 
-  ///  Enqueue an Audio Node.
-  /// <returns>AK_Success if successful, AK_Fail otherwise</returns> 
-  /// <param name="in_audioNodeID"> Unique ID of Audio Node</param> 
-  /// <param name="in_msDelay"> Delay before playing this item, in milliseconds</param> 
-  /// <param name="in_pCustomInfo"> Optional user data</param>
   public AKRESULT Enqueue(uint in_audioNodeID, int in_msDelay, global::System.IntPtr in_pCustomInfo) { return (AKRESULT)AkUnitySoundEnginePINVOKE.CSharp_AkPlaylist_Enqueue__SWIG_2(swigCPtr, in_audioNodeID, in_msDelay, in_pCustomInfo); }
 
-  ///  Enqueue an Audio Node.
-  /// <returns>AK_Success if successful, AK_Fail otherwise</returns> 
-  /// <param name="in_audioNodeID"> Unique ID of Audio Node</param> 
-  /// <param name="in_msDelay"> Delay before playing this item, in milliseconds</param>
   public AKRESULT Enqueue(uint in_audioNodeID, int in_msDelay) { return (AKRESULT)AkUnitySoundEnginePINVOKE.CSharp_AkPlaylist_Enqueue__SWIG_3(swigCPtr, in_audioNodeID, in_msDelay); }
 
-  ///  Enqueue an Audio Node.
-  /// <returns>AK_Success if successful, AK_Fail otherwise</returns> 
-  /// <param name="in_audioNodeID"> Unique ID of Audio Node</param>
   public AKRESULT Enqueue(uint in_audioNodeID) { return (AKRESULT)AkUnitySoundEnginePINVOKE.CSharp_AkPlaylist_Enqueue__SWIG_4(swigCPtr, in_audioNodeID); }
 
   public AkPlaylist() : this(AkUnitySoundEnginePINVOKE.CSharp_new_AkPlaylist(), true) {

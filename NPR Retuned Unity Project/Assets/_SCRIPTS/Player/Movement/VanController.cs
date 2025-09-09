@@ -7,6 +7,7 @@ public class VanController : Singleton<VanController>
     public Rigidbody PlayerRb;
     [SerializeField] private float gravity = 9.81f;
     [SerializeField] private float motorForce;
+    [SerializeField] private float maxSpeed;
     [SerializeField] private AnimationCurve motorBoostCurve;
     [SerializeField] private float brakeForce;
     [SerializeField] private float maxSteering;
@@ -21,6 +22,7 @@ public class VanController : Singleton<VanController>
     private void Start()
     {
         PlayerRb = GetComponent<Rigidbody>();
+        PlayerRb.maxLinearVelocity = maxSpeed;
     }
     private void FixedUpdate()
     {
@@ -38,7 +40,7 @@ public class VanController : Singleton<VanController>
         wheelColliders.WheelBL.motorTorque = _driveInput.y * motorForce;
         wheelColliders.WheelBR.motorTorque = _driveInput.y * motorForce;
 
-        PlayerRb.AddForce(transform.forward * motorBoostCurve.Evaluate(_speed) * _driveInput.y, ForceMode.Acceleration);
+        PlayerRb.AddForce(transform.forward * motorBoostCurve.Evaluate(PlayerRb.linearVelocity.magnitude) * _driveInput.y, ForceMode.Acceleration);
     }
     private void ApplySteering()
     {

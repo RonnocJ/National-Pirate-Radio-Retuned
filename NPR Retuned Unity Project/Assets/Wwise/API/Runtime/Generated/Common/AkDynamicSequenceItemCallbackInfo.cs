@@ -40,15 +40,12 @@ public class AkDynamicSequenceItemCallbackInfo : AkCallbackInfo {
     }
   }
 
-  ///  Playing ID of Dynamic Sequence, returned by AK::SoundEngine:DynamicSequence::Open()
   public uint playingID { get { return AkUnitySoundEnginePINVOKE.CSharp_AkDynamicSequenceItemCallbackInfo_playingID_get(swigCPtr); } 
   }
 
-  ///  Audio Node ID of finished item
   public uint audioNodeID { get { return AkUnitySoundEnginePINVOKE.CSharp_AkDynamicSequenceItemCallbackInfo_audioNodeID_get(swigCPtr); } 
   }
 
-  ///  Custom info passed to the DynamicSequence::Open function
   public global::System.IntPtr pCustomInfo { get { return AkUnitySoundEnginePINVOKE.CSharp_AkDynamicSequenceItemCallbackInfo_pCustomInfo_get(swigCPtr); }
   }
 

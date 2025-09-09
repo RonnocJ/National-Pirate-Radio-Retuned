@@ -10,15 +10,10 @@
 //------------------------------------------------------------------------------
 
 
-///  3D position type: defines what acts as the emitter position for computing spatialization against the listener. Used when Ak3DSpatializationMode is AK_SpatializationMode_PositionOnly or AK_SpatializationMode_PositionAndOrientation.
-public enum Ak3DPositionType {
-  ///  3D spatialization is computed directly from the emitter game object position.
+public enum Ak3DPositionType : byte {
   AK_3DPositionType_Emitter = 0,
-  ///  3D spatialization is computed from the emitter game object position, translated by user-defined automation.
   AK_3DPositionType_EmitterWithAutomation = 1,
-  ///  3D spatialization is computed from the listener game object position, translated by user-defined automation.
   AK_3DPositionType_ListenerWithAutomation = 2,
-  ///  End of enum, invalid value.
   AK_3DPositionType_Last
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

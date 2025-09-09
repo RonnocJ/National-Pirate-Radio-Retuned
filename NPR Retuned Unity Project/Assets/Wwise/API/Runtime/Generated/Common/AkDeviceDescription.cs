@@ -50,19 +50,15 @@ public class AkDeviceDescription : global::System.IDisposable {
     }
   }
 
-  ///  Device ID for Wwise. This is the same as what is returned from AK::GetDeviceID and AK::GetDeviceIDFromName. Use it to specify the main device in AkPlatformInitSettings.idAudioDevice or in AK::SoundEngine::AddSecondaryOutput.
   public uint idDevice { set { AkUnitySoundEnginePINVOKE.CSharp_AkDeviceDescription_idDevice_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkDeviceDescription_idDevice_get(swigCPtr); } 
   }
 
-  ///  The user-friendly name for the device.
   public string deviceName { set { AkUnitySoundEnginePINVOKE.CSharp_AkDeviceDescription_deviceName_set(swigCPtr, value); }  get { return AkUnitySoundEngine.StringFromIntPtrOSString(AkUnitySoundEnginePINVOKE.CSharp_AkDeviceDescription_deviceName_get(swigCPtr)); } 
   }
 
-  ///  Bitmask used to filter the device based on their state.
   public AkAudioDeviceState deviceStateMask { set { AkUnitySoundEnginePINVOKE.CSharp_AkDeviceDescription_deviceStateMask_set(swigCPtr, (int)value); }  get { return (AkAudioDeviceState)AkUnitySoundEnginePINVOKE.CSharp_AkDeviceDescription_deviceStateMask_get(swigCPtr); } 
   }
 
-  ///  Identify default device. Always false when not supported.
   public bool isDefaultDevice { set { AkUnitySoundEnginePINVOKE.CSharp_AkDeviceDescription_isDefaultDevice_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkDeviceDescription_isDefaultDevice_get(swigCPtr); } 
   }
 

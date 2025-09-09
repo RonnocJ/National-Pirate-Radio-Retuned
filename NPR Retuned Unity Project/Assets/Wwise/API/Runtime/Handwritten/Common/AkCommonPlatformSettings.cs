@@ -291,16 +291,19 @@ public partial class AkCommonUserSettings
 		settings.uMaxNumPaths = m_MaximumNumberOfPositioningPaths;
 		settings.uCommandQueueSize = m_CommandQueueSize;
 		settings.uNumSamplesPerFrame = m_SamplesPerFrame;
-		settings.fStreamingLookAheadRatio = m_StreamingLookAheadRatio;
 		m_MainOutputSettings.CopyTo(settings.settingsMainOutput);
 		settings.szPluginDLLPath = GetPluginPath();
-		UnityEngine.Debug.Log("WwiseUnity: Setting Plugin DLL path to: " + (settings.szPluginDLLPath == null ? "NULL" : settings.szPluginDLLPath));
 	}
 
 	[UnityEngine.Tooltip("Multiplication factor for all streaming look-ahead heuristic values.")]
 	[UnityEngine.Range(0, 1)]
 	public float m_StreamingLookAheadRatio = 1.0f;
-	
+
+	public void CopyTo(AkMusicSettings settings)
+	{
+		settings.fStreamingLookAheadRatio = m_StreamingLookAheadRatio;
+	}
+
 	public void CopyTo(AkStreamMgrSettings settings)
 	{
 	}
@@ -341,9 +344,9 @@ public partial class AkCommonUserSettings
 		/// The default value is 0.25.
 		public float m_MovementThreshold = 0.25f;
 
-		[UnityEngine.Tooltip("The number of primary rays used in the ray tracing engine. A larger value increases the chances of finding reflection and diffraction paths but results in higher CPU usage. The default value is 35.")]
+		[UnityEngine.Tooltip("The number of primary rays used in the ray tracing engine. A larger value increases the chances of finding reflection and diffraction paths but results in higher CPU usage. When the CPU limit is active (see the CPU Limit Percentage Spatial Audio Setting), this setting represents the maximum allowed number of primary rays. The default value is 35.")]
 		/// The number of primary rays used in the ray tracing engine. A larger value increases the chances of finding reflection and diffraction paths but results in higher CPU usage.
-		/// The default value is 35.
+		/// When the CPU limit is active (see the CPU Limit Percentage Spatial Audio Setting), this setting represents the maximum allowed number of primary rays. The default value is 35.
 		public uint m_NumberOfPrimaryRays = 35;
 
 		[UnityEngine.Range(0, 4)]
@@ -383,10 +386,11 @@ public partial class AkCommonUserSettings
 		/// Length of the rays that are cast inside Spatial Audio. Effectively caps the maximum length of an individual segment in a reflection or diffraction path. The default value is 1000.
 		public float m_MaxPathLength = 1000.0f;
 
-		[UnityEngine.Tooltip("Defines the targeted maximum computation time allocated for Spatial Audio as a percentage [0, 100] of the current audio frame. When the value is greater than 0, Spatial Audio dynamically adapts the load-balancing based on the current CPU usage and the specified CPU limit. Set to 0 to disable the dynamic load balancing spread computation. The default value is 0.")]
-		/// Defines the targeted maximum computation time allocated for Spatial Audio as a percentage [0, 100] of the current audio frame.
-		/// When the value is greater than 0, Spatial Audio dynamically adapts the load-balancing spread based on the current CPU usage and the specified CPU limit.
-		/// Set to 0 to disable the dynamic load-balancing spread computation.
+		[UnityEngine.Tooltip("Defines the targeted computation time allocated for the ray tracing engine as a percentage [0, 100] of the current audio frame. The ray tracing engine dynamically adapts the number of primary rays to target the specified computation time. The computed number of primary rays cannot exceed the value specified by the Number Of Primary Rays Spatial Audio Setting. A value of 0 indicates no target has been set. In this case, the number of primary rays is fixed and is set by the Number Of Primary Rays Spatial Audio Setting. The default value is 0.")]
+		/// Defines the targeted computation time allocated for the ray tracing engine as a percentage [0, 100] of the current audio frame.
+		/// The ray tracing engine dynamically adapts the number of primary rays to target the specified computation time.
+		/// The computed number of primary rays cannot exceed the value specified by the Number Of Primary Rays Spatial Audio Setting.
+		/// A value of 0 indicates no target has been set. In this case, the number of primary rays is fixed and is set by the Number Of Primary Rays Spatial Audio Setting.
 		/// The default value is 0.
 		public float m_CPULimitPercentage = 0.0f;
 
@@ -443,19 +447,6 @@ public partial class AkCommonUserSettings
 		
 		[UnityEngine.Tooltip("The operation used to determine transmission loss on direct paths.")]
 		public TransmissionOperation m_TransmissionOperation = TransmissionOperation.Max;
-
-		[UnityEngine.Tooltip("[\"Experimental\"] Enable/Disable emitter clustering by defining the minimum number of emitters in a cluster. Default value is 0. Values less than 2 disable the clustering.")]
-		///< Note: Emitters with multi-positions are not clustered and are treated as independant emitters.
-		///< Note: Changing an emitter from single to multi-positions with load balancing enabled (see \ref AkSpatialAudioInitSettings::uLoadBalancingSpread) might lead to unknown behaviors for a few frames.)
-		public uint m_ClusteringMinPoints = 0;
-
-		[UnityEngine.MinAttribute(0)]
-		[UnityEngine.Tooltip("Max distance between emitters to be considered as neighbors. This distance is specified for the reference distance defined by m_ClusteringDeadZoneDistance. Default value is 5.0.")]
-		public float m_ClusteringMaxDistance = 5.0f;
-
-		[UnityEngine.MinAttribute(0)]
-		[UnityEngine.Tooltip("Defines a dead zone around the listener where no emitters are clusters. Default value is 10.0.")]
-		public float m_ClusteringDeadZoneDistance = 10.0f;
 	}
 
 	[UnityEngine.Tooltip("Spatial audio common settings.")]
@@ -480,9 +471,6 @@ public partial class AkCommonUserSettings
 		settings.bEnableGeometricDiffractionAndTransmission = m_SpatialAudioSettings.m_EnableGeometricDiffractionAndTransmission;
 		settings.bCalcEmitterVirtualPosition = m_SpatialAudioSettings.m_CalcEmitterVirtualPosition;
 		settings.eTransmissionOperation = (AkTransmissionOperation)m_SpatialAudioSettings.m_TransmissionOperation;
-		settings.uClusteringMinPoints = m_SpatialAudioSettings.m_ClusteringMinPoints;
-		settings.fClusteringMaxDistance = m_SpatialAudioSettings.m_ClusteringMaxDistance;
-		settings.fClusteringDeadZoneDistance = m_SpatialAudioSettings.m_ClusteringDeadZoneDistance;
 	}
 
 	public virtual void Validate()
@@ -666,6 +654,7 @@ public abstract class AkCommonPlatformSettings : AkBasePlatformSettings
 			userSettings.CopyTo(settings.streamMgrSettings);
 			userSettings.CopyTo(settings.initSettings);
 			userSettings.CopyTo(settings.platformSettings);
+			userSettings.CopyTo(settings.musicSettings);
 
 			var advancedSettings = GetAdvancedSettings();
 			advancedSettings.CopyTo(settings.deviceSettings);

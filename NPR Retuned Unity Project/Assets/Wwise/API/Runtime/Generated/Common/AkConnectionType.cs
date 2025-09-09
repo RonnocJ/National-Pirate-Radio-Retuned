@@ -10,17 +10,11 @@
 //------------------------------------------------------------------------------
 
 
-///  Nature of the connection binding an input to a bus.
 public enum AkConnectionType {
-  ///  Direct (main, dry) connection.
   ConnectionType_Direct = 0,
-  ///  Connection by a game-defined send.
   ConnectionType_GameDefSend = 1,
-  ///  Connection by a user-defined send.
   ConnectionType_UserDefSend = 2,
-  ///  Connection by a early reflections send.
   ConnectionType_ReflectionsSend = 3,
-  ///  End of enum, invalid value.
   ConnectionType_Last
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

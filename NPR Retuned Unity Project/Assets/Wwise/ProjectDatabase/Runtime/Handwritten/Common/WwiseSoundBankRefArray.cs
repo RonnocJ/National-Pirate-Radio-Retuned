@@ -17,24 +17,24 @@ Copyright (c) 2025 Audiokinetic Inc.
 #if UNITY_EDITOR
 public class WwiseSoundBankRefArray
 {
-    private global::System.IntPtr projectDatabasePtr;
-    protected bool bDeletesManually;
+    private global::System.IntPtr swigCPtr;
+    protected bool swigCMemOwn;
 
     internal WwiseSoundBankRefArray(global::System.IntPtr cPtr, bool cMemoryOwn)
     {
-        bDeletesManually = cMemoryOwn;
-        projectDatabasePtr = cPtr;
+        swigCMemOwn = cMemoryOwn;
+        swigCPtr = cPtr;
     }
 
     internal static global::System.IntPtr getCPtr(WwiseSoundBankRefArray obj)
     {
-        return (obj == null) ? global::System.IntPtr.Zero : obj.projectDatabasePtr;
+        return (obj == null) ? global::System.IntPtr.Zero : obj.swigCPtr;
     }
 
     internal virtual void setCPtr(global::System.IntPtr cPtr)
     {
         Dispose();
-        projectDatabasePtr = cPtr;
+        swigCPtr = cPtr;
     }
 
     ~WwiseSoundBankRefArray()
@@ -52,15 +52,15 @@ public class WwiseSoundBankRefArray
     {
         lock (this)
         {
-            if (projectDatabasePtr != global::System.IntPtr.Zero)
+            if (swigCPtr != global::System.IntPtr.Zero)
             {
-                if (bDeletesManually)
+                if (swigCMemOwn)
                 {
-                    bDeletesManually = false;
-                    WwiseProjectDatabase.DeleteSoundBanksArrayRef(projectDatabasePtr);
+                    swigCMemOwn = false;
+                    WwiseProjectDatabase.DeleteSoundBanksArrayRef(swigCPtr);
                 }
 
-                projectDatabasePtr = global::System.IntPtr.Zero;
+                swigCPtr = global::System.IntPtr.Zero;
             }
 
             global::System.GC.SuppressFinalize(this);
@@ -76,7 +76,7 @@ public class WwiseSoundBankRefArray
 
     public WwiseSoundBankRef this[int index]
     {
-        get { return new WwiseSoundBankRef(WwiseProjectDatabase.GetSoundBankRefIndex(projectDatabasePtr, index), false); }
+        get { return new WwiseSoundBankRef(WwiseProjectDatabase.GetSoundBankRefIndex(swigCPtr, index), false); }
     }
 }
 #endif

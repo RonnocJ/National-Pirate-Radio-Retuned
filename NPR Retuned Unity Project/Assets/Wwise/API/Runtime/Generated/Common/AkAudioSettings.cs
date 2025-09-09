@@ -9,7 +9,6 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-///  Configured audio settings
 
 public class AkAudioSettings : global::System.IDisposable {
   private global::System.IntPtr swigCPtr;
@@ -51,11 +50,9 @@ public class AkAudioSettings : global::System.IDisposable {
     }
   }
 
-  ///  Number of samples per audio frame (256, 512, 1024 or 2048).
   public uint uNumSamplesPerFrame { set { AkUnitySoundEnginePINVOKE.CSharp_AkAudioSettings_uNumSamplesPerFrame_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkAudioSettings_uNumSamplesPerFrame_get(swigCPtr); } 
   }
 
-  ///  Number of samples per second.
   public uint uNumSamplesPerSecond { set { AkUnitySoundEnginePINVOKE.CSharp_AkAudioSettings_uNumSamplesPerSecond_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkAudioSettings_uNumSamplesPerSecond_get(swigCPtr); } 
   }
 

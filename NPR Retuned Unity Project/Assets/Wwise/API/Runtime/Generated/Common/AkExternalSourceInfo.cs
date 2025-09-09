@@ -74,7 +74,7 @@ public class AkExternalSourceInfo : global::System.IDisposable {
   public uint idCodec { set { AkUnitySoundEnginePINVOKE.CSharp_AkExternalSourceInfo_idCodec_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkExternalSourceInfo_idCodec_get(swigCPtr); } 
   }
 
-  public string szFile { set { AkUnitySoundEnginePINVOKE.CSharp_AkExternalSourceInfo_szFile_set(swigCPtr, value); }  get { return AkUnitySoundEngine.StringFromIntPtrString(AkUnitySoundEnginePINVOKE.CSharp_AkExternalSourceInfo_szFile_get(swigCPtr)); } 
+  public string szFile { set { AkUnitySoundEnginePINVOKE.CSharp_AkExternalSourceInfo_szFile_set(swigCPtr, value); }  get { return AkUnitySoundEngine.StringFromIntPtrOSString(AkUnitySoundEnginePINVOKE.CSharp_AkExternalSourceInfo_szFile_get(swigCPtr)); } 
   }
 
   public global::System.IntPtr pInMemory { set { AkUnitySoundEnginePINVOKE.CSharp_AkExternalSourceInfo_pInMemory_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkExternalSourceInfo_pInMemory_get(swigCPtr); }

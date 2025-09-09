@@ -71,10 +71,8 @@ public class AkCommunicationSettings : global::System.IDisposable {
   public string szAppNetworkName { set { AkUnitySoundEnginePINVOKE.CSharp_AkCommunicationSettings_szAppNetworkName_set(swigCPtr, value); }  get { return AkUnitySoundEngine.StringFromIntPtrString(AkUnitySoundEnginePINVOKE.CSharp_AkCommunicationSettings_szAppNetworkName_get(swigCPtr)); } 
   }
 
-  ///  Allows selecting the communication system used to connect remotely the Authoring tool on the device.
   public enum AkCommSystem {
     AkCommSystem_Socket,
-    ///  The recommended default communication system HTCS when available only, will default to AkCommSystem_Socket if the HTCS system is not available.
     AkCommSystem_HTCS
   }
 

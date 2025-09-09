@@ -48,9 +48,9 @@ namespace AK.Wwise
 				var callbacktypes = System.Enum.GetValues(typeof(AkCallbackType)) as AkCallbackType[];
 				var unsupportedCallbackValues = new[]
 				{
-					AkCallbackType.AK_SpeakerVolumeMatrix,
-					AkCallbackType.AK_MusicSyncAll,
-					AkCallbackType.AK_CallbackBits
+					AkCallbackType.AK_SpeakerVolumeMatrix, AkCallbackType.AK_MusicSyncAll,
+					AkCallbackType.AK_CallbackBits, AkCallbackType.AK_Monitoring, AkCallbackType.AK_AudioSourceChange,
+					AkCallbackType.AK_Bank, AkCallbackType.AK_AudioInterruption
 				};
 
 				m_supportedCallbackFlags = new string[callbacktypes.Length - unsupportedCallbackValues.Length];

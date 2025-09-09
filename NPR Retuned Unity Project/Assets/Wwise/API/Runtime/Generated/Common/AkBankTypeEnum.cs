@@ -10,15 +10,10 @@
 //------------------------------------------------------------------------------
 
 
-///  Bank types
 public enum AkBankTypeEnum {
-  ///  User-defined bank.
   AkBankType_User = 0,
-  ///  Bank generated for one event.
   AkBankType_Event = 30,
-  ///  Bank generated for one bus or aux bus.
   AkBankType_Bus = 31,
-  ///  End of enum, invalid value.
   AkBankType_Last
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

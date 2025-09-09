@@ -53,9 +53,6 @@ public class AkSerializedCallbackHeader : global::System.IDisposable {
   public global::System.IntPtr pPackage { get { return AkUnitySoundEnginePINVOKE.CSharp_AkSerializedCallbackHeader_pPackage_get(swigCPtr); }
   }
 
-  public AkCallbackCategory eCategory { get { return (AkCallbackCategory)AkUnitySoundEnginePINVOKE.CSharp_AkSerializedCallbackHeader_eCategory_get(swigCPtr); } 
-  }
-
   public uint eType { get { return AkUnitySoundEnginePINVOKE.CSharp_AkSerializedCallbackHeader_eType_get(swigCPtr); } 
   }
 

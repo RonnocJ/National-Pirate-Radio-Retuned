@@ -50,15 +50,12 @@ public class AkThreadProperties : global::System.IDisposable {
     }
   }
 
-  ///  Thread priority
   public int nPriority { set { AkUnitySoundEnginePINVOKE.CSharp_AkThreadProperties_nPriority_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkThreadProperties_nPriority_get(swigCPtr); } 
   }
 
-  ///  Affinity mask
   public uint dwAffinityMask { set { AkUnitySoundEnginePINVOKE.CSharp_AkThreadProperties_dwAffinityMask_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkThreadProperties_dwAffinityMask_get(swigCPtr); } 
   }
 
-  ///  Thread stack size.
   public uint uStackSize { set { AkUnitySoundEnginePINVOKE.CSharp_AkThreadProperties_uStackSize_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkThreadProperties_uStackSize_get(swigCPtr); } 
   }
 

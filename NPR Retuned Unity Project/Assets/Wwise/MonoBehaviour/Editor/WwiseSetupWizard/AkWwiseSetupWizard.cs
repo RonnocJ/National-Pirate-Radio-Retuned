@@ -326,6 +326,9 @@ public class WwiseSetupWizard
 		if (obj is UnityEngine.GUISkin)
 			return false;
 
+		if (obj is AkWwiseProjectData)
+			return false;
+
 		if (obj is AkWwiseInitializationSettings)
 			return false;
 
@@ -475,7 +478,8 @@ public class WwiseSetupWizard
 			AkUtilities.CreateFolder(AkWwiseEditorSettings.WwiseScriptableObjectRelativePath);
 		}
 
-		AkUtilities.GetRootOutputPath();
+		AkWwiseProjectInfo.GetData().Migrate();
+		AkWwiseWWUBuilder.UpdateWwiseObjectReferenceData();
 
 		UnityEngine.Debug.LogFormat("WwiseUnity: Migrating Prefabs...");
 		MigratePrefabs();
@@ -546,7 +550,7 @@ public class WwiseSetupWizard
 		AkPluginActivator.DeactivateAllPlugins();
 
 		// 0. Make sure the SoundBank directory exists
-		var sbPath = AkUtilities.GetRootOutputPath();
+		var sbPath = AkUtilities.GetFullPath(UnityEngine.Application.streamingAssetsPath, AkWwiseEditorSettings.Instance.SoundbankPath);
 		if (!System.IO.Directory.Exists(sbPath))
 			System.IO.Directory.CreateDirectory(sbPath);
 
@@ -696,22 +700,20 @@ public class WwiseSetupWizard
 		if (string.IsNullOrEmpty(settings.WwiseProjectPath))
 			return true;
 
-		var SoundbankPath = AkBasePathGetter.GetDefaultRootOutputPath();
-		if (AkWwiseEditorSettings.Instance.RootOutputPath != null)
-		{
-			var rootOutputPath = AkUtilities.GetRootOutputPath();
-			var r = new Regex(Regex.Escape("_WwiseIntegrationTemp"));
-			SoundbankPath = r.Replace(rootOutputPath, "", 1);
-		}
-		if (SoundbankPath == null)
-		{
-			Debug.LogWarning("Could not get Default Root Output Path.");
-			return false;
-		}
+		var r = new System.Text.RegularExpressions.Regex("_WwiseIntegrationTemp.*?([/\\\\])");
+#if AK_WWISE_ADDRESSABLES && UNITY_ADDRESSABLES
+		var FullPath = AkUtilities.GetFullPath(r.Replace(UnityEngine.Application.dataPath, "$1"), settings.GeneratedSoundbanksPath);
+		var ProjectPath = AkUtilities.GetFullPath(r.Replace(UnityEngine.Application.dataPath, "$1"), settings.WwiseProjectPath);
+		var SoundbankPath = AkUtilities.MakeRelativePath(System.IO.Path.GetDirectoryName(ProjectPath), FullPath);
+#else
+		var SoundbankPath = AkUtilities.GetFullPath(r.Replace(UnityEngine.Application.streamingAssetsPath, "$1"), settings.SoundbankPath);
+#endif
 		var WprojPath = AkUtilities.GetFullPath(UnityEngine.Application.dataPath, settings.WwiseProjectPath);
 #if UNITY_EDITOR_OSX
-		SoundbankPath = "Z:" + SoundbankPath;
+		SoundbankPath = AkUtilities.ParseOsxPathFromWinePath(SoundbankPath);
 #endif
+
+		SoundbankPath = AkUtilities.MakeRelativePath(System.IO.Path.GetDirectoryName(WprojPath), SoundbankPath);
 		string[] settingsToDisable = {"GenerateSoundBankXML"};
 		string[] settingsToEnable = {"SoundBankGenerateHeaderFile", "SoundBankGenerateMaxAttenuationInfo", "GenerateSoundBankJSON", "SoundBankGeneratePrintGUID", "SoundBankGeneratePrintPath"};
 		if (AkUtilities.SetSoundbankHeaderFilePath(WprojPath, SoundbankPath))

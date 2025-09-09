@@ -1,0 +1,58 @@
+{
+    "blocks": [
+        {
+            "name": "CDButton",
+            "clusters": [
+                {
+                    "id": -1,
+                    "lines":[
+                        {
+                            "text": "",
+                            "speed": 0
+                        }
+                    ]
+                },
+                {
+                    "pauseBefore": 0.5,
+                    "id": 0,
+                    "lines": [
+                        {
+                            "text": "NPR",
+                            "speed": 0.05
+                        }
+                    ]
+                },
+                {
+                    "pauseBefore": 0.5,
+                    "id": 1,
+                    "lines": [
+                        {
+                            "text": "ABC",
+                            "speed": 0.05
+                        }
+                    ]
+                },
+                {
+                    "pauseBefore": 0.5,
+                    "id": 2,
+                    "lines": [
+                        {
+                            "text": "DEF",
+                            "speed": 0.05
+                        }
+                    ]
+                },
+                {
+                    "pauseBefore": 0.5,
+                    "id": 3,
+                    "lines": [
+                        {
+                            "text": "GHI",
+                            "speed": 0.05
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

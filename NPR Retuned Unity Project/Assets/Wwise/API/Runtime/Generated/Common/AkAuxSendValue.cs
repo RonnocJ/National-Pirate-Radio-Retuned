@@ -9,7 +9,6 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-///  Auxiliary bus sends information per game object per given auxiliary bus.
 
 public class AkAuxSendValue : global::System.IDisposable {
   private global::System.IntPtr swigCPtr;
@@ -51,17 +50,12 @@ public class AkAuxSendValue : global::System.IDisposable {
     }
   }
 
-  ///  Game object ID of the listener associated with this send. Use AK_INVALID_GAME_OBJECT as a wildcard to set the auxiliary send to all connected listeners (see AK::SoundEngine::SetListeners).
   public ulong listenerID { set { AkUnitySoundEnginePINVOKE.CSharp_AkAuxSendValue_listenerID_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkAuxSendValue_listenerID_get(swigCPtr); } 
   }
 
-  ///  Auxiliary bus ID.
   public uint auxBusID { set { AkUnitySoundEnginePINVOKE.CSharp_AkAuxSendValue_auxBusID_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkAuxSendValue_auxBusID_get(swigCPtr); } 
   }
 
-  /// A value in the range [0.0f:16.0f] ( -∞ dB to +24 dB).
-  /// Represents the attenuation or amplification factor applied to the volume of the sound going through the auxiliary bus.
-  /// A value greater than 1.0f will amplify the sound.
   public float fControlValue { set { AkUnitySoundEnginePINVOKE.CSharp_AkAuxSendValue_fControlValue_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkAuxSendValue_fControlValue_get(swigCPtr); } 
   }
 

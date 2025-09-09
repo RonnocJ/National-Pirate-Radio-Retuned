@@ -50,11 +50,9 @@ public class AkCallbackInfo : global::System.IDisposable {
     }
   }
 
-  ///  User data, passed to PostEvent()
   public global::System.IntPtr pCookie { get { return AkUnitySoundEnginePINVOKE.CSharp_AkCallbackInfo_pCookie_get(swigCPtr); }
   }
 
-  ///  Game object ID
   public ulong gameObjID { get { return AkUnitySoundEnginePINVOKE.CSharp_AkCallbackInfo_gameObjID_get(swigCPtr); } 
   }
 

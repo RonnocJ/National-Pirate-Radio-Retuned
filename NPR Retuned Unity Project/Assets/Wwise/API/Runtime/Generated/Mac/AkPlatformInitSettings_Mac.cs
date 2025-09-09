@@ -9,9 +9,6 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-///  Platform specific initialization settings
-/// <seealso cref="AK.SoundEngine.Init"/>
-/// <seealso cref="AK.SoundEngine.GetDefaultPlatformInitSettings"/>
 
 public class AkPlatformInitSettings : global::System.IDisposable {
   private global::System.IntPtr swigCPtr;
@@ -53,7 +50,6 @@ public class AkPlatformInitSettings : global::System.IDisposable {
     }
   }
 
-  ///  Lower engine threading properties
   public AkThreadProperties threadLEngine { set { AkUnitySoundEnginePINVOKE.CSharp_AkPlatformInitSettings_threadLEngine_set(swigCPtr, AkThreadProperties.getCPtr(value)); } 
     get {
       global::System.IntPtr cPtr = AkUnitySoundEnginePINVOKE.CSharp_AkPlatformInitSettings_threadLEngine_get(swigCPtr);
@@ -62,7 +58,6 @@ public class AkPlatformInitSettings : global::System.IDisposable {
     } 
   }
 
-  ///  Ouput thread threading properties
   public AkThreadProperties threadOutputMgr { set { AkUnitySoundEnginePINVOKE.CSharp_AkPlatformInitSettings_threadOutputMgr_set(swigCPtr, AkThreadProperties.getCPtr(value)); } 
     get {
       global::System.IntPtr cPtr = AkUnitySoundEnginePINVOKE.CSharp_AkPlatformInitSettings_threadOutputMgr_get(swigCPtr);
@@ -71,7 +66,6 @@ public class AkPlatformInitSettings : global::System.IDisposable {
     } 
   }
 
-  ///  Bank manager threading properties (its default priority is AK_THREAD_PRIORITY_NORMAL)
   public AkThreadProperties threadBankManager { set { AkUnitySoundEnginePINVOKE.CSharp_AkPlatformInitSettings_threadBankManager_set(swigCPtr, AkThreadProperties.getCPtr(value)); } 
     get {
       global::System.IntPtr cPtr = AkUnitySoundEnginePINVOKE.CSharp_AkPlatformInitSettings_threadBankManager_get(swigCPtr);
@@ -80,7 +74,6 @@ public class AkPlatformInitSettings : global::System.IDisposable {
     } 
   }
 
-  ///  Monitor threading properties (its default priority is AK_THREAD_PRIORITY_ABOVENORMAL). This parameter is not used in Release build.
   public AkThreadProperties threadMonitor { set { AkUnitySoundEnginePINVOKE.CSharp_AkPlatformInitSettings_threadMonitor_set(swigCPtr, AkThreadProperties.getCPtr(value)); } 
     get {
       global::System.IntPtr cPtr = AkUnitySoundEnginePINVOKE.CSharp_AkPlatformInitSettings_threadMonitor_get(swigCPtr);
@@ -89,24 +82,18 @@ public class AkPlatformInitSettings : global::System.IDisposable {
     } 
   }
 
-  ///  Sampling Rate. Default 48000 Hz
   public uint uSampleRate { set { AkUnitySoundEnginePINVOKE.CSharp_AkPlatformInitSettings_uSampleRate_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkPlatformInitSettings_uSampleRate_get(swigCPtr); } 
   }
 
-  ///  Number of refill buffers in voice buffer. 2 == double-buffered, defaults to 4.
   public ushort uNumRefillsInVoice { set { AkUnitySoundEnginePINVOKE.CSharp_AkPlatformInitSettings_uNumRefillsInVoice_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkPlatformInitSettings_uNumRefillsInVoice_get(swigCPtr); } 
   }
 
-  /// Main audio API to use. Leave to AkAPI_Default for the default sink (default value).
-  /// \ref AkAudioAPI
   public AkAudioAPI eAudioAPI { set { AkUnitySoundEnginePINVOKE.CSharp_AkPlatformInitSettings_eAudioAPI_set(swigCPtr, (int)value); }  get { return (AkAudioAPI)AkUnitySoundEnginePINVOKE.CSharp_AkPlatformInitSettings_eAudioAPI_get(swigCPtr); } 
   }
 
-  ///  Number of Apple Spatial Audio point sources to allocate for 3D audio use (each point source is a system audio object). Default: 128
   public uint uNumSpatialAudioPointSources { set { AkUnitySoundEnginePINVOKE.CSharp_AkPlatformInitSettings_uNumSpatialAudioPointSources_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkPlatformInitSettings_uNumSpatialAudioPointSources_get(swigCPtr); } 
   }
 
-  ///  Print detailed system output information to the console log
   public bool bVerboseSystemOutput { set { AkUnitySoundEnginePINVOKE.CSharp_AkPlatformInitSettings_bVerboseSystemOutput_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkPlatformInitSettings_bVerboseSystemOutput_get(swigCPtr); } 
   }
 

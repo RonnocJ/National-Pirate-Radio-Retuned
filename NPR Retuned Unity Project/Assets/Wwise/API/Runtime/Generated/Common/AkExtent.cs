@@ -9,8 +9,6 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-/// AkExtent describes an extent with width, height and depth. halfWidth, halfHeight and halfDepth should form a vector from the centre of the volume to the positive corner.
-/// Used in ``AkPortalParams``, negative values in the extent will cause an error. For rooms, negative values can be used to opt out of room transmission.
 
 public class AkExtent : global::System.IDisposable {
   private global::System.IntPtr swigCPtr;

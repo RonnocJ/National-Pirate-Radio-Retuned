@@ -92,7 +92,13 @@ public partial class AkBuildPreprocessor : UnityEditor.Build.IPreprocessBuild, U
 		if (generate)
 		{
 			var platforms = new System.Collections.Generic.List<string> { platformName };
-			AkUtilities.GenerateSoundbanks(platforms);
+			string wwiseInstallationPath = "";
+#if UNITY_EDITOR_WIN
+			wwiseInstallationPath = AkWwiseEditorSettings.Instance.WwiseInstallationPathWindows;
+#elif UNITY_EDITOR_OSX
+			wwiseInstallationPath = AkWwiseEditorSettings.Instance.WwiseInstallationPathMac;
+#endif
+			AkUtilities.GenerateSoundbanks(wwiseInstallationPath, AkWwiseEditorSettings.WwiseProjectAbsolutePath, platforms);
 		}
 
 		string sourceFolder;
@@ -106,7 +112,7 @@ public partial class AkBuildPreprocessor : UnityEditor.Build.IPreprocessBuild, U
 			return false;
 		}
 
-		UnityEngine.Debug.Log($"WwiseUnity: Copied SoundBank folder from <{sourceFolder}> to streaming assets folder <{destinationFolder}> for <{platformName}> platform build");
+		UnityEngine.Debug.LogFormat("WwiseUnity: Copied SoundBank folder to streaming assets folder <{0}> for <{1}> platform build", destinationFolder, platformName);
 		return true;
 	}
 
@@ -138,7 +144,7 @@ public partial class AkBuildPreprocessor : UnityEditor.Build.IPreprocessBuild, U
 		}
 		
 		// Init ProjectDB for platform being built
-		WwiseProjectDatabase.Init(AkUtilities.GetRootOutputPath(), platformName);
+		WwiseProjectDatabase.Init(AkUtilities.GetRootOutputPath(AkWwiseEditorSettings.WwiseProjectAbsolutePath), platformName);
 		AkPluginActivator.ForceUpdate();
 		AkPluginActivator.ActivatePluginsForDeployment(target, true);
 	}
@@ -156,7 +162,7 @@ public partial class AkBuildPreprocessor : UnityEditor.Build.IPreprocessBuild, U
 		destinationSoundBankFolder = string.Empty;
 		
 		// Point the ProjectDB back on the current editor platform
-		WwiseProjectDatabase.Init(AkUtilities.GetRootOutputPath(), AkBasePathGetter.GetPlatformName());
+		WwiseProjectDatabase.Init(AkUtilities.GetRootOutputPath(AkWwiseEditorSettings.WwiseProjectAbsolutePath), AkBasePathGetter.GetPlatformName());
 	}
 
 #if UNITY_2018_1_OR_NEWER

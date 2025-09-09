@@ -21,7 +21,6 @@ Copyright (c) 2025 Audiokinetic Inc.
 using System.IO;
 using UnityEditor;
 using System.Linq;
-using UnityEngine.Serialization;
 
 [System.Serializable]
 public class WwiseSettings
@@ -49,8 +48,8 @@ public class WwiseSettings
 
 	public bool CopySoundBanksAsPreBuildStep = true;
 	public bool GenerateSoundBanksAsPreBuildStep = false;
-	public string WwiseStreamingAssetsPath = AkBasePathGetter.DefaultBasePath;
-	[FormerlySerializedAs("GeneratedSoundbanksPath")] public string RootOutputPath;
+	public string SoundbankPath;
+	public string GeneratedSoundbanksPath;
 
 	public bool CreatedPicker = false;
 	public bool CreateWwiseGlobal = true;
@@ -66,7 +65,6 @@ public class WwiseSettings
 	public bool UseWaapi = true;
 	public string WaapiPort = "8080";
 	public string WaapiIP = "127.0.0.1";
-	public bool AutoSyncWaapi = false;
 
 	public bool UseGitRepository = true;
 	public string PackageSource = "";
@@ -114,7 +112,7 @@ public class WwiseSettings
 				else
 					settings.WwiseProjectPath = string.Empty;
 
-				settings.WwiseStreamingAssetsPath = AkBasePathGetter.DefaultBasePath;
+				settings.SoundbankPath = AkBasePathGetter.DefaultBasePath;
 			}
 		}
 		catch
@@ -122,6 +120,21 @@ public class WwiseSettings
 		}
 
 #if AK_WWISE_ADDRESSABLES && UNITY_ADDRESSABLES
+		if (string.IsNullOrEmpty(settings.GeneratedSoundbanksPath))
+		{
+			var rootOutputPath= AkBasePathGetter.GetWwiseRootOutputPath(AkUtilities.GetFullPath(UnityEngine.Application.dataPath,settings.WwiseProjectPath));
+			rootOutputPath = System.IO.Path.GetFullPath(rootOutputPath);
+			if (rootOutputPath.Contains(UnityEngine.Application.dataPath))
+			{
+				rootOutputPath = rootOutputPath.Remove(0, (UnityEngine.Application.dataPath + "/").Length);
+			}
+			else
+			{
+				rootOutputPath =AkUtilities.MakeRelativePath(UnityEngine.Application.dataPath, rootOutputPath);
+			}
+			rootOutputPath = rootOutputPath.TrimEnd('/');
+			settings.GeneratedSoundbanksPath = rootOutputPath;
+		}
 		settings.CheckGeneratedBanksPath();
 #endif
 		return settings;
@@ -130,12 +143,12 @@ public class WwiseSettings
 #if AK_WWISE_ADDRESSABLES && UNITY_ADDRESSABLES
 	public void CheckGeneratedBanksPath()
 	{
-			var fullRootOutputPath = AkUtilities.GetFullPath(UnityEngine.Application.dataPath, RootOutputPath);
+			var fullGeneratedSoundbanksPath = AkUtilities.GetFullPath(UnityEngine.Application.dataPath, GeneratedSoundbanksPath);
 			var appDataPath = UnityEngine.Application.dataPath.Replace(System.IO.Path.AltDirectorySeparatorChar, System.IO.Path.DirectorySeparatorChar);
 
-			if (!fullRootOutputPath.Contains(appDataPath))
+			if (!fullGeneratedSoundbanksPath.Contains(appDataPath))
 			{
-				UnityEngine.Debug.LogWarning("RootOutputPath is currently set to a path outside of the Assets folder. Generated SoundBanks will not be properly imported for Addressables. Please change this in Project Settings > Wwise Integration.");
+				UnityEngine.Debug.LogWarning("GeneratedSoundbanksPath is currently set to a path outside of the Assets folder. Generated SoundBanks will not be properly imported for Addressables. Please change this in Project Settings > Wwise Integration.");
 			}
 	}
 #endif
@@ -201,17 +214,20 @@ public class AkWwiseEditorSettings
 	{
 		class Styles
 		{
-			public static string WwisePaths = "Wwise Paths";
+			public static string WwiseProject = "Wwise Project";
 			public static UnityEngine.GUIContent WwiseProjectPath = new UnityEngine.GUIContent("Wwise Project", "Location of the Wwise project associated with this game. It is recommended to put it in the Unity Project root folder, outside the Assets folder.");
 
+			public static string WwiseApplicationPath = "Wwise Application Path";
 			public static UnityEngine.GUIContent WwiseInstallationPath = new UnityEngine.GUIContent("Wwise Application Path", "Location of the Wwise application. This is required to generate the SoundBanks in Unity.");
 
-			public static UnityEngine.GUIContent WwiseRootOutputPathContent = new UnityEngine.GUIContent("Wwise Root Output Path", "Location of the Generated SoundBanks. This should be the same as the Root Output Path in Wwise.");
-			
 			public static string AssetManagement = "Asset Management";
-			public static UnityEngine.GUIContent StreamingAssetsPath = new UnityEngine.GUIContent("Wwise StreamingAssets Path", "Location of the SoundBanks relative to (and within) the StreamingAssets folder.");
+			public static UnityEngine.GUIContent SoundbankPath = new UnityEngine.GUIContent("SoundBanks Path", "Location of the SoundBanks relative to (and within) the StreamingAssets folder.");
 			public static UnityEngine.GUIContent CopySoundBanksAsPreBuildStep = new UnityEngine.GUIContent("Copy SoundBanks at pre-Build step", "Copies the SoundBanks in the appropriate location for building and deployment. It is recommended to leave this box checked.");
 			public static UnityEngine.GUIContent GenerateSoundBanksAsPreBuildStep = new UnityEngine.GUIContent("Generate SoundBanks at pre-Build step", "Generates the SoundBanks before copying them during pre-Build step. It is recommended to leave this box unchecked if SoundBanks are generated on a specific build machine.");
+
+#if AK_WWISE_ADDRESSABLES && UNITY_ADDRESSABLES
+			public static UnityEngine.GUIContent GeneratedSoundbankPath = new UnityEngine.GUIContent("Generated SoundBanks Path", "Destination folder for generated SoundBanks. Changing this will update your Wwise project settings");
+#endif
 
 			public static string GlobalSettings = "Global Settings";
 			public static UnityEngine.GUIContent CreateWwiseGlobal = new UnityEngine.GUIContent("Create WwiseGlobal GameObject", "The WwiseGlobal object is a GameObject that contains the Initializing and Terminating scripts for the Wwise Sound Engine. In the Editor workflow, it is added to every scene, so that it can be properly previewed in the Editor. In the game, only one instance is created, in the first scene, and it is persisted throughout the game. It is recommended to leave this box checked.");
@@ -226,7 +242,6 @@ public class AkWwiseEditorSettings
 			public static UnityEngine.GUIContent UseWaapi = new UnityEngine.GUIContent("Connect to Wwise");
 			public static UnityEngine.GUIContent WaapiIP = new UnityEngine.GUIContent("WAAPI IP address");
 			public static UnityEngine.GUIContent WaapiPort = new UnityEngine.GUIContent("WAAPI port");
-			public static UnityEngine.GUIContent AutosyncSelection = new UnityEngine.GUIContent("Autosync Wwise Browser Selection");
 			
 			public static string AddressableInstallerSection = "Wwise Addressable Installer";
 			public static UnityEngine.GUIContent UseGitRepository = new UnityEngine.GUIContent("Install the addressable from a git repository", "If true, will expect a git repository link to import the package, if false will install from a local folder.");
@@ -282,7 +297,7 @@ public class AkWwiseEditorSettings
 		private SettingsProvider(string path) : base(path, UnityEditor.SettingsScope.Project) { }
 
 		[UnityEditor.SettingsProvider]
-		public static UnityEditor.SettingsProvider CreateWwiseIntegrationSettingsProvider()
+		public static UnityEditor.SettingsProvider CreateMyCustomSettingsProvider()
 		{
 			return new SettingsProvider("Project/Wwise Integration") { keywords = GetSearchKeywordsFromGUIContentProperties<Styles>() };
 		}
@@ -299,7 +314,7 @@ public class AkWwiseEditorSettings
 				AkUnitySoundEngineInitialization.Instance.TerminateSoundEngine();
 			}
 		}
-
+		
 		private bool IsFolderWwiseApplicationPath(string path)
 		{
 #if UNITY_EDITOR_OSX
@@ -332,67 +347,76 @@ public class AkWwiseEditorSettings
 			var settings = Instance;
 
 			UnityEngine.GUILayout.Label(string.Format("Wwise v{0} Settings.", AkUnitySoundEngine.WwiseVersion), Styles.Version);
-			UnityEngine.GUILayout.Label(Styles.WwisePaths, UnityEditor.EditorStyles.boldLabel);
+			UnityEngine.GUILayout.Label(Styles.WwiseProject, UnityEditor.EditorStyles.boldLabel);
 
-			using (new UnityEngine.GUILayout.VerticalScope("box"))
+			using (new UnityEngine.GUILayout.HorizontalScope("box"))
 			{
-				using (new UnityEngine.GUILayout.HorizontalScope())
+				UnityEditor.EditorGUILayout.PrefixLabel(Styles.WwiseProjectPath);
+				UnityEditor.EditorGUILayout.SelectableLabel(settings.WwiseProjectPath, Styles.TextField, UnityEngine.GUILayout.Height(17));
+
+				if (Ellipsis())
 				{
-					UnityEditor.EditorGUILayout.PrefixLabel(Styles.WwiseProjectPath);
-					UnityEditor.EditorGUILayout.SelectableLabel(settings.WwiseProjectPath, Styles.TextField, UnityEngine.GUILayout.Height(17));
-
-					if (Ellipsis())
+					var OpenInPath = System.IO.Path.GetDirectoryName(AkUtilities.GetFullPath(UnityEngine.Application.dataPath, settings.WwiseProjectPath));
+					var WwiseProjectPathNew = UnityEditor.EditorUtility.OpenFilePanel("Select your Wwise Project", OpenInPath, "wproj");
+					if (WwiseProjectPathNew.Length != 0)
 					{
-						var OpenInPath = System.IO.Path.GetDirectoryName(AkUtilities.GetFullPath(UnityEngine.Application.dataPath, settings.WwiseProjectPath));
-						var WwiseProjectPathNew = UnityEditor.EditorUtility.OpenFilePanel("Select your Wwise Project", OpenInPath, "wproj");
-						if (WwiseProjectPathNew.Length != 0)
+						if (WwiseProjectPathNew.EndsWith(".wproj") == false)
 						{
-							if (WwiseProjectPathNew.EndsWith(".wproj") == false)
-							{
-								UnityEditor.EditorUtility.DisplayDialog("Error", "Please select a valid .wproj file", "Ok");
-							}
-							else
-							{
-								settings.WwiseProjectPath = AkUtilities.MakeRelativePath(UnityEngine.Application.dataPath, WwiseProjectPathNew);
-								changed = true;
-							}
+							UnityEditor.EditorUtility.DisplayDialog("Error", "Please select a valid .wproj file", "Ok");
 						}
-					}
-				}
-
-				using (new UnityEngine.GUILayout.HorizontalScope())
-				{
-					UnityEditor.EditorGUILayout.PrefixLabel(Styles.WwiseInstallationPath);
-					UnityEditor.EditorGUILayout.SelectableLabel(settings.WwiseInstallationPath, Styles.TextField, UnityEngine.GUILayout.Height(17));
-
-					if (Ellipsis())
-					{
-#if UNITY_EDITOR_OSX
-						var path = UnityEditor.EditorUtility.OpenFilePanel("Select your Wwise application.", "/Applications/", "");
-#else
-						var path = UnityEditor.EditorUtility.OpenFolderPanel("Select your Wwise application.", System.Environment.GetEnvironmentVariable("ProgramFiles(x86)"), "");
-#endif
-						if (path != "" && !IsFolderWwiseApplicationPath(path))
+						else
 						{
-							EditorUtility.DisplayDialog("Wwise Application Path could not be set", $"WwiseUnity: {path} did not contain a Wwise Authoring application.", "OK");
-						}
-						else if (path.Length != 0)
-						{
-							settings.WwiseInstallationPath = System.IO.Path.GetFullPath(path);
+							settings.WwiseProjectPath = AkUtilities.MakeRelativePath(UnityEngine.Application.dataPath, WwiseProjectPathNew);
 							changed = true;
 						}
 					}
 				}
+			}
 
+			UnityEngine.GUILayout.Space(UnityEditor.EditorGUIUtility.standardVerticalSpacing);
+			UnityEngine.GUILayout.Label(Styles.WwiseApplicationPath, UnityEditor.EditorStyles.boldLabel);
+
+			using (new UnityEngine.GUILayout.HorizontalScope("box"))
+			{
+				UnityEditor.EditorGUILayout.PrefixLabel(Styles.WwiseInstallationPath);
+				UnityEditor.EditorGUILayout.SelectableLabel(settings.WwiseInstallationPath, Styles.TextField, UnityEngine.GUILayout.Height(17));
+
+				if (Ellipsis())
+				{
+#if UNITY_EDITOR_OSX
+					var path = UnityEditor.EditorUtility.OpenFilePanel("Select your Wwise application.", "/Applications/", "");
+#else
+					var path = UnityEditor.EditorUtility.OpenFolderPanel("Select your Wwise application.", System.Environment.GetEnvironmentVariable("ProgramFiles(x86)"), "");
+#endif
+					if (path != "" && !IsFolderWwiseApplicationPath(path))
+					{
+						EditorUtility.DisplayDialog("Wwise Application Path could not be set", $"WwiseUnity: {path} did not contain a Wwise Authoring application.", "OK");
+					}
+					else if (path.Length != 0)
+					{
+						settings.WwiseInstallationPath = System.IO.Path.GetFullPath(path);
+						changed = true;
+					}
+				}
+			}
+
+			UnityEngine.GUILayout.Space(UnityEditor.EditorGUIUtility.standardVerticalSpacing);
+			UnityEngine.GUILayout.Label(Styles.AssetManagement, UnityEditor.EditorStyles.boldLabel);
+
+
+#if AK_WWISE_ADDRESSABLES && UNITY_ADDRESSABLES
+			using (new UnityEngine.GUILayout.VerticalScope("box"))
+			{
 				using (new UnityEngine.GUILayout.HorizontalScope())
 				{
-					UnityEditor.EditorGUILayout.PrefixLabel(Styles.WwiseRootOutputPathContent);
-					UnityEditor.EditorGUILayout.SelectableLabel(settings.RootOutputPath, Styles.TextField, UnityEngine.GUILayout.Height(17));
+					UnityEditor.EditorGUILayout.PrefixLabel(Styles.GeneratedSoundbankPath);
+					UnityEditor.EditorGUILayout.SelectableLabel(settings.GeneratedSoundbanksPath, Styles.TextField, UnityEngine.GUILayout.Height(17));
+
 					if (Ellipsis())
 					{
-#if UNITY_ADDRESSABLES && AK_WWISE_ADDRESSABLES
-						var OpenInPath = System.IO.Path.GetDirectoryName(settings.RootOutputPath);
-						var path = UnityEditor.EditorUtility.OpenFolderPanel("Select your generated SoundBanks destination folder", OpenInPath, settings.RootOutputPath.Substring(OpenInPath.Length + 1));
+						var FullPath = AkUtilities.GetFullPath(UnityEngine.Application.dataPath, settings.GeneratedSoundbanksPath);
+						var OpenInPath = System.IO.Path.GetDirectoryName(FullPath);
+						var path = UnityEditor.EditorUtility.OpenFolderPanel("Select your generated SoundBanks destination folder", OpenInPath, FullPath.Substring(OpenInPath.Length + 1));
 						if (path.Length != 0)
 						{
 							if (!path.Contains(UnityEngine.Application.dataPath))
@@ -405,58 +429,51 @@ public class AkWwiseEditorSettings
 							}
 							else
 							{
-								var previousPath = settings.RootOutputPath;
-								if (previousPath != path)
+								var newPath = AkUtilities.MakeRelativePath(UnityEngine.Application.dataPath, path);
+								var previousPath = settings.GeneratedSoundbanksPath;
+								if (previousPath != newPath)
 								{
-									settings.RootOutputPath = AkUtilities.MakeRelativePath(UnityEngine.Application.dataPath, path);
+									settings.GeneratedSoundbanksPath = newPath;
 									var projectPath = AkUtilities.GetFullPath(UnityEngine.Application.dataPath, settings.WwiseProjectPath);
 									var relPath = AkUtilities.MakeRelativePath(System.IO.Path.GetDirectoryName(projectPath), path);
 									AkUtilities.SetSoundbanksDestinationFoldersInWproj(projectPath, relPath);
+
+									var fullPreviousPath = AkUtilities.GetFullPath(UnityEngine.Application.dataPath, previousPath);
 									var appDataPath = UnityEngine.Application.dataPath.Replace(System.IO.Path.AltDirectorySeparatorChar, System.IO.Path.DirectorySeparatorChar);
 
-									if (!string.IsNullOrEmpty(previousPath) && System.IO.Directory.Exists(previousPath)) 
+									if (!string.IsNullOrEmpty(previousPath) && System.IO.Directory.Exists(fullPreviousPath)) 
 									{
 										UnityEditor.AssetDatabase.Refresh();
-										if (previousPath.Contains(appDataPath))
+										if (fullPreviousPath.Contains(appDataPath))
 										{
-											var newPath = AkUtilities.MakeRelativePath(UnityEngine.Application.dataPath, path);
 											var destination = System.IO.Path.Combine("Assets", newPath);
-											AkUtilities.MoveAssetsFromDirectory(previousPath, destination, true);
+											AkUtilities.MoveAssetsFromDirectory(fullPreviousPath, destination, true);
 										}
 										else
 										{
-											AkUtilities.DirectoryCopy(previousPath, path, true);
+											AkUtilities.DirectoryCopy(fullPreviousPath, path, true);
 										}
 										UnityEditor.AssetDatabase.Refresh();
 									}
 									changed = true;
-								} 
+								}
 							}
 						}
-#else
-						var FullPath = AkUtilities.GetFullPath(UnityEngine.Application.streamingAssetsPath,
-							settings.WwiseStreamingAssetsPath);
-						var OpenInPath = System.IO.Path.GetDirectoryName(FullPath);
-						var path = UnityEditor.EditorUtility.OpenFolderPanel("Select your Root Output Path", OpenInPath, FullPath.Substring(OpenInPath.Length + 1));
-						if (path.Length != 0)
-						{
-							settings.RootOutputPath = AkUtilities.MakeRelativePath(UnityEngine.Application.dataPath, path);
-							changed = true;
-						}
-#endif
 					}
 				}
+			}
+#else
 
-#if !(AK_WWISE_ADDRESSABLES && UNITY_ADDRESSABLES)
-
+			using (new UnityEngine.GUILayout.VerticalScope("box"))
+			{
 				using (new UnityEngine.GUILayout.HorizontalScope())
 				{
-					UnityEditor.EditorGUILayout.PrefixLabel(Styles.StreamingAssetsPath);
-					UnityEditor.EditorGUILayout.SelectableLabel(settings.WwiseStreamingAssetsPath, Styles.TextField, UnityEngine.GUILayout.Height(17));
+					UnityEditor.EditorGUILayout.PrefixLabel(Styles.SoundbankPath);
+					UnityEditor.EditorGUILayout.SelectableLabel(settings.SoundbankPath, Styles.TextField, UnityEngine.GUILayout.Height(17));
 
 					if (Ellipsis())
 					{
-						var FullPath = AkUtilities.GetFullPath(UnityEngine.Application.streamingAssetsPath, settings.WwiseStreamingAssetsPath);
+						var FullPath = AkUtilities.GetFullPath(UnityEngine.Application.streamingAssetsPath, settings.SoundbankPath);
 						var OpenInPath = System.IO.Path.GetDirectoryName(FullPath);
 						var path = UnityEditor.EditorUtility.OpenFolderPanel("Select your SoundBanks destination folder", OpenInPath, FullPath.Substring(OpenInPath.Length + 1));
 						if (path.Length != 0)
@@ -470,12 +487,12 @@ public class AkWwiseEditorSettings
 							}
 							else
 							{
-								var previousPath = settings.WwiseStreamingAssetsPath;
+								var previousPath = settings.SoundbankPath;
 								var newPath = AkUtilities.MakeRelativePath(UnityEngine.Application.streamingAssetsPath, path);
 
 								if (previousPath != newPath)
 								{
-									settings.WwiseStreamingAssetsPath = newPath;
+									settings.SoundbankPath = newPath;
 									AkWwiseInitializationSettings.Instance.UserSettings.m_BasePath = newPath;
 									changed = true;
 								}
@@ -483,13 +500,7 @@ public class AkWwiseEditorSettings
 						}
 					}
 				}
-#endif
-			}
-#if !(AK_WWISE_ADDRESSABLES && UNITY_ADDRESSABLES)
-			UnityEngine.GUILayout.Label(Styles.AssetManagement, UnityEditor.EditorStyles.boldLabel);
-			using (new UnityEngine.GUILayout.VerticalScope("box"))
-			{
-				UnityEngine.GUILayout.Space(UnityEditor.EditorGUIUtility.standardVerticalSpacing);
+
 				UnityEditor.EditorGUI.BeginChangeCheck();
 				settings.CopySoundBanksAsPreBuildStep = UnityEditor.EditorGUILayout.Toggle(Styles.CopySoundBanksAsPreBuildStep, settings.CopySoundBanksAsPreBuildStep);
 				UnityEngine.GUI.enabled = settings.CopySoundBanksAsPreBuildStep;
@@ -527,7 +538,6 @@ public class AkWwiseEditorSettings
 				settings.UseWaapi = UnityEditor.EditorGUILayout.Toggle(Styles.UseWaapi, settings.UseWaapi);
 				settings.WaapiPort = UnityEditor.EditorGUILayout.TextField(Styles.WaapiPort, settings.WaapiPort);
 				settings.WaapiIP = UnityEditor.EditorGUILayout.TextField(Styles.WaapiIP, settings.WaapiIP);
-				settings.AutoSyncWaapi = UnityEditor.EditorGUILayout.Toggle(Styles.AutosyncSelection, settings.AutoSyncWaapi);
 			}
 			
 			UnityEngine.GUILayout.Space(UnityEditor.EditorGUIUtility.standardVerticalSpacing);
@@ -572,7 +582,8 @@ public class AkWwiseEditorSettings
 					UnityEditor.EditorGUILayout.SelectableLabel(settings.AddressableBankFolder, Styles.TextField, UnityEngine.GUILayout.Height(17));
 					if (Ellipsis())
 					{
-						var FullPath = AkUtilities.GetFullPath(UnityEngine.Application.dataPath,settings.RootOutputPath);
+						var FullPath = AkUtilities.GetFullPath(UnityEngine.Application.dataPath,
+							settings.GeneratedSoundbanksPath);
 						var OpenInPath = System.IO.Path.GetDirectoryName(FullPath);
 						var path = UnityEditor.EditorUtility.OpenFolderPanel(
 							"Select Addressable Bank folder", OpenInPath,

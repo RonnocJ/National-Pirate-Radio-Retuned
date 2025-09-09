@@ -225,7 +225,7 @@ public class AkPluginActivator : UnityEditor.AssetPostprocessor
 					pluginBuildTarget = BuildTarget.StandaloneWindows64;
 					break;
 			}
-
+			
 			if (!BuildTargetToPlatformPluginActivator.TryGetValue(pluginBuildTarget, out var platformPluginActivator))
 			{
 				Debug.Log("WwiseUnity: Build Target " + pluginBuildTarget + " not supported.");

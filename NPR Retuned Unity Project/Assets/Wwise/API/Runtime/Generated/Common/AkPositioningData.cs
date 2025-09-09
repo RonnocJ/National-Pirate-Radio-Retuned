@@ -9,7 +9,6 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-///  Positioning data of 3D audio objects.
 
 public class AkPositioningData : global::System.IDisposable {
   private global::System.IntPtr swigCPtr;
@@ -51,7 +50,6 @@ public class AkPositioningData : global::System.IDisposable {
     }
   }
 
-  ///  3D data used for 3D spatialization.
   public Ak3dData threeD { set { AkUnitySoundEnginePINVOKE.CSharp_AkPositioningData_threeD_set(swigCPtr, Ak3dData.getCPtr(value)); } 
     get {
       global::System.IntPtr cPtr = AkUnitySoundEnginePINVOKE.CSharp_AkPositioningData_threeD_get(swigCPtr);
@@ -60,7 +58,6 @@ public class AkPositioningData : global::System.IDisposable {
     } 
   }
 
-  ///  Positioning data inherited from sound structures and mix busses.
   public AkBehavioralPositioningData behavioral { set { AkUnitySoundEnginePINVOKE.CSharp_AkPositioningData_behavioral_set(swigCPtr, AkBehavioralPositioningData.getCPtr(value)); } 
     get {
       global::System.IntPtr cPtr = AkUnitySoundEnginePINVOKE.CSharp_AkPositioningData_behavioral_get(swigCPtr);

@@ -10,13 +10,9 @@
 //------------------------------------------------------------------------------
 
 
-///  Flags to independently set the position of the emitter or listener component on a game object.
-public enum AkSetPositionFlags {
-  ///  Only set the emitter component position.
+public enum AkSetPositionFlags : byte {
   AkSetPositionFlags_Emitter = 1 << 0,
-  ///  Only set the listener component position.
   AkSetPositionFlags_Listener = 1 << 1,
-  ///  Default: set both emitter and listener component positions.
   AkSetPositionFlags_Default = (AkSetPositionFlags_Emitter|AkSetPositionFlags_Listener)
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

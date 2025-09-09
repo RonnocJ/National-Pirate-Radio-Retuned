@@ -10,7 +10,6 @@
 //------------------------------------------------------------------------------
 
 
-///  ErrorCode
 public enum AkMonitorErrorCode {
   ErrorCode_NoError = 0,
   ErrorCode_FileNotFound,
@@ -150,6 +149,7 @@ public enum AkMonitorErrorCode {
   ErrorCode_MismatchingMediaSize,
   ErrorCode_IncompatibleBankVersion,
   ErrorCode_UnexpectedPrepareGameSyncsCall,
+  ErrorCode_MusicEngineNotInitialized,
   ErrorCode_LoadingBankMismatch,
   ErrorCode_ProxyObjectMismatch,
   ErrorCode_ProxyObjectMemory,
@@ -234,9 +234,6 @@ public enum AkMonitorErrorCode {
   ErrorCode_WwiseIODisconnected,
   ErrorCode_WwiseIODisconnectedStr,
   ErrorCode_IODevice,
-  ErrorCode_InvalidCommand,
-  ErrorCode_PlayingIDAlreadyExists,
-  ErrorCode_IOStreamLeak,
   Num_ErrorCodes
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

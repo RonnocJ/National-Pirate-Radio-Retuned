@@ -17,24 +17,24 @@ Copyright (c) 2025 Audiokinetic Inc.
 #if UNITY_EDITOR
 public class WwiseMediaRef: global::System.IDisposable
 {
-    private global::System.IntPtr projectDatabasePtr;
-    protected bool bDeletesManually;
+    private global::System.IntPtr swigCPtr;
+    protected bool swigCMemOwn;
 
     internal WwiseMediaRef(global::System.IntPtr cPtr, bool cMemoryOwn)
     {
-        bDeletesManually = cMemoryOwn;
-        projectDatabasePtr = cPtr;
+        swigCMemOwn = cMemoryOwn;
+        swigCPtr = cPtr;
     }
 
     internal static global::System.IntPtr getCPtr(WwiseMediaRef obj)
     {
-        return (obj == null) ? global::System.IntPtr.Zero : obj.projectDatabasePtr;
+        return (obj == null) ? global::System.IntPtr.Zero : obj.swigCPtr;
     }
 
     internal virtual void setCPtr(global::System.IntPtr cPtr)
     {
         Dispose();
-        projectDatabasePtr = cPtr;
+        swigCPtr = cPtr;
     }
 
     ~WwiseMediaRef()
@@ -52,15 +52,15 @@ public class WwiseMediaRef: global::System.IDisposable
     {
         lock (this)
         {
-            if (projectDatabasePtr != global::System.IntPtr.Zero)
+            if (swigCPtr != global::System.IntPtr.Zero)
             {
-                if (bDeletesManually)
+                if (swigCMemOwn)
                 {
-                    bDeletesManually = false;
-                    WwiseProjectDatabase.DeleteMediaRef(projectDatabasePtr);
+                    swigCMemOwn = false;
+                    WwiseProjectDatabase.DeleteMediaRef(swigCPtr);
                 }
 
-                projectDatabasePtr = global::System.IntPtr.Zero;
+                swigCPtr = global::System.IntPtr.Zero;
             }
 
             global::System.GC.SuppressFinalize(this);
@@ -70,12 +70,12 @@ public class WwiseMediaRef: global::System.IDisposable
     public WwiseMediaRef(global::System.IntPtr cPtr) : this(cPtr, true)
     {
     }
-    public string Name => WwiseProjectDatabase.GetMediaName(projectDatabasePtr);
-    public string Path => WwiseProjectDatabase.GetMediaPath(projectDatabasePtr);
-    public uint ShortId => WwiseProjectDatabase.GetMediaShortId(projectDatabasePtr);
-    public string Language => WwiseProjectDatabase.GetMediaLanguage(projectDatabasePtr);
-    public bool IsStreaming => WwiseProjectDatabase.GetMediaIsStreaming(projectDatabasePtr);
-    public uint Location => WwiseProjectDatabase.GetMediaLocation(projectDatabasePtr);
-    public string CachePath => WwiseProjectDatabase.GetMediaCachePath(projectDatabasePtr);
+    public string Name => WwiseProjectDatabase.GetMediaName(swigCPtr);
+    public string Path => WwiseProjectDatabase.GetMediaPath(swigCPtr);
+    public uint ShortId => WwiseProjectDatabase.GetMediaShortId(swigCPtr);
+    public string Language => WwiseProjectDatabase.GetMediaLanguage(swigCPtr);
+    public bool IsStreaming => WwiseProjectDatabase.GetMediaIsStreaming(swigCPtr);
+    public uint Location => WwiseProjectDatabase.GetMediaLocation(swigCPtr);
+    public string CachePath => WwiseProjectDatabase.GetMediaCachePath(swigCPtr);
 }
 #endif

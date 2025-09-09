@@ -10,17 +10,9 @@
 //------------------------------------------------------------------------------
 
 
-/// Determines the operation used to calculate the transmission loss value for a transmission path.
-/// A ray is cast from listener to emitter, and this operation is applied to combine the current surface with the previous.
-/// A geometry instance can be marked as solid by using ``AkGeometryInstanceParams::IsSolid``.
-/// If a geometry instance is solid, transmission loss is applied for each pair of hit surfaces, representing an entrance and exit through the geometry.
-/// The transmission loss from a pair of hits through a solid geometry instance will be the max of both hits.
-public enum AkTransmissionOperation {
-  ///  Transmission loss of each hit surface is summed until it reaches 100%.
+public enum AkTransmissionOperation : byte {
   AkTransmissionOperation_Add,
-  ///  The inverse of transmission loss (1 - TL) is multiplied in succession, and the result inverted. With each hit surface, the effect of additional transmission loss is reduced. The total loss will approach but never reach 100% unless a surface with 100% loss is found.
   AkTransmissionOperation_Multiply,
-  ///  The highest transmission loss of all hit surfaces is used.
   AkTransmissionOperation_Max,
   AkTransmissionOperation_Default = AkTransmissionOperation_Max
 }

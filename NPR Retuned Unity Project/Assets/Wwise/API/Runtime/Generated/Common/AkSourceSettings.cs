@@ -9,7 +9,6 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-///  Necessary settings for setting externally-loaded sources
 
 public class AkSourceSettings : global::System.IDisposable {
   private global::System.IntPtr swigCPtr;
@@ -51,15 +50,12 @@ public class AkSourceSettings : global::System.IDisposable {
     }
   }
 
-  ///  Source ID (available in the SoundBank content files)
   public uint sourceID { set { AkUnitySoundEnginePINVOKE.CSharp_AkSourceSettings_sourceID_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkSourceSettings_sourceID_get(swigCPtr); } 
   }
 
-  ///  Pointer to the data to be set for the source
   public global::System.IntPtr pMediaMemory { set { AkUnitySoundEnginePINVOKE.CSharp_AkSourceSettings_pMediaMemory_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkSourceSettings_pMediaMemory_get(swigCPtr); }
   }
 
-  ///  Size, in bytes, of the data to be set for the source
   public uint uMediaSize { set { AkUnitySoundEnginePINVOKE.CSharp_AkSourceSettings_uMediaSize_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkSourceSettings_uMediaSize_get(swigCPtr); } 
   }
 

@@ -40,23 +40,18 @@ public class AkDurationCallbackInfo : AkEventCallbackInfo {
     }
   }
 
-  ///  Duration of the sound (unit: milliseconds)
   public float fDuration { get { return AkUnitySoundEnginePINVOKE.CSharp_AkDurationCallbackInfo_fDuration_get(swigCPtr); } 
   }
 
-  ///  Estimated duration of the sound depending on source settings such as pitch. (unit: milliseconds)
   public float fEstimatedDuration { get { return AkUnitySoundEnginePINVOKE.CSharp_AkDurationCallbackInfo_fEstimatedDuration_get(swigCPtr); } 
   }
 
-  ///  Audio Node ID of playing item
   public uint audioNodeID { get { return AkUnitySoundEnginePINVOKE.CSharp_AkDurationCallbackInfo_audioNodeID_get(swigCPtr); } 
   }
 
-  ///  Media ID of playing item. (corresponds to 'ID' attribute of 'File' element in SoundBank metadata file)
   public uint mediaID { get { return AkUnitySoundEnginePINVOKE.CSharp_AkDurationCallbackInfo_mediaID_get(swigCPtr); } 
   }
 
-  ///  True if source is streaming, false otherwise.
   public bool bStreaming { get { return AkUnitySoundEnginePINVOKE.CSharp_AkDurationCallbackInfo_bStreaming_get(swigCPtr); } 
   }
 

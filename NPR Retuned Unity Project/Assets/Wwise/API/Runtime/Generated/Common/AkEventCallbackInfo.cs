@@ -40,11 +40,9 @@ public class AkEventCallbackInfo : AkCallbackInfo {
     }
   }
 
-  ///  Playing ID of Event, returned by PostEvent()
   public uint playingID { get { return AkUnitySoundEnginePINVOKE.CSharp_AkEventCallbackInfo_playingID_get(swigCPtr); } 
   }
 
-  ///  Unique ID of Event, passed to PostEvent()
   public uint eventID { get { return AkUnitySoundEnginePINVOKE.CSharp_AkEventCallbackInfo_eventID_get(swigCPtr); } 
   }
 

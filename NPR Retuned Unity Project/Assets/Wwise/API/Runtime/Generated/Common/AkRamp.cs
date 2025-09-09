@@ -9,7 +9,6 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-///  Volume ramp specified by end points "previous" and "next".
 
 public class AkRamp : global::System.IDisposable {
   private global::System.IntPtr swigCPtr;

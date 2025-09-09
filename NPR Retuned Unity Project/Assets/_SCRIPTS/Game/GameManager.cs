@@ -14,14 +14,6 @@ public enum PlayerState
     Weapon = 2,
     Dead = 3
 }
-[Flags]
-public enum DiscState
-{
-    Empty = 0,
-    Finding = 1,
-    Handling = 2,
-    Playing = 3
-}
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] private GameState _currentGState;
@@ -52,23 +44,8 @@ public class GameManager : Singleton<GameManager>
             }
         }
     }
-    [SerializeField] private DiscState _currentDState;
-    public DiscState CurrentDState
-    {
-        get => _currentDState;
-        set
-        {
-            if (value != _currentDState)
-            {
-                OnDStateSwitch?.Invoke(value);
-
-                _currentDState = value;
-            }
-        }
-    }
     public Action<GameState> OnGStateSwitch;
     public Action<PlayerState> OnPStateSwitch;
-    public Action<DiscState> OnDStateSwitch;
     void Start()
     {
         PInputManager.root.actions[PlayerActionType.Switch].bAction += SwitchVanMode;

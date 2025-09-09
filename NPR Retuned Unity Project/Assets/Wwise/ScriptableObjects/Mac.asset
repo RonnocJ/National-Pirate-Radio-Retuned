@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9899dd0b6fb449dca6f0c18dd5d3623, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e7509550c2794eb9bf1c77802fdd8ab, type: 3}
   m_Name: Mac
   m_EditorClassIdentifier: AK.Wwise.Unity.API::AkMacSettings
   IgnorePropertyNameList: []
@@ -43,9 +43,6 @@ MonoBehaviour:
   - UserSettings.m_SpatialAudioSettings.m_EnableGeometricDiffractionAndTransmission
   - UserSettings.m_SpatialAudioSettings.m_CalcEmitterVirtualPosition
   - UserSettings.m_SpatialAudioSettings.m_LoadBalancingSpread
-  - UserSettings.m_SpatialAudioSettings.m_ClusteringMinPoints
-  - UserSettings.m_SpatialAudioSettings.m_ClusteringMaxDistance
-  - UserSettings.m_SpatialAudioSettings.m_ClusteringDeadZoneDistance
   - CommsSettings.m_PoolSize
   - CommsSettings.m_DiscoveryBroadcastPort
   - CommsSettings.m_CommandPort
@@ -116,9 +113,6 @@ MonoBehaviour:
       m_MaxDiffractionAngleDegrees: 180
       m_SmoothingConstantMs: 0
       m_TransmissionOperation: 2
-      m_ClusteringMinPoints: 0
-      m_ClusteringMaxDistance: 5
-      m_ClusteringDeadZoneDistance: 10
   AdvancedSettings:
     m_IOMemorySize: 2097152
     m_TargetAutoStreamBufferLengthMs: 380

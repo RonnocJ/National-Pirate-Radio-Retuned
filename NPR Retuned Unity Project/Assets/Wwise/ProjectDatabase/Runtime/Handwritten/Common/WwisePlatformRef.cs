@@ -17,24 +17,24 @@ Copyright (c) 2025 Audiokinetic Inc.
 #if UNITY_EDITOR
 public class WwisePlatformRef: global::System.IDisposable
 {
-    private global::System.IntPtr projectDatabasePtr;
-    protected bool bDeletesManually;
+    private global::System.IntPtr swigCPtr;
+    protected bool swigCMemOwn;
 
     internal WwisePlatformRef(global::System.IntPtr cPtr, bool cMemoryOwn)
     {
-        bDeletesManually = cMemoryOwn;
-        projectDatabasePtr = cPtr;
+        swigCMemOwn = cMemoryOwn;
+        swigCPtr = cPtr;
     }
 
     internal static global::System.IntPtr getCPtr(WwisePlatformRef obj)
     {
-        return (obj == null) ? global::System.IntPtr.Zero : obj.projectDatabasePtr;
+        return (obj == null) ? global::System.IntPtr.Zero : obj.swigCPtr;
     }
 
     internal virtual void setCPtr(global::System.IntPtr cPtr)
     {
         Dispose();
-        projectDatabasePtr = cPtr;
+        swigCPtr = cPtr;
     }
 
     ~WwisePlatformRef()
@@ -52,15 +52,15 @@ public class WwisePlatformRef: global::System.IDisposable
     {
         lock (this)
         {
-            if (projectDatabasePtr != global::System.IntPtr.Zero)
+            if (swigCPtr != global::System.IntPtr.Zero)
             {
-                if (bDeletesManually)
+                if (swigCMemOwn)
                 {
-                    bDeletesManually = false;
-                    WwiseProjectDatabase.DeletePlatformRef(projectDatabasePtr);
+                    swigCMemOwn = false;
+                    WwiseProjectDatabase.DeletePlatformRef(swigCPtr);
                 }
 
-                projectDatabasePtr = global::System.IntPtr.Zero;
+                swigCPtr = global::System.IntPtr.Zero;
             }
 
             global::System.GC.SuppressFinalize(this);
@@ -75,8 +75,8 @@ public class WwisePlatformRef: global::System.IDisposable
     {
     }
     
-    public string Name => WwiseProjectDatabase.GetPlatformName(projectDatabasePtr);
-    public System.Guid Guid => WwiseProjectDatabase.GetPlatformGuid(projectDatabasePtr);
+    public string Name => WwiseProjectDatabase.GetPlatformName(swigCPtr);
+    public System.IntPtr Guid => WwiseProjectDatabase.GetPlatformGuid(swigCPtr);
 
 }
 #endif

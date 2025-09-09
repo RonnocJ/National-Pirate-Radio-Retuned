@@ -15,7 +15,6 @@ in a written agreement between you and Audiokinetic Inc.
 Copyright (c) 2025 Audiokinetic Inc.
 *******************************************************************************/
 
-using System.Collections;
 #if !(UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.
 
 #if AK_WWISE_ADDRESSABLES && UNITY_ADDRESSABLES
@@ -54,18 +53,6 @@ namespace AK.Wwise
 			}
 #endif
 		}
-
-#if AK_WWISE_ADDRESSABLES && UNITY_ADDRESSABLES
-		public IEnumerator WaitForBankToBeLoaded(UnityEngine.GameObject gameObject)
-		{
-			var args = new object[] { gameObject };
-			var argTypes = new System.Type[] { gameObject.GetType()};
-			while (!AkAddressableBankManager.Instance.LoadedBankContainsEvent(Name, Id, this, "Post", argTypes, args))
-			{
-				yield return null;
-			}
-		}
-#endif
 
 		/// <summary>
 		///     Posts this Event on a GameObject.

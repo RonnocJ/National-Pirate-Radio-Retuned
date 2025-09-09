@@ -7,7 +7,7 @@ public class GameSceneManager : Singleton<GameSceneManager>
     [SerializeField] private RectTransform[] levelCards;
     void Start()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
     }
 
     public void LoadLevel()

@@ -16,10 +16,6 @@ in a written agreement between you and Audiokinetic Inc.
 Copyright (c) 2025 Audiokinetic Inc.
 *******************************************************************************/
 
-using System.IO;
-using System.Text.RegularExpressions;
-using UnityEditor;
-
 /// <summary>
 ///     This class is responsible for determining the path where sound banks are located. When using custom platforms, this
 ///     class needs to be extended.
@@ -77,7 +73,7 @@ public partial class AkBasePathGetter
 		if (!string.IsNullOrEmpty(platformBasePathEditor))
 			return platformBasePathEditor;
 
-		var fullBasePath = AkWwiseEditorSettings.Instance.WwiseStreamingAssetsPath;
+		var fullBasePath = AkWwiseEditorSettings.Instance.SoundbankPath;
 #else
 		var fullBasePath = string.Empty;
 #endif
@@ -124,9 +120,24 @@ public partial class AkBasePathGetter
 	/// <returns>The absolute sound bank base path.</returns>
 	public static string GetFullSoundBankPathEditor()
 	{
-		string fullBasePath = System.IO.Path.Combine(UnityEngine.Application.streamingAssetsPath, AkWwiseEditorSettings.Instance.WwiseStreamingAssetsPath);
+		string fullBasePath = System.IO.Path.Combine(UnityEngine.Application.streamingAssetsPath, AkWwiseEditorSettings.Instance.SoundbankPath);
 		AkUtilities.FixSlashes(ref fullBasePath);
 		return fullBasePath;
+	}
+	
+	public static string GetWwiseRootOutputPath(string wwiseAbsolutePath = "")
+	{
+		string wwiseRootOuputPath = AkUtilities.GetRootOutputPath(wwiseAbsolutePath == "" ? AkWwiseEditorSettings.WwiseProjectAbsolutePath : wwiseAbsolutePath);
+#if UNITY_EDITOR_OSX
+		wwiseRootOuputPath = AkUtilities.ParseOsxPathFromWinePath(wwiseRootOuputPath);
+#endif
+		if (System.IO.Path.IsPathRooted(wwiseRootOuputPath))
+		{
+			return wwiseRootOuputPath;
+		}
+		var combinedPath = System.IO.Path.Combine(GetWwiseProjectDirectory(wwiseAbsolutePath), wwiseRootOuputPath);
+		AkUtilities.FixSlashes(ref combinedPath);
+		return combinedPath;
 	}
 
 	public static string GetWwiseProjectPath()
@@ -141,14 +152,9 @@ public partial class AkBasePathGetter
 		return System.IO.Path.GetDirectoryName(projectPath);
 	}
 
-	public static string GetDefaultRootOutputPath()
+	public static string GetDefaultGeneratedSoundbanksPath()
 	{
-		string path = Path.GetDirectoryName(GetWwiseProjectPath());
-		if (path == null)
-		{
-			return null;
-		}
-		return System.IO.Path.Combine(path, "GeneratedSoundBanks");
+		return System.IO.Path.Combine(GetWwiseProjectPath(), "GeneratedSoundBanks");
 	}
 
 	/// <summary>
@@ -159,7 +165,7 @@ public partial class AkBasePathGetter
 	private static string GetPlatformBasePathEditor(string platformName)
 	{
 		var WwiseProjectFullPath = GetWwiseProjectPath();
-		var SoundBankDest = AkUtilities.GetWwiseSoundBankDestinationFolder(platformName);
+		var SoundBankDest = AkUtilities.GetWwiseSoundBankDestinationFolder(platformName, AkWwiseEditorSettings.WwiseProjectAbsolutePath);
 
 		try
 		{

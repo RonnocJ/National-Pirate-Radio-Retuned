@@ -9,9 +9,6 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-/// Structure containing information about system-level support for 3D audio.
-/// "3D Audio" refers to a system's ability to position sound sources in a virtual 3D space, pan them accordingly on a range of physical speakers, and produce a binaural mix where appropriate.
-/// We prefer "3D Audio" to "Spatial" to avoid ambiguity with spatial audio, which typically involves sound propagation and environment effects.
 
 public class Ak3DAudioSinkCapabilities : global::System.IDisposable {
   private global::System.IntPtr swigCPtr;
@@ -61,19 +58,15 @@ public class Ak3DAudioSinkCapabilities : global::System.IDisposable {
     } 
   }
 
-  ///  Maximum number of System Audio Objects that can be active concurrently. A value of zero indicates the system does not support this feature.
   public uint uMaxSystemAudioObjects { set { AkUnitySoundEnginePINVOKE.CSharp_Ak3DAudioSinkCapabilities_uMaxSystemAudioObjects_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_Ak3DAudioSinkCapabilities_uMaxSystemAudioObjects_get(swigCPtr); } 
   }
 
-  ///  How many System Audio Objects can currently be sent to the sink. This value can change at runtime depending on what is playing. Can never be higher than uMaxSystemAudioObjects.
   public uint uAvailableSystemAudioObjects { set { AkUnitySoundEnginePINVOKE.CSharp_Ak3DAudioSinkCapabilities_uAvailableSystemAudioObjects_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_Ak3DAudioSinkCapabilities_uAvailableSystemAudioObjects_get(swigCPtr); } 
   }
 
-  ///  Separate  pass-through mix is supported.
   public bool bPassthrough { set { AkUnitySoundEnginePINVOKE.CSharp_Ak3DAudioSinkCapabilities_bPassthrough_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_Ak3DAudioSinkCapabilities_bPassthrough_get(swigCPtr); } 
   }
 
-  ///  Can handle multi-channel objects
   public bool bMultiChannelObjects { set { AkUnitySoundEnginePINVOKE.CSharp_Ak3DAudioSinkCapabilities_bMultiChannelObjects_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_Ak3DAudioSinkCapabilities_bMultiChannelObjects_get(swigCPtr); } 
   }
 

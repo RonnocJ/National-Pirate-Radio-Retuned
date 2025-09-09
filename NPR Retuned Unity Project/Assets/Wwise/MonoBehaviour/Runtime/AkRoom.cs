@@ -50,9 +50,6 @@ public class AkRoom : AkTriggerHandler
 	/// Loss value modeling transmission through walls.
 	public float transmissionLoss = 1;
 
-	/// [Experimental] Determines how a room interacts with the distance calculation of other rooms that it overlaps or is nested within.
-	public AkRoomDistanceBehavior subtractFromParent = AkRoomDistanceBehavior.AkRoomDistanceBehavior_Default;
-
 	/// Wwise Event to be posted on the room game object.
 	public AK.Wwise.Event roomToneEvent = new AK.Wwise.Event();
 
@@ -363,9 +360,8 @@ public class AkRoom : AkTriggerHandler
 
 			RoomGameObj_AuxSendLevelToSelf = roomToneAuxSend,
 			RoomGameObj_KeepRegistered = roomToneEvent.IsValid(),
-			RoomPriority = priority,
-			DistanceBehavior = subtractFromParent
-        };
+			RoomPriority = priority
+		};
 
 		if (bSentToWwise == false)
 		{

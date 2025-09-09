@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3187507146	Play_Test			\Default Work Unit\Play_Test	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	706015877	TT_MSC_Roaming_Lo	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR Retuned Wwise Project\.cache\84\{84EFDDFC-27FC-78AB-6E48-ECA04335A639}.wem		\Interactive Music Hierarchy\Default Work Unit\Test\TT_MSC_Roaming_Lo\TT_MSC_Roaming_Lo		22759832
+

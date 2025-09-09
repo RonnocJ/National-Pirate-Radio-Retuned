@@ -18,83 +18,29 @@ Copyright (c) 2025 Audiokinetic Inc.
 
 using System.Linq;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using UnityEditor.IMGUI.Controls;
-
-public enum BrowserFilter
-{
-	None,
-	SoundBanksUpToDate = 1 << 0,
-	NewInWwise = 1 << 1,
-	DeletedInWwise = 1 << 2,
-	RenamedInWwise = 1 << 3,
-	MovedInWwise = 1 << 4,
-	SoundBankNeedsUpdate = 1 << 5,
-	Event = 1 << 6,
-	Bus = 1 << 7,
-	SoundBank = 1 << 8,
-	Switch = 1 << 9,
-	State = 1 << 10,
-	Trigger = 1 << 11,
-	AcousticTexture = 1 << 12,
-	GameParameter = 1 << 13
-}
-
-public class WwiseTreeStringKey
-{
-	string name;
-	WwiseObjectType objectType;
-
-	public WwiseTreeStringKey(string name, WwiseObjectType objectType)
-	{
-		this.name = name;
-		this.objectType = objectType;
-	}
-
-	public override int GetHashCode()
-	{
-		return name.GetHashCode() | objectType.GetHashCode();
-	}
-
-	public override bool Equals(object obj)
-	{
-		if (obj is WwiseTreeStringKey)
-		{
-			WwiseTreeStringKey other = (WwiseTreeStringKey)obj;
-			return other.objectType == objectType && other.name == name;
-		}
-		return false;
-	}
-}
 
 public abstract class AkWwiseTreeDataSource
 { 
 	public class TreeItems
 	{
 		public Dictionary<System.Guid, AkWwiseTreeViewItem> ItemDict;
-		public Dictionary<WwiseTreeStringKey, AkWwiseTreeViewItem> ItemNameDict;
 
 
 		public TreeItems()
 		{
 			ItemDict = new Dictionary<System.Guid, AkWwiseTreeViewItem>();
-			ItemNameDict = new Dictionary<WwiseTreeStringKey, AkWwiseTreeViewItem>();
 		}
 
 		public void Clear()
 		{
 			ItemDict.Clear();
-			ItemNameDict.Clear();
 		}
 		public void Add(AkWwiseTreeViewItem item)
 		{
 			try
 			{
 				ItemDict[item.objectGuid] = item;
-				if (item.name != null)
-				{
-					ItemNameDict[new WwiseTreeStringKey(item.name, item.objectType)] = item;	
-				}
 			}
 			catch (System.ArgumentException e)
 			{
@@ -102,20 +48,6 @@ public abstract class AkWwiseTreeDataSource
 			}
 		}
 	}
-	
-	static public ReadOnlyDictionary<WwiseObjectType, string> FolderNames = new ReadOnlyDictionary<WwiseObjectType, string>(new Dictionary<WwiseObjectType, string>()
-	{
-		{ WwiseObjectType.AuxBus ,  "Busses" },
-		{ WwiseObjectType.Event ,  "Events" },
-		{ WwiseObjectType.State, "States"},
-		{ WwiseObjectType.StateGroup, "States"},
-		{ WwiseObjectType.Soundbank, "SoundBanks"},
-		{ WwiseObjectType.Switch, "Switches"},
-		{ WwiseObjectType.SwitchGroup, "Switches"},
-		{ WwiseObjectType.AcousticTexture, "Virtual Acoustics" },
-		{ WwiseObjectType.Trigger, "Triggers" },
-		{ WwiseObjectType.GameParameter, "Game Parameters" },
-	});
 
 	public TreeItems Data;
 
@@ -126,11 +58,11 @@ public abstract class AkWwiseTreeDataSource
 
 	public TreeItems SearchData;
 
-	protected AkWwiseTreeView TreeView { get; set; }
+	public AkWwiseTreeView TreeView { protected get; set; }
 
 	public event System.Action modelChanged;
 
-	public virtual AkWwiseTreeViewItem CreateProjectRootItem()
+	public AkWwiseTreeViewItem CreateProjectRootItem()
 	{
 		return new AkWwiseTreeViewItem(System.IO.Path.GetFileNameWithoutExtension(AkWwiseEditorSettings.Instance.WwiseProjectPath),
 			-1, GenerateUniqueID(), System.Guid.Empty, WwiseObjectType.Project);
@@ -148,24 +80,6 @@ public abstract class AkWwiseTreeDataSource
 		wwiseObjectFolders = new Dictionary<WwiseObjectType, AkWwiseTreeViewItem>();
 		ProjectRoot = CreateProjectRootItem();
 	}
-	
-	public TreeViewItem<int> FindByIdRecursive(TreeViewItem<int> item, int id)
-	{
-		if (item.id == id)
-		{
-			return item;
-		}
-		foreach (var element in item.children)
-		{
-			var found = FindByIdRecursive(element, id);
-			if (found != null)
-			{
-				return found;
-			}
-		}
-
-		return null;
-	}
 
 	public AkWwiseTreeViewItem FindById(int id)
 	{
@@ -173,44 +87,7 @@ public abstract class AkWwiseTreeDataSource
 		{
 			return null;
 		}
-
-		foreach (var element in ProjectRoot.children)
-		{
-			var found = FindByIdRecursive(element, id);
-			if (found != null)
-			{
-				return found as AkWwiseTreeViewItem;
-			}
-		}
 		return Data.ItemDict.Values.FirstOrDefault(element => element.id == id);
-	}
-	
-	public TreeViewItem<int> FindByNameRecursive(TreeViewItem<int> item, string name, WwiseObjectType objectType)
-	{
-		if ( (item as AkWwiseTreeViewItem).objectType == objectType && item.displayName == name)
-		{
-			return item;
-		}
-		foreach (var element in item.children)
-		{
-			var found = FindByNameRecursive(element, name, objectType);
-			if (found != null)
-			{
-				return found;
-			}
-		}
-
-		return null;
-	}
-	
-	public AkWwiseTreeViewItem FindByName(string name, WwiseObjectType objectType)
-	{
-		var key = new WwiseTreeStringKey(name, objectType);
-		if (Data.ItemNameDict.ContainsKey(key))
-		{
-			return Data.ItemNameDict[key];
-		}
-		return null;
 	}
 
 	public AkWwiseTreeViewItem FindByGuid(System.Guid guid)
@@ -238,7 +115,7 @@ public abstract class AkWwiseTreeDataSource
 	public IList<int> GetAncestors(int id)
 	{
 		var parents = new List<int>();
-		TreeViewItem<int> el = FindById(id);
+		TreeViewItem el = FindById(id);
 		if (el != null)
 		{
 			while (el.parent != null)
@@ -285,10 +162,11 @@ public abstract class AkWwiseTreeDataSource
 
 	protected void Changed()
 	{
-		modelChanged?.Invoke();
+		if (modelChanged != null)
+			modelChanged();
 	}
 
-	public bool IsExpanded(TreeViewState<int> state, int id)
+	public bool IsExpanded(TreeViewState state, int id)
 	{
 		if (ProjectRoot != null && id == ProjectRoot.id)
 		{
@@ -314,7 +192,7 @@ public abstract class AkWwiseTreeDataSource
 	public string currentSearchString;
 	public bool isSearching = false;
 	public abstract AkWwiseTreeViewItem GetSearchResults();
-	public abstract void UpdateSearchResults(string searchString, WwiseObjectType objectType, BrowserFilter Filters);
+	public abstract void UpdateSearchResults(string searchString, WwiseObjectType objectType);
 	public virtual void SelectItem(System.Guid itemGuid)
 	{
 		bool success = TreeView.ExpandItem(itemGuid, true);
@@ -323,11 +201,6 @@ public abstract class AkWwiseTreeDataSource
 			UnityEditor.EditorApplication.delayCall += () => { SelectItem(itemGuid); };
 		}
 		
-	}
-	
-	public virtual void SetWwiseTreeView(AkWwiseTreeView treeView)
-	{
-		TreeView = treeView;
 	}
 
 	public virtual void LoadComponentData(WwiseObjectType objectType) { }

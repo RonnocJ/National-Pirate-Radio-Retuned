@@ -32,12 +32,12 @@ public class AkWwiseTreeWAAPIDataSource : AkWwiseTreeDataSource
 
 	private System.Timers.Timer selectTimer;
 	private System.Timers.Timer searchTimer;
-	private int counter = 0;
-	public System.Action ObjectInfoLoaded;
 
 	private ReturnOptions waapiWwiseObjectOptions = 
 		new ReturnOptions(new string[] { "id", "name", "type", "childrenCount", "path", "workunitType", "parent" });
 
+
+	public bool AutoSyncSelection;
 	public bool WaitingForSearchResults;
 
 	public AkWwiseTreeWAAPIDataSource() : base()
@@ -60,21 +60,14 @@ public class AkWwiseTreeWAAPIDataSource : AkWwiseTreeDataSource
 		Data.Clear();
 		m_MaxID = 0;
 		ProjectRoot = CreateProjectRootItem();
-		counter = 0;
 
 		foreach (var type in FolderNames.Keys)
 		{
 			AkWaapiUtilities.GetResultListDelegate<WwiseObjectInfoJsonObject> callback = (List<WwiseObjectInfoJsonObject> items) =>
 			{
 				AddBaseFolder(AkWaapiUtilities.ParseObjectInfo(items), type);
-				counter++;
-				if (counter >= FolderNames.Count)
-				{
-					ObjectInfoLoaded?.Invoke();
-					counter = 0;
-				}
 			};
-			AkWaapiUtilities.GetWwiseObjectAndDescendants("\\" + FolderNames[type], waapiWwiseObjectOptions, -1, callback);
+			AkWaapiUtilities.GetWwiseObjectAndDescendants(FolderNames[type], waapiWwiseObjectOptions, 2, callback);
 		}
 		Changed();
 	}
@@ -119,7 +112,7 @@ public class AkWwiseTreeWAAPIDataSource : AkWwiseTreeDataSource
 
 	private string searchString;
 	private WwiseObjectType searchObjectTypeFilter;
-	public override void UpdateSearchResults(string searchFilter, WwiseObjectType objectType = WwiseObjectType.None, BrowserFilter Filters = BrowserFilter.None)
+	public override void UpdateSearchResults(string searchFilter, WwiseObjectType objectType = WwiseObjectType.None)
 	{
 		searchTimer.Stop();
 		searchString = searchFilter;
@@ -375,6 +368,20 @@ public class AkWwiseTreeWAAPIDataSource : AkWwiseTreeDataSource
 		return true;
 	}
 
+	private ReadOnlyDictionary<WwiseObjectType, string> FolderNames = new ReadOnlyDictionary<WwiseObjectType, string>(new Dictionary<WwiseObjectType, string>()
+	{
+		{ WwiseObjectType.AuxBus ,  @"\Master-Mixer Hierarchy" },
+		{ WwiseObjectType.Event ,  @"\Events" },
+		{ WwiseObjectType.State, @"\States"},
+		{ WwiseObjectType.StateGroup, @"\States"},
+		{ WwiseObjectType.Soundbank, @"\SoundBanks"},
+		{ WwiseObjectType.Switch, @"\Switches"},
+		{ WwiseObjectType.SwitchGroup, @"\Switches"},
+		{ WwiseObjectType.AcousticTexture, @"\Virtual Acoustics" },
+		{ WwiseObjectType.Trigger, @"\Triggers" },
+		{ WwiseObjectType.GameParameter, @"\Game Parameters" },
+	 });
+
 
 	static List<AkWaapiUtilities.SubscriptionInfo> subscriptions = new List<AkWaapiUtilities.SubscriptionInfo>();
 
@@ -414,12 +421,7 @@ public class AkWwiseTreeWAAPIDataSource : AkWwiseTreeDataSource
 	void OnWaapiRenamed(string json)
 	{
 		var renamedItem = AkWaapiUtilities.ParseRenameObject(json);
-		//An object was added. This will be handled in OnWaapiChildAdded
-		if (renamedItem.newName == renamedItem.objectInfo.path)
-		{
-			return;
-		}
-		treeviewCommandQueue.Enqueue(new TreeViewCommand(() => Rename(renamedItem.objectInfo.objectGUID, renamedItem.newName, renamedItem.objectInfo.path)));
+		treeviewCommandQueue.Enqueue(new TreeViewCommand(() => Rename(renamedItem.objectInfo.objectGUID, renamedItem.newName)));
 	}
 
 	void OnWaapiChildAdded(string json)
@@ -447,10 +449,6 @@ public class AkWwiseTreeWAAPIDataSource : AkWwiseTreeDataSource
 			child.numChildren = added.childInfo.childrenCount;
 			child.displayName = added.childInfo.name;
 		}
-		child.path = added.childInfo.path;
-		child.waapiPath = added.childInfo.path;
-		child.waapiName = added.childInfo.name;
-		child.objectGuid = added.childInfo.objectGUID;
 
 		parent.AddWwiseItemChild(child);
 		Data.Add(child);
@@ -485,7 +483,7 @@ public class AkWwiseTreeWAAPIDataSource : AkWwiseTreeDataSource
 
 	void OnWwiseSelectionChanged(string json)
 	{
-		if (AkWwiseEditorSettings.Instance.AutoSyncWaapi)
+		if (AutoSyncSelection)
 		{
 			var objects = AkWaapiUtilities.ParseSelectedObjects(json);
 			if (objects.Count > 0)
@@ -498,20 +496,17 @@ public class AkWwiseTreeWAAPIDataSource : AkWwiseTreeDataSource
 		}
 	}
 
-	public void Rename(System.Guid objectGuid, string newName, string newPath)
+	public void Rename(System.Guid objectGuid, string newName)
 	{
 		var item = FindByGuid(objectGuid);
 		if (item != null)
 		{
 			item.name = newName;
-			item.path = newPath;
-			item.waapiPath = newPath;
 		}
 		else
 		{
-			toRequeue.Enqueue(new TreeViewCommand(() => Rename(objectGuid, newName, newPath)));
+			toRequeue.Enqueue(new TreeViewCommand(() => Rename(objectGuid, newName)));
 		}
-		ScheduleRebuild();
 	}
 
 	public void Remove(WwiseObjectInfo parentInfo, WwiseObjectInfo childInfo)
@@ -530,7 +525,6 @@ public class AkWwiseTreeWAAPIDataSource : AkWwiseTreeDataSource
 		{
 			parent.children.RemoveAt(index);
 		}
-		ScheduleRebuild();
 	}
 
 	public void Expand(System.Guid objectGuid, bool select)
@@ -574,7 +568,7 @@ public class AkWwiseTreeWAAPIDataSource : AkWwiseTreeDataSource
 		var splitpath = path.Split('\\');
 		if (splitpath.Length > 1)
 		{
-			var folder = splitpath[1];
+			var folder = @"\" + splitpath[1];
 			if (FolderNames.Values.Contains(folder) || WaapiKeywords.FolderDisplaynames.Values.Contains(folder))
 			{
 				return true;
@@ -585,7 +579,7 @@ public class AkWwiseTreeWAAPIDataSource : AkWwiseTreeDataSource
 
 	public override void ItemSelected(AkWwiseTreeViewItem item)
 	{
-		if (AkWwiseEditorSettings.Instance.AutoSyncWaapi)
+		if (AutoSyncSelection)
 		{
 			SelectObjectInAuthoring(item.objectGuid);
 		}
@@ -651,6 +645,10 @@ public class AkWwiseTreeWAAPIDataSource : AkWwiseTreeDataSource
 		if (rebuildFlag)
 		{
 			TreeUtility.TreeToList(ProjectRoot, ref Data);
+			if (TreeView != null)
+			{
+				Preload(ProjectRoot, TreeView.state);
+			}
 			refreshFlag = true;
 			rebuildFlag = false;
 		}

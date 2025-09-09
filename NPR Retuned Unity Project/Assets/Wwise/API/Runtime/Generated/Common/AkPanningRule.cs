@@ -10,13 +10,9 @@
 //------------------------------------------------------------------------------
 
 
-///  Headphone / speakers panning rules
-public enum AkPanningRule {
-  ///  Left and right positioned 60 degrees apart (by default - see AK::SoundEngine::GetSpeakerAngles()).
+public enum AkPanningRule : byte {
   AkPanningRule_Speakers = 0,
-  ///  Left and right positioned 180 degrees apart.
   AkPanningRule_Headphones = 1,
-  ///  End of enum, invalid value.
   AkPanningRule_Last
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

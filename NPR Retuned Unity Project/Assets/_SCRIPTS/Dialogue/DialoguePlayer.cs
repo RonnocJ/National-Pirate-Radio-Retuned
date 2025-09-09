@@ -36,13 +36,13 @@ public class DialoguePlayer : Singleton<DialoguePlayer>
 
     public void PlayFromResources(string filePath, string scenarioName, int clusterId, Action OnComplete)
     {
-        string resourcePath = $"Scripts/{filePath}";
+        string resourcePath = $"Text/Scripts/{filePath}";
 
-        var script = DialogueLoader.LoadFromResources(resourcePath);
-        if (script == null || script.scenarios == null)
+        var script = TextLoader.LoadFromResources(resourcePath);
+        if (script == null || script.blocks == null)
             return;
 
-        var scenario = script.scenarios.Find(s => s != null && s.name == scenarioName);
+        var scenario = script.blocks.Find(s => s != null && s.name == scenarioName);
         if (scenario == null || scenario.clusters == null)
         {
             Debug.LogWarning($"Scenario '{scenarioName}' not found.");
@@ -65,7 +65,7 @@ public class DialoguePlayer : Singleton<DialoguePlayer>
         StartCoroutine(PlayClusterRoutine(cluster, OnComplete));
     }
 
-    private IEnumerator PlayClusterRoutine(DialogueCluster cluster, Action OnComplete)
+    private IEnumerator PlayClusterRoutine(TextCluster cluster, Action OnComplete)
     {
         if (cluster.pauseBefore > 0f)
         {
@@ -87,13 +87,13 @@ public class DialoguePlayer : Singleton<DialoguePlayer>
         OnComplete?.Invoke();
     }
 
-    private IEnumerator PlayLineRoutine(DialogueLine line)
+    private IEnumerator PlayLineRoutine(TextLine line)
     {
         _speakerMap.TryGetValue(line.speaker, out var talker);
 
         if (!string.IsNullOrEmpty(line.speaker))
         {
-            var speakerLine = new DialogueLine { text = line.speaker, speed = 0f };
+            var speakerLine = new TextLine { text = line.speaker, speed = 0f };
             namePlate.SetText(speakerLine);
         }
 

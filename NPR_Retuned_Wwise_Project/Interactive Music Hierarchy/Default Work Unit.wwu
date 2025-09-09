@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{67D82442-2027-4B60-B7DE-8677BD7363FA}" SchemaVersion="123">
+	<InteractiveMusic>
+		<WorkUnit Name="Default Work Unit" ID="{67D82442-2027-4B60-B7DE-8677BD7363FA}" PersistMode="Standalone">
+			<ChildrenList>
+				<MusicPlaylistContainer Name="Test" ID="{52D31C1D-B6F6-40FA-BBCC-442B69C645FF}" ShortID="524918178">
+					<PropertyList>
+						<Property Name="Tempo" Type="Real64" Value="160"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{41B5D519-AB6F-4EE3-BC3C-420CFE6AC1D2}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
+						</Reference>
+						<Reference Name="PlaylistRoot">
+							<Custom>
+								<MusicPlaylistItem Name="" ID="{99CFE7E5-1070-4F31-A1B1-1A1A829453E7}" ShortID="387962147">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{A80034CE-5900-4E34-A540-CA0754983B8D}" ShortID="953352489">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Segment">
+													<ObjectRef Name="TT_MSC_Roaming_Lo" ID="{6BDED30F-8C21-429D-8F68-4163B8117EF0}" WorkUnitID="{67D82442-2027-4B60-B7DE-8677BD7363FA}"/>
+												</Reference>
+											</ReferenceList>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+							</Custom>
+						</Reference>
+						<Reference Name="TransitionRoot">
+							<Custom>
+								<MusicTransition Name="Root" ID="{33E87F2F-83A5-45C0-A1E0-046C22A92E3F}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{C972BAA2-CA2D-461C-96CB-846BABF1E365}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</Custom>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicSegment Name="TT_MSC_Roaming_Lo" ID="{6BDED30F-8C21-429D-8F68-4163B8117EF0}" ShortID="235028508">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="129023.446712018"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{41B5D519-AB6F-4EE3-BC3C-420CFE6AC1D2}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="TT_MSC_Roaming_Lo" ID="{DD0B7EA3-09BC-4DAB-878F-69C0E210377C}" ShortID="1049514552">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{B5D7EB8E-CE79-4126-8F00-69801FCB2D9D}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="TT_MSC_Roaming_Lo" ID="{2746D833-605B-43E2-A8A8-7ED4104B1C75}">
+											<Language>SFX</Language>
+											<AudioFile>TT_MSC_Roaming_Lo.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="706015877"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{62088832-FC83-423F-9189-5A49700F68D2}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="TT_MSC_Roaming_Lo" ID="{C65E9466-B398-4761-B38D-E918ACA045A4}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="129023.446712018"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="TT_MSC_Roaming_Lo" ID="{2746D833-605B-43E2-A8A8-7ED4104B1C75}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{09C131BF-ABB5-4BD2-A976-15A08843D371}"/>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{79BE7EB3-252A-43DF-9701-684B233C3017}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="126000"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
+					</ChildrenList>
+				</MusicPlaylistContainer>
+			</ChildrenList>
+		</WorkUnit>
+	</InteractiveMusic>
+</WwiseDocument>

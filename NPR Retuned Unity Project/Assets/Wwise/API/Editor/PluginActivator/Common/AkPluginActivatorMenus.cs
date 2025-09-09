@@ -48,6 +48,7 @@ public class AkPluginActivatorMenus
 	{
 		var data = AkWwiseProjectInfo.GetData();
 		data.CurrentPluginConfig = config;
+		UnityEditor.EditorUtility.SetDirty(data);
 	}
 
 	private static void ActivateConfig(string config)

@@ -107,10 +107,10 @@ internal class AkPlatformPluginList
 	public static void Update(bool forceUpdate = false)
 	{
 		//Gather all GeneratedSoundBanks folder from the project
-		var allPaths = AkUtilities.GetAllBankPaths();
+		var allPaths = AkUtilities.GetAllBankPaths(AkWwiseEditorSettings.WwiseProjectAbsolutePath);
 		var bNeedRefresh = false;
 		var projectDir = AkBasePathGetter.GetWwiseProjectDirectory();
-		var baseSoundBankPath = AkUtilities.GetRootOutputPath();
+		var baseSoundBankPath = AkBasePathGetter.GetFullSoundBankPathEditor();
 
 		AkWwiseInitializationSettings.UpdatePlatforms();
 

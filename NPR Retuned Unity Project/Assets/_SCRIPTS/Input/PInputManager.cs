@@ -13,8 +13,34 @@ public class PlayerAction
 {
     public InputAction action;
     public Action bAction;
-    public float fValue;
-    public Vector2 v2Value;
+    private float _fValue;
+    public float fValue
+    {
+        get => _fValue;
+        set
+        {
+            if (value != _fValue)
+            {
+                onFValueChange?.Invoke(value);
+                _fValue = value;
+            }
+        }
+    }
+    public Action<float> onFValueChange;
+    private Vector2 _v2Value;
+    public Vector2 v2Value
+    {
+        get => _v2Value;
+        set
+        {
+            if (value != _v2Value)
+            {
+                onV2ValueChange?.Invoke(value);
+                _v2Value = value;
+            }
+        }
+    }
+    public Action<Vector2> onV2ValueChange;
     public PlayerAction(InputAction action, ActionValueType type)
     {
         this.action = action;
@@ -42,8 +68,10 @@ public enum PlayerActionType
 {
     Drive,
     Look,
+    Cursor,
     Brake,
     Ability,
+    Find,
     Action,
     Switch,
     Reload,
@@ -71,10 +99,12 @@ public class PInputManager : Singleton<PInputManager>
                 {
                     case PlayerActionType.Drive:
                     case PlayerActionType.Look:
+                    case PlayerActionType.Cursor:
                     case PlayerActionType.Ability:
                         actions[actionType] = new PlayerAction(action, ActionValueType.Vector2);
                         break;
                     case PlayerActionType.Brake:
+                    case PlayerActionType.Find:
                         actions[actionType] = new PlayerAction(action, ActionValueType.Float);
                         break;
                     case PlayerActionType.Reload:

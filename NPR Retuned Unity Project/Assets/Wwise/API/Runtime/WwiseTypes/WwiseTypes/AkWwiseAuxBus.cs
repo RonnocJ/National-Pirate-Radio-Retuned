@@ -20,7 +20,7 @@ Copyright (c) 2025 Audiokinetic Inc.
 namespace AK.Wwise
 {
 	[System.Serializable]
-	///@brief This type represents an auxiliary send in the Busses.
+	///@brief This type represents an auxiliary send in the Master-Mixer Hierarchy.
 	public class AuxBus : BaseType
 	{
 		public WwiseAuxBusReference WwiseObjectReference;

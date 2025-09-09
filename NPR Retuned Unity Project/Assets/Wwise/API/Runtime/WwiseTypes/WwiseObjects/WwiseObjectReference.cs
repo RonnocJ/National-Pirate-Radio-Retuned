@@ -253,18 +253,50 @@ public abstract class WwiseObjectReference : UnityEngine.ScriptableObject
 		public string objectName;
 	}
 
+	private static System.Collections.Generic.Dictionary<WwiseObjectType, System.Collections.Generic.Dictionary<System.Guid, WwiseObjectData>> WwiseObjectDataMap
+		= new System.Collections.Generic.Dictionary<WwiseObjectType, System.Collections.Generic.Dictionary<System.Guid, WwiseObjectData>>();
+
+	public static void ClearWwiseObjectDataMap()
+	{
+		WwiseObjectDataMap.Clear();
+	}
+
+	public static void UpdateWwiseObjectDataMap(WwiseObjectType wwiseObjectType, string name, System.Guid guid)
+	{
+		System.Collections.Generic.Dictionary<System.Guid, WwiseObjectData> map = null;
+		if (!WwiseObjectDataMap.TryGetValue(wwiseObjectType, out map))
+		{
+			map = new System.Collections.Generic.Dictionary<System.Guid, WwiseObjectData>();
+			WwiseObjectDataMap.Add(wwiseObjectType, map);
+		}
+
+		WwiseObjectData data = null;
+		if (!map.TryGetValue(guid, out data))
+		{
+			data = new WwiseObjectData();
+			map.Add(guid, data);
+		}
+
+		data.objectName = name;
+	}
+
 	public static WwiseObjectReference GetWwiseObjectForMigration(WwiseObjectType wwiseObjectType, byte[] valueGuid, int id)
 	{
-		if (!AkUtilities.IsMigrationRequired(AkUtilities.MigrationStep.WwiseTypes_v2018_1_6))
-		{
-			return null;
-		}
 		if (valueGuid == null)
 		{
 			return null;
 		}
 
+		System.Collections.Generic.Dictionary<System.Guid, WwiseObjectData> map = null;
+		if (!WwiseObjectDataMap.TryGetValue(wwiseObjectType, out map) || map == null)
+		{
+			UnityEngine.Debug.LogWarning("WwiseUnity: Cannot find WwiseObjectReferences of type <WwiseObjectType." + wwiseObjectType + ">.");
+			return null;
+		}
+
 		var guid = System.Guid.Empty;
+		WwiseObjectData data = null;
+
 		try
 		{
 			guid = new System.Guid(valueGuid);
@@ -275,141 +307,21 @@ public abstract class WwiseObjectReference : UnityEngine.ScriptableObject
 			return null;
 		}
 
-		WwiseObjectData data = null;
-		switch (wwiseObjectType)
+		var formattedId = (uint)id;
+		if (guid != System.Guid.Empty && !map.TryGetValue(guid, out data))
 		{
-			case WwiseObjectType.AuxBus:
-				WwiseAuxBusRefArray wwiseAuxBusRefArray = new WwiseAuxBusRefArray();
-				for (int i = 0; i < WwiseProjectDatabase.GetAuxBusCount(); i++)
+			UnityEngine.Debug.LogWarning("WwiseUnity: Cannot find guid <" + guid.ToString() + "> for WwiseObjectReference of type <WwiseObjectType." + wwiseObjectType + "> in Wwise Project.");
+
+			foreach (var pair in map)
+			{
+				if (AkUtilities.ShortIDGenerator.Compute(pair.Value.objectName) == formattedId)
 				{
-					if (wwiseAuxBusRefArray[i].Guid == guid)
-					{
-						data = new WwiseObjectData();
-						data.objectName = wwiseAuxBusRefArray[i].Name;
-						break;
-					}
+					guid = pair.Key;
+					data = pair.Value;
+					UnityEngine.Debug.LogWarning("WwiseUnity: Found guid <" + guid.ToString() + "> for <" + pair.Value.objectName + ">.");
+					break;
 				}
-				break;
-			case WwiseObjectType.Bus:
-				WwiseBusRefArray wwiseBusRefArray = new WwiseBusRefArray();
-				for (int i = 0; i < WwiseProjectDatabase.GetBusCount(); i++)
-				{
-					if (wwiseBusRefArray[i].Guid == guid)
-					{
-						data = new WwiseObjectData();
-						data.objectName = wwiseBusRefArray[i].Name;
-						break;
-					}
-				}
-				break;
-			case WwiseObjectType.Event:
-				WwiseEventRefArray wwiseEventRefArray = new WwiseEventRefArray();
-				for (int i = 0; i < WwiseProjectDatabase.GetEventCount(); i++)
-				{
-					if (wwiseEventRefArray[i].Guid == guid)
-					{
-						data = new WwiseObjectData();
-						data.objectName = wwiseEventRefArray[i].Name;
-						break;
-					}
-				}
-				break;
-			case WwiseObjectType.Soundbank:
-				WwiseSoundBankRefArray wwiseSoundBankRefArray = new WwiseSoundBankRefArray();
-				for (int i = 0; i < WwiseProjectDatabase.GetSoundBankCount(); i++)
-				{
-					if (wwiseSoundBankRefArray[i].Guid == guid)
-					{
-						data = new WwiseObjectData();
-						data.objectName = wwiseSoundBankRefArray[i].Name;
-						break;
-					}
-				}
-				break;
-			case WwiseObjectType.State:
-				WwiseStateRefArray wwiseStateRefArray = new WwiseStateRefArray();
-				for (int i = 0; i < WwiseProjectDatabase.GetStateCount(); i++)
-				{
-					if (wwiseStateRefArray[i].Guid == guid)
-					{
-						data = new WwiseObjectData();
-						data.objectName = wwiseStateRefArray[i].Name;
-						break;
-					}
-				}
-				break;
-			case WwiseObjectType.StateGroup:
-				WwiseStateGroupRefArray wwiseStateGroupRefArray = new WwiseStateGroupRefArray();
-				for (int i = 0; i < WwiseProjectDatabase.GetStateGroupCount(); i++)
-				{
-					if (wwiseStateGroupRefArray[i].Guid == guid)
-					{
-						data = new WwiseObjectData();
-						data.objectName = wwiseStateGroupRefArray[i].Name;
-						break;
-					}
-				}
-				break;
-			case WwiseObjectType.Switch:
-				WwiseSwitchRefArray wwiseSwitchRefArray = new WwiseSwitchRefArray();
-				for (int i = 0; i < WwiseProjectDatabase.GetSwitchCount(); i++)
-				{
-					if (wwiseSwitchRefArray[i].Guid == guid)
-					{
-						data = new WwiseObjectData();
-						data.objectName = wwiseSwitchRefArray[i].Name;
-						break;
-					}
-				}
-				break;
-			case WwiseObjectType.SwitchGroup:
-				WwiseSwitchGroupRefArray wwiseSwitchGroupRefArray = new WwiseSwitchGroupRefArray();
-				for (int i = 0; i < WwiseProjectDatabase.GetSwitchGroupCount(); i++)
-				{
-					if (wwiseSwitchGroupRefArray[i].Guid == guid)
-					{
-						data = new WwiseObjectData();
-						data.objectName = wwiseSwitchGroupRefArray[i].Name;
-						break;
-					}
-				}
-				break;
-			case WwiseObjectType.GameParameter:
-				WwiseGameParameterRefArray wwiseGameParameterRefArray = new WwiseGameParameterRefArray();
-				for (int i = 0; i < WwiseProjectDatabase.GetGameParameterCount(); i++)
-				{
-					if (wwiseGameParameterRefArray[i].Guid == guid)
-					{
-						data = new WwiseObjectData();
-						data.objectName = wwiseGameParameterRefArray[i].Name;
-						break;
-					}
-				}
-				break;
-			case WwiseObjectType.Trigger:
-				WwiseTriggerRefArray wwiseTriggerRefArray = new WwiseTriggerRefArray();
-				for (int i = 0; i < WwiseProjectDatabase.GetTriggerCount(); i++)
-				{
-					if (wwiseTriggerRefArray[i].Guid == guid)
-					{
-						data = new WwiseObjectData();
-						data.objectName = wwiseTriggerRefArray[i].Name;
-						break;
-					}
-				}
-				break;
-			case WwiseObjectType.AcousticTexture:
-				WwiseAcousticTextureRefArray wwiseAcousticTextureRefArray = new WwiseAcousticTextureRefArray();
-				for (int i = 0; i < WwiseProjectDatabase.GetAcousticTextureCount(); i++)
-				{
-					if (wwiseAcousticTextureRefArray[i].Guid == guid)
-					{
-						data = new WwiseObjectData();
-						data.objectName = wwiseAcousticTextureRefArray[i].Name;
-						break;
-					}
-				}
-				break;
+			}
 		}
 
 		if (data == null)
@@ -417,7 +329,6 @@ public abstract class WwiseObjectReference : UnityEngine.ScriptableObject
 			return null;
 		}
 
-		var formattedId = (uint)id;
 		var objectReference = FindOrCreateWwiseObject(wwiseObjectType, data.objectName, guid);
 		if (objectReference && objectReference.Id != formattedId)
 		{

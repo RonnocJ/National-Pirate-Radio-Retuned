@@ -22,14 +22,12 @@ public class AkUnitySoundEngineInitialization
 {
 	protected static AkUnitySoundEngineInitialization m_Instance;
 
-	public delegate void InitializationDelegate();
-	public InitializationDelegate initializationDelegate;
+	public System.Action initializationDelegate;
 	
-	public delegate void ReInitializationDelegate();
-	public ReInitializationDelegate reInitializationDelegate;
+	public System.Action reInitializationDelegate;
 	
-	public delegate void TerminationDelegate();
-	public TerminationDelegate terminationDelegate;
+	public System.Action terminationDelegate;
+	
 	public static AkUnitySoundEngineInitialization Instance
 	{
 		get
@@ -45,7 +43,7 @@ public class AkUnitySoundEngineInitialization
 
 	public bool InitializeSoundEngine()
 	{
-		UnityEngine.Debug.LogFormat("WwiseUnity: Wwise(R) SDK Version {0}.", AkUnitySoundEngine.WwiseVersion);
+
 		
 #if UNITY_ANDROID && ! UNITY_EDITOR
 		//Obtains the Android Java Object "currentActivity" in order to set it for the android io hook initialization
@@ -139,9 +137,8 @@ public class AkUnitySoundEngineInitialization
 		AkUnitySoundEngine.SetCurrentLanguage(ActivePlatformSettings.InitialLanguage);
 
 		AkCallbackManager.Init(ActivePlatformSettings.CallbackManagerInitializationSettings);
-		
 		LoadInitBank();
-		initializationDelegate?.Invoke();
+		initializationDelegate?.InvokeUnitySafe();
 		return true;
 	}
 
@@ -171,7 +168,7 @@ public class AkUnitySoundEngineInitialization
 
 		AkCallbackManager.Init(AkWwiseInitializationSettings.ActivePlatformSettings.CallbackManagerInitializationSettings);
 		
-		reInitializationDelegate?.Invoke();
+		reInitializationDelegate?.InvokeUnitySafe();
 		return true;
 	}
 
@@ -234,8 +231,8 @@ public class AkUnitySoundEngineInitialization
 		{
 			return;
 		}
-		
-		terminationDelegate?.Invoke();
+
+		terminationDelegate?.InvokeUnitySafe();
 
 		AkUnitySoundEngine.SetOfflineRendering(false);
 
@@ -251,8 +248,6 @@ public class AkUnitySoundEngineInitialization
 
 		AkCallbackManager.Term();
 		ResetBanks();
-
-		
 	}
 }
 

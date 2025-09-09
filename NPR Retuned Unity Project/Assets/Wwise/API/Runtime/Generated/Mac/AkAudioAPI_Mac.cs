@@ -10,13 +10,9 @@
 //------------------------------------------------------------------------------
 
 
-///  Main Sound Engine interface, specific Mac.
 public enum AkAudioAPI {
-  ///  Use AVFoundation framework (modern, has more capabilities, available only for macOS 10.15 or above)
   AkAudioAPI_AVAudioEngine = 1 << 0,
-  ///  Use AudioUnit framework (basic functionality, compatible with all macOS devices)
   AkAudioAPI_AudioUnit = 1 << 1,
-  ///  Default value, will select the more appropriate API (AVAudioEngine for compatible devices, AudioUnit for others)
   AkAudioAPI_Default = AkAudioAPI_AVAudioEngine|AkAudioAPI_AudioUnit
 }
 #endif // #if (UNITY_STANDALONE_OSX && !UNITY_EDITOR) || UNITY_EDITOR_OSX

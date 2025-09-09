@@ -199,7 +199,7 @@ public static class AddressableInstaller
         AkSoundEngineController.Instance.DisableEditorLateUpdate();
         EditorApplication.update += ContinueUninstallation;
     }
-
+    
     /// <summary>
     /// Continue the uninstallation process after disabling Wwise components interacting with the Wwise Addressables Package.
     /// </summary>
@@ -214,8 +214,6 @@ public static class AddressableInstaller
         DeleteWwiseAddressablesBankFolder();
         //Delete the Wwise Addressable Groups
         DeleteWwiseAddressableGroups();
-        //Remove the build script
-        AddressableAssetBuilder.RemoveBuildScript();
         //Remove the Wwise Addresables Package
         RemoveWwiseAddressablePackage();
         EditorApplication.update -= ContinueUninstallation;
@@ -245,11 +243,11 @@ public static class AddressableInstaller
             }
         }
 
-        if (!AkUtilities.IsSoundbankGenerationAvailable())
+        if (!AkUtilities.IsSoundbankGenerationAvailable(AkWwiseEditorSettings.Instance.WwiseInstallationPath))
         {
             LogWarning(Name,$"Sound bank generation is not available. Make sure that the Wwise Project is opened in the Wwise Authoring and please edit the Wwise Settings to ensure the the ip and port are set properly. If it's still not working, ensure that the Wwise Application Path is properly set.");;
         }
-        AkUtilities.GenerateSoundbanks();
+        AkUtilities.GenerateSoundbanks(AkWwiseEditorSettings.Instance.WwiseInstallationPath, AkWwiseEditorSettings.WwiseProjectAbsolutePath);
         AddressableAssetBuilder.AddressableSetup();
         SceneUpdater.ReloadAllScenes();
     }
@@ -262,24 +260,27 @@ public static class AddressableInstaller
         ReadSettings();
         //Reset the Root output Path and SoundBank Paths to asset the Unity Application Data Path.
         var settings = AkWwiseEditorSettings.Instance;
-        AddressableBankPathSetter.SetStreamingAssetsPath(settings.WwiseStreamingAssetsPath);
+        AddressableBankPathSetter.SetSoundbankPath(settings.SoundbankPath);
         AddressableBankPathSetter.SetExternalSourcePath("GeneratedSoundBanks");
 
         //Regenerate the soundbanks
-        if (!AkUtilities.IsSoundbankGenerationAvailable())
+        string wwiseInstallationPath = "";
+#if UNITY_EDITOR_WIN
+        wwiseInstallationPath = AkWwiseEditorSettings.Instance.WwiseInstallationPathWindows;
+#elif UNITY_EDITOR_OSX
+		wwiseInstallationPath = AkWwiseEditorSettings.Instance.WwiseInstallationPathMac;
+#endif
+        if (!AkUtilities.IsSoundbankGenerationAvailable(wwiseInstallationPath))
         {
             LogWarning(Name,$"Sound bank generation is not available. Make sure that the Wwise Project is opened in the Wwise Authoring and please edit the Wwise Settings to ensure the the ip and port are set properly. If it's still not working, ensure that the Wwise Application Path is properly set.");;
         }
         else
         {
-            AkUtilities.GenerateSoundbanks();
+            AkUtilities.GenerateSoundbanks(wwiseInstallationPath, AkWwiseEditorSettings.WwiseProjectAbsolutePath);
         }
         //Re-enable the SoundEngineController LateUpdate and the AkInitializer that were disabled during the uninstallation process.
         AkSoundEngineController.Instance.EnableEditorLateUpdate();
         ToggleAkInitializer(true);
-#if UNITY_ADDRESSABLES
-        AddressableAssetBuilder.Build(false);
-#endif
         if (UnityEditorInternal.InternalEditorUtility.inBatchMode)
         {
             EditorApplication.Exit(0);

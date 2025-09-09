@@ -17,24 +17,24 @@ Copyright (c) 2025 Audiokinetic Inc.
 #if UNITY_EDITOR
 public class WwisePluginRefArray
 {
-    private global::System.IntPtr projectDatabasePtr;
-    protected bool bDeletesManually;
+    private global::System.IntPtr swigCPtr;
+    protected bool swigCMemOwn;
 
     internal WwisePluginRefArray(global::System.IntPtr cPtr, bool cMemoryOwn)
     {
-        bDeletesManually = cMemoryOwn;
-        projectDatabasePtr = cPtr;
+        swigCMemOwn = cMemoryOwn;
+        swigCPtr = cPtr;
     }
 
     internal static global::System.IntPtr getCPtr(WwisePluginRefArray obj)
     {
-        return (obj == null) ? global::System.IntPtr.Zero : obj.projectDatabasePtr;
+        return (obj == null) ? global::System.IntPtr.Zero : obj.swigCPtr;
     }
 
     internal virtual void setCPtr(global::System.IntPtr cPtr)
     {
         Dispose();
-        projectDatabasePtr = cPtr;
+        swigCPtr = cPtr;
     }
 
     ~WwisePluginRefArray()
@@ -52,15 +52,15 @@ public class WwisePluginRefArray
     {
         lock (this)
         {
-            if (projectDatabasePtr != global::System.IntPtr.Zero)
+            if (swigCPtr != global::System.IntPtr.Zero)
             {
-                if (bDeletesManually)
+                if (swigCMemOwn)
                 {
-                    bDeletesManually = false;
-                    WwiseProjectDatabase.DeletePluginArrayRef(projectDatabasePtr);
+                    swigCMemOwn = false;
+                    WwiseProjectDatabase.DeletePluginArrayRef(swigCPtr);
                 }
 
-                projectDatabasePtr = global::System.IntPtr.Zero;
+                swigCPtr = global::System.IntPtr.Zero;
             }
 
             global::System.GC.SuppressFinalize(this);
@@ -76,7 +76,7 @@ public class WwisePluginRefArray
 
     public WwisePluginRef this[int index]
     {
-        get { return new WwisePluginRef(WwiseProjectDatabase.GetPluginRefIndex(projectDatabasePtr, index), false); }
+        get { return new WwisePluginRef(WwiseProjectDatabase.GetPluginRefIndex(swigCPtr, index), false); }
     }
 }
 #endif

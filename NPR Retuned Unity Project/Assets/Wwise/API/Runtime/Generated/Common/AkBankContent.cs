@@ -10,17 +10,9 @@
 //------------------------------------------------------------------------------
 
 
-///  Parameter to be passed to AK::SoundEngine::PrepareBank().
-///  Use AkBankContent_All to load both the media and structural content from the bank.
-///  Use AkBankContent_StructureOnly to load only the structural content, including events, from the bank and then later use the PrepareEvent() functions to load media on demand from loose files on the disk.
-/// <seealso cref="
-///  - AK.SoundEngine.PrepareBank"/>
 public enum AkBankContent {
-  ///  Use AkBankContent_StructureOnly to load only the structural content, including Events, and then later use the PrepareEvent() functions to load media on demand from loose files on the disk.
   AkBankContent_StructureOnly,
-  ///  Use AkBankContent_All to load both the media and structural content.
   AkBankContent_All,
-  ///  End of enum, invalid value.
   AkBankContent_Last
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

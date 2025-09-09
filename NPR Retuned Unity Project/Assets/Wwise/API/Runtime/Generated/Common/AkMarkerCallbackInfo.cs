@@ -40,15 +40,12 @@ public class AkMarkerCallbackInfo : AkEventCallbackInfo {
     }
   }
 
-  ///  Cue point identifier
   public uint uIdentifier { get { return AkUnitySoundEnginePINVOKE.CSharp_AkMarkerCallbackInfo_uIdentifier_get(swigCPtr); } 
   }
 
-  ///  Position in the cue point (unit: sample frames)
   public uint uPosition { get { return AkUnitySoundEnginePINVOKE.CSharp_AkMarkerCallbackInfo_uPosition_get(swigCPtr); } 
   }
 
-  ///  Label of the marker, read from the file
   public string strLabel { get { return AkUnitySoundEngine.StringFromIntPtrString(AkUnitySoundEnginePINVOKE.CSharp_AkMarkerCallbackInfo_strLabel_get(swigCPtr)); } 
   }
 

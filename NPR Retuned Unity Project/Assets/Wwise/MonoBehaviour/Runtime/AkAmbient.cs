@@ -48,7 +48,7 @@ public class AkAmbient : AkEvent
 	public static System.Collections.Generic.Dictionary<uint, AkMultiPosEvent> multiPosEventTree =
 		new System.Collections.Generic.Dictionary<uint, AkMultiPosEvent>();
 
-	public AkMultiPositionType MultiPositionType = AkMultiPositionType.AkMultiPositionType_MultiSources;
+	public AkMultiPositionType MultiPositionType = AkMultiPositionType.MultiPositionType_MultiSources;
 	public MultiPositionTypeLabel multiPositionTypeLabel = MultiPositionTypeLabel.Simple_Mode;
 
 	private static UnityEngine.Color SPHERE_DEFAULT_COLOR = new UnityEngine.Color(1.0f, 0.0f, 0.0f, 0.1f);

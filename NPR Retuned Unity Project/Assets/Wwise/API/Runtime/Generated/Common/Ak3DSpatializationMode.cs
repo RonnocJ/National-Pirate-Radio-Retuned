@@ -10,15 +10,10 @@
 //------------------------------------------------------------------------------
 
 
-///  3D spatialization mode.
-public enum Ak3DSpatializationMode {
-  ///  No spatialization
+public enum Ak3DSpatializationMode : byte {
   AK_SpatializationMode_None = 0,
-  ///  Spatialization based on emitter position only.
   AK_SpatializationMode_PositionOnly = 1,
-  ///  Spatialization based on both emitter position and emitter orientation.
   AK_SpatializationMode_PositionAndOrientation = 2,
-  ///  End of enum, invalid value.
   AK_SpatializationMode_Last
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

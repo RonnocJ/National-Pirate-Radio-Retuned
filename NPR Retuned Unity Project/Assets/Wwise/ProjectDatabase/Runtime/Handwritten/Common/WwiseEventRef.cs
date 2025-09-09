@@ -17,25 +17,25 @@ Copyright (c) 2025 Audiokinetic Inc.
 #if UNITY_EDITOR
 public class WwiseEventRef: global::System.IDisposable
 {
-    private global::System.IntPtr projectDatabasePtr;
-    protected bool bDeletesManually;
+    private global::System.IntPtr swigCPtr;
+    protected bool swigCMemOwn;
 
     internal WwiseEventRef(global::System.IntPtr cPtr, bool cMemoryOwn)
     {
-        bDeletesManually = cMemoryOwn;
-        projectDatabasePtr = cPtr;
+        swigCMemOwn = cMemoryOwn;
+        swigCPtr = cPtr;
         Medias = new WwiseEventRefMediaArray(cPtr);
     }
 
     internal static global::System.IntPtr getCPtr(WwiseEventRef obj)
     {
-        return (obj == null) ? global::System.IntPtr.Zero : obj.projectDatabasePtr;
+        return (obj == null) ? global::System.IntPtr.Zero : obj.swigCPtr;
     }
 
     internal virtual void setCPtr(global::System.IntPtr cPtr)
     {
         Dispose();
-        projectDatabasePtr = cPtr;
+        swigCPtr = cPtr;
     }
 
     ~WwiseEventRef()
@@ -53,15 +53,15 @@ public class WwiseEventRef: global::System.IDisposable
     {
         lock (this)
         {
-            if (projectDatabasePtr != global::System.IntPtr.Zero)
+            if (swigCPtr != global::System.IntPtr.Zero)
             {
-                if (bDeletesManually)
+                if (swigCMemOwn)
                 {
-                    bDeletesManually = false;
-                    WwiseProjectDatabase.DeleteEventRef(projectDatabasePtr);
+                    swigCMemOwn = false;
+                    WwiseProjectDatabase.DeleteEventRef(swigCPtr);
                 }
 
-                projectDatabasePtr = global::System.IntPtr.Zero;
+                swigCPtr = global::System.IntPtr.Zero;
             }
 
             global::System.GC.SuppressFinalize(this);
@@ -75,15 +75,14 @@ public class WwiseEventRef: global::System.IDisposable
     {
     }
     
-    public string Name => WwiseProjectDatabase.GetEventName(projectDatabasePtr);
-    public string Path => WwiseProjectDatabase.GetEventPath(projectDatabasePtr);
-    public System.Guid Guid => WwiseProjectDatabase.GetEventGuid(projectDatabasePtr);
-
-    public uint ShortId =>WwiseProjectDatabase.GetEventShortId(projectDatabasePtr);
-    public float MaxAttenuation => WwiseProjectDatabase.GetEventMaxAttenuation(projectDatabasePtr);
-    public float MinDuration => WwiseProjectDatabase.GetEventMinDuration(projectDatabasePtr);
-    public float MaxDuration => WwiseProjectDatabase.GetEventMaxDuration(projectDatabasePtr);
+    public string Name => WwiseProjectDatabase.GetEventName(swigCPtr);
+    public string Path => WwiseProjectDatabase.GetEventPath(swigCPtr);
+    public System.IntPtr Guid =>WwiseProjectDatabase.GetEventGuid(swigCPtr);
+    public uint ShortId =>WwiseProjectDatabase.GetEventShortId(swigCPtr);
+    public float MaxAttenuation => WwiseProjectDatabase.GetEventMaxAttenuation(swigCPtr);
+    public float MinDuration => WwiseProjectDatabase.GetEventMinDuration(swigCPtr);
+    public float MaxDuration => WwiseProjectDatabase.GetEventMaxDuration(swigCPtr);
     public WwiseEventRefMediaArray Medias { get; }
-    public uint MediasCount => WwiseProjectDatabase.GetEventMediasCount(projectDatabasePtr);
+    public uint MediasCount => WwiseProjectDatabase.GetEventMediasCount(swigCPtr);
 }
 #endif

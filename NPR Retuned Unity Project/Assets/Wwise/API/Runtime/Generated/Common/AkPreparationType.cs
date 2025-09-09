@@ -10,17 +10,10 @@
 //------------------------------------------------------------------------------
 
 
-///  Preparation type.
-/// <seealso cref="
-///  - AK.SoundEngine.PrepareEvent"/>
 public enum AkPreparationType {
-  ///  ``PrepareEvent()`` will load required information to play the specified event.
   Preparation_Load,
-  ///  ``PrepareEvent()`` will unload required information to play the specified event.
   Preparation_Unload,
-  ///  Vorbis media is decoded when loading, and an uncompressed PCM version is used for playback.
   Preparation_LoadAndDecode,
-  ///  End of enum, invalid value.
   Preparation_Last
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.
