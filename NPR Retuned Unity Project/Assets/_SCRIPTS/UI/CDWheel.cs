@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 public enum SongName
 {
     NPR = 0,
-    ABC = 1,
+    EVG = 1,
     DEF = 2,
     GHI = 3
 }
@@ -15,23 +14,24 @@ public class CDWheel : MonoBehaviour
     public bool Found;
     [SerializeField] private string buttonTextFile;
     [SerializeField] private CDButton[] cdButtons;
+    [SerializeField] private Transform cdList;
     [SerializeField] private Animator insertAnim;
     [SerializeField] private float findDuration = 3f;
-    [SerializeField] private float totalDegrees = 720f; 
+    [SerializeField] private float totalDegrees = 720f;
     [Header("Button Alignment")]
     [SerializeField] private float buttonAlignDuration = 1f;
+    [SerializeField] private float shootForce;
+    [SerializeField] private float shootVariance;
     private float _btn1StartZ;
     private float _btn2StartZ;
     private float _findTimer;
-    private TextBlock cdButtonText;
-
+    private Disc _selectedCD;
     private float _findValue => PInputManager.root.actions[PlayerActionType.Find].fValue;
     private float _zAngle;
 
     void Awake()
     {
         _zAngle = transform.localEulerAngles.x;
-        cdButtonText = TextLoader.LoadFromResources($"Text/UI/{buttonTextFile}").blocks[0];
         if (cdButtons != null && cdButtons.Length > 2)
         {
             _btn1StartZ = cdButtons[1].transform.GetChild(0).localEulerAngles.z;
@@ -48,7 +48,7 @@ public class CDWheel : MonoBehaviour
                 if (_findTimer < 0f) _findTimer = 0f;
                 _zAngle = CalcAngle(_findTimer);
                 transform.localRotation = Quaternion.Euler(20, 0, _zAngle);
-                if(_findTimer > _findTimer - buttonAlignDuration) UpdateButtons(_findTimer);
+                if (_findTimer > _findTimer - buttonAlignDuration) UpdateButtons(_findTimer);
             }
             else
             {
@@ -65,7 +65,7 @@ public class CDWheel : MonoBehaviour
             if (_findTimer > findDuration) _findTimer = findDuration;
             _zAngle = CalcAngle(_findTimer);
             transform.localRotation = Quaternion.Euler(20, 0, _zAngle);
-            if(_findTimer > _findTimer - buttonAlignDuration) UpdateButtons(_findTimer);
+            if (_findTimer > _findTimer - buttonAlignDuration) UpdateButtons(_findTimer);
         }
         else
         {
@@ -131,23 +131,45 @@ public class CDWheel : MonoBehaviour
             }
         }
 
-        
+
 
         for (int i = 0; i < 3; i++)
         {
             cdButtons[i].Song = s[i];
             cdButtons[i].Enabled = true;
-            cdButtons[i].GetComponentInChildren<GlyphTextRenderer>().SetText(cdButtonText.clusters.Find(c => c != null && c.id == (int)s[i]).lines[0]);
+            cdButtons[i].GetComponentInChildren<GlyphTextRenderer>().SetText(s[i].ToString(), 0.5f, i == 0);
             cdButtons[i].anim.SetTrigger("on");
         }
     }
 
-    public void SelectedSong()
+    public void SelectedSong(SongName song)
     {
+        var cds = cdList.GetComponentsInChildren<Disc>();
+
+        foreach (var cd in cds)
+        {
+            if (cd.LoadedSong == song)
+            {
+                _selectedCD = cd;
+                break;
+            }
+        }
+
+        _selectedCD.rb.isKinematic = false;
+        _selectedCD.Active = true;
+        _selectedCD.rb.AddForce(transform.up * shootForce + transform.right * Random.Range(-shootVariance, shootVariance * 0.5f), ForceMode.Impulse);
+        Invoke("ReEnableMeshCol", 0.25f);
+
         insertAnim.SetTrigger("open");
+        AudioManager.root.PlaySound(AudioEvent.playCDPlayerOpen, insertAnim.gameObject);
+
         foreach (var b in cdButtons)
         {
             b.anim.SetTrigger("off");
         }
+    }
+    private void ReEnableMeshCol()
+    {
+        _selectedCD.GetComponentInParent<MeshCollider>().enabled = true;
     }
 }

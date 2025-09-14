@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "TextGlyph", menuName = "Objects/TextGlyph", order = 2)]
+[CreateAssetMenu(fileName = "TextGlyph", menuName = "Objects/Utility/TextGlyph", order = 2)]
 public class TextGlyph : ScriptableSingleton<TextGlyph>
 {
     [Tooltip("Assign per-character meshes. Name each mesh with the character it represents (e.g., A, B, 0, !).")]

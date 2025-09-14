@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{DE26B266-BED1-41C2-A22E-67342F77E9C0}" SchemaVersion="123" RootDocumentID="{40083CE2-ED5B-455F-8D4F-AE23CFE44F8E}" ParentDocumentID="{40083CE2-ED5B-455F-8D4F-AE23CFE44F8E}">
+	<Switches>
+		<WorkUnit Name="Player" ID="{DE26B266-BED1-41C2-A22E-67342F77E9C0}" OwnerID="{40083CE2-ED5B-455F-8D4F-AE23CFE44F8E}" PersistMode="Nested">
+			<ChildrenList>
+				<WorkUnit Name="Van" ID="{20F82454-7764-4A56-9079-70FB8E73D2CE}" PersistMode="Reference"/>
+				<WorkUnit Name="CDPlayer" ID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" PersistMode="Reference"/>
+			</ChildrenList>
+		</WorkUnit>
+	</Switches>
+</WwiseDocument>

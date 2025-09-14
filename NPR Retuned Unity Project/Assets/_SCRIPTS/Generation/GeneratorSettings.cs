@@ -16,6 +16,13 @@ public class GeneratorSettings : ScriptableSingleton<GeneratorSettings>
     public TileConstruct[] TCons;
     public RoadConstruct[] RCons;
     public FoliageConstruct[] FCons;
+    [Header("Construct Limits")]
+    public int GrassLimit;
+    public int RoadLimit;
+    public int TIntersectionLimit;
+    public int XIntersectionLimit;
+    public int LargeTreeLimit;
+    public int SmallTreeLimit;
 
     public float GetPerlinHeight(Vector3 inPos)
     {

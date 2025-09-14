@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{65B008BF-CF76-4761-A4ED-5CFCDCA7DD37}" SchemaVersion="123" RootDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" ParentDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}">
+	<Events>
+		<WorkUnit Name="UI" ID="{65B008BF-CF76-4761-A4ED-5CFCDCA7DD37}" OwnerID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="playTTSVoice" ID="{A7BA022E-9C12-49B1-9DD3-2312F53FFDAE}">
+					<ChildrenList>
+						<Action Name="" ID="{1F1EA418-9CDB-49F5-9A42-4AB68C024F87}" ShortID="106534846">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="TTS_Voice" ID="{3172F14A-36C7-407E-B1E2-7E49D8FF60C3}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

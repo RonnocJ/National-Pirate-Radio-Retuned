@@ -20,7 +20,7 @@ public class FoliageConstruct : ScriptableObject
 public class FConData
 {
     public GameObject[] Prefabs;
-    public Vector3 MinScale;
-    public Vector3 MaxScale;
+    public float MinScale;
+    public float MaxScale;
     public int MaxPerTile;
 }

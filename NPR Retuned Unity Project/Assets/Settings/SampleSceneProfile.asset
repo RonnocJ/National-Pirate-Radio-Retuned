@@ -131,10 +131,10 @@ MonoBehaviour:
   active: 1
   type:
     m_OverrideState: 1
-    m_Value: 8
+    m_Value: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.15
+    m_Value: 0.05
   response:
     m_OverrideState: 1
     m_Value: 0
@@ -248,7 +248,7 @@ MonoBehaviour:
     m_Value: 64
   gaussianEnd:
     m_OverrideState: 1
-    m_Value: 192
+    m_Value: 512
   gaussianMaxRadius:
     m_OverrideState: 1
     m_Value: 1

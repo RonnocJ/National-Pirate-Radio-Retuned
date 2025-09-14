@@ -9,6 +9,70 @@
 							<ObjectRef Name="System" ID="{8A87A3AC-6877-4C27-8419-EBC1134BB628}" WorkUnitID="{01A927AE-BD8E-487E-A9F3-9346D65973CD}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="GlobalBus" ID="{85D2691F-C631-4DC0-8F6E-B4BDBA98A9D9}">
+							<ChildrenList>
+								<Bus Name="MusicBus" ID="{9E6F5B83-3133-4515-BC1E-DD91A3AB4721}"/>
+								<Bus Name="SFXBus" ID="{F28AD36E-B51A-4B31-AC6D-4BF612D718CB}">
+									<ChildrenList>
+										<AuxBus Name="EnemyVerb" ID="{CA2D83F7-6E3C-43F4-94FD-D92BCB8A11F2}">
+											<ObjectLists>
+												<ObjectList Name="Effects">
+													<Reference>
+														<Local>
+															<EffectSlot Name="" ID="{B473D1DF-9B74-4365-9E76-DA85D0EE9E0A}" ShortID="344547020">
+																<ReferenceList>
+																	<Reference Name="Effect">
+																		<Custom CreatedFrom="{6D154498-FF6D-4823-96FC-56841B70E079}">
+																			<Effect Name="Hall_Large (Custom)" ID="{77A85F60-DDAD-48CE-B28A-26B7D36326F3}" ShortID="203727631" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+																				<PropertyList>
+																					<Property Name="DecayTime" Type="Real32" Value="2"/>
+																					<Property Name="Density" Type="Real32" Value="66"/>
+																					<Property Name="Diffusion" Type="Real32" Value="50"/>
+																					<Property Name="ERLevel" Type="Real32" Value="-23"/>
+																					<Property Name="ERPattern" Type="int32" Value="7"/>
+																					<Property Name="Filter1Freq" Type="Real32" Value="590"/>
+																					<Property Name="Filter1Gain" Type="Real32" Value="3"/>
+																					<Property Name="Filter1InsertPos" Type="int32" Value="2"/>
+																					<Property Name="HFDamping" Type="Real32" Value="2"/>
+																					<Property Name="PreDelay" Type="Real32" Value="10"/>
+																					<Property Name="Quality" Type="int32" Value="14"/>
+																					<Property Name="ReverbLevel" Type="Real32" Value="-23"/>
+																					<Property Name="RoomShape" Type="Real32" Value="40"/>
+																					<Property Name="RoomSize" Type="Real32" Value="100"/>
+																				</PropertyList>
+																			</Effect>
+																		</Custom>
+																	</Reference>
+																</ReferenceList>
+															</EffectSlot>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</AuxBus>
+										<AuxBus Name="VanVerb" ID="{7D0BEEA6-0C82-4EB3-8FAF-8F4EE04017BF}">
+											<ObjectLists>
+												<ObjectList Name="Effects">
+													<Reference>
+														<Local>
+															<EffectSlot Name="" ID="{83A583A6-D2F7-4831-A74B-C2FADD313812}" ShortID="829675928">
+																<ReferenceList>
+																	<Reference Name="Effect" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+																		<ObjectRef Name="Hall_Large" ID="{6D154498-FF6D-4823-96FC-56841B70E079}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+																	</Reference>
+																</ReferenceList>
+															</EffectSlot>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</AuxBus>
+									</ChildrenList>
+								</Bus>
+							</ChildrenList>
+						</Bus>
+					</ChildrenList>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>

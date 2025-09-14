@@ -13,7 +13,52 @@ MonoBehaviour:
   m_Name: BankDictionary
   m_EditorClassIdentifier: 
   serializedEvents:
-  - eventName: Play_Test
+  - eventName: playCDMusic
     bankName: Main
-    eventId: 3187507146
-  serializedRTPCs: []
+    eventId: 3752191667
+  - eventName: playCDPlayerClose
+    bankName: Main
+    eventId: 1736359555
+  - eventName: playCDPlayerOpen
+    bankName: Main
+    eventId: 2283007477
+  - eventName: playDroneExplosion
+    bankName: Main
+    eventId: 1793089900
+  - eventName: playDroneHoverLoop
+    bankName: Main
+    eventId: 1561607685
+  - eventName: playDroneShoot
+    bankName: Main
+    eventId: 3233078124
+  - eventName: playRotorLoop
+    bankName: Main
+    eventId: 2715042163
+  - eventName: playTTSVoice
+    bankName: Main
+    eventId: 1507170084
+  - eventName: playVanEngine
+    bankName: Main
+    eventId: 2430665392
+  - eventName: playWindAmbience
+    bankName: Main
+    eventId: 628329353
+  serializedRTPCs:
+  - Name: Drone_Distance
+    Min: 0
+    Max: 256
+  - Name: TTS_Character
+    Min: 0
+    Max: 36
+  - Name: Engine_Gear
+    Min: 0
+    Max: 6
+  - Name: Engine_RPM
+    Min: 800
+    Max: 7500
+  - Name: Engine_Throttle
+    Min: 0
+    Max: 1
+  - Name: Player_Speed
+    Min: 0
+    Max: 75

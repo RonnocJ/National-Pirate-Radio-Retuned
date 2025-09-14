@@ -110,7 +110,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
@@ -138,7 +138,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -210,13 +210,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Disc
   MouseOffset: {x: 0, y: 0.1, z: 0}
   TargetMoveSpeed: 3
-  LoadedSong: 0
+  Active: 0
+  LoadedSong: 3
   rb: {fileID: 7112854575378331797}
   grabPlane: {fileID: 333972549785822224}
   gravity: 4
   releaseForce: 1.75
   distanceThreshold: 0.5
-  minLocalYWhileGrabbing: -0.075
+  minLocalYWhileGrabbing: -0.2
 --- !u!65 &4611079858137700306
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -236,5 +237,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3, y: 0.3, z: 0.025}
+  m_Size: {x: 0.45, y: 0.45, z: 0.025}
   m_Center: {x: 0, y: 0, z: 0}

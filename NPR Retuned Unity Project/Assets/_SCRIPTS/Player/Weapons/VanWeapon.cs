@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 public abstract class VanWeapon : MonoBehaviour
 {
@@ -5,7 +6,8 @@ public abstract class VanWeapon : MonoBehaviour
     [Header("Arm Alignment")]
     public Transform[] PalmTargets;
     [Header("Weapon Settings")]
-    [SerializeField] private float weaponRange;
+    [SerializeField] protected float weaponRange;
+    [SerializeField] protected float weaponDamage;
     public float MoveSpeed;
     private bool _weaponActive;
     private bool _weaponFiring => PInputManager.root.actions[PlayerActionType.Action].fValue > 0.1f;
@@ -19,7 +21,10 @@ public abstract class VanWeapon : MonoBehaviour
     protected virtual void Start()
     {
         PInputManager.root.actions[PlayerActionType.Switch].bAction += ToggleWeapon;
-        PInputManager.root.actions[PlayerActionType.Action].bAction += StopFireWeapon;
+        PInputManager.root.actions[PlayerActionType.Action].onFValueChange += c =>
+        {
+            if (c < 0.1f) StopFireWeapon();
+        };
     }
     protected virtual void ToggleWeapon()
     {
@@ -46,7 +51,7 @@ public abstract class VanWeapon : MonoBehaviour
     }
     protected virtual void StopFireWeapon()
     {
-
+        
     }
     private void Update()
     {

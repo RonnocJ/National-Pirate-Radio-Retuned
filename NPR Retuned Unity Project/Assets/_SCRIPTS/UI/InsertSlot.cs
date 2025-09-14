@@ -26,15 +26,20 @@ public class InsertSlot : MonoBehaviour
     private void AddDisc()
     {
         contacts = 0;
-        
-        _d.rb.isKinematic = true;
-        _d.grabPlane.enabled = false;
-        _d.enabled = false;
 
-        _d.transform.parent.position = transform.position;
+        _d.Active = false;
+
+        _d.grabPlane.enabled = false;
+        _d.rb.isKinematic = true;
+        _d.GetComponentInParent<MeshCollider>().enabled = false;
+
         _d.transform.parent.SetParent(transform, true);
+        _d.transform.parent.localPosition = Vector3.zero;
 
         MouseMover.root.ForceRelease();
+
         anim.SetTrigger("close");
+        AudioManager.root.PlaySound(AudioEvent.playCDPlayerClose, gameObject);
+        MusicManager.root.SwitchSong(_d.LoadedSong);
     }
 }

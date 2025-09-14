@@ -18,6 +18,6 @@ MonoBehaviour:
     - {fileID: 4661435515762455780, guid: e289bf5debb17f6459818c207d781953, type: 3}
     - {fileID: 6941765000743290380, guid: c60edd51c065ceb46b345849a03bc106, type: 3}
     - {fileID: 9069115365609291303, guid: 60f79905accf3b24fa0114b941f1aac0, type: 3}
-    MinScale: {x: 20, y: 20, z: 20}
-    MaxScale: {x: 40, y: 40, z: 40}
+    MinScale: 25
+    MaxScale: 45
     MaxPerTile: 1

@@ -82,6 +82,16 @@ public class Trumpet : VanWeapon
                 laserBeam.SetPosition(i, Vector3.Lerp(laserBeam.GetPosition(i), targetPos + Random.insideUnitSphere * 0.1f, Time.deltaTime * lerpSpeed));
             }
         }
+
+        var hits = Physics.SphereCastAll(transform.position, 0.25f, transform.forward, weaponRange, 1 << 15);
+
+        foreach (var h in hits)
+        {
+            if (h.collider.TryGetComponent(out Enemy e))
+            {
+                e.DamageEnemy(weaponDamage * Time.deltaTime);
+            }
+        }
     }
     protected override void StopFireWeapon()
     {

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{D1D84371-A965-414A-B40F-2200022F60C8}" SchemaVersion="123" RootDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" ParentDocumentID="{A9AC12BE-9441-4D75-995B-0A71BBB3B9F3}">
+	<Events>
+		<WorkUnit Name="Helicopter" ID="{D1D84371-A965-414A-B40F-2200022F60C8}" OwnerID="{A9AC12BE-9441-4D75-995B-0A71BBB3B9F3}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="playRotorLoop" ID="{9EB7DD56-F5B8-40F0-B5E6-A7D78FD2EB76}">
+					<ChildrenList>
+						<Action Name="" ID="{31736460-7D15-4A9D-BE41-9751F3C3745E}" ShortID="334305101">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RotorLoop" ID="{C418D32B-DAF8-4358-A698-64926276307C}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

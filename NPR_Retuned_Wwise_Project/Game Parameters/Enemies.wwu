@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{E7A1EEC0-AC02-4D05-9A45-B6B1C9050BE4}" SchemaVersion="123" RootDocumentID="{D966A3B5-EFC7-4CF5-859B-06419CD4409C}" ParentDocumentID="{D966A3B5-EFC7-4CF5-859B-06419CD4409C}">
+	<GameParameters>
+		<WorkUnit Name="Enemies" ID="{E7A1EEC0-AC02-4D05-9A45-B6B1C9050BE4}" OwnerID="{D966A3B5-EFC7-4CF5-859B-06419CD4409C}" PersistMode="Nested">
+			<ChildrenList>
+				<GameParameter Name="Drone_Distance" ID="{6D11BDBE-C7DA-4261-BE12-7AEEF7F0237B}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="256"/>
+						<Property Name="Max" Type="Real64" Value="256"/>
+						<Property Name="RTPCRamping" Type="int16" Value="1"/>
+						<Property Name="SlewRateDown" Type="Real64" Value="0"/>
+						<Property Name="SlewRateUp" Type="Real64" Value="0"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
+	</GameParameters>
+</WwiseDocument>

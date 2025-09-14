@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{59432D60-BD13-4C6B-9DD4-CDDD7D10C713}" SchemaVersion="123" RootDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" ParentDocumentID="{72ECE1ED-FA46-488E-AEFA-7F4E47A3086D}">
+	<Events>
+		<WorkUnit Name="CDPlayer" ID="{59432D60-BD13-4C6B-9DD4-CDDD7D10C713}" OwnerID="{72ECE1ED-FA46-488E-AEFA-7F4E47A3086D}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="playCDMusic" ID="{043AEE38-761B-4737-A1BA-2880D828D290}">
+					<ChildrenList>
+						<Action Name="" ID="{5922ED67-E22D-47B6-AC48-22D5ACC681EF}" ShortID="205045054">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="CDPlayer" ID="{7E8622CA-3B3A-4990-AA6C-7C37E9754BB3}" WorkUnitID="{C82C7A7D-9879-48EE-B0E6-DA043CFA0CE8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playCDPlayerClose" ID="{A1137E2B-52BF-4137-A76A-E43FD49EBCE7}">
+					<ChildrenList>
+						<Action Name="" ID="{29A1B979-D48C-44E5-ADBB-9E023BC90C72}" ShortID="494869311">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Close" ID="{3CADA031-3A21-47AF-B225-7F788A010D3D}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playCDPlayerOpen" ID="{902A852F-FDD2-4854-874D-2779C72F23A3}">
+					<ChildrenList>
+						<Action Name="" ID="{3DE87595-2EED-4241-B7CE-50D4A99ECE26}" ShortID="171620246">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Open" ID="{D98D0908-538B-4D51-80E9-88286433CA2B}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="setStatic" ID="{E8FD0A4A-7991-4E0B-829C-D101C1561FC0}">
+					<ChildrenList>
+						<Action Name="" ID="{63159AA6-FAF0-444D-BC42-274C99574697}" ShortID="245445575">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="23"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Static" ID="{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

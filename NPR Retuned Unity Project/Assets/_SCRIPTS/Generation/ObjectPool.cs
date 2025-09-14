@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class ObjectPool
 {
-    private readonly Stack<GameObject> _inactive = new();
+    private readonly Queue<GameObject> _pool = new();
     private int _createdCount = 0;
 
-    public int InactiveCount => _inactive.Count;
+    public int PoolCount => _pool.Count;
     public int CreatedCount => _createdCount;
 
     public void Prewarm(int count, GameObject[] variants, Transform parent)
@@ -25,40 +25,29 @@ public class ObjectPool
     }
     public GameObject Get(GameObject[] variants, Transform parent)
     {
-        if (_inactive.Count == 0)
+        if (_pool.Count == 0)
         {
             AddRandomInstance(variants, parent);
         }
-        var go = _inactive.Pop();
-        if (go == null)
-        {
-            // If somehow destroyed, recreate
-            AddRandomInstance(variants, parent);
-            go = _inactive.Pop();
-        }
-        go.SetActive(true);
-        return go;
+        var obj = _pool.Dequeue();
+        obj.SetActive(true);
+        return obj;
     }
-        public GameObject Get(GameObject prefab, Transform parent)
+    public GameObject Get(GameObject prefab, Transform parent)
     {
-        if (_inactive.Count == 0)
+        if (_pool.Count == 0)
         {
             AddRandomInstance(prefab, parent);
         }
-        var go = _inactive.Pop();
-        if (go == null)
-        {
-            AddRandomInstance(prefab, parent);
-            go = _inactive.Pop();
-        }
-        go.SetActive(true);
-        return go;
+        var obj = _pool.Dequeue();
+        obj.SetActive(true);
+        return obj;
     }
-    public void Return(GameObject go)
+    public void Return(GameObject obj)
     {
-        if (go == null) return;
-        go.SetActive(false);
-        _inactive.Push(go);
+        if (obj == null) return;
+        obj.SetActive(false);
+        _pool.Enqueue(obj);
     }
 
     private void AddRandomInstance(GameObject[] variants, Transform parent)
@@ -66,17 +55,16 @@ public class ObjectPool
         int idx = Random.Range(0, variants.Length);
         var prefab = variants[idx];
 
-        var go = Object.Instantiate(prefab, Vector3.zero, Quaternion.identity, parent);
-        go.SetActive(false);
-        _inactive.Push(go);
+        var obj = Object.Instantiate(prefab, Vector3.zero, Quaternion.identity, parent);
+        obj.SetActive(false);
+        _pool.Enqueue(obj);
         _createdCount++;
     }
     private void AddRandomInstance(GameObject prefab, Transform parent)
     {
-        var go = Object.Instantiate(prefab, Vector3.zero, Quaternion.identity, parent);
-        go.SetActive(false);
-        _inactive.Push(go);
+        var obj = Object.Instantiate(prefab, Vector3.zero, Quaternion.identity, parent);
+        obj.SetActive(false);
+        _pool.Enqueue(obj);
         _createdCount++;
     }
 }
-

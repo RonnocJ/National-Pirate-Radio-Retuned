@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{20F82454-7764-4A56-9079-70FB8E73D2CE}" SchemaVersion="123" RootDocumentID="{40083CE2-ED5B-455F-8D4F-AE23CFE44F8E}" ParentDocumentID="{DE26B266-BED1-41C2-A22E-67342F77E9C0}">
+	<Switches>
+		<WorkUnit Name="Van" ID="{20F82454-7764-4A56-9079-70FB8E73D2CE}" OwnerID="{DE26B266-BED1-41C2-A22E-67342F77E9C0}" PersistMode="Nested">
+			<ChildrenList>
+				<SwitchGroup Name="Engine" ID="{68D7F9AF-8961-45BA-8390-1BA57BBC1778}">
+					<ChildrenList>
+						<Switch Name="Started" ID="{DA864BA8-BB45-4A3C-A3E4-F114B04E5220}"/>
+						<Switch Name="Stopped" ID="{14F9D939-830F-4345-B7D7-4E4A4ABD2D02}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</Switches>
+</WwiseDocument>

@@ -132,6 +132,8 @@ GameObject:
   - component: {fileID: 93006136}
   - component: {fileID: 93006135}
   - component: {fileID: 93006137}
+  - component: {fileID: 93006139}
+  - component: {fileID: 93006138}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -289,6 +291,46 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &93006138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93006131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6b980e39a3f24c43b5ce98bbc792dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AK.Wwise.Unity.MonoBehaviour::AkAudioListener
+  isDefaultListener: 1
+  bOverrideScalingFactor: 0
+  scalingFactor: -1
+  listenerId: 0
+--- !u!114 &93006139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93006131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35de19b01f00a424d84cb4cab80bd31f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AK.Wwise.Unity.MonoBehaviour::AkGameObj
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 0
+  isStaticObject: 0
+  usePositionOffsetData: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  scalingFactor: 1
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!1 &294810052
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,6 +367,7 @@ MonoBehaviour:
   letterSpacing: 0.05
   wordSpacing: 0.2
   lineSpacing: 1
+  defaultCharDelay: 0.03
   preRotationEuler: {x: 0, y: 180, z: 0}
   preScale: {x: 1, y: 1, z: 1}
   fixWindingOnMirror: 1
@@ -864,6 +907,7 @@ MonoBehaviour:
   letterSpacing: 0.075
   wordSpacing: 0.1
   lineSpacing: 1
+  defaultCharDelay: 0.03
   preRotationEuler: {x: 0, y: 180, z: 0}
   preScale: {x: 1, y: 1, z: 1}
   fixWindingOnMirror: 1
@@ -1193,6 +1237,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521eb971cc84541d6812706fed3a8310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI
+--- !u!1 &2033710300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2033710302}
+  - component: {fileID: 2033710301}
+  m_Layer: 0
+  m_Name: WwiseGlobal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2033710301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033710300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a903d1d8160f4991ab5636dc32dafe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AK.Wwise.Unity.MonoBehaviour::AkInitializer
+  InitializationSettings: {fileID: 11400000, guid: 79edef4adab304023bb25d1fb36b9319, type: 2}
+  basePath: 
+  language: 
+  defaultPoolSize: 0
+  lowerPoolSize: 0
+  streamingPoolSize: 0
+  memoryCutoffThreshold: 0
+  monitorPoolSize: 0
+  monitorQueuePoolSize: 0
+  callbackManagerBufferSize: 0
+  spatialAudioPoolSize: 0
+  maxSoundPropagationDepth: 0
+  engineLogging: 0
+--- !u!4 &2033710302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033710300}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2096519808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,7 +1448,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1257809711832435379, guid: a18dc033fe46b45468a13af56598d72c, type: 3}
+  - {fileID: 2100000, guid: b0040e77a446d4b13a2de2ce4b878d5e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1608,7 +1709,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1257809711832435379, guid: a18dc033fe46b45468a13af56598d72c, type: 3}
+  - {fileID: 2100000, guid: b0040e77a446d4b13a2de2ce4b878d5e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1644,3 +1745,4 @@ SceneRoots:
   - {fileID: 1698500546}
   - {fileID: 996184731}
   - {fileID: 543450652141289642}
+  - {fileID: 2033710302}

@@ -28,8 +28,7 @@ public class TerrainGenerator : Singleton<TerrainGenerator>
     private Dictionary<TConType, TConData> _tileConDict = new();
     private Vector3 _playerPos => VanController.root.transform.position;
     private GeneratorSettings g => GeneratorSettings.root;
-
-    IEnumerator Start()
+    void Start()
     {
         foreach (var con in g.TCons)
         {
@@ -46,37 +45,35 @@ public class TerrainGenerator : Singleton<TerrainGenerator>
 
         int poolCount = (2 * (g.ViewDistance + g.CullMargin) + 1) * (2 * (g.ViewDistance + g.CullMargin) + 1);
         _grassPool = new ObjectPool();
+    }
+    public IEnumerator GenerateTerrain()
+    {
+        Vector3 p = _playerPos;
+        int pX = Mathf.FloorToInt(p.x / g.CellSize);
+        int pZ = Mathf.FloorToInt(p.z / g.CellSize);
 
-        while (true)
+        for (int x = pX - g.ViewDistance - g.CullMargin; x <= pX + g.ViewDistance + g.CullMargin; x++)
         {
-            Vector3 p = _playerPos;
-            int pX = Mathf.FloorToInt(p.x / g.CellSize);
-            int pZ = Mathf.FloorToInt(p.z / g.CellSize);
-
-            for (int x = pX - g.ViewDistance - g.CullMargin; x <= pX + g.ViewDistance + g.CullMargin; x++)
+            for (int z = pZ - g.ViewDistance - g.CullMargin; z <= pZ + g.ViewDistance + g.CullMargin; z++)
             {
-                for (int z = pZ - g.ViewDistance - g.CullMargin; z <= pZ + g.ViewDistance + g.CullMargin; z++)
+                Vector3 pos = new Vector3(x * g.CellSize, 0, z * g.CellSize);
+                if (Mathf.Abs(x - pX) <= g.ViewDistance && Mathf.Abs(z - pZ) <= g.ViewDistance)
                 {
-                    Vector3 pos = new Vector3(x * g.CellSize, 0, z * g.CellSize);
-                    if (Mathf.Abs(x - pX) <= g.ViewDistance && Mathf.Abs(z - pZ) <= g.ViewDistance)
+                    Tile tile = AddTile(TConType.Grass, pos);
+
+                    if (tile.Object == null && tile.Type == TConType.Grass)
                     {
-                        Tile tile = AddTile(TConType.Grass, pos);
-
-                        if (tile.Object == null && tile.Type == TConType.Grass)
+                        if (_grassPool.CreatedCount < g.GrassLimit)
                         {
-                            if (_grassPool.CreatedCount < Mathf.Min(Mathf.Pow(g.ViewDistance * 4f, 2), _tileDict.Count - 2))
-                            {
-                                _grassPool.Prewarm(1, _tileConDict[TConType.Grass].Prefab, grassParent);
-                            }
-
-                            PlaceTile(tile, _grassPool, pos);
+                            _grassPool.Prewarm(2, _tileConDict[TConType.Grass].Prefab, grassParent);
                         }
+
+                        PlaceTile(tile, _grassPool, pos);
                     }
                 }
-
-                yield return null;
             }
 
+            yield return null;
         }
     }
 
@@ -89,6 +86,9 @@ public class TerrainGenerator : Singleton<TerrainGenerator>
             tile.Position = checkPos;
             tile.OriginalVertices = _tileConDict[type].DefaultMeshes.vertices;
             _tileDict[checkPos] = tile;
+
+            PfGraph.root.PfDict[PfGraph.root.V3ToInt(checkPos)] = new PfTile(PfGraph.root.V3ToInt(checkPos));
+
             return tile;
         }
         else

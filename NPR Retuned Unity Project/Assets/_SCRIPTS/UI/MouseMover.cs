@@ -161,7 +161,6 @@ public class MouseMover : Singleton<MouseMover>
         if (_grabTarget != null)
         {
             _grabbing = false;
-            _grabTarget.OnRelease();
             _grabTarget = null;
 
             _anim.SetBool("grabbing", false);

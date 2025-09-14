@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class Disc : Grabbable
 {
+    public bool Active;
     public SongName LoadedSong;
     public Rigidbody rb;
-        public Collider grabPlane;
+    public Collider grabPlane;
     [SerializeField] private float gravity;
     [SerializeField] private float releaseForce;
     [SerializeField] private float distanceThreshold;
@@ -18,7 +19,7 @@ public class Disc : Grabbable
     }
     void FixedUpdate()
     {
-        if (rb.isKinematic) return;
+        if (rb.isKinematic || !Active) return;
 
         Vector3 localPos = transform.parent.localPosition;
         localPos.z = 0.925f;
@@ -28,6 +29,8 @@ public class Disc : Grabbable
     }
     public override void OnDrag()
     {
+        if (!Active) return;
+
         rb.isKinematic = true;
         grabPlane.enabled = true;
 
@@ -48,6 +51,8 @@ public class Disc : Grabbable
     }
     public override void OnRelease()
     {
+        if (!Active) return;
+        
         base.OnRelease();
         rb.isKinematic = false;
         grabPlane.enabled = false;

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{75D373E6-AB92-4F7A-8D5D-472B2133F41C}" SchemaVersion="123" RootDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" ParentDocumentID="{72ECE1ED-FA46-488E-AEFA-7F4E47A3086D}">
+	<Events>
+		<WorkUnit Name="Van" ID="{75D373E6-AB92-4F7A-8D5D-472B2133F41C}" OwnerID="{72ECE1ED-FA46-488E-AEFA-7F4E47A3086D}" PersistMode="Nested">
+			<ChildrenList>
+				<WorkUnit Name="Engine" ID="{B945D656-E6B4-45FE-A11D-9C734C5563B6}" PersistMode="Reference"/>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

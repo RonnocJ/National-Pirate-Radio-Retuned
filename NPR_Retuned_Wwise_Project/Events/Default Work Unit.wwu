@@ -3,17 +3,10 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Play_Test" ID="{E48C012D-5BE3-4F01-8493-F8F8D37A3EFA}">
-					<ChildrenList>
-						<Action Name="" ID="{8A4D97DC-0C4D-4238-9329-EF2103F69724}" ShortID="612128259">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Test" ID="{52D31C1D-B6F6-40FA-BBCC-442B69C645FF}" WorkUnitID="{67D82442-2027-4B60-B7DE-8677BD7363FA}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
+				<WorkUnit Name="UI" ID="{65B008BF-CF76-4761-A4ED-5CFCDCA7DD37}" PersistMode="Reference"/>
+				<WorkUnit Name="Enemies" ID="{A9AC12BE-9441-4D75-995B-0A71BBB3B9F3}" PersistMode="Reference"/>
+				<WorkUnit Name="Player" ID="{72ECE1ED-FA46-488E-AEFA-7F4E47A3086D}" PersistMode="Reference"/>
+				<WorkUnit Name="Ambiences" ID="{3DCDE90D-A9B1-487F-9008-A3DF5D59B2F0}" PersistMode="Reference"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

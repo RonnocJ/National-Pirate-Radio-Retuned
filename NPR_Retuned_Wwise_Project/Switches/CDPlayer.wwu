@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" SchemaVersion="123" RootDocumentID="{40083CE2-ED5B-455F-8D4F-AE23CFE44F8E}" ParentDocumentID="{DE26B266-BED1-41C2-A22E-67342F77E9C0}">
+	<Switches>
+		<WorkUnit Name="CDPlayer" ID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" OwnerID="{DE26B266-BED1-41C2-A22E-67342F77E9C0}" PersistMode="Nested">
+			<ChildrenList>
+				<SwitchGroup Name="NowPlaying" ID="{200BD546-70E0-44CC-AE65-78038AA295EB}">
+					<ChildrenList>
+						<Switch Name="Static" ID="{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}"/>
+						<Switch Name="EVG" ID="{4B3BF5EA-C883-4501-BA08-9A538A19CD3C}"/>
+						<Switch Name="NPR" ID="{E83B5186-AA77-418A-B6E1-246C536171B9}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</Switches>
+</WwiseDocument>

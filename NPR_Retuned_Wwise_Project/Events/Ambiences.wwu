@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{3DCDE90D-A9B1-487F-9008-A3DF5D59B2F0}" SchemaVersion="123" RootDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" ParentDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}">
+	<Events>
+		<WorkUnit Name="Ambiences" ID="{3DCDE90D-A9B1-487F-9008-A3DF5D59B2F0}" OwnerID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="playWindAmbience" ID="{6F05E3EB-D290-42B2-8994-58865BC7E64C}">
+					<ChildrenList>
+						<Action Name="" ID="{3FBF8DE4-72F2-47FA-800F-35FF31948F6A}" ShortID="616841458">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Wind" ID="{0F966AC3-A2EF-4E5A-9B4F-E1A2F1789577}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

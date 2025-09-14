@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{4EDF2940-3810-4609-8340-C92392A1E63D}" SchemaVersion="123" RootDocumentID="{D966A3B5-EFC7-4CF5-859B-06419CD4409C}" ParentDocumentID="{D966A3B5-EFC7-4CF5-859B-06419CD4409C}">
+	<GameParameters>
+		<WorkUnit Name="UI" ID="{4EDF2940-3810-4609-8340-C92392A1E63D}" OwnerID="{D966A3B5-EFC7-4CF5-859B-06419CD4409C}" PersistMode="Nested">
+			<ChildrenList>
+				<GameParameter Name="TTS_Character" ID="{2ED63AE9-050B-4AF6-B814-3BB942385BD3}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="Max" Type="Real64" Value="36"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
+	</GameParameters>
+</WwiseDocument>

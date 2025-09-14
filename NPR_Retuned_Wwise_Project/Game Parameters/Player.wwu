@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{F97D39F1-CB9C-456A-8ACD-E370B4795158}" SchemaVersion="123" RootDocumentID="{D966A3B5-EFC7-4CF5-859B-06419CD4409C}" ParentDocumentID="{D966A3B5-EFC7-4CF5-859B-06419CD4409C}">
+	<GameParameters>
+		<WorkUnit Name="Player" ID="{F97D39F1-CB9C-456A-8ACD-E370B4795158}" OwnerID="{D966A3B5-EFC7-4CF5-859B-06419CD4409C}" PersistMode="Nested">
+			<ChildrenList>
+				<WorkUnit Name="Van" ID="{2762CD52-4BF0-48AF-9190-8179ECF68B1E}" PersistMode="Reference"/>
+			</ChildrenList>
+		</WorkUnit>
+	</GameParameters>
+</WwiseDocument>

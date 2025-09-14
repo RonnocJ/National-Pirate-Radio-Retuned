@@ -10,6 +10,6 @@ public class CDButton : Interactable
         base.OnClick();
         anim.SetTrigger("clicked");
 
-        cdWheel.SelectedSong();
+        cdWheel.SelectedSong(Song);
     }
 }

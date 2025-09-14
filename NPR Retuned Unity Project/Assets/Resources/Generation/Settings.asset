@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44ce5e1833fd466eb879a81baff8bf3, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: Assembly-CSharp::GeneratorSettings
-  ViewDistance: 16
+  ViewDistance: 20
   CullMargin: 1
   CellSize: 64
   NoiseScale: 512
@@ -39,13 +39,22 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1024
-      value: 1
-      inSlope: 0.0034751585
-      outSlope: 0.0034751585
+      time: 563.2578
+      value: 0.36817664
+      inSlope: 0.0022057735
+      outSlope: 0.0022057735
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.050632875
+      inWeight: 0.1698368
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1024
+      value: 1
+      inSlope: 0.00018622937
+      outSlope: 0.00018622937
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.13743217
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -55,6 +64,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4df062159a1f64601aac5fe5fcf8b2ca, type: 2}
   RCons:
   - {fileID: 11400000, guid: ce25c479601664a7d8224f50d8fb64dc, type: 2}
+  - {fileID: 11400000, guid: e3b7f20d79aa740b292f739006d03c62, type: 2}
+  - {fileID: 11400000, guid: 37c688986abe5498eb0bf9a641b89e90, type: 2}
   FCons:
   - {fileID: 11400000, guid: 246eb67063a4e450c96f6f35ee0c2b2e, type: 2}
   - {fileID: 11400000, guid: 1492725c604eb49bcb9eb3f2501de7c1, type: 2}
+  GrassLimit: 3000
+  RoadLimit: 256
+  TIntersectionLimit: 32
+  XIntersectionLimit: 32
+  LargeTreeLimit: 6000
+  SmallTreeLimit: 6000

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{52641B82-242A-4636-9D7F-3703E5D3F04A}" SchemaVersion="123" RootDocumentID="{31EAE0D6-38C7-46A7-AEB9-5A15264B4104}" ParentDocumentID="{31EAE0D6-38C7-46A7-AEB9-5A15264B4104}">
+	<DynamicDialogue>
+		<WorkUnit Name="IntroDialogue" ID="{52641B82-242A-4636-9D7F-3703E5D3F04A}" OwnerID="{31EAE0D6-38C7-46A7-AEB9-5A15264B4104}" PersistMode="Nested"/>
+	</DynamicDialogue>
+</WwiseDocument>

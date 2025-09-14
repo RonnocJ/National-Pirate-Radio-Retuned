@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{1EE88927-269D-4453-9CFF-BFF7196604EC}" SchemaVersion="123" RootDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" ParentDocumentID="{A9AC12BE-9441-4D75-995B-0A71BBB3B9F3}">
+	<Events>
+		<WorkUnit Name="Drone" ID="{1EE88927-269D-4453-9CFF-BFF7196604EC}" OwnerID="{A9AC12BE-9441-4D75-995B-0A71BBB3B9F3}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="playDroneExplosion" ID="{0E55F49C-35EE-4BC8-9D0C-622D97506829}">
+					<ChildrenList>
+						<Action Name="" ID="{4EF4FAD7-F59B-4BE3-BD32-E28D50A6A0F1}" ShortID="1068726765">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Explosion" ID="{B3D0101A-0776-4769-AE77-130E4C469607}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{C155CBA9-0920-4EA5-B6CE-E9B01B71D71A}" ShortID="277179522">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="HoverLoop" ID="{3DAAA383-E8AA-468B-A239-C571E81CD699}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playDroneHoverLoop" ID="{55604414-A1F8-42DD-B906-72117A48C006}">
+					<ChildrenList>
+						<Action Name="" ID="{7E8C3735-AF9E-4FA5-B8B6-00F2FC48E210}" ShortID="343651723">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="HoverLoop" ID="{3DAAA383-E8AA-468B-A239-C571E81CD699}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playDroneShoot" ID="{513EBC5E-87AF-441F-B503-2C95AC80A242}">
+					<ChildrenList>
+						<Action Name="" ID="{C3170B99-4E38-4FC8-8D46-0F9F181FD6F4}" ShortID="433839630">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Shoot" ID="{24F195F4-CA5D-41C1-92F5-B8EE8C099429}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

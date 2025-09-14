@@ -1,3 +1,11 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	200428098	ID_JoeTools			\Default Work Unit\IntroDialogue\ID_JoeTools	
+
+State	ID	Name	State Group			Notes
+	670611050	Neutral	ID_JoeTools			
+	748895195	None	ID_JoeTools			
+	1427264549	Happy	ID_JoeTools			
+
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	504532776	Brick			\Factory Acoustic Textures\Textures\Brick	
 	513139656	Mountain			\Factory Acoustic Textures\Textures\Mountain	
@@ -15,7 +23,18 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	4262522749	Wood_Bright			\Factory Acoustic Textures\Textures\Wood_Bright	
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	2629241110	GlobalBus			\Default Work Unit\Master Audio Bus\GlobalBus	
+	2886307548	MusicBus			\Default Work Unit\Master Audio Bus\GlobalBus\MusicBus	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	3803850708	SFXBus			\Default Work Unit\Master Audio Bus\GlobalBus\SFXBus	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	3347336007	VanVerb			\Default Work Unit\Master Audio Bus\GlobalBus\SFXBus\VanVerb	
+	3390657128	EnemyVerb			\Default Work Unit\Master Audio Bus\GlobalBus\SFXBus\EnemyVerb	
+
+Effect plug-ins	ID	Name	Type				Notes
+	203727631	Hall_Large (Custom)	Wwise RoomVerb			
+	2513915904	Hall_Large	Wwise RoomVerb			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

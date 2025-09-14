@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{5B9EB50C-A59A-4AA6-AC16-AF3E96292C43}" SchemaVersion="123" RootDocumentID="{B69FA23A-1C75-48C2-9F49-690521E56080}" ParentDocumentID="{B69FA23A-1C75-48C2-9F49-690521E56080}">
+	<States>
+		<WorkUnit Name="IntroDialogue" ID="{5B9EB50C-A59A-4AA6-AC16-AF3E96292C43}" OwnerID="{B69FA23A-1C75-48C2-9F49-690521E56080}" PersistMode="Nested">
+			<ChildrenList>
+				<StateGroup Name="ID_JoeTools" ID="{6FD0B797-C416-433F-85B2-FCB1DF5067E9}">
+					<ChildrenList>
+						<State Name="None" ID="{1C191B5B-C9DA-453C-9E59-CCFB758B7353}"/>
+						<State Name="Happy" ID="{9A8324D3-19C5-43BB-BF27-9FD66DB0895B}"/>
+						<State Name="Neutral" ID="{D60A9863-7541-4602-88B9-76CE3A348A3E}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</States>
+</WwiseDocument>

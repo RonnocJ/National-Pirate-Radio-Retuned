@@ -3,13 +3,15 @@ using UnityEngine;
 
 public enum RConType
 {
-    Road
+    Road,
+    TIntersection,
+    XIntersection
 }
 
 [CreateAssetMenu(fileName = "NewData", menuName = "Objects/World/RoadConstruct")]
 public class RoadConstruct : ScriptableObject
 {
-    public RConType constructName = RConType.Road;
+    public RConType constructName;
     public RConData data;
 }
 

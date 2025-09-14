@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{A9AC12BE-9441-4D75-995B-0A71BBB3B9F3}" SchemaVersion="123" RootDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" ParentDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}">
+	<Events>
+		<WorkUnit Name="Enemies" ID="{A9AC12BE-9441-4D75-995B-0A71BBB3B9F3}" OwnerID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" PersistMode="Nested">
+			<ChildrenList>
+				<WorkUnit Name="Helicopter" ID="{D1D84371-A965-414A-B40F-2200022F60C8}" PersistMode="Reference"/>
+				<WorkUnit Name="Drone" ID="{1EE88927-269D-4453-9CFF-BFF7196604EC}" PersistMode="Reference"/>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

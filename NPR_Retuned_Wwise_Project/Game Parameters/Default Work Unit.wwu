@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{D966A3B5-EFC7-4CF5-859B-06419CD4409C}" SchemaVersion="123">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{D966A3B5-EFC7-4CF5-859B-06419CD4409C}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{D966A3B5-EFC7-4CF5-859B-06419CD4409C}" PersistMode="Standalone">
+			<ChildrenList>
+				<WorkUnit Name="UI" ID="{4EDF2940-3810-4609-8340-C92392A1E63D}" PersistMode="Reference"/>
+				<WorkUnit Name="Enemies" ID="{E7A1EEC0-AC02-4D05-9A45-B6B1C9050BE4}" PersistMode="Reference"/>
+				<WorkUnit Name="Player" ID="{F97D39F1-CB9C-456A-8ACD-E370B4795158}" PersistMode="Reference"/>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>

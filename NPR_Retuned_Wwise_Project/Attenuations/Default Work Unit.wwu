@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{15BF3720-8515-4692-A372-08E0E7071FA2}" SchemaVersion="123">
 	<Attenuations>
-		<WorkUnit Name="Default Work Unit" ID="{15BF3720-8515-4692-A372-08E0E7071FA2}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{15BF3720-8515-4692-A372-08E0E7071FA2}" PersistMode="Standalone">
+			<ChildrenList>
+				<WorkUnit Name="Enemies" ID="{08A57674-6AE5-4184-B743-8AA024C35EBB}" PersistMode="Reference"/>
+				<WorkUnit Name="Player" ID="{40434A51-0A22-44DD-BC04-85E45654C12F}" PersistMode="Reference"/>
+			</ChildrenList>
+		</WorkUnit>
 	</Attenuations>
 </WwiseDocument>

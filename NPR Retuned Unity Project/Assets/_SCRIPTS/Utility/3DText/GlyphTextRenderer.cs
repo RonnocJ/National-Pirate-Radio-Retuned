@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
@@ -15,6 +16,10 @@ public class GlyphTextRenderer : MonoBehaviour
     [Min(0f)] public float wordSpacing = 0.1f;    // spacing for spaces
     [Min(0f)] public float lineSpacing = 1.0f;    // spacing multiplier for new lines (relative to 1 unit glyph height)
 
+    [Header("Typing")]
+    [Tooltip("Default delay between characters when typing.")]
+    [Min(0f)] public float defaultCharDelay = 0.03f;
+
     [Header("Source Orientation Fix")]
     [Tooltip("Apply an extra rotation to each glyph mesh to correct source orientation (degrees). Common fix: Y=180.")]
     public Vector3 preRotationEuler = Vector3.zero;
@@ -25,17 +30,9 @@ public class GlyphTextRenderer : MonoBehaviour
     [Tooltip("Recalculate normals after building. Useful if applying mirroring or non-uniform scale.")]
     public bool recalculateNormals = true;
 
-    private MeshFilter _mf;
+    [SerializeField] private MeshFilter _mf;
     private string _lastBuiltText;
     private Coroutine _textRoutine;
-    void Awake()
-    {
-        _mf = GetComponent<MeshFilter>();
-
-        Mesh mesh = new Mesh();
-        mesh.name = name;
-        _mf.mesh = mesh;
-    }
     public void SetText(TextLine line)
     {
         if (line == null)
@@ -45,14 +42,36 @@ public class GlyphTextRenderer : MonoBehaviour
             _textRoutine = null;
             return;
         }
-        text = line.text;
 
-        if (_textRoutine != null) StopCoroutine(_textRoutine);
-        _textRoutine = StartCoroutine(BuildMesh(line));
+        SetText(line.text, line.speed);
     }
-    public IEnumerator BuildMesh(TextLine line)
+
+    public void SetText(string content)
     {
-        _lastBuiltText = line.text ?? string.Empty;
+        SetText(content, defaultCharDelay);
+    }
+
+    public void SetText(string content, float charDelay, bool playAudio = false)
+    {
+        Mesh mesh = new Mesh();
+        mesh.name = name;
+        _mf.sharedMesh = mesh;
+        if (content == null)
+        {
+            text = string.Empty;
+            if (_textRoutine != null) StopCoroutine(_textRoutine);
+            _textRoutine = null;
+            return;
+        }
+
+        text = content;
+        if (_textRoutine != null) StopCoroutine(_textRoutine);
+        _textRoutine = StartCoroutine(TypeOut(content, charDelay, playAudio));
+    }
+
+    private IEnumerator TypeOut(string content, float charDelay, bool playAudio)
+    {
+        _lastBuiltText = content ?? string.Empty;
 
         var verts = new List<Vector3>();
         var norms = new List<Vector3>();
@@ -65,6 +84,8 @@ public class GlyphTextRenderer : MonoBehaviour
 
         var preRot = Quaternion.Euler(preRotationEuler);
         bool mirrored = (preScale.x * preScale.y * preScale.z) < 0f;
+
+        if (playAudio) AudioManager.root.PlaySound(AudioEvent.playTTSVoice, gameObject, 1);
 
         for (int i = 0; i < _lastBuiltText.Length; i++)
         {
@@ -85,6 +106,22 @@ public class GlyphTextRenderer : MonoBehaviour
             {
                 // Skip unknown glyphs
                 continue;
+            }
+
+            if (playAudio)
+            {
+                int index;
+
+                if (int.TryParse(ch.ToString(), out int num))
+                {
+                    index = num;
+                }
+                else
+                {
+                    index = char.ToUpper(ch) - 54;
+                }
+
+                AudioManager.root.SetRTPC(AudioRTPC.TTS_Character, index, false, AudioEvent.playTTSVoice, gameObject);
             }
 
             var gVerts = glyphMesh.vertices;
@@ -136,7 +173,7 @@ public class GlyphTextRenderer : MonoBehaviour
             var width = glyphMesh.bounds.size.x * Mathf.Abs(preScale.x) * glyphScale;
             pen.x += width + letterSpacing;
 
-            var mesh = _mf.mesh;
+            var mesh = _mf.sharedMesh;
 
             mesh.Clear();
             mesh.SetVertices(verts);
@@ -148,8 +185,11 @@ public class GlyphTextRenderer : MonoBehaviour
             if (recalculateNormals) mesh.RecalculateNormals();
             mesh.RecalculateBounds();
 
-            yield return new WaitForSeconds(line.speed);
+            if (charDelay > 0f)
+                yield return new WaitForSeconds(charDelay);
         }
+
+        if (playAudio) AudioManager.root.StopSound(AudioEvent.playTTSVoice, gameObject, 1);
     }
     public void ClearText()
     {
@@ -158,5 +198,18 @@ public class GlyphTextRenderer : MonoBehaviour
         mesh.Clear();
         mesh.RecalculateNormals();
         mesh.RecalculateBounds();
+    }
+}
+
+
+
+[CustomEditor(typeof(GlyphTextRenderer))]
+public class GlyphTextRendererEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+
+        if (GUILayout.Button("Set Text") && target is GlyphTextRenderer gr) gr.SetText(gr.text);
     }
 }
