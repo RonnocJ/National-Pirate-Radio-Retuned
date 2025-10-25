@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 public abstract class VanWeapon : MonoBehaviour
 {
@@ -6,8 +5,10 @@ public abstract class VanWeapon : MonoBehaviour
     [Header("Arm Alignment")]
     public Transform[] PalmTargets;
     [Header("Weapon Settings")]
+
     [SerializeField] protected float weaponRange;
     [SerializeField] protected float weaponDamage;
+    [SerializeField] protected LineRenderer aimBeam;
     public float MoveSpeed;
     private bool _weaponActive;
     private bool _weaponFiring => PInputManager.root.actions[PlayerActionType.Action].fValue > 0.1f;
@@ -20,27 +21,47 @@ public abstract class VanWeapon : MonoBehaviour
     }
     protected virtual void Start()
     {
-        PInputManager.root.actions[PlayerActionType.Switch].bAction += ToggleWeapon;
+        GameManager.root.OnPStateSwitch += ToggleWeapon;
         PInputManager.root.actions[PlayerActionType.Action].onFValueChange += c =>
         {
             if (c < 0.1f) StopFireWeapon();
         };
     }
-    protected virtual void ToggleWeapon()
+    protected virtual void ToggleWeapon(PlayerState newState)
     {
-        _weaponActive = !_weaponActive;
+        if (newState == PlayerState.Weapon) _weaponActive = true;
+        else _weaponActive = false;
     }
     protected virtual void AimWeapon()
     {
-        Ray ray = new Ray(_mainCamera.transform.position, _mainCamera.transform.forward.normalized);
+        HitTarget = Vector3.zero;
+        var cols = Physics.SphereCastAll(_mainCamera.transform.position, WeaponSettings.root.AimAssist, _mainCamera.transform.forward.normalized, weaponRange, WeaponSettings.root.LayerInclusions);
 
-        if (Physics.Raycast(ray, out RaycastHit hit, weaponRange, WeaponSettings.root.LayerInclusions))
+        foreach (var c in cols)
         {
-            HitTarget = hit.point;
+            if (c.collider.gameObject.TryGetComponent(out Enemy e))
+            {
+                HitTarget = e.transform.position;
+                break;
+            }
         }
-        else
+        if (HitTarget == Vector3.zero)
         {
-            HitTarget = ray.origin + ray.direction * weaponRange;
+            Ray ray = new Ray(transform.position, _mainCamera.transform.forward.normalized);
+            if (Physics.Raycast(ray, out RaycastHit hit, weaponRange, WeaponSettings.root.LayerInclusions))
+            {
+                HitTarget = hit.point;
+            }
+            else
+            {
+                HitTarget = ray.origin + ray.direction * weaponRange;
+            }
+        }
+
+        if (aimBeam.enabled)
+        {
+            aimBeam.SetPosition(0, aimBeam.transform.position);
+            aimBeam.SetPosition(1, HitTarget);
         }
 
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(HitTarget - transform.position), Time.deltaTime * MoveSpeed);
@@ -51,10 +72,12 @@ public abstract class VanWeapon : MonoBehaviour
     }
     protected virtual void StopFireWeapon()
     {
-        
+
     }
-    private void Update()
+    private void LateUpdate()
     {
+        aimBeam.enabled = _weaponActive && !_weaponFiring;
+
         if (!_weaponActive) return;
 
         AimWeapon();

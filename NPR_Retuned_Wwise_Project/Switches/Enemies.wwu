@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{E16D6BFB-CFE1-4292-91B2-46D4F3AC6D95}" SchemaVersion="123" RootDocumentID="{40083CE2-ED5B-455F-8D4F-AE23CFE44F8E}" ParentDocumentID="{40083CE2-ED5B-455F-8D4F-AE23CFE44F8E}">
+	<Switches>
+		<WorkUnit Name="Enemies" ID="{E16D6BFB-CFE1-4292-91B2-46D4F3AC6D95}" OwnerID="{40083CE2-ED5B-455F-8D4F-AE23CFE44F8E}" PersistMode="Nested">
+			<ChildrenList>
+				<WorkUnit Name="ATV" ID="{B72ED346-1D45-4874-9D31-C7A656344AC9}" PersistMode="Reference"/>
+			</ChildrenList>
+		</WorkUnit>
+	</Switches>
+</WwiseDocument>

@@ -1,0 +1,56 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3705726509",
+    "Type": "User",
+    "GUID": "{BFB26C9A-8977-4905-AA23-380990C460D2}",
+    "Language": "SFX",
+    "Hash": "{6F02BFBA-7CB7-1DCC-BA8B-96A22728A5A2}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Title",
+    "ShortName": "Title",
+    "Path": "Title.bnk",
+    "Media": [
+     {
+      "Id": "451930117",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "NPR_MSC_TitleIntro.wav",
+      "CachePath": "5F/{5F969E7F-0766-E7E0-9449-20484D39327A}.wem"
+     },
+     {
+      "Id": "913225190",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "NPR_MSC_TitleLoop.wav",
+      "CachePath": "C8/{C8292DA2-1C80-4F2D-5A95-17489CC42592}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "718394488",
+      "Name": "playTitleMusic",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\playTitleMusic",
+      "GUID": "{92881F73-1D62-4723-A8D4-97D3E37B52B1}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "451930117"
+       },
+       {
+        "Id": "913225190"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{90300BAD-C17B-C10B-9C57-3E977C5410E9}"
+ }
+}

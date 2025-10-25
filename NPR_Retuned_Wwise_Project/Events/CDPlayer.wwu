@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{59432D60-BD13-4C6B-9DD4-CDDD7D10C713}" SchemaVersion="123" RootDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" ParentDocumentID="{72ECE1ED-FA46-488E-AEFA-7F4E47A3086D}">
+<WwiseDocument Type="WorkUnit" ID="{59432D60-BD13-4C6B-9DD4-CDDD7D10C713}" SchemaVersion="123" RootDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" ParentDocumentID="{65B008BF-CF76-4761-A4ED-5CFCDCA7DD37}">
 	<Events>
-		<WorkUnit Name="CDPlayer" ID="{59432D60-BD13-4C6B-9DD4-CDDD7D10C713}" OwnerID="{72ECE1ED-FA46-488E-AEFA-7F4E47A3086D}" PersistMode="Nested">
+		<WorkUnit Name="CDPlayer" ID="{59432D60-BD13-4C6B-9DD4-CDDD7D10C713}" OwnerID="{65B008BF-CF76-4761-A4ED-5CFCDCA7DD37}" PersistMode="Nested">
 			<ChildrenList>
 				<Event Name="playCDMusic" ID="{043AEE38-761B-4737-A1BA-2880D828D290}">
 					<ChildrenList>

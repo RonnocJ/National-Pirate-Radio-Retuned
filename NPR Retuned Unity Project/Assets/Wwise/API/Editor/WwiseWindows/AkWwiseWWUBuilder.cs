@@ -184,7 +184,7 @@ public class AkWwiseWWUBuilder : UnityEditor.AssetPostprocessor
 		string in_parentPath = "")
 	{
 		m_WwuToProcess.Remove(in_workUnit.FullName);
-		int wwuIndex;
+		var wwuIndex = -1;
 		try
 		{
 			//Progress bar stuff
@@ -234,6 +234,7 @@ public class AkWwiseWWUBuilder : UnityEditor.AssetPostprocessor
 						var persistMode = reader.GetAttribute("PersistMode");
 						if (persistMode == "Reference")
 						{
+							// ReadFrom advances the reader
 							var matchedElement = System.Xml.Linq.XNode.ReadFrom(reader) as System.Xml.Linq.XElement;
 							var newWorkUnitPath =
 								System.IO.Path.Combine(in_workUnit.Directory.FullName, matchedElement.Attribute("Name").Value + ".wwu");
@@ -241,12 +242,15 @@ public class AkWwiseWWUBuilder : UnityEditor.AssetPostprocessor
 
 							if (m_WwuToProcess.Contains(newWorkUnit.FullName))
 							{
+								// Parse the referenced Work Unit
 								RecurseWorkUnit(in_type, newWorkUnit, in_currentPathInProj, in_currentPhysicalPath, in_pathAndIcons,
 								WwuPhysicalPath);
 							}
 						}
 						else
 						{
+							// If the persist mode is "Standalone" or "Nested", it means the current XML tag
+							// is the one corresponding to the current file. We can ignore it and advance the reader
 							reader.Read();
 						}
 					}
@@ -274,19 +278,25 @@ public class AkWwiseWWUBuilder : UnityEditor.AssetPostprocessor
 						AddElementToList(in_currentPathInProj, reader, in_type, in_pathAndIcons, wwu.PhysicalPath, wwuIndex, objType);
 						if (IsEmptyElement)
 						{
+							// This element has no children, step out of it immediately
+							// Remove the folder/bus from the path
 							in_currentPathInProj = in_currentPathInProj.Remove(in_currentPathInProj.LastIndexOf(System.IO.Path.DirectorySeparatorChar));
 							in_pathAndIcons.RemoveLast();
+							// Reader was already advanced by AddElementToList
 						}
 					}
 					else if (reader.NodeType == System.Xml.XmlNodeType.EndElement &&
 							 (reader.Name.Equals("Folder") || reader.Name.Equals("Bus") || reader.Name.Equals("AuxBus")))
 					{
+						// Remove the folder/bus from the path
 						in_currentPathInProj = in_currentPathInProj.Remove(in_currentPathInProj.LastIndexOf(System.IO.Path.DirectorySeparatorChar));
 						in_pathAndIcons.RemoveLast();
+						// Advance the reader
 						reader.Read();
 					}
 					else if (reader.NodeType == System.Xml.XmlNodeType.Element && reader.Name.Equals(in_type.XmlElementName))
 					{
+						// Add the element to the list
 						AddElementToList(in_currentPathInProj, reader, in_type, in_pathAndIcons, wwu.PhysicalPath, wwuIndex);
 					}
 					else
@@ -296,10 +306,12 @@ public class AkWwiseWWUBuilder : UnityEditor.AssetPostprocessor
 				}
 			}
 
+			// Sort the newly populated Wwu alphabetically
 			SortWwu(in_type, wwuIndex);
 		}
 		catch (System.Exception e)
 		{
+			//We have failed to parse a workunit, we can't trust the _WwiseObjectsToRemove will be properly updated
 			_WwiseObjectsToRemove.Clear();
 			UnityEngine.Debug.LogError(e.ToString());
 			wwuIndex = -1;

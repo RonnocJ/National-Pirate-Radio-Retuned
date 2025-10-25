@@ -1,0 +1,64 @@
+{
+    "blocks": [
+        {
+            "name": "mono",
+            "clusters": [
+                {
+                    "id": 0,
+                    "lines": [
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "Don't worry about that! You'll be fine \nas long as you keep driving.",
+                            "wwiseEvent": "",
+                            "wait": 2.0,
+                            "speed": 0.07500000298023224
+                        },
+                        {
+                            "speaker": "Free Quency",
+                            "text": "So how long am I driving for?",
+                            "wwiseEvent": "",
+                            "wait": 2.0,
+                            "speed": 0.07500000298023224
+                        },
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "I'm working on that...",
+                            "wwiseEvent": "",
+                            "wait": 2.0,
+                            "speed": 0.07500000298023224
+                        },
+                        {
+                            "speaker": "Free Quency",
+                            "text": "And the FCC? Won't they be \non my ass?",
+                            "wwiseEvent": "",
+                            "wait": 2.0,
+                            "speed": 0.07500000298023224
+                        },
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "Nothing's gonna happen, I promise.",
+                            "wwiseEvent": "",
+                            "wait": 2.0,
+                            "speed": 0.07500000298023224
+                        },
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "You just go out there,  keep \nthe CD player fed and happy, \nand do some badass driving.",
+                            "wwiseEvent": "",
+                            "wait": 2.0,
+                            "speed": 0.07500000298023224
+                        },
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "What could possibly go wrong?",
+                            "wwiseEvent": "",
+                            "wait": 2.0,
+                            "speed": 0.07500000298023224
+                        }
+                    ],
+                    "pauseBefore": 0.25
+                }
+            ]
+        }
+    ]
+}

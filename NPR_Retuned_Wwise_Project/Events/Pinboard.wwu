@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{AE13D2F3-0064-4066-812E-46DDD90C39D4}" SchemaVersion="123" RootDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" ParentDocumentID="{65B008BF-CF76-4761-A4ED-5CFCDCA7DD37}">
+	<Events>
+		<WorkUnit Name="Pinboard" ID="{AE13D2F3-0064-4066-812E-46DDD90C39D4}" OwnerID="{65B008BF-CF76-4761-A4ED-5CFCDCA7DD37}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="playPinboardEject" ID="{AC149544-1AA6-4462-944A-BAD0D7F6C635}">
+					<ChildrenList>
+						<Action Name="" ID="{9CA176F3-8EE8-43FE-A06A-361264CFF8D8}" ShortID="622705489">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pinboard_Eject" ID="{597D302D-182D-4259-90C4-858332777D89}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playPinboardInsert" ID="{3AD6C5C6-2230-4617-865E-D82893941A70}">
+					<ChildrenList>
+						<Action Name="" ID="{3956CA81-0D73-4790-B851-7E2B60CACDD9}" ShortID="840922818">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pinboard_Insert" ID="{CF73461B-1A96-48D8-AE16-3E4A7FA57B26}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

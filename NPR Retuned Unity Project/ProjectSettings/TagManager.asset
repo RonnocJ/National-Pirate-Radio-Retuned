@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Disc
+  - Connector
+  - Tutorial
   layers:
   - Default
   - TransparentFX
@@ -15,8 +17,8 @@ TagManager:
   - Ground
   - Road
   - Foliage
+  - Building
   - Garage
-  - 
   - 
   - 
   - 
@@ -37,7 +39,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - NonDGUI
   m_SortingLayers:
   - name: Default
     uniqueID: 0

@@ -1,0 +1,8 @@
+Event	ID	Name			Wwise Object Path	Notes
+	578532127	playPinboardEject			\Default Work Unit\UI\Pinboard\playPinboardEject	
+	1197348043	playPinboardInsert			\Default Work Unit\UI\Pinboard\playPinboardInsert	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	943891105	Pinboard_Insert	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\FE\{FECBEE4B-7FAA-3E51-8720-98618294D48D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Pinboard\Pinboard_Insert		65654
+	1007173876	Pinboard_Eject	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\D8\{D8233ECF-2EDF-0C4F-81E1-2DB072BAE6AD}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Pinboard\Pinboard_Eject		101024
+

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1560819902416113174}
   - component: {fileID: 594534414837319563}
   - component: {fileID: 4105822447263188739}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TIntersection
   m_TagString: Untagged
   m_Icon: {fileID: 0}

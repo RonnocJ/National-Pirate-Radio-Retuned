@@ -13,13 +13,35 @@ MonoBehaviour:
   m_Name: DialogueGenerator
   m_EditorClassIdentifier: Assembly-CSharp::DialogueGenerator
   Blocks:
-  - Name: 
+  - Name: neutral
     Clusters:
-    - PauseBefore: 0
-      Speed: 0
+    - PauseBefore: 1
+      Speed: 0.05
       Lines:
       - Speaker: Joe Tools
-        Line: 
-        Wait: 0
-  SaveFolderRelative: JoeTools/Neutral
-  OutputFileName: levelIntroDialogue
+        Line: "Don't forget my cut, this \noperation doesn't come cheap!"
+        Wait: 3
+    - PauseBefore: 1
+      Speed: 0.05
+      Lines:
+      - Speaker: Joe Tools
+        Line: "The autopilots' been acting up \ntoday, don't trust it too much..."
+        Wait: 3
+    - PauseBefore: 1
+      Speed: 0.05
+      Lines:
+      - Speaker: Joe Tools
+        Line: "Got everything plugged in? \nNo? Well that's the only \nequipment
+          we can afford."
+        Wait: 3
+    - PauseBefore: 1
+      Speed: 0.05
+      Lines:
+      - Speaker: Joe Tools
+        Line: "Y'know, cutting big holes to \ninstall specialized armaments \nin
+          a van doesn't do its \nstructural integrity any favors."
+        Wait: 3
+  SaveFolderRelative: LevelIntro
+  OutputFileName: introStage1
+  LastLoadedFilePath: /Users/connorjohnson/Desktop/GitHub/National-Pirate-Radio-Retuned/NPR
+    Retuned Unity Project/Assets/Resources/Scripts/LevelIntro/introStage1.json

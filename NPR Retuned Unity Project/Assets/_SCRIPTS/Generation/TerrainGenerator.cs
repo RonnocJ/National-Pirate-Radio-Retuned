@@ -1,103 +1,102 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
+using Unity.Jobs;
+using Unity.Mathematics;
 using UnityEngine;
 
-public class Tile
+public class TerrainGenerator : MonoBehaviour
 {
-    public TConType Type;
-    public GameObject Object;
-    public Vector3 Position;
-    public float YRot;
-    public Mesh Meshes;
-    public int[] MeshTriangles;
-    public Vector3[] MeshVertices;
-    public Vector3[] OriginalVertices;
-    public Tile(TConType type)
-    {
-        Type = type;
-    }
-}
-
-public class TerrainGenerator : Singleton<TerrainGenerator>
-{
-    public Dictionary<GameObject, Tile> TileObjDict = new();
     [Header("Grass Settings")]
     [SerializeField] private Transform grassParent;
+    [SerializeField] private GrassGenerator grassGen;
     private ObjectPool _grassPool;
-    private Dictionary<Vector3, Tile> _tileDict = new();
     private Dictionary<TConType, TConData> _tileConDict = new();
     private Vector3 _playerPos => VanController.root.transform.position;
     private GeneratorSettings g => GeneratorSettings.root;
     void Start()
     {
+        // Add all tile constructs to the dictionary
+
         foreach (var con in g.TCons)
         {
             _tileConDict[con.constructName] = con.data;
         }
 
-        for (int x = -1; x <= 1; x++)
-        {
-            for (int z = -1; z <= 1; z++)
-            {
-                Tile garageTile = AddTile(TConType.Garage, new Vector3(x * g.CellSize, 0, z * g.CellSize));
-            }
-        }
+        // Place garage tile at 0,0
+
+        Tile garageTile = AddTile(TConType.Garage, Vector2Int.zero);
+
+        // Instantiate object pools for each tile
 
         int poolCount = (2 * (g.ViewDistance + g.CullMargin) + 1) * (2 * (g.ViewDistance + g.CullMargin) + 1);
         _grassPool = new ObjectPool();
     }
     public IEnumerator GenerateTerrain()
     {
+        // Rounds player position to 1 / 64th scale
+
         Vector3 p = _playerPos;
         int pX = Mathf.FloorToInt(p.x / g.CellSize);
         int pZ = Mathf.FloorToInt(p.z / g.CellSize);
 
-        for (int x = pX - g.ViewDistance - g.CullMargin; x <= pX + g.ViewDistance + g.CullMargin; x++)
+        // Iterates through all positons in a square around the player
+
+        for (int x = pX - g.PlaceDistance - g.CullMargin; x <= pX + g.PlaceDistance + g.CullMargin; x++)
         {
-            for (int z = pZ - g.ViewDistance - g.CullMargin; z <= pZ + g.ViewDistance + g.CullMargin; z++)
+            for (int z = pZ - g.PlaceDistance - g.CullMargin; z <= pZ + g.PlaceDistance + g.CullMargin; z++)
             {
-                Vector3 pos = new Vector3(x * g.CellSize, 0, z * g.CellSize);
-                if (Mathf.Abs(x - pX) <= g.ViewDistance && Mathf.Abs(z - pZ) <= g.ViewDistance)
+                // Tries to add tile data at position
+
+                Vector2Int pos = PosUtil.GetWorldPos(new Vector2Int(x, z));
+
+                Tile tile = AddTile(TConType.Grass, pos);
+
+                // Won't place a tile if beyond the view distance or there is an object already present
+
+                if (Mathf.Abs(x - pX) > g.ViewDistance || Mathf.Abs(z - pZ) > g.ViewDistance) continue;
+
+                if (tile.Object == null && tile.Type == TConType.Grass)
                 {
-                    Tile tile = AddTile(TConType.Grass, pos);
+                    // Adds 2 tiles to the pool if pool isn't at capacity
 
-                    if (tile.Object == null && tile.Type == TConType.Grass)
+                    if (_grassPool.CreatedCount < g.GrassLimit)
                     {
-                        if (_grassPool.CreatedCount < g.GrassLimit)
-                        {
-                            _grassPool.Prewarm(2, _tileConDict[TConType.Grass].Prefab, grassParent);
-                        }
-
-                        PlaceTile(tile, _grassPool, pos);
+                        _grassPool.Prewarm(2, _tileConDict[TConType.Grass].Prefab, grassParent);
                     }
+
+                    // Places and deforms grass tile
+
+                    PlaceTile(tile, _grassPool, pos);
                 }
             }
 
             yield return null;
+
         }
+
+        // Sorts all objects in pool by distance to player (improves enqueuing / dequeuing behavior)
+
+        _grassPool?.SortActiveByDistance(p);
     }
 
-    Tile AddTile(TConType type, Vector3 checkPos, float yRot = 0)
+    Tile AddTile(TConType type, Vector2Int checkPos)
     {
-        if (!_tileDict.ContainsKey(checkPos))
-        {
-            Tile tile = new Tile(type);
-            tile.YRot = yRot;
-            tile.Position = checkPos;
-            tile.OriginalVertices = _tileConDict[type].DefaultMeshes.vertices;
-            _tileDict[checkPos] = tile;
+        // Looks for existing tile at position, if none are present creates a new one
 
-            PfGraph.root.PfDict[PfGraph.root.V3ToInt(checkPos)] = new PfTile(PfGraph.root.V3ToInt(checkPos));
-
-            return tile;
-        }
-        else
+        if (!g.TileDict.TryGetValue(checkPos, out Tile tile))
         {
-            return _tileDict[checkPos];
+            tile = new Tile(type);
+            g.TileDict[checkPos] = tile;
         }
+
+        tile.Position = checkPos;
+
+        return tile;
     }
 
-    void PlaceTile(Tile tile, ObjectPool poolType, Vector3 newPos)
+    void PlaceTile(Tile tile, ObjectPool poolType, Vector2Int newPos)
     {
         if (tile == null) return;
 
@@ -109,73 +108,211 @@ public class TerrainGenerator : Singleton<TerrainGenerator>
 
     public void ResetMesh(GameObject movingObj)
     {
-        if (_tileDict.TryGetValue(movingObj.transform.position, out Tile oldTile))
+        if (movingObj == null) return;
+
+        // Finds old tile entry from object's original position
+
+        Vector3 worldPos = PosUtil.GetWorldPos(movingObj.transform.position);
+        Vector2Int tileKey = new Vector2Int(
+            Mathf.RoundToInt(worldPos.x / g.CellSize),
+            Mathf.RoundToInt(worldPos.z / g.CellSize));
+
+        Tile oldTile;
+        if (!g.TileDict.TryGetValue(tileKey, out oldTile))
         {
-            if (oldTile.Object == movingObj)
+            foreach (var kvp in g.TileDict)
             {
-                TileObjDict.Remove(oldTile.Object);
-                oldTile.Object = null;
-
-                MeshFilter oldFilter = movingObj.GetComponent<MeshFilter>();
-
-                var mesh = oldFilter.mesh;
-                mesh.Clear();
-                mesh.vertices = _tileConDict[oldTile.Type].DefaultMeshes.vertices;
-                mesh.triangles = _tileConDict[oldTile.Type].DefaultMeshes.triangles;
-
-                mesh.RecalculateNormals();
-                mesh.RecalculateBounds();
+                if (kvp.Value.Object == movingObj)
+                {
+                    oldTile = kvp.Value;
+                    break;
+                }
             }
         }
+
+        if (oldTile == null || oldTile.Object != movingObj) return;
+
+        // Sets object to null and removes entries from the pathfinding cell grid
+
+        oldTile.Object = null;
+
+        foreach (var cell in oldTile.Cells)
+            {
+                PfGraph.root.CellDict.Remove(cell.Position);
+            }
+
+        oldTile.Cells.Clear();
+
+        // Sets mesh back to its original state as stored in the corresponding tile construct
+
+        MeshFilter oldFilter = movingObj.GetComponent<MeshFilter>();
+        if (oldFilter == null) return;
+
+        Mesh mesh = oldFilter.mesh;
+        mesh.Clear();
+        mesh.vertices = _tileConDict[oldTile.Type].DefaultMeshes.vertices;
+        mesh.triangles = _tileConDict[oldTile.Type].DefaultMeshes.triangles;
+
+        mesh.RecalculateNormals();
+        mesh.RecalculateBounds();
     }
 
-    public void MoveObject(GameObject movingObj, Vector3 newPos)
+    public void MoveObject(GameObject newObj, Vector2Int newPos)
     {
-        if (_tileDict.TryGetValue(newPos, out Tile newTile))
+        // Sets new position for the tile
+        
+        if (g.TileDict.TryGetValue(newPos, out Tile newTile))
         {
-            newTile.Object = movingObj;
-            TileObjDict[newTile.Object] = newTile;
+            newTile.Object = newObj;
 
-            newTile.Object.transform.position = newPos;
-            newTile.Object.transform.localRotation = Quaternion.Euler(0f, newTile.YRot, 0f);
-            newTile.Position = newPos;
+            Vector3 globalPos = new Vector3(newPos.x * g.CellSize, 0f, newPos.y * g.CellSize);
+            newTile.Object.transform.position = PosUtil.GetLocalPos(globalPos);
 
             MeshFilter meshFilter = newTile.Object.GetComponent<MeshFilter>();
 
             Mesh mesh = meshFilter.mesh;
             newTile.Meshes = mesh;
-            newTile.MeshTriangles = mesh.triangles;
-            newTile.MeshVertices = mesh.vertices;
 
+            GeneratePfCells(newTile, newPos);
             GenerateHeight(newTile);
         }
     }
+    private void GeneratePfCells(Tile tile, Vector2Int inPos)
+    {
+        if (tile.Cells.Count > 0)
+        {
+            // Clears stale references before repopulating.
 
+            tile.Cells.Clear();
+        }
+
+        // Iterates through pathfinding cell positions as they fit within a tile (16x16 cells against 64x64 tiles)
+
+        for (int x = 0; x < g.CellSize / PfGraph.root.CellSize; x++)
+        {
+            float sampleX = inPos.x * g.CellSize - g.CellSize * 0.5f + (x + 0.5f) * PfGraph.root.CellSize;
+            for (int z = 0; z < g.CellSize / PfGraph.root.CellSize; z++)
+            {
+                float sampleZ = inPos.y * g.CellSize - g.CellSize * 0.5f + (z + 0.5f) * PfGraph.root.CellSize;
+                Vector2Int cellPos = PosUtil.V3FloorToInt(new Vector3(sampleX, 0, sampleZ) / PfGraph.root.CellSize) * PfGraph.root.CellSize;
+
+                if (!PfGraph.root.CellDict.TryGetValue(cellPos, out PfCell cell))
+                {
+                    cell = new PfCell(cellPos);
+                    PfGraph.root.CellDict[cellPos] = cell;
+                }
+
+                tile.Cells.Add(cell);
+            }
+        }
+    }
     public void GenerateHeight(Tile tile)
     {
-        if (tile?.Object == null) return;
+        // Stuff that deforms mesh height and stores data so that the grass generator can place grass correctly
 
         float yaw = tile.Object.transform.eulerAngles.y;
         float cosYaw = Mathf.Cos(yaw * Mathf.Deg2Rad);
         float sinYaw = Mathf.Sin(yaw * Mathf.Deg2Rad);
-        Vector3 tileWorldPos = tile.Object.transform.position;
+        Vector3 tileLocalPos = tile.Object.transform.position;
+        Vector3 tileWorldPos = PosUtil.GetWorldPos(tileLocalPos);
 
-        Vector3[] originalVerts = tile.OriginalVertices;
+        Vector3[] originalVerts = _tileConDict[tile.Type].DefaultMeshes.vertices;
         Vector3[] newVerts = new Vector3[originalVerts.Length];
 
-        for (int i = 0; i < originalVerts.Length; i++)
+        NativeArray<float3> samplePositions = new NativeArray<float3>(originalVerts.Length, Allocator.TempJob);
+        NativeArray<float> heightResults = new NativeArray<float>(originalVerts.Length, Allocator.TempJob);
+
+        int resolution = Mathf.RoundToInt(Mathf.Sqrt(newVerts.Length));
+        if (tile.TSurface.Heights == null || tile.TSurface.Heights.GetLength(0) != resolution)
         {
-            Vector3 ov = originalVerts[i];
-            float worldX = tileWorldPos.x + (ov.x * cosYaw) - (ov.z * sinYaw);
-            float worldZ = tileWorldPos.z + (ov.x * sinYaw) + (ov.z * cosYaw);
+            tile.TSurface.Heights = new float[resolution, resolution];
+        }
+        tile.TSurface.Resolution = resolution;
 
-            float baseY = g.GetPerlinHeight(new Vector3(worldX, ov.y, worldZ));
-            float newY = baseY;
+        float minX = float.MaxValue;
+        float maxX = float.MinValue;
+        float minZ = float.MaxValue;
+        float maxZ = float.MinValue;
 
-            newVerts[i] = new Vector3(ov.x, newY, ov.z);
+        try
+        {
+            for (int i = 0; i < originalVerts.Length; i++)
+            {
+                Vector3 ov = originalVerts[i];
+                float worldX = tileWorldPos.x + (ov.x * cosYaw) - (ov.z * sinYaw);
+                float worldZ = tileWorldPos.z + (ov.x * sinYaw) + (ov.z * cosYaw);
+
+                samplePositions[i] = new float3(worldX, ov.y, worldZ);
+
+                if (ov.x < minX) minX = ov.x;
+                if (ov.x > maxX) maxX = ov.x;
+                if (ov.z < minZ) minZ = ov.z;
+                if (ov.z > maxZ) maxZ = ov.z;
+            }
+
+            if (maxX - minX < 0.0001f)
+            {
+                float half = g.CellSize * 0.5f;
+                minX = -half;
+                maxX = half;
+            }
+
+            if (maxZ - minZ < 0.0001f)
+            {
+                float half = g.CellSize * 0.5f;
+                minZ = -half;
+                maxZ = half;
+            }
+
+            float width = maxX - minX;
+            float depth = maxZ - minZ;
+            float stepX = width / Mathf.Max(1, resolution - 1);
+            float stepZ = depth / Mathf.Max(1, resolution - 1);
+
+            tile.TSurface.MinX = minX;
+            tile.TSurface.MaxX = maxX;
+            tile.TSurface.MinZ = minZ;
+            tile.TSurface.MaxZ = maxZ;
+            tile.TSurface.StepX = stepX;
+            tile.TSurface.StepZ = stepZ;
+            tile.TSurface.HalfSize = Mathf.Max(Mathf.Abs(maxX), Mathf.Abs(minX), Mathf.Abs(maxZ), Mathf.Abs(minZ));
+
+            Array.Clear(tile.TSurface.Heights, 0, tile.TSurface.Heights.Length);
+
+            var job = new GeneratorSettings.PerlinHeightJob
+            {
+                Positions = samplePositions,
+                Results = heightResults,
+                Params = g.HeightParams
+            };
+
+            JobHandle handle = job.Schedule(samplePositions.Length, 64);
+            handle.Complete();
+
+            for (int i = 0; i < originalVerts.Length; i++)
+            {
+                Vector3 ov = originalVerts[i];
+                float newY = heightResults[i];
+                Vector3 nv = new Vector3(ov.x, newY, ov.z);
+                newVerts[i] = nv;
+
+                float nx = width > 0.0001f ? Mathf.InverseLerp(minX, maxX, nv.x) : 0f;
+                float nz = depth > 0.0001f ? Mathf.InverseLerp(minZ, maxZ, nv.z) : 0f;
+
+                int xIdx = Mathf.Clamp(Mathf.RoundToInt(nx * (resolution - 1)), 0, resolution - 1);
+                int zIdx = Mathf.Clamp(Mathf.RoundToInt(nz * (resolution - 1)), 0, resolution - 1);
+
+                tile.TSurface.Heights[xIdx, zIdx] = nv.y;
+            }
+        }
+        finally
+        {
+            if (heightResults.IsCreated) heightResults.Dispose();
+            if (samplePositions.IsCreated) samplePositions.Dispose();
         }
 
-        tile.MeshVertices = newVerts;
+        tile.SurfaceRevision++;
+
         tile.Meshes.vertices = newVerts;
         tile.Meshes.RecalculateNormals();
         tile.Meshes.RecalculateBounds();

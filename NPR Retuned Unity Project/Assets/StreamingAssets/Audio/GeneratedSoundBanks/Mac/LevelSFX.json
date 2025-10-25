@@ -1,0 +1,900 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1900718590",
+    "Type": "User",
+    "GUID": "{F132A8A6-CE09-432B-878F-6B7B36947D3F}",
+    "Language": "SFX",
+    "Hash": "{8B7B9BD1-3850-9B82-95CE-09A8391E93DF}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\LevelSFX",
+    "ShortName": "LevelSFX",
+    "Path": "LevelSFX.bnk",
+    "Media": [
+     {
+      "Id": "9321970",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MagnetFloat.wav",
+      "CachePath": "82/{8237D7CD-8345-5B0D-5EE9-74FD3E08E3E8}.wem"
+     },
+     {
+      "Id": "71858993",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_j.wav",
+      "CachePath": "B1/{B10A7CBB-8B9E-1FA0-895F-67513A89E33C}.wem"
+     },
+     {
+      "Id": "81889169",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_l.wav",
+      "CachePath": "5E/{5EF813D1-2F73-7CE1-DB2D-267CC679B40F}.wem"
+     },
+     {
+      "Id": "93707056",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_u.wav",
+      "CachePath": "4E/{4E6BBA65-4C39-32BF-8B8D-453229311FE3}.wem"
+     },
+     {
+      "Id": "135016173",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_s.wav",
+      "CachePath": "D2/{D2BF7D05-92C1-0D7C-C54B-D58CD1688A79}.wem"
+     },
+     {
+      "Id": "135759839",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DroneLoop.wav",
+      "CachePath": "EC/{EC68D9A8-3432-9640-7030-870CF58094F4}.wem"
+     },
+     {
+      "Id": "141543020",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_8.wav",
+      "CachePath": "A9/{A9C99914-2B9B-D1F7-F5B5-9AB752F182E4}.wem"
+     },
+     {
+      "Id": "145211566",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_t.wav",
+      "CachePath": "80/{8011CC9D-E67A-B4A4-36E9-FDA1F8CDE2FA}.wem"
+     },
+     {
+      "Id": "161589739",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_k.wav",
+      "CachePath": "9F/{9FA4C9C6-584C-54AE-05BE-F9B278D9A92F}.wem"
+     },
+     {
+      "Id": "178182082",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_3.wav",
+      "CachePath": "75/{75CB9923-E64C-4C4C-1BFC-D14C8C7EC8AE}.wem"
+     },
+     {
+      "Id": "197618324",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "CDPlayer_Open.wav",
+      "CachePath": "DA/{DA9C5D92-F897-07CF-1CDB-2A0E4495DABC}.wem"
+     },
+     {
+      "Id": "220406642",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DroneShoot_04.wav",
+      "CachePath": "BB/{BB85066A-622B-9880-F875-0DE5A79C383A}.wem"
+     },
+     {
+      "Id": "234284573",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "WindWhipping.wav",
+      "CachePath": "85/{8593DE0F-B384-CF81-055E-99B87EDB05A3}.wem"
+     },
+     {
+      "Id": "239234637",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_0.wav",
+      "CachePath": "D8/{D8DA994F-7936-81AD-3038-1E328B8583DE}.wem"
+     },
+     {
+      "Id": "311148684",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_5.wav",
+      "CachePath": "AF/{AF430FDE-ECFF-20B2-767C-66402EDADC61}.wem"
+     },
+     {
+      "Id": "326996406",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_a.wav",
+      "CachePath": "B1/{B1BB1406-BAE7-0CB4-F184-27208FCC46E6}.wem"
+     },
+     {
+      "Id": "372458788",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DroneExplosion_02.wav",
+      "CachePath": "2A/{2A8C584C-E833-C3E2-C058-802E88868F92}.wem"
+     },
+     {
+      "Id": "391199314",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "RotorLoop.wav",
+      "CachePath": "43/{43F7BDDC-5DDA-983C-E971-13E0E2667198}.wem"
+     },
+     {
+      "Id": "457931621",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_g.wav",
+      "CachePath": "88/{883C51E5-452D-D2D8-D300-B8DBB77A2DC4}.wem"
+     },
+     {
+      "Id": "466813089",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DroneShoot_03.wav",
+      "CachePath": "2F/{2FC8D037-B8A0-DA88-2E02-7FF16EA59CE4}.wem"
+     },
+     {
+      "Id": "472752741",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_x.wav",
+      "CachePath": "51/{512919F8-B8B2-CAC5-76DF-8AC27349306E}.wem"
+     },
+     {
+      "Id": "475140729",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "CDPlayer_Close.wav",
+      "CachePath": "AA/{AAAE8DFB-6632-85C2-4116-1C488EF65B0D}.wem"
+     },
+     {
+      "Id": "495468939",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ATV_Blast.wav",
+      "CachePath": "3C/{3C3B5D24-74D9-FF6D-8D93-FAFABF506C79}.wem"
+     },
+     {
+      "Id": "508032073",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_6.wav",
+      "CachePath": "84/{84056584-FE61-DFA5-2067-20C1AD98341C}.wem"
+     },
+     {
+      "Id": "513343443",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DroneShoot_02.wav",
+      "CachePath": "B0/{B0153C74-D802-4F49-2B73-9072EA6BFBDD}.wem"
+     },
+     {
+      "Id": "545432631",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_b.wav",
+      "CachePath": "CB/{CBEAD1B4-ABE0-1203-4721-E5CFB4812B1E}.wem"
+     },
+     {
+      "Id": "548770087",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_o.wav",
+      "CachePath": "A7/{A7131A10-2FDE-DCA3-14B0-9C9B6BA94574}.wem"
+     },
+     {
+      "Id": "556437566",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "CDPlayer_Static.wav",
+      "CachePath": "76/{7616060D-7799-0F7C-1652-17788D570B18}.wem"
+     },
+     {
+      "Id": "584794395",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_w.wav",
+      "CachePath": "58/{5822D237-A480-A551-741A-1AEFD3858253}.wem"
+     },
+     {
+      "Id": "607523251",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_2.wav",
+      "CachePath": "E5/{E5BD2F57-2026-2DB0-1E93-E88F342788E3}.wem"
+     },
+     {
+      "Id": "634384915",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_7.wav",
+      "CachePath": "C8/{C85EE888-64F5-D872-9549-D97D6C276409}.wem"
+     },
+     {
+      "Id": "642206653",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MagnetExplode.wav",
+      "CachePath": "B5/{B5508EDB-DF9E-7F32-7B1D-59059BFC6048}.wem"
+     },
+     {
+      "Id": "648383101",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_d.wav",
+      "CachePath": "6B/{6B3DB4B0-C49C-7904-F4F9-34CB634ABDA2}.wem"
+     },
+     {
+      "Id": "648618509",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_n.wav",
+      "CachePath": "02/{0285C272-CAC0-7816-BF22-6BB4AB25E8D0}.wem"
+     },
+     {
+      "Id": "648991740",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_p.wav",
+      "CachePath": "8D/{8D3A2C84-CF1F-B092-31B2-1EF277D63E8D}.wem"
+     },
+     {
+      "Id": "664686104",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_4.wav",
+      "CachePath": "D3/{D3560A99-B333-E754-430F-AA1ADE454605}.wem"
+     },
+     {
+      "Id": "697693174",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_c.wav",
+      "CachePath": "FA/{FADB001C-9A4F-1529-3523-1D12013A8039}.wem"
+     },
+     {
+      "Id": "714876311",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_r.wav",
+      "CachePath": "42/{4263EC67-B9D2-2BA5-29B5-1009800A8A35}.wem"
+     },
+     {
+      "Id": "731949943",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ATV_Attack.wav",
+      "CachePath": "04/{04903616-696A-7BAC-83FD-8E4D5AF34DFC}.wem"
+     },
+     {
+      "Id": "734470826",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DroneExplosion_03.wav",
+      "CachePath": "ED/{EDED47C7-B366-5A1E-5727-3D7E642ADB99}.wem"
+     },
+     {
+      "Id": "759610792",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_v.wav",
+      "CachePath": "2E/{2E5FC7C4-6502-B83D-AF2F-3190A8FDD1A3}.wem"
+     },
+     {
+      "Id": "813810908",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_y.wav",
+      "CachePath": "F1/{F118E9D0-31F1-789B-2306-2E9F73B51243}.wem"
+     },
+     {
+      "Id": "833861583",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_q.wav",
+      "CachePath": "41/{41594E11-C697-9C42-5CA1-845CEF93C654}.wem"
+     },
+     {
+      "Id": "838520635",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_i.wav",
+      "CachePath": "AE/{AE3C3BFB-7594-C192-BB31-CC0C51AA9DD3}.wem"
+     },
+     {
+      "Id": "857507311",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_h.wav",
+      "CachePath": "E0/{E04156F9-4E32-B28D-E094-B460B5AD1B85}.wem"
+     },
+     {
+      "Id": "869986815",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_z.wav",
+      "CachePath": "E3/{E327421A-107C-7539-4C42-08D0A8876C74}.wem"
+     },
+     {
+      "Id": "883800659",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_1.wav",
+      "CachePath": "C8/{C8859DBD-FD13-104F-A034-CD09A0057F36}.wem"
+     },
+     {
+      "Id": "895352388",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_e.wav",
+      "CachePath": "68/{68B1A64E-5FB1-BF73-BA79-4D564FD37BEF}.wem"
+     },
+     {
+      "Id": "913818757",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_f.wav",
+      "CachePath": "93/{937BF02A-C405-BD58-A275-605F7C202D88}.wem"
+     },
+     {
+      "Id": "953399489",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_m.wav",
+      "CachePath": "97/{9781539A-1308-72DB-4181-8AC15D35BCB9}.wem"
+     },
+     {
+      "Id": "987900944",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DroneShoot_01.wav",
+      "CachePath": "34/{34B44934-074A-A9E9-EEEE-D981E4F1041F}.wem"
+     },
+     {
+      "Id": "1001065413",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DroneExplosion_01.wav",
+      "CachePath": "7A/{7AAC1744-1B09-2C70-FB5B-50BD786AB694}.wem"
+     },
+     {
+      "Id": "1002723586",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_9.wav",
+      "CachePath": "CD/{CD703655-E4D3-C643-740A-20406EC7BAA0}.wem"
+     },
+     {
+      "Id": "1048524115",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "WindStill.wav",
+      "CachePath": "36/{36509EF9-39BE-C595-8533-81FA8D9BCE60}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "113422346",
+      "Name": "playATVAttack",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\ATV\\playATVAttack",
+      "GUID": "{8ADD9E2B-47DC-430D-82C5-E00A26A7B1D1}",
+      "MaxAttenuation": "256",
+      "DurationType": "OneShot",
+      "DurationMin": "20",
+      "DurationMax": "20",
+      "MediaRefs": [
+       {
+        "Id": "731949943"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "3390657128",
+        "Name": "EnemyVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\GlobalBus\\SFXBus\\EnemyVerb",
+        "GUID": "{CA2D83F7-6E3C-43F4-94FD-D92BCB8A11F2}"
+       }
+      ]
+     },
+     {
+      "Id": "1438338272",
+      "Name": "playATVBlast",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\ATV\\playATVBlast",
+      "GUID": "{D1814EE7-1D63-4E4D-B63E-7DE3CE3E2157}",
+      "DurationType": "OneShot",
+      "DurationMin": "3",
+      "DurationMax": "3",
+      "MediaRefs": [
+       {
+        "Id": "495468939"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "3390657128",
+        "Name": "EnemyVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\GlobalBus\\SFXBus\\EnemyVerb",
+        "GUID": "{CA2D83F7-6E3C-43F4-94FD-D92BCB8A11F2}"
+       }
+      ]
+     },
+     {
+      "Id": "3752191667",
+      "Name": "playCDMusic",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\CDPlayer\\playCDMusic",
+      "GUID": "{043AEE38-761B-4737-A1BA-2880D828D290}",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "390902339",
+         "Id": "1409504247",
+         "GUID": "{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "556437566"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "Id": "1736359555",
+      "Name": "playCDPlayerClose",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\CDPlayer\\playCDPlayerClose",
+      "GUID": "{A1137E2B-52BF-4137-A76A-E43FD49EBCE7}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.029125",
+      "DurationMax": "2.029125",
+      "MediaRefs": [
+       {
+        "Id": "475140729"
+       }
+      ]
+     },
+     {
+      "Id": "2283007477",
+      "Name": "playCDPlayerOpen",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\CDPlayer\\playCDPlayerOpen",
+      "GUID": "{902A852F-FDD2-4854-874D-2779C72F23A3}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.5",
+      "DurationMax": "0.5",
+      "MediaRefs": [
+       {
+        "Id": "197618324"
+       }
+      ]
+     },
+     {
+      "Id": "1793089900",
+      "Name": "playDroneExplosion",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Drone\\playDroneExplosion",
+      "GUID": "{0E55F49C-35EE-4BC8-9D0C-622D97506829}",
+      "MaxAttenuation": "256",
+      "DurationType": "OneShot",
+      "DurationMin": "1",
+      "DurationMax": "1",
+      "MediaRefs": [
+       {
+        "Id": "372458788"
+       },
+       {
+        "Id": "734470826"
+       },
+       {
+        "Id": "1001065413"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "3390657128",
+        "Name": "EnemyVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\GlobalBus\\SFXBus\\EnemyVerb",
+        "GUID": "{CA2D83F7-6E3C-43F4-94FD-D92BCB8A11F2}"
+       }
+      ]
+     },
+     {
+      "Id": "1561607685",
+      "Name": "playDroneHoverLoop",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Drone\\playDroneHoverLoop",
+      "GUID": "{55604414-A1F8-42DD-B906-72117A48C006}",
+      "MaxAttenuation": "256",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "135759839"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "3390657128",
+        "Name": "EnemyVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\GlobalBus\\SFXBus\\EnemyVerb",
+        "GUID": "{CA2D83F7-6E3C-43F4-94FD-D92BCB8A11F2}"
+       }
+      ]
+     },
+     {
+      "Id": "3233078124",
+      "Name": "playDroneShoot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Drone\\playDroneShoot",
+      "GUID": "{513EBC5E-87AF-441F-B503-2C95AC80A242}",
+      "MaxAttenuation": "256",
+      "DurationType": "OneShot",
+      "DurationMin": "0.45850202",
+      "DurationMax": "0.5452539",
+      "MediaRefs": [
+       {
+        "Id": "220406642"
+       },
+       {
+        "Id": "466813089"
+       },
+       {
+        "Id": "513343443"
+       },
+       {
+        "Id": "987900944"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "3390657128",
+        "Name": "EnemyVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\GlobalBus\\SFXBus\\EnemyVerb",
+        "GUID": "{CA2D83F7-6E3C-43F4-94FD-D92BCB8A11F2}"
+       }
+      ]
+     },
+     {
+      "Id": "580489224",
+      "Name": "playMagnetExplode",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\HyperMagnet\\playMagnetExplode",
+      "GUID": "{7948AC50-B1E2-4049-AB0B-D3B957F37B0A}",
+      "MaxAttenuation": "256",
+      "DurationType": "OneShot",
+      "DurationMin": "1",
+      "DurationMax": "1",
+      "MediaRefs": [
+       {
+        "Id": "642206653"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "3390657128",
+        "Name": "EnemyVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\GlobalBus\\SFXBus\\EnemyVerb",
+        "GUID": "{CA2D83F7-6E3C-43F4-94FD-D92BCB8A11F2}"
+       }
+      ]
+     },
+     {
+      "Id": "276583697",
+      "Name": "playMagnetFloat",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\HyperMagnet\\playMagnetFloat",
+      "GUID": "{FB3763C6-B50F-4254-8B57-084289FD4ECD}",
+      "MaxAttenuation": "256",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "9321970"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "3390657128",
+        "Name": "EnemyVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\GlobalBus\\SFXBus\\EnemyVerb",
+        "GUID": "{CA2D83F7-6E3C-43F4-94FD-D92BCB8A11F2}"
+       }
+      ]
+     },
+     {
+      "Id": "2715042163",
+      "Name": "playRotorLoop",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Helicopter\\playRotorLoop",
+      "GUID": "{9EB7DD56-F5B8-40F0-B5E6-A7D78FD2EB76}",
+      "MaxAttenuation": "512",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "391199314"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "3390657128",
+        "Name": "EnemyVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\GlobalBus\\SFXBus\\EnemyVerb",
+        "GUID": "{CA2D83F7-6E3C-43F4-94FD-D92BCB8A11F2}"
+       }
+      ]
+     },
+     {
+      "Id": "1507170084",
+      "Name": "playTTSVoice",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\playTTSVoice",
+      "GUID": "{A7BA022E-9C12-49B1-9DD3-2312F53FFDAE}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.62052083",
+      "DurationMax": "0.62052083",
+      "MediaRefs": [
+       {
+        "Id": "71858993"
+       },
+       {
+        "Id": "81889169"
+       },
+       {
+        "Id": "93707056"
+       },
+       {
+        "Id": "135016173"
+       },
+       {
+        "Id": "141543020"
+       },
+       {
+        "Id": "145211566"
+       },
+       {
+        "Id": "161589739"
+       },
+       {
+        "Id": "178182082"
+       },
+       {
+        "Id": "239234637"
+       },
+       {
+        "Id": "311148684"
+       },
+       {
+        "Id": "326996406"
+       },
+       {
+        "Id": "457931621"
+       },
+       {
+        "Id": "472752741"
+       },
+       {
+        "Id": "508032073"
+       },
+       {
+        "Id": "545432631"
+       },
+       {
+        "Id": "548770087"
+       },
+       {
+        "Id": "584794395"
+       },
+       {
+        "Id": "607523251"
+       },
+       {
+        "Id": "634384915"
+       },
+       {
+        "Id": "648383101"
+       },
+       {
+        "Id": "648618509"
+       },
+       {
+        "Id": "648991740"
+       },
+       {
+        "Id": "664686104"
+       },
+       {
+        "Id": "697693174"
+       },
+       {
+        "Id": "714876311"
+       },
+       {
+        "Id": "759610792"
+       },
+       {
+        "Id": "813810908"
+       },
+       {
+        "Id": "833861583"
+       },
+       {
+        "Id": "838520635"
+       },
+       {
+        "Id": "857507311"
+       },
+       {
+        "Id": "869986815"
+       },
+       {
+        "Id": "883800659"
+       },
+       {
+        "Id": "895352388"
+       },
+       {
+        "Id": "913818757"
+       },
+       {
+        "Id": "953399489"
+       },
+       {
+        "Id": "1002723586"
+       }
+      ]
+     },
+     {
+      "Id": "628329353",
+      "Name": "playWindAmbience",
+      "ObjectPath": "\\Events\\Default Work Unit\\Ambiences\\playWindAmbience",
+      "GUID": "{6F05E3EB-D290-42B2-8994-58865BC7E64C}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "234284573"
+       },
+       {
+        "Id": "1048524115"
+       }
+      ]
+     },
+     {
+      "Id": "185187129",
+      "Name": "setStatic",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\CDPlayer\\setStatic",
+      "GUID": "{E8FD0A4A-7991-4E0B-829C-D101C1561FC0}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetSwitch": [
+       {
+        "GroupId": "390902339",
+        "Id": "1409504247",
+        "Name": "Static",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\Static",
+        "GUID": "{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}"
+       }
+      ]
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "1062779386",
+      "Name": "Player_Speed",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Player\\Van\\Player_Speed",
+      "GUID": "{7991D3EC-16D0-414D-A97B-37F37D78B0FA}"
+     },
+     {
+      "Id": "3881441573",
+      "Name": "Drone_Distance",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Enemies\\Drone_Distance",
+      "GUID": "{6D11BDBE-C7DA-4261-BE12-7AEEF7F0237B}"
+     },
+     {
+      "Id": "4203130972",
+      "Name": "TTS_Character",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\UI\\TTS_Character",
+      "GUID": "{2ED63AE9-050B-4AF6-B814-3BB942385BD3}"
+     }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "390902339",
+      "Name": "NowPlaying",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying",
+      "GUID": "{200BD546-70E0-44CC-AE65-78038AA295EB}",
+      "Switches": [
+       {
+        "Id": "662417179",
+        "Name": "NPR",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\NPR",
+        "GUID": "{E83B5186-AA77-418A-B6E1-246C536171B9}"
+       },
+       {
+        "Id": "932389263",
+        "Name": "EVG",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\EVG",
+        "GUID": "{4B3BF5EA-C883-4501-BA08-9A538A19CD3C}"
+       },
+       {
+        "Id": "1409504247",
+        "Name": "Static",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\Static",
+        "GUID": "{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{1B611F38-E117-8EDC-5573-BE3AF61FB483}"
+ }
+}

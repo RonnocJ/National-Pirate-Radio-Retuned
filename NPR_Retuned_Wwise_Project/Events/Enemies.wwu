@@ -5,6 +5,8 @@
 			<ChildrenList>
 				<WorkUnit Name="Helicopter" ID="{D1D84371-A965-414A-B40F-2200022F60C8}" PersistMode="Reference"/>
 				<WorkUnit Name="Drone" ID="{1EE88927-269D-4453-9CFF-BFF7196604EC}" PersistMode="Reference"/>
+				<WorkUnit Name="HyperMagnet" ID="{83068FE5-576E-4B29-9AD6-6886D36FF0F3}" PersistMode="Reference"/>
+				<WorkUnit Name="ATV" ID="{E6A7C637-2010-4502-83A2-F24A9E963098}" PersistMode="Reference"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{E6A7C637-2010-4502-83A2-F24A9E963098}" SchemaVersion="123" RootDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" ParentDocumentID="{A9AC12BE-9441-4D75-995B-0A71BBB3B9F3}">
+	<Events>
+		<WorkUnit Name="ATV" ID="{E6A7C637-2010-4502-83A2-F24A9E963098}" OwnerID="{A9AC12BE-9441-4D75-995B-0A71BBB3B9F3}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="playATVAttack" ID="{8ADD9E2B-47DC-430D-82C5-E00A26A7B1D1}">
+					<ChildrenList>
+						<Action Name="" ID="{9A9BAB3A-AB6B-433F-BC87-8DCBC24151A1}" ShortID="447918277">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Attack" ID="{CC41302B-2D1D-4E1E-9077-85644DB5FE88}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playATVBlast" ID="{D1814EE7-1D63-4E4D-B63E-7DE3CE3E2157}">
+					<ChildrenList>
+						<Action Name="" ID="{EDF93B7F-EE10-45CF-B61C-F172EF4735BE}" ShortID="495587574">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Blast" ID="{B530641A-E364-41D4-9852-9288F08703BA}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

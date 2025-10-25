@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{0FD42189-253F-46C2-A37B-D511CEECE91A}" SchemaVersion="123" RootDocumentID="{67D82442-2027-4B60-B7DE-8677BD7363FA}" ParentDocumentID="{67D82442-2027-4B60-B7DE-8677BD7363FA}">
+	<InteractiveMusic>
+		<WorkUnit Name="NonDGSongs" ID="{0FD42189-253F-46C2-A37B-D511CEECE91A}" OwnerID="{67D82442-2027-4B60-B7DE-8677BD7363FA}" PersistMode="Nested">
+			<ChildrenList>
+				<MusicPlaylistContainer Name="Title" ID="{22B9F8F6-DB7A-47AE-80D2-7D2855D5D828}" ShortID="840937386">
+					<PropertyList>
+						<Property Name="Tempo" Type="Real64" Value="144"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{41B5D519-AB6F-4EE3-BC3C-420CFE6AC1D2}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
+						</Reference>
+						<Reference Name="PlaylistRoot">
+							<Custom>
+								<MusicPlaylistItem Name="" ID="{B92183E4-1D11-419A-B5EB-46922F52693C}" ShortID="644144662">
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{8ADDB4F7-D7CF-4C91-A5C1-D50D44FCC6CA}" ShortID="59514572">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Segment">
+													<ObjectRef Name="NPR_MSC_TitleIntro" ID="{C6C73C97-2786-498A-B4D6-F665CBF662DB}" WorkUnitID="{0FD42189-253F-46C2-A37B-D511CEECE91A}"/>
+												</Reference>
+											</ReferenceList>
+										</MusicPlaylistItem>
+										<MusicPlaylistItem Name="" ID="{B433A4A0-2E93-4120-A5DD-09AEECB4547B}" ShortID="285135286">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Segment">
+													<ObjectRef Name="NPR_MSC_TitleLoop" ID="{06E29437-3F3E-45C9-8A93-9368ED614256}" WorkUnitID="{0FD42189-253F-46C2-A37B-D511CEECE91A}"/>
+												</Reference>
+											</ReferenceList>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+							</Custom>
+						</Reference>
+						<Reference Name="TransitionRoot">
+							<Custom>
+								<MusicTransition Name="Root" ID="{557C6C45-BDA7-4009-910F-341B889D1ABF}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{86C97004-FA71-4EBB-81C7-1AEDDFAD3163}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</Custom>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicSegment Name="NPR_MSC_TitleIntro" ID="{C6C73C97-2786-498A-B4D6-F665CBF662DB}" ShortID="454039438">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="39298.3125"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{41B5D519-AB6F-4EE3-BC3C-420CFE6AC1D2}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="NPR_MSC_TitleIntro" ID="{7F92C3F0-70B3-4ED0-A745-B15213671B40}" ShortID="124513198">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{D81EEA02-16A7-459C-A213-B4EA75F78B4C}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="NPR_MSC_TitleIntro" ID="{05BC9354-D5C0-4DC0-93D3-AFCF1373242B}">
+											<Language>SFX</Language>
+											<AudioFile>NPR_MSC_TitleIntro.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="451930117"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{99C0480D-F542-4961-968A-C474CA70504E}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="NPR_MSC_TitleIntro" ID="{D9419D90-0577-4F40-B88A-05E00DFBDF3B}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="39298.3125"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="NPR_MSC_TitleIntro" ID="{05BC9354-D5C0-4DC0-93D3-AFCF1373242B}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{90C914FE-8680-4473-AF94-D9CD6C14C120}"/>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{B39B6EA7-709B-43B0-8C8F-DCF36936C2AD}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="28333.3333333333"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
+						<MusicSegment Name="NPR_MSC_TitleLoop" ID="{06E29437-3F3E-45C9-8A93-9368ED614256}" ShortID="980310005">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="121634.979166667"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{41B5D519-AB6F-4EE3-BC3C-420CFE6AC1D2}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="NPR_MSC_TitleLoop" ID="{F1471473-E347-4008-BC15-2BC6BB99671D}" ShortID="278619347">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{F9D0EA5A-26F5-436D-9274-32DEEBEF7C35}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="NPR_MSC_TitleLoop" ID="{A11DCDE5-8227-4CD8-871F-6D90ECF78933}">
+											<Language>SFX</Language>
+											<AudioFile>NPR_MSC_TitleLoop.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="913225190"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{399473A2-7BC6-443C-A788-A5674B32C52F}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="NPR_MSC_TitleLoop" ID="{D1C95A22-C5CF-40B8-B933-DA1EF9992E4F}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="121218.3125"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="NPR_MSC_TitleLoop" ID="{A11DCDE5-8227-4CD8-871F-6D90ECF78933}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{6DE71FF2-276F-4470-8567-9C45EA0DF690}">
+												<PropertyList>
+													<Property Name="TimeMs" Type="Real64" Value="833.333333333333"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{955A0951-DDEA-45CA-904B-E006767791C0}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="107500"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
+					</ChildrenList>
+				</MusicPlaylistContainer>
+			</ChildrenList>
+		</WorkUnit>
+	</InteractiveMusic>
+</WwiseDocument>

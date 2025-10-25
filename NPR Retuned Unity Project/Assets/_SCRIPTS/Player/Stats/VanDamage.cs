@@ -15,11 +15,17 @@ public class VanDamage : Singleton<VanDamage>
             {
                 if (value < _hype) _regenTimer = 0;
 
-                _hype = Mathf.Clamp(value, 0, _p.MaxHype);
-                hypeFluid.SetFloat("_FillAmount", value / _p.MaxHype);
+                if (value <= 0)
+                {
+                    OnPlayerDie?.Invoke();
+                    StartCoroutine(NonDgUI.root.FadeToBlack(true, GameState.Shop));
+                    GameManager.root.CurrentPState = PlayerState.Dead;
+                }
+
+                if(!TestOverrides.root.immortal || value > _hype) _hype = Mathf.Clamp(value, 0, _p.MaxHype);
+                hypeFluid.SetFloat("_Fill", value / _p.MaxHype);
                 hypeText.SetText($"Hype: \n{Mathf.RoundToInt(value)} / {_p.MaxHype}", 0);
 
-                if (value <= 0) OnPlayerDie?.Invoke();
             }
         }
     }

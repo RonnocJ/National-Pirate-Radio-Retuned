@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9162849002185114525}
   - component: {fileID: 1369446790533353267}
   - component: {fileID: 1205252053011953388}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: XIntersection
   m_TagString: Untagged
   m_Icon: {fileID: 0}

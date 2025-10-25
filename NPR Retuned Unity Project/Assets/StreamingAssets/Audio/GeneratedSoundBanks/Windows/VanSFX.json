@@ -1,0 +1,231 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1939123861",
+    "Type": "User",
+    "GUID": "{500C3F74-5570-4CF4-9F79-6D6E719A305F}",
+    "Language": "SFX",
+    "Hash": "{D85235CC-8D1B-22E4-69D7-F828022D02A7}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\VanSFX",
+    "ShortName": "VanSFX",
+    "Path": "VanSFX.bnk",
+    "Media": [
+     {
+      "Id": "123400107",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "VanMotorStop.wav",
+      "CachePath": "1B/{1B4F3E58-6A60-74A2-4BD1-993E6935DC2C}.wem"
+     },
+     {
+      "Id": "180949644",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "2000 On Load Composite.wav",
+      "CachePath": "72/{72131665-2A04-BF98-EB17-5C3770645930}.wem"
+     },
+     {
+      "Id": "280486208",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "VanMotorStart.wav",
+      "CachePath": "E5/{E5E8826E-E0B9-812D-6C40-87FA72B175F2}.wem"
+     },
+     {
+      "Id": "584805829",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "5000 On Load Composite.wav",
+      "CachePath": "7B/{7B09CA40-4EED-B18B-4A5A-43EC9BBDA1FC}.wem"
+     },
+     {
+      "Id": "710705156",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "1000 On Load Composite.wav",
+      "CachePath": "16/{16CCDD6D-7C97-27F7-DB10-BA7CC73C0900}.wem"
+     },
+     {
+      "Id": "742743554",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "3000 On Load Composite.wav",
+      "CachePath": "4E/{4E165F79-2980-2B03-F79F-2F779456D028}.wem"
+     },
+     {
+      "Id": "842336508",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "4000 On Load Composite.wav",
+      "CachePath": "8B/{8B048446-9463-BE86-A2AE-46C03F835DFD}.wem"
+     },
+     {
+      "Id": "1068787568",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "VanMotorIdle.wav",
+      "CachePath": "BE/{BE0A64FD-994E-E57A-763D-1D00695BE217}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "198169026",
+       "Name": "Synth One",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\Synth One",
+       "GUID": "{DE7BA040-34AF-4BF1-87E1-4E379284FD32}",
+       "LibName": "Wwise Synth One",
+       "LibId": "9699330"
+      },
+      {
+       "Id": "203725194",
+       "Name": "Parametric EQ (Custom)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\[Effect Slot [1]: (Parametric EQ)]\\Parametric EQ (Custom)",
+       "GUID": "{33DB2E3E-570E-4AD3-AE77-5D6CC4531F92}",
+       "LibName": "Wwise Parametric EQ",
+       "LibId": "6881283"
+      },
+      {
+       "Id": "464193011",
+       "Name": "Guitar Distortion (Custom)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\[Effect Slot [0]: (Guitar Distortion)]\\Guitar Distortion (Custom)",
+       "GUID": "{34483FF5-88CB-472E-87FA-81EE705AEA8F}",
+       "LibName": "Wwise Guitar Distortion",
+       "LibId": "8257539"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "2430665392",
+      "Name": "playVanEngine",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Van\\Engine\\playVanEngine",
+      "GUID": "{1CED60F8-50D2-4828-A22C-D3532D8D288B}",
+      "MaxAttenuation": "32",
+      "DurationType": "Mixed",
+      "DurationMin": "1.2521666",
+      "DurationMax": "Infinite",
+      "AuxBusRefs": [
+       {
+        "Id": "3347336007",
+        "Name": "VanVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\GlobalBus\\SFXBus\\VanVerb",
+        "GUID": "{7D0BEEA6-0C82-4EB3-8FAF-8F4EE04017BF}"
+       }
+      ],
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "268529915",
+         "Id": "2904797076",
+         "GUID": "{14F9D939-830F-4345-B7D7-4E4A4ABD2D02}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "123400107"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "268529915",
+         "Id": "2798660212",
+         "GUID": "{DA864BA8-BB45-4A3C-A3E4-F114B04E5220}",
+         "Default": "true"
+        },
+        "MediaRefs": [
+         {
+          "Id": "180949644"
+         },
+         {
+          "Id": "280486208"
+         },
+         {
+          "Id": "584805829"
+         },
+         {
+          "Id": "710705156"
+         },
+         {
+          "Id": "742743554"
+         },
+         {
+          "Id": "842336508"
+         },
+         {
+          "Id": "1068787568"
+         }
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "198169026"
+          },
+          {
+           "Id": "203725194"
+          },
+          {
+           "Id": "464193011"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "1130155893",
+      "Name": "Engine_RPM",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Player\\Van\\Engine_RPM",
+      "GUID": "{0727A64E-DCB7-4B80-AC81-98F141CD9CC6}"
+     },
+     {
+      "Id": "2727184314",
+      "Name": "Engine_Throttle",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Player\\Van\\Engine_Throttle",
+      "GUID": "{F984753E-BEAC-41AC-9069-11E82FF80241}"
+     }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "268529915",
+      "Name": "Engine",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Player\\Van\\Engine",
+      "GUID": "{68D7F9AF-8961-45BA-8390-1BA57BBC1778}",
+      "Switches": [
+       {
+        "Id": "2798660212",
+        "Name": "Started",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\Van\\Engine\\Started",
+        "GUID": "{DA864BA8-BB45-4A3C-A3E4-F114B04E5220}"
+       },
+       {
+        "Id": "2904797076",
+        "Name": "Stopped",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\Van\\Engine\\Stopped",
+        "GUID": "{14F9D939-830F-4345-B7D7-4E4A4ABD2D02}"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{4CD61436-5004-09C8-C0BD-9A3030972636}"
+ }
+}

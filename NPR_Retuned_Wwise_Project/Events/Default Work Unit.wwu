@@ -7,6 +7,7 @@
 				<WorkUnit Name="Enemies" ID="{A9AC12BE-9441-4D75-995B-0A71BBB3B9F3}" PersistMode="Reference"/>
 				<WorkUnit Name="Player" ID="{72ECE1ED-FA46-488E-AEFA-7F4E47A3086D}" PersistMode="Reference"/>
 				<WorkUnit Name="Ambiences" ID="{3DCDE90D-A9B1-487F-9008-A3DF5D59B2F0}" PersistMode="Reference"/>
+				<WorkUnit Name="Music" ID="{761AC304-39E8-49DA-BEFE-A50C3CAE180C}" PersistMode="Reference"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

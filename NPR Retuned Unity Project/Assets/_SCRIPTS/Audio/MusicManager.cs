@@ -6,6 +6,8 @@ public class MusicManager : Singleton<MusicManager>
     {
         AudioManager.root.PlaySound(AudioEvent.playCDMusic, gameObject);
         AudioManager.root.SetSwitch(AudioSwitch.NowPlaying_BREAK_Static, gameObject);
+
+        VanDamage.root.OnPlayerDie += SetStatic;
     }
 
     public void SwitchSong(SongName newSong)
@@ -14,5 +16,9 @@ public class MusicManager : Singleton<MusicManager>
         {
             AudioManager.root.SetSwitch((AudioSwitch)songToPlay, gameObject);
         }
+    }
+    public void SetStatic()
+    {
+        AudioManager.root.SetSwitch(AudioSwitch.NowPlaying_BREAK_Static, gameObject);
     }
 }

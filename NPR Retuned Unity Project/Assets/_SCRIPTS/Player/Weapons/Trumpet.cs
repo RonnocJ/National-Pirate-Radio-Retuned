@@ -11,6 +11,7 @@ public class Trumpet : VanWeapon
     [SerializeField] private int laserResolution;
     [SerializeField] private float beamCurveSpeed;
     [SerializeField] private LineRenderer laserBeam;
+    [SerializeField] private Material laserMat;
     private float _timer;
     private float _palmXRot;
     private Vector3 _valve01Target;
@@ -26,9 +27,9 @@ public class Trumpet : VanWeapon
 
         laserBeam.positionCount = laserResolution;
     }
-    protected override void ToggleWeapon()
+    protected override void ToggleWeapon(PlayerState newState)
     {
-        base.ToggleWeapon();
+        base.ToggleWeapon(newState);
     }
     protected override void AimWeapon()
     {
@@ -66,8 +67,6 @@ public class Trumpet : VanWeapon
             _timer = 0f;
         }
 
-        transform.localPosition = Random.insideUnitSphere * 0.01f;
-
         for (int i = 0; i < laserResolution; i++)
         {
             float t = (float)i / (laserResolution - 1);
@@ -82,6 +81,8 @@ public class Trumpet : VanWeapon
                 laserBeam.SetPosition(i, Vector3.Lerp(laserBeam.GetPosition(i), targetPos + Random.insideUnitSphere * 0.1f, Time.deltaTime * lerpSpeed));
             }
         }
+
+        laserMat.SetFloat("_LaserLength", Vector3.Distance(laserBeam.transform.position, HitTarget));
 
         var hits = Physics.SphereCastAll(transform.position, 0.25f, transform.forward, weaponRange, 1 << 15);
 

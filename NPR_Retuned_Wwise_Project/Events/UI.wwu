@@ -14,6 +14,19 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="playMouseClick" ID="{5D42DB81-5BD3-4444-B14A-9AC3906FA6EA}">
+					<ChildrenList>
+						<Action Name="" ID="{BFD40208-7526-4295-A8E7-1E9DC6033F9C}" ShortID="822916175">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MouseClick" ID="{372E2490-E81C-4A98-9CA5-508CE39FEFF5}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<WorkUnit Name="CDPlayer" ID="{59432D60-BD13-4C6B-9DD4-CDDD7D10C713}" PersistMode="Reference"/>
+				<WorkUnit Name="Pinboard" ID="{AE13D2F3-0064-4066-812E-46DDD90C39D4}" PersistMode="Reference"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

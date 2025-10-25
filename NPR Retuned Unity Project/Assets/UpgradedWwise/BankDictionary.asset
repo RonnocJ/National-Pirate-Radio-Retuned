@@ -13,37 +13,67 @@ MonoBehaviour:
   m_Name: BankDictionary
   m_EditorClassIdentifier: 
   serializedEvents:
+  - eventName: playPinboardEject
+    bankName: Shop
+    eventId: 578532127
+  - eventName: playPinboardInsert
+    bankName: Shop
+    eventId: 1197348043
   - eventName: playCDMusic
-    bankName: Main
+    bankName: EVG
     eventId: 3752191667
+  - eventName: setStatic
+    bankName: EVG
+    eventId: 185187129
+  - eventName: playMouseClick
+    bankName: Global
+    eventId: 436537884
+  - eventName: playATVAttack
+    bankName: LevelSFX
+    eventId: 113422346
+  - eventName: playATVBlast
+    bankName: LevelSFX
+    eventId: 1438338272
   - eventName: playCDPlayerClose
-    bankName: Main
+    bankName: LevelSFX
     eventId: 1736359555
   - eventName: playCDPlayerOpen
-    bankName: Main
+    bankName: LevelSFX
     eventId: 2283007477
   - eventName: playDroneExplosion
-    bankName: Main
+    bankName: LevelSFX
     eventId: 1793089900
   - eventName: playDroneHoverLoop
-    bankName: Main
+    bankName: LevelSFX
     eventId: 1561607685
   - eventName: playDroneShoot
-    bankName: Main
+    bankName: LevelSFX
     eventId: 3233078124
+  - eventName: playMagnetExplode
+    bankName: LevelSFX
+    eventId: 580489224
+  - eventName: playMagnetFloat
+    bankName: LevelSFX
+    eventId: 276583697
   - eventName: playRotorLoop
-    bankName: Main
+    bankName: LevelSFX
     eventId: 2715042163
   - eventName: playTTSVoice
-    bankName: Main
+    bankName: LevelSFX
     eventId: 1507170084
-  - eventName: playVanEngine
-    bankName: Main
-    eventId: 2430665392
   - eventName: playWindAmbience
-    bankName: Main
+    bankName: LevelSFX
     eventId: 628329353
+  - eventName: playVanEngine
+    bankName: VanSFX
+    eventId: 2430665392
+  - eventName: playTitleMusic
+    bankName: Title
+    eventId: 718394488
   serializedRTPCs:
+  - Name: Engine_Rev
+    Min: 0
+    Max: 1
   - Name: Drone_Distance
     Min: 0
     Max: 256

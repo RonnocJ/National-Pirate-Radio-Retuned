@@ -4,6 +4,7 @@
 		<WorkUnit Name="Default Work Unit" ID="{40083CE2-ED5B-455F-8D4F-AE23CFE44F8E}" PersistMode="Standalone">
 			<ChildrenList>
 				<WorkUnit Name="Player" ID="{DE26B266-BED1-41C2-A22E-67342F77E9C0}" PersistMode="Reference"/>
+				<WorkUnit Name="Enemies" ID="{E16D6BFB-CFE1-4292-91B2-46D4F3AC6D95}" PersistMode="Reference"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Switches>

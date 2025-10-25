@@ -1,0 +1,15 @@
+Event	ID	Name			Wwise Object Path	Notes
+	185187129	setStatic			\Default Work Unit\UI\CDPlayer\setStatic	
+	3752191667	playCDMusic			\Default Work Unit\UI\CDPlayer\playCDMusic	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	390902339	NowPlaying			\Default Work Unit\Player\CDPlayer\NowPlaying	
+
+Switch	ID	Name	Switch Group			Notes
+	662417179	NPR	NowPlaying			
+	932389263	EVG	NowPlaying			
+	1409504247	Static	NowPlaying			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	229697744	NPR_MSC_EVG	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\DE\{DE9C1578-4C60-2C0A-7566-8104A31E555C}.wem		\Interactive Music Hierarchy\Default Work Unit\GameSongs\CDPlayer\EVG\NPR_MSC_EVG		51388512
+

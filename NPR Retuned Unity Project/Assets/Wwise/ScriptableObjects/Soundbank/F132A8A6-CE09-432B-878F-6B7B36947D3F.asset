@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac20d74bb8f34db1811f0e9f9bbbe6d, type: 3}
   m_Name: F132A8A6-CE09-432B-878F-6B7B36947D3F
   m_EditorClassIdentifier: AK.Wwise.Unity.API.WwiseTypes::WwiseBankReference
-  objectName: Main
-  id: 3161908922
+  objectName: LevelSFX
+  id: 1900718590
   guid: F132A8A6-CE09-432B-878F-6B7B36947D3F

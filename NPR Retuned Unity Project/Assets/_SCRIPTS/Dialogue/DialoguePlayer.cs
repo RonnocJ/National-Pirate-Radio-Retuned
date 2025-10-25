@@ -1,51 +1,28 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class DialoguePlayer : Singleton<DialoguePlayer>
 {
-    [System.Serializable]
-    public class SpeakerBinding
-    {
-        public string name;
-        public Talker talker;
-    }
-
-    public List<SpeakerBinding> speakers = new List<SpeakerBinding>();
+    public Characters CurrentSpeaker;
     public GlyphTextRenderer textBody;
     public GlyphTextRenderer namePlate;
     public Animator speechBubbleAnim;
 
-    private readonly Dictionary<string, Talker> _speakerMap = new Dictionary<string, Talker>();
-
-    protected override void Awake()
+    public void PlayFromResources(string filePath, string blockName, int clusterId, Action OnComplete)
     {
-        base.Awake();
-
-        _speakerMap.Clear();
-        foreach (var b in speakers)
-        {
-            if (!string.IsNullOrEmpty(b.name) && b.talker)
-            {
-                _speakerMap[b.name] = b.talker;
-            }
-        }
-    }
-
-    public void PlayFromResources(string filePath, string scenarioName, int clusterId, Action OnComplete)
-    {
-        string resourcePath = $"Text/Scripts/{filePath}";
+        string resourcePath = $"Scripts/{filePath}";
 
         var script = TextLoader.LoadFromResources(resourcePath);
         if (script == null || script.blocks == null)
             return;
 
-        var scenario = script.blocks.Find(s => s != null && s.name == scenarioName);
+        var scenario = script.blocks.Find(s => s != null && s.name == blockName);
         if (scenario == null || scenario.clusters == null)
         {
-            Debug.LogWarning($"Scenario '{scenarioName}' not found.");
+            Debug.LogWarning($"Block '{blockName}' not found.");
             return;
         }
 
@@ -57,7 +34,7 @@ public class DialoguePlayer : Singleton<DialoguePlayer>
         var cluster = scenario.clusters.Find(c => c != null && c.id == clusterId);
         if (cluster == null)
         {
-            Debug.LogWarning($"Cluster '{clusterId}' not found in scenario '{scenarioName}'.");
+            Debug.LogWarning($"Cluster '{clusterId}' not found in scenario '{blockName}'.");
             return;
         }
 
@@ -71,9 +48,6 @@ public class DialoguePlayer : Singleton<DialoguePlayer>
         {
             yield return new WaitForSeconds(cluster.pauseBefore - 0.1f);
         }
-
-        speechBubbleAnim.SetBool("opened", true);
-        yield return new WaitForSeconds(0.1f);
 
         if (cluster.lines != null)
         {
@@ -89,30 +63,37 @@ public class DialoguePlayer : Singleton<DialoguePlayer>
 
     private IEnumerator PlayLineRoutine(TextLine line)
     {
-        _speakerMap.TryGetValue(line.speaker, out var talker);
-
-        if (!string.IsNullOrEmpty(line.speaker))
+        if (!Enum.TryParse(Regex.Replace(line.speaker, @"\s+", ""), out Characters c))
         {
-            var speakerLine = new TextLine { text = line.speaker, speed = 0f };
-            namePlate.SetText(speakerLine);
+            Debug.LogError("Add speaker to enum!");
+            yield break;
+        }
+        var talker = DialogueManager.root.TalkDict[c];
+
+        if (!talker.StartedTalking)
+        {
+            talker.BeginDialogue();
+            talker.StartedTalking = true;
+            yield return new WaitForSeconds(0.75f);
+
+            speechBubbleAnim.SetBool("opened", true);
+            yield return new WaitForSeconds(0.25f);
         }
 
-        if (talker)
+        if (c != CurrentSpeaker)
         {
-            talker.SetTalking(true);
+            CurrentSpeaker = c;
+            namePlate.SetText(line.speaker);
+            speechBubbleAnim.SetBool("right", talker.OnRight);
         }
 
-        if (!string.IsNullOrEmpty(line.text))
-        {
-            textBody.SetText(line);
-        }
+        talker.SetTalking(true);
+
+        textBody.SetText(line);
 
         yield return new WaitForSeconds(line.speed * line.text.Length);
 
-        if (talker)
-        {
-            talker.SetTalking(false);
-        }
+        talker.SetTalking(false);
 
         yield return new WaitForSeconds(line.wait);
     }

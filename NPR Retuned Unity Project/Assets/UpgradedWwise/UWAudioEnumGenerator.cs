@@ -6,8 +6,10 @@ using UnityEngine;
 using UnityEditor;
 
 #if UNITY_EDITOR 
-public static class UWAudioEnumGenerator {
-    public enum EnumCodeSectionType {
+public static class UWAudioEnumGenerator
+{
+    public enum EnumCodeSectionType
+    {
         Event,
         State,
         Switch,
@@ -16,12 +18,14 @@ public static class UWAudioEnumGenerator {
         Soundbank
     }
 
-    public struct EnumCodeSection {
+    public struct EnumCodeSection
+    {
         public EnumCodeSectionType type;
         public List<string> values;
         public List<int> ids;
 
-        public EnumCodeSection(EnumCodeSectionType type, List<string> values, List<int> ids) {
+        public EnumCodeSection(EnumCodeSectionType type, List<string> values, List<int> ids)
+        {
             this.type = type;
             this.values = values;
             this.ids = ids;
@@ -30,13 +34,18 @@ public static class UWAudioEnumGenerator {
     private static UWBankDictionaries _bankObj;
 
     [MenuItem("Utilities/Recreate Audio Enum")]
-    public static void GenerateEnum() {
-        if (_bankObj == null) {
+    public static void GenerateEnum()
+    {
+        if (_bankObj == null)
+        {
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(UWBankDictionaries)}");
 
-            if (guids.Length > 0) {
+            if (guids.Length > 0)
+            {
                 _bankObj = AssetDatabase.LoadAssetAtPath<UWBankDictionaries>(AssetDatabase.GUIDToAssetPath(guids[0]));
-            } else {
+            }
+            else
+            {
                 Debug.LogError("Please create a EventBankDictionary Scriptable Object!");
                 return;
             }
@@ -60,8 +69,8 @@ public static class UWAudioEnumGenerator {
     }
 
     // Method to extract event names from JSON
-    static List<EnumCodeSection> ExtractEventNamesFromJson(string jsonData) {
-        bool hasGeneratedSwitches = false;
+    static List<EnumCodeSection> ExtractEventNamesFromJson(string jsonData)
+    {
         // Deserialize the JSON into a dictionary
         var soundBanksInfo = JsonConvert.DeserializeObject<SoundBanksInfoRoot>(jsonData);
 
@@ -82,17 +91,24 @@ public static class UWAudioEnumGenerator {
         _bankObj.serializedEvents.Clear();
 
         // Iterate over the soundbanks and extract event names
-        foreach (var soundBank in soundBanksInfo.SoundBanksInfo.SoundBanks) {
-            if (soundBank.Events != null) {
-                foreach (var soundEvent in soundBank.Events) {
-                    if (!eventNames.Contains(soundEvent.Name)) {
+        foreach (var soundBank in soundBanksInfo.SoundBanksInfo.SoundBanks)
+        {
+            if (soundBank.Events != null)
+            {
+                foreach (var soundEvent in soundBank.Events)
+                {
+                    if (!eventNames.Contains(soundEvent.Name))
+                    {
                         eventNames.Add(soundEvent.Name);
 
                         _bankObj.serializedEvents.Add(new EventEntry(soundEvent.Name, soundBank.ShortName, uint.Parse(soundEvent.Id)));
 
-                        try {
+                        try
+                        {
                             eventIds.Add(unchecked((int)uint.Parse(soundEvent.Id)));
-                        } catch (FormatException e) {
+                        }
+                        catch (FormatException e)
+                        {
                             Debug.LogError(e.Message);
                         }
                     }
@@ -100,21 +116,29 @@ public static class UWAudioEnumGenerator {
             }
 
 
-            if (soundBank.StateGroups != null) {
-                for (int i = 0; i < soundBank.StateGroups.Count; i++) {
-                    for (int j = 0; j < soundBank.StateGroups[i].States.Count; j++) {
-                        if (!stateNames.Contains(soundBank.StateGroups[i].Name + "_BREAK_" + soundBank.StateGroups[i].States[j].Name)) {
+            if (soundBank.StateGroups != null)
+            {
+                for (int i = 0; i < soundBank.StateGroups.Count; i++)
+                {
+                    for (int j = 0; j < soundBank.StateGroups[i].States.Count; j++)
+                    {
+                        if (!stateNames.Contains(soundBank.StateGroups[i].Name + "_BREAK_" + soundBank.StateGroups[i].States[j].Name))
+                        {
                             stateNames.Add(soundBank.StateGroups[i].Name + "_BREAK_" + soundBank.StateGroups[i].States[j].Name);
 
-                            try {
+                            try
+                            {
                                 int newId = unchecked((int)uint.Parse(soundBank.StateGroups[i].States[j].Id));
 
-                                while (stateIds.Contains(newId)) {
+                                while (stateIds.Contains(newId))
+                                {
                                     newId++;
                                 }
 
                                 stateIds.Add(newId);
-                            } catch (FormatException e) {
+                            }
+                            catch (FormatException e)
+                            {
                                 Debug.LogError(e.Message);
                             }
                         }
@@ -122,32 +146,51 @@ public static class UWAudioEnumGenerator {
                 }
             }
 
-            if (soundBank.SwitchGroups != null && !hasGeneratedSwitches) {
-                for (int i = 0; i < soundBank.SwitchGroups.Count; i++) {
-                    for (int j = 0; j < soundBank.SwitchGroups[i].Switches.Count; j++) {
-                        if (!switchNames.Contains(soundBank.SwitchGroups[i].Switches[j].Name)) {
+            if (soundBank.SwitchGroups != null)
+            {
+                for (int i = 0; i < soundBank.SwitchGroups.Count; i++)
+                {
+                    for (int j = 0; j < soundBank.SwitchGroups[i].Switches.Count; j++)
+                    {
+                        if (!switchNames.Contains(soundBank.SwitchGroups[i].Name + "_BREAK_" + soundBank.SwitchGroups[i].Switches[j].Name))
+                        {
                             switchNames.Add(soundBank.SwitchGroups[i].Name + "_BREAK_" + soundBank.SwitchGroups[i].Switches[j].Name);
 
-                            try {
-                                switchIds.Add(unchecked((int)uint.Parse(soundBank.SwitchGroups[i].Switches[j].Id)));
-                            } catch (FormatException e) {
+                            try
+                            {
+                                int newId = unchecked((int)uint.Parse(soundBank.SwitchGroups[i].Switches[j].Id));
+
+                                while (switchIds.Contains(newId))
+                                {
+                                    newId++;
+                                }
+
+                                switchIds.Add(newId);
+
+                            }
+                            catch (FormatException e)
+                            {
                                 Debug.LogError(e.Message);
                             }
                         }
                     }
                 }
-
-                hasGeneratedSwitches = true;
             }
 
-            if (soundBank.Triggers != null) {
-                foreach (var soundTrigger in soundBank.Triggers) {
-                    if (!triggerNames.Contains(soundTrigger.Name)) {
+            if (soundBank.Triggers != null)
+            {
+                foreach (var soundTrigger in soundBank.Triggers)
+                {
+                    if (!triggerNames.Contains(soundTrigger.Name))
+                    {
                         triggerNames.Add(soundTrigger.Name);
 
-                        try {
+                        try
+                        {
                             triggerIds.Add(unchecked((int)uint.Parse(soundTrigger.Id)));
-                        } catch (FormatException e) {
+                        }
+                        catch (FormatException e)
+                        {
                             Debug.LogError(e.Message);
                         }
                     }
@@ -155,12 +198,18 @@ public static class UWAudioEnumGenerator {
                 }
             }
 
-            if (soundBank.GameParameters != null) {
-                foreach (var soundParameter in soundBank.GameParameters) {
-                    if (!parameterNames.Contains(soundParameter.Name)) {
-                        try {
+            if (soundBank.GameParameters != null)
+            {
+                foreach (var soundParameter in soundBank.GameParameters)
+                {
+                    if (!parameterNames.Contains(soundParameter.Name))
+                    {
+                        try
+                        {
                             parameterIds.Add(unchecked((int)uint.Parse(soundParameter.Id)));
-                        } catch (FormatException e) {
+                        }
+                        catch (FormatException e)
+                        {
                             Debug.LogError(e.Message);
                         }
 
@@ -176,8 +225,10 @@ public static class UWAudioEnumGenerator {
         _bankObj.serializedRTPCs.Clear();
 
         var wwiseProjectData = AkWwiseProjectInfo.GetData();
-        foreach (var rtpcWwu in wwiseProjectData.RtpcWwu) {
-            foreach (var rtpc in rtpcWwu.List) {
+        foreach (var rtpcWwu in wwiseProjectData.RtpcWwu)
+        {
+            foreach (var rtpc in rtpcWwu.List)
+            {
                 _bankObj.serializedRTPCs.Add(new RTPCEntry(rtpc.Name, (float)rtpc.Min, (float)rtpc.Max));
             }
         }
@@ -193,17 +244,20 @@ public static class UWAudioEnumGenerator {
     }
 
     // Method to generate C# enum code
-    static string GenerateFileTextForCodeSections(List<EnumCodeSection> enumCodeSections) {
+    static string GenerateFileTextForCodeSections(List<EnumCodeSection> enumCodeSections)
+    {
         string enumCode = "";
 
-        foreach (var section in enumCodeSections) {
+        foreach (var section in enumCodeSections)
+        {
             enumCode += generateCodeForSection(section);
         }
 
         return enumCode;
     }
 
-    static string generateCodeForSection(EnumCodeSection section) {
+    static string generateCodeForSection(EnumCodeSection section)
+    {
         var enumCode = @"
 
 /// <summary>
@@ -213,7 +267,8 @@ public enum Audio" + section.type.ToString() + @" {
 ";
         if (section.type != EnumCodeSectionType.Soundbank) enumCode += $"    None = 0,\n";
 
-        for (int k = 0; k < section.values.Count; k++) {
+        for (int k = 0; k < section.values.Count; k++)
+        {
             // Add each parameter name as an enum value
             enumCode += $"    {section.values[k]} = {section.ids[k]},\n";
         }
@@ -224,17 +279,22 @@ public enum Audio" + section.type.ToString() + @" {
     }
 
     // Method to write the generated enum code to a .cs file
-    static void WriteEnumToFile(string enumCode) {
+    static void WriteEnumToFile(string enumCode)
+    {
         var directory = Application.dataPath + "/UpgradedWwise/_generated/";
         var filename = "AudioEnum.cs";
         var fullPath = directory + filename;
-        try {
-            if (!Directory.Exists(directory)) {
+        try
+        {
+            if (!Directory.Exists(directory))
+            {
                 Directory.CreateDirectory(directory);
             }
             // Write the enum code to the file
             File.WriteAllText(fullPath, enumCode);
-        } catch (Exception ex) {
+        }
+        catch (Exception ex)
+        {
             Debug.LogError($"Error writing to file: {ex.Message}");
         }
 
@@ -242,17 +302,20 @@ public enum Audio" + section.type.ToString() + @" {
 
     // Classes representing the structure of the JSON
     [Serializable]
-    public class SoundBanksInfoRoot {
+    public class SoundBanksInfoRoot
+    {
         public SoundBanksInfo SoundBanksInfo { get; set; }
     }
 
     [Serializable]
-    public class SoundBanksInfo {
+    public class SoundBanksInfo
+    {
         public List<SoundBank> SoundBanks { get; set; }
     }
 
     [Serializable]
-    public class SoundBank {
+    public class SoundBank
+    {
         public string Id { get; set; }
         public string ShortName { get; set; }
         public List<SoundEvent> Events { get; set; }
@@ -263,40 +326,47 @@ public enum Audio" + section.type.ToString() + @" {
     }
 
     [Serializable]
-    public class SoundEvent {
+    public class SoundEvent
+    {
         public string Id { get; set; }
         public string Name { get; set; }
     }
 
     [Serializable]
-    public class MusicStateGroup {
+    public class MusicStateGroup
+    {
         public string Name;
         public List<MusicState> States { get; set; }
     }
 
     [Serializable]
-    public class MusicState {
+    public class MusicState
+    {
         public string Id { get; set; }
         public string Name { get; set; }
     }
     [Serializable]
-    public class MusicSwitchGroup {
+    public class MusicSwitchGroup
+    {
         public string Name;
         public List<MusicSwitch> Switches { get; set; }
     }
     [Serializable]
-    public class MusicSwitch {
+    public class MusicSwitch
+    {
         public string Id { get; set; }
         public string Name { get; set; }
     }
     [Serializable]
-    public class SoundTrigger {
+    public class SoundTrigger
+    {
         public string Id { get; set; }
         public string Name { get; set; }
     }
 
     [Serializable]
-    public class SoundParameter {
+    public class SoundParameter
+    {
         public string Id { get; set; }
         public string Name { get; set; }
     }

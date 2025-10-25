@@ -1,0 +1,102 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "932389263",
+    "Type": "User",
+    "GUID": "{124C86E6-9680-48A4-9CEB-F7DEA6913318}",
+    "Language": "SFX",
+    "Hash": "{18DCBE35-98AC-D66A-212A-DA56B0F6DFF5}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\EVG",
+    "ShortName": "EVG",
+    "Path": "EVG.bnk",
+    "Media": [
+     {
+      "Id": "229697744",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "NPR_MSC_EVG.wav",
+      "CachePath": "DE/{DE9C1578-4C60-2C0A-7566-8104A31E555C}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "3752191667",
+      "Name": "playCDMusic",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\CDPlayer\\playCDMusic",
+      "GUID": "{043AEE38-761B-4737-A1BA-2880D828D290}",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "390902339",
+         "Id": "932389263",
+         "GUID": "{4B3BF5EA-C883-4501-BA08-9A538A19CD3C}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "229697744"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "Id": "185187129",
+      "Name": "setStatic",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\CDPlayer\\setStatic",
+      "GUID": "{E8FD0A4A-7991-4E0B-829C-D101C1561FC0}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetSwitch": [
+       {
+        "GroupId": "390902339",
+        "Id": "1409504247",
+        "Name": "Static",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\Static",
+        "GUID": "{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}"
+       }
+      ]
+     }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "390902339",
+      "Name": "NowPlaying",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying",
+      "GUID": "{200BD546-70E0-44CC-AE65-78038AA295EB}",
+      "Switches": [
+       {
+        "Id": "662417179",
+        "Name": "NPR",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\NPR",
+        "GUID": "{E83B5186-AA77-418A-B6E1-246C536171B9}"
+       },
+       {
+        "Id": "932389263",
+        "Name": "EVG",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\EVG",
+        "GUID": "{4B3BF5EA-C883-4501-BA08-9A538A19CD3C}"
+       },
+       {
+        "Id": "1409504247",
+        "Name": "Static",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\Static",
+        "GUID": "{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{E38EE2EB-E058-B960-F577-B53735679FF9}"
+ }
+}

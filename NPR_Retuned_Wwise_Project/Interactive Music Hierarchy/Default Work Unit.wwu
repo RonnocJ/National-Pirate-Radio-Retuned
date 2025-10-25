@@ -4,6 +4,7 @@
 		<WorkUnit Name="Default Work Unit" ID="{67D82442-2027-4B60-B7DE-8677BD7363FA}" PersistMode="Standalone">
 			<ChildrenList>
 				<WorkUnit Name="GameSongs" ID="{C82C7A7D-9879-48EE-B0E6-DA043CFA0CE8}" PersistMode="Reference"/>
+				<WorkUnit Name="NonDGSongs" ID="{0FD42189-253F-46C2-A37B-D511CEECE91A}" PersistMode="Reference"/>
 			</ChildrenList>
 		</WorkUnit>
 	</InteractiveMusic>

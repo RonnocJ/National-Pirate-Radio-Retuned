@@ -13,13 +13,21 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID PLAYATVATTACK = 113422346U;
+        static const AkUniqueID PLAYATVBLAST = 1438338272U;
         static const AkUniqueID PLAYCDMUSIC = 3752191667U;
         static const AkUniqueID PLAYCDPLAYERCLOSE = 1736359555U;
         static const AkUniqueID PLAYCDPLAYEROPEN = 2283007477U;
         static const AkUniqueID PLAYDRONEEXPLOSION = 1793089900U;
         static const AkUniqueID PLAYDRONEHOVERLOOP = 1561607685U;
         static const AkUniqueID PLAYDRONESHOOT = 3233078124U;
+        static const AkUniqueID PLAYMAGNETEXPLODE = 580489224U;
+        static const AkUniqueID PLAYMAGNETFLOAT = 276583697U;
+        static const AkUniqueID PLAYMOUSECLICK = 436537884U;
+        static const AkUniqueID PLAYPINBOARDEJECT = 578532127U;
+        static const AkUniqueID PLAYPINBOARDINSERT = 1197348043U;
         static const AkUniqueID PLAYROTORLOOP = 2715042163U;
+        static const AkUniqueID PLAYTITLEMUSIC = 718394488U;
         static const AkUniqueID PLAYTTSVOICE = 1507170084U;
         static const AkUniqueID PLAYVANENGINE = 2430665392U;
         static const AkUniqueID PLAYWINDAMBIENCE = 628329353U;
@@ -44,6 +52,17 @@ namespace AK
 
     namespace SWITCHES
     {
+        namespace ATTACK
+        {
+            static const AkUniqueID GROUP = 180661997U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID CHARGING = 3828622232U;
+                static const AkUniqueID RELEASING = 1007009725U;
+            } // namespace SWITCH
+        } // namespace ATTACK
+
         namespace ENGINE
         {
             static const AkUniqueID GROUP = 268529915U;
@@ -73,6 +92,7 @@ namespace AK
     {
         static const AkUniqueID DRONE_DISTANCE = 3881441573U;
         static const AkUniqueID ENGINE_GEAR = 1358796823U;
+        static const AkUniqueID ENGINE_REV = 1482485841U;
         static const AkUniqueID ENGINE_RPM = 1130155893U;
         static const AkUniqueID ENGINE_THROTTLE = 2727184314U;
         static const AkUniqueID PLAYER_SPEED = 1062779386U;
@@ -82,7 +102,12 @@ namespace AK
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
-        static const AkUniqueID MAIN = 3161908922U;
+        static const AkUniqueID EVG = 932389263U;
+        static const AkUniqueID GLOBAL = 1465331116U;
+        static const AkUniqueID LEVELSFX = 1900718590U;
+        static const AkUniqueID SHOP = 251412225U;
+        static const AkUniqueID TITLE = 3705726509U;
+        static const AkUniqueID VANSFX = 1939123861U;
     } // namespace BANKS
 
     namespace BUSSES

@@ -5,16 +5,25 @@
 /// </summary>
 public enum AudioEvent {
     None = 0,
+    playPinboardEject = 578532127,
+    playPinboardInsert = 1197348043,
     playCDMusic = -542775629,
+    setStatic = 185187129,
+    playMouseClick = 436537884,
+    playATVAttack = 113422346,
+    playATVBlast = 1438338272,
     playCDPlayerClose = 1736359555,
     playCDPlayerOpen = -2011959819,
     playDroneExplosion = 1793089900,
     playDroneHoverLoop = 1561607685,
     playDroneShoot = -1061889172,
+    playMagnetExplode = 580489224,
+    playMagnetFloat = 276583697,
     playRotorLoop = -1579925133,
     playTTSVoice = 1507170084,
-    playVanEngine = -1864301904,
     playWindAmbience = 628329353,
+    playVanEngine = -1864301904,
+    playTitleMusic = 718394488,
 }
 
 /// <summary>
@@ -32,11 +41,13 @@ public enum AudioState {
 /// </summary>
 public enum AudioSwitch {
     None = 0,
-    Engine_BREAK_Started = -1496307084,
-    Engine_BREAK_Stopped = -1390170220,
     NowPlaying_BREAK_NPR = 662417179,
     NowPlaying_BREAK_EVG = 932389263,
     NowPlaying_BREAK_Static = 1409504247,
+    Attack_BREAK_Releasing = 1007009725,
+    Attack_BREAK_Charging = -466345064,
+    Engine_BREAK_Started = -1496307084,
+    Engine_BREAK_Stopped = -1390170220,
 }
 
 /// <summary>
@@ -54,6 +65,7 @@ public enum AudioRTPC {
     Player_Speed = 1062779386,
     Engine_RPM = 1130155893,
     Engine_Gear = 1358796823,
+    Engine_Rev = 1482485841,
     Engine_Throttle = -1567782982,
     Drone_Distance = -413525723,
     TTS_Character = -91836324,
@@ -63,6 +75,11 @@ public enum AudioRTPC {
 ///   The list of soundbanks in the game.
 /// </summary>
 public enum AudioSoundbank {
+    Shop = 251412225,
+    EVG = 932389263,
     Init = 1355168291,
-    Main = -1133058374,
+    Global = 1465331116,
+    LevelSFX = 1900718590,
+    VanSFX = 1939123861,
+    Title = -589240787,
 }

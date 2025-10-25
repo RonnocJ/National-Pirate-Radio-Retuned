@@ -6,6 +6,13 @@
 				<WorkUnit Name="UI" ID="{4EDF2940-3810-4609-8340-C92392A1E63D}" PersistMode="Reference"/>
 				<WorkUnit Name="Enemies" ID="{E7A1EEC0-AC02-4D05-9A45-B6B1C9050BE4}" PersistMode="Reference"/>
 				<WorkUnit Name="Player" ID="{F97D39F1-CB9C-456A-8ACD-E370B4795158}" PersistMode="Reference"/>
+				<GameParameter Name="Engine_Rev" ID="{30256972-EE2F-45AD-8BAA-EB8FCF554E95}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+						<Property Name="RTPCRamping" Type="int16" Value="1"/>
+					</PropertyList>
+				</GameParameter>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

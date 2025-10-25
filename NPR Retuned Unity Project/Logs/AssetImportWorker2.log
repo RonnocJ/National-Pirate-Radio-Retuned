@@ -1,0 +1,412 @@
+Unity Editor version:    6000.2.6f2 (4a4dcaec6541)
+Branch:                  6000.2/respin/6000.2.6f2-cc51a95c03
+Build type:              Release
+Batch mode:              YES
+macOS version:           Version 26.0.1 (Build 25A362)
+Darwin version:          25.0.0
+Architecture:            arm64
+Running under Rosetta:   NO
+Available memory:        24576 MB
+Date:                    2025-10-25T02:44:53Z
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-connorjohnson" at "2025-10-25T02:44:53.001313Z"
+
+COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/6000.2.6f2/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker2
+-projectPath
+/Users/connorjohnson/Desktop/GitHub/National-Pirate-Radio-Retuned/NPR Retuned Unity Project
+-logFile
+Logs/AssetImportWorker2.log
+-srvPort
+58431
+-licensingIpc
+LicenseClient-connorjohnson
+-job-worker-count
+5
+-background-job-worker-count
+8
+-gc-helper-count
+1
+-name AssetImport
+Successfully changed project path to: /Users/connorjohnson/Desktop/GitHub/National-Pirate-Radio-Retuned/NPR Retuned Unity Project
+/Users/connorjohnson/Desktop/GitHub/National-Pirate-Radio-Retuned/NPR Retuned Unity Project
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [8799438848]  Target information:
+
+Player connection [8799438848]  * "[IP] 10.0.0.92 [Port] 0 [Flags] 2 [Guid] 2678689487 [EditorId] 2678689487 [Version] 1048832 [Id] OSXEditor(0,Connors-MacBook-Pro.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" 
+
+Player connection [8799438848] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [8799438848] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 5
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 5.88 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.2.6f2 (4a4dcaec6541)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/6000.2.6f2/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/connorjohnson/Desktop/GitHub/National-Pirate-Radio-Retuned/NPR Retuned Unity Project/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+ preferred device: Apple M4 Pro (high power)
+Metal devices available: 1
+0: Apple M4 Pro (high power)
+Using device Apple M4 Pro (high power)
+Initializing Metal device caps: Apple M4 Pro
+Mac GPU Family: 2
+Apple GPU Family: 9
+MSL Version: 3.0
+Has Float MSAA: 1
+Has Float Filtering: 1
+ReadWrite Texture Tier: 2
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/6000.2.6f2/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/6000.2.6f2/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
+Mono config path = '/Applications/Unity/Hub/Editor/6000.2.6f2/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56710
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 26178, path: "/Applications/Unity Hub.app/Contents/Frameworks/UnityLicensingClient_V1.app/Contents/MacOS/Unity.Licensing.Client")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.3+a4e98f1
+  Session Id:              069b07ee1d2b43d49eaf9a743e60a20e
+  Correlation Id:          9175390807b6cfe956cb0f698f7de06d
+  External correlation Id: 7326907112107103379
+  Machine Id:              aEpcevggnD0B5zwx/VaB5ZCk44A=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-connorjohnson" (connect: 0.00s, validation: 0.00s, handshake: 0.50s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-connorjohnson-notifications" at "2025-10-25T02:44:53.503405Z"
+[Licensing::Module] Licensing Background thread has ended after 0.50s
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/6000.2.6f2/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/6000.2.6f2/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/6000.2.6f2/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.000613 seconds.
+- Loaded All Assemblies, in  0.233 seconds
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.208 seconds
+Domain Reload Profiling: 440ms
+	BeginReloadAssembly (93ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (0ms)
+	RebuildCommonClasses (19ms)
+	RebuildNativeTypeToScriptingClass (6ms)
+	initialDomainReloadingComplete (22ms)
+	LoadAllAssembliesAndSetupDomain (93ms)
+		LoadAssemblies (93ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (90ms)
+			TypeCache.Refresh (89ms)
+				TypeCache.ScanAssembly (80ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (208ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (182ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (26ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (44ms)
+			ProcessInitializeOnLoadAttributes (77ms)
+			ProcessInitializeOnLoadMethodAttributes (32ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 4083599-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.460 seconds
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 0.93 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-National Pirate Radio
+Package Manager log level set to [2]
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.532 seconds
+Domain Reload Profiling: 991ms
+	BeginReloadAssembly (62ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (11ms)
+	RebuildCommonClasses (19ms)
+	RebuildNativeTypeToScriptingClass (6ms)
+	initialDomainReloadingComplete (16ms)
+	LoadAllAssembliesAndSetupDomain (357ms)
+		LoadAssemblies (227ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (157ms)
+			TypeCache.Refresh (117ms)
+				TypeCache.ScanAssembly (104ms)
+			BuildScriptInfoCaches (30ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (532ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (413ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (86ms)
+			ProcessInitializeOnLoadAttributes (294ms)
+			ProcessInitializeOnLoadMethodAttributes (27ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (1ms)
+WARNING: Shader Unsupported: 'Universal Render Pipeline/VR/SpatialMapping/Wireframe' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/VR/SpatialMapping/Wireframe' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+LogWwiseProjectDatabase Log: Platform Mac: Having both "Generate All Banks Metadata file" and "Generate Per Bank Metadata file" will use the latter.
+Launching external process: /Applications/Unity/Hub/Editor/6000.2.6f2/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Refreshing native plugins compatible for Editor in 1.15 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 22 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7780 unused Assets / (5.2 MB). Loaded Objects now: 8520.
+Memory consumption went from 167.8 MB to 162.6 MB.
+Total: 8.585792 ms (FindLiveObjects: 1.989250 ms CreateObjectMapping: 0.230167 ms MarkObjects: 4.389125 ms  DeleteObjects: 1.977000 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 252319.328336 seconds.
+  path: Assets/_SCENES/Level.unity
+  artifactKey: Guid(99c9720ab356a0642a771bea13969a05) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_SCENES/Level.unity using Guid(99c9720ab356a0642a771bea13969a05) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f33dcdcb18d016192ae1727d32d89e23') in 0.120570583 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/_ART/Materials/Player/MAT_TrumpetLaser.mat
+  artifactKey: Guid(e6194fa37c4c84b39a98d97df888343d) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Materials/Player/MAT_TrumpetLaser.mat using Guid(e6194fa37c4c84b39a98d97df888343d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '97d8700ce21fce84ea68377b5418d23d') in 0.018203291 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.587552 seconds.
+  path: Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph
+  artifactKey: Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph using Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '010b03e92e346720ba15a5627619143f') in 0.534099416 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.311134 seconds.
+  path: Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph
+  artifactKey: Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph using Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3417af0f4b7ea76a5797df789d264239') in 0.007294292 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 111.477295 seconds.
+  path: Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph
+  artifactKey: Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph using Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e4f5a4a7100b3fa38953e82823e6e97a') in 0.237295459 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.450537 seconds.
+  path: Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph
+  artifactKey: Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph using Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'd5d99c50c12951979533c3bd0f1b57c8') in 0.0043245 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.200121 seconds.
+  path: Assets/_ART/Materials/UI/Level/MAT_LevelDisplayGlow.mat
+  artifactKey: Guid(7b852bdb6da3448ca8037868b1289c2b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Materials/UI/Level/MAT_LevelDisplayGlow.mat using Guid(7b852bdb6da3448ca8037868b1289c2b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3a46a329c746ee79be103af5c8693f01') in 0.006526916 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 29.053756 seconds.
+  path: Assets/_ART/Materials/UI/Level/MAT_LevelDisplayGlow.mat
+  artifactKey: Guid(7b852bdb6da3448ca8037868b1289c2b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Materials/UI/Level/MAT_LevelDisplayGlow.mat using Guid(7b852bdb6da3448ca8037868b1289c2b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'd4c124a128bfe17c42c7cc8b0d05bf44') in 0.003628917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.344968 seconds.
+  path: Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph
+  artifactKey: Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph using Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'dbeb7af0fa17e2472de8fa0157420689') in 0.003876625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.561359 seconds.
+  path: Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph
+  artifactKey: Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph using Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '747aec3aaf32a039ac9181f1fe521ae7') in 0.005020875 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.768783 seconds.
+  path: Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph
+  artifactKey: Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph using Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3e6f860b3b5fd346d048ea56dd53d4f4') in 0.004083625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.323046 seconds.
+  path: Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph
+  artifactKey: Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph using Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6773fb9f05323d1b8e83127623d18368') in 0.003935542 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.246847 seconds.
+  path: Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph
+  artifactKey: Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph using Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b34673e95a9958871ab0e1c6028e3c2a') in 0.005483208 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.703555 seconds.
+  path: Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph
+  artifactKey: Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph using Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '63d7b1699996258a83aaa5028a982ca8') in 0.004855042 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.990311 seconds.
+  path: Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph
+  artifactKey: Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph using Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '68cd3f40d1924417fcacbfeca3450d57') in 0.004772458 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.035617 seconds.
+  path: Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph
+  artifactKey: Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph using Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '4a782b1008ba8fb771e1cf0362b6d766') in 0.003783166 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.464160 seconds.
+  path: Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph
+  artifactKey: Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph using Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'd10124d9137d68a61d595162a8d57b47') in 0.006570667 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.835513 seconds.
+  path: Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph
+  artifactKey: Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Shaders/SHA_ScreenGlow.shadergraph using Guid(fe85484f2edb8421d8b6314c9f2881b1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '25b63f480d98cac6381971cbae3edf8c') in 0.104516417 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 415.176819 seconds.
+  path: Assets/_ART/Models/Blender/UI/RadioConsole.blend
+  artifactKey: Guid(9ac0779c0137948f0816fae358e9ef24) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Models/Blender/UI/RadioConsole.blend using Guid(9ac0779c0137948f0816fae358e9ef24) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '4a879ad3f9def94870ed29a6b5796f36') in 0.058790875 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 31
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000060 seconds.
+  path: Assets/_ART/Models/Blender/UI/RadioConsole.blend1
+  artifactKey: Guid(228384b9070084f69a23b41f78c0aa03) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Models/Blender/UI/RadioConsole.blend1 using Guid(228384b9070084f69a23b41f78c0aa03) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '9405fd2bf7aecf3762bfc3e82ddf9dfd') in 0.001853292 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting

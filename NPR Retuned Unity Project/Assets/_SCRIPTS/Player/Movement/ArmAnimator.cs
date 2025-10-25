@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class ArmAnimator : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class ArmAnimator : MonoBehaviour
     [SerializeField] private Vector3 armRectOffset;
     [SerializeField] private Vector3 armRectRotation;
     private VanWeapon _currentWeapon => WeaponSettings.root.currentWeapon;
-
     // Helper: Rectangle perimeter as 4 segments in local space (x,z)
     private Vector2[] GetPerimeterCorners()
     {
@@ -25,7 +25,6 @@ public class ArmAnimator : MonoBehaviour
             new Vector2(minX, maxZ), // Top Left
         };
     }
-
     // Helper: Project a point onto the perimeter, returning the closest perimeter position and the distance along the perimeter
     private void ProjectPointToPerimeter(Vector2 point, out Vector2 closest, out float perimeterT)
     {
@@ -101,7 +100,7 @@ public class ArmAnimator : MonoBehaviour
 
     private float currentT = 0f; // Current position along perimeter [0,1]
 
-    void FixedUpdate()
+    void LateUpdate()
     {
         if (_currentWeapon == null || _currentWeapon.PalmTargets.Length == 0) return;
 
@@ -137,7 +136,6 @@ public class ArmAnimator : MonoBehaviour
         transform.localPosition = new Vector3(pos2D.x, 0, pos2D.y);
         transform.localRotation = Quaternion.Euler(0, angle, 0);
     }
-
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

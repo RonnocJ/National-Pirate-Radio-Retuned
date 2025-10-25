@@ -4,30 +4,58 @@ using UnityEngine.SceneManagement;
 
 public class GameSceneManager : Singleton<GameSceneManager>
 {
-    [SerializeField] private RectTransform[] levelCards;
-    void Start()
+    protected override void OnEnable()
     {
-        //DontDestroyOnLoad(this);
-    }
+        base.OnEnable();
 
+        SceneManager.sceneLoaded += (sc, _) =>
+        {
+            PInputManager.root.ClearActions();
+            GameManager.root.ClearActions();
+
+            switch (sc.name)
+            {
+                case "Title":
+                AudioManager.root.PlaySound(AudioEvent.playTitleMusic);
+                    GameManager.root.CurrentGState = GameState.Title;
+                    break;
+                case "Talk":
+                    AudioManager.root.StopSound(AudioEvent.playTitleMusic);
+                    NonDgUI.root.toTalkPanel.anchoredPosition = Vector2.right * -2560;
+                    GameManager.root.CurrentGState = GameState.Talking;
+                    break;
+                case "Shop":
+                    AudioManager.root.StopSound(AudioEvent.playTitleMusic);
+                    NonDgUI.root.StartCoroutine(NonDgUI.root.FadeToBlack(false));
+                    GameManager.root.CurrentGState = GameState.Shop;
+                    break;
+                case "Level":
+                    AudioManager.root.StopSound(AudioEvent.playTitleMusic);
+                    GameManager.root.CurrentGState = GameState.Level;
+                    GameManager.root.CurrentPState = PlayerState.Start;
+
+                    if (GameManager.root.NewGame)
+                    {
+                        NonDgUI.root.StartCoroutine(NonDgUI.root.ShowIntroQuotes());
+                    }
+                    break;
+            }
+        };
+    }
+    public void LoadTitle()
+    {
+        SceneManager.LoadSceneAsync("Title", LoadSceneMode.Single);
+    }
+    public void LoadTalk()
+    {
+        SceneManager.LoadSceneAsync("Talk", LoadSceneMode.Single);
+    }
     public void LoadLevel()
     {
         SceneManager.LoadSceneAsync("Level", LoadSceneMode.Single);
-
-        SceneManager.sceneLoaded += (sc, _) => StartCoroutine(RemoveLevelCard());
     }
-
-    IEnumerator RemoveLevelCard()
+    public void LoadShop()
     {
-        yield return new WaitForSeconds(0.5f);
-
-        for (int i = 0; i < 120; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                levelCards[j].position += Quaternion.AngleAxis((j - 1) * -45f, Vector3.forward) * Vector2.up * i / 2f;
-                yield return null;
-            }
-        }
+        SceneManager.LoadSceneAsync("Shop", LoadSceneMode.Single);
     }
 }

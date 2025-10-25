@@ -4,14 +4,15 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public int Alive;
+    public int PoolSize;
     public ObjectPool EnemyPool;
     [SerializeField, Range(0, 100)] private int spawnChance;
     [SerializeField] private float spawnTime;
     [SerializeField] private int spawnMax;
-    [SerializeField] private float spawnRange;
+    public float spawnRange;
     [SerializeField] private float spawnHeight;
     [SerializeField] private LayerMask spawnSurfaces;
-    [SerializeField] private int poolSize;
+
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private Transform enemyParent;
     private int success;
@@ -19,50 +20,66 @@ public class EnemySpawner : MonoBehaviour
     {
         EnemyPool = new ObjectPool();
 
+        while (MainGenerator.root.firstGen)
+        {
+            yield return null;
+        }
+
+        WaitForSeconds wait = new WaitForSeconds(spawnTime);
 
         while (true)
         {
-            yield return new WaitForSeconds(spawnTime);
+            yield return wait;
 
-            if (Alive > poolSize) continue;
-            
+            if (Alive >= PoolSize - 1) continue;
+
             success = 0;
+            Vector3 playerPos = VanController.root.transform.position;
 
             for (int i = 0; i < spawnMax * 4; i++)
             {
-                if (Random.value * 100 > spawnChance) continue;
+                if (Random.value * 100f > spawnChance) continue;
 
-                transform.position = VanController.root.transform.position + Random.insideUnitSphere * spawnRange;
+                if (!TryGetSpawnPosition(playerPos, out Vector3 spawnPos)) continue;
+                if (Vector2.Distance(new Vector2(spawnPos.x, spawnPos.z), new Vector2(playerPos.x, playerPos.z)) < 256f) continue;
 
-                transform.position = new Vector3(transform.position.x, 256, transform.position.z);
-
-                Ray ray = new Ray(transform.position, Vector3.down);
-
-                if (Physics.Raycast(ray, out RaycastHit hit, 512, spawnSurfaces))
-                {
-                    transform.position = new Vector3(transform.position.x, hit.point.y + spawnHeight, transform.position.z);
-                }
-
-                if (Vector3.Distance(transform.position, VanController.root.transform.position) < 256) continue;
-
-                if (!PfGraph.root.IsNavigable(transform.position)) continue;
-
-                if (EnemyPool.CreatedCount < poolSize) EnemyPool.Prewarm(1, enemyPrefab, enemyParent);
-
-                var obj = EnemyPool.Get(enemyPrefab, enemyParent);
-                obj.transform.position = transform.position;
-
-                var e = obj.GetComponent<Enemy>();
-                e.spawner = this;
-                e.Spawn();
-
-                Alive++;
-                success++;
-
-                if (success == spawnMax) break;
-
+                SpawnEnemy(spawnPos);
                 yield return null;
+
+                if (success >= spawnMax) break;
             }
         }
+    }
+
+    public Enemy SpawnEnemy(Vector3 position)
+    {
+        if (EnemyPool.CreatedCount < PoolSize) EnemyPool.Prewarm(1, enemyPrefab, enemyParent);
+
+        var obj = EnemyPool.Get(enemyPrefab, enemyParent);
+        obj.transform.position = position;
+
+        var e = obj.GetComponent<Enemy>();
+        e.spawner = this;
+        e.Spawn();
+
+        Alive++;
+        success++;
+
+        return e;
+    }
+
+    private bool TryGetSpawnPosition(Vector3 playerPos, out Vector3 spawnPos)
+    {
+        Vector2 offset = Random.insideUnitCircle * spawnRange;
+        Vector3 samplePoint = new Vector3(playerPos.x + offset.x, playerPos.y + 256f, playerPos.z + offset.y);
+
+        if (Physics.Raycast(samplePoint, Vector3.down, out RaycastHit hit, 512f, spawnSurfaces))
+        {
+            spawnPos = hit.point + Vector3.up * spawnHeight;
+            return true;
+        }
+
+        spawnPos = default;
+        return false;
     }
 }

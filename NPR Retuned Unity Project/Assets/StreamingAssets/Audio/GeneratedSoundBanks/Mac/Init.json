@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{C7B9E618-9CBF-2641-1674-D7A8B3AB65F2}",
+    "Hash": "{B4E5C015-1DF1-A85B-2116-05D4D165C545}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -128,6 +128,12 @@
       "GUID": "{62FCC473-533E-4107-8738-C7031D18CC74}"
      },
      {
+      "Id": "1482485841",
+      "Name": "Engine_Rev",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Engine_Rev",
+      "GUID": "{30256972-EE2F-45AD-8BAA-EB8FCF554E95}"
+     },
+     {
       "Id": "2727184314",
       "Name": "Engine_Throttle",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Player\\Van\\Engine_Throttle",
@@ -175,6 +181,26 @@
      }
     ],
     "SwitchGroups": [
+     {
+      "Id": "180661997",
+      "Name": "Attack",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Enemies\\ATV\\Attack",
+      "GUID": "{F0F257F2-3048-4B49-95C7-E91A03000B42}",
+      "Switches": [
+       {
+        "Id": "1007009725",
+        "Name": "Releasing",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Enemies\\ATV\\Attack\\Releasing",
+        "GUID": "{8AF59F71-F88D-4EB4-8E0E-7B449A76991D}"
+       },
+       {
+        "Id": "3828622232",
+        "Name": "Charging",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Enemies\\ATV\\Attack\\Charging",
+        "GUID": "{6958948C-1B95-41B9-9995-F6D4F401C97A}"
+       }
+      ]
+     },
      {
       "Id": "268529915",
       "Name": "Engine",
@@ -701,6 +727,6 @@
     ]
    }
   ],
-  "FileHash": "{FE81E3B9-AD16-C78C-F4D1-4A0A1755DDDA}"
+  "FileHash": "{DABB2C82-6C4A-A6A2-E03A-1B06263E4943}"
  }
 }

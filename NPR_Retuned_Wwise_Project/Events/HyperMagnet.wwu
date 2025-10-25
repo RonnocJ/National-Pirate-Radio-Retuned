@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{83068FE5-576E-4B29-9AD6-6886D36FF0F3}" SchemaVersion="123" RootDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" ParentDocumentID="{A9AC12BE-9441-4D75-995B-0A71BBB3B9F3}">
+	<Events>
+		<WorkUnit Name="HyperMagnet" ID="{83068FE5-576E-4B29-9AD6-6886D36FF0F3}" OwnerID="{A9AC12BE-9441-4D75-995B-0A71BBB3B9F3}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="playMagnetFloat" ID="{FB3763C6-B50F-4254-8B57-084289FD4ECD}">
+					<ChildrenList>
+						<Action Name="" ID="{28B10889-3525-40F7-A564-94D7B6BE4A97}" ShortID="391856842">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MagnetFloat" ID="{E9F0B6E8-2BBD-4655-8124-C7E1C4999F54}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playMagnetExplode" ID="{7948AC50-B1E2-4049-AB0B-D3B957F37B0A}">
+					<ChildrenList>
+						<Action Name="" ID="{4CC24025-5812-47B6-BB29-BD00BEF1044B}" ShortID="384382192">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MagnetExplode" ID="{6C502536-F124-4B34-9517-2B112E36ECBD}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

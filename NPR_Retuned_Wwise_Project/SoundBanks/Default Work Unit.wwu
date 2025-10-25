@@ -3,9 +3,52 @@
 	<SoundBanks>
 		<WorkUnit Name="Default Work Unit" ID="{D0B421CF-FD77-4620-9610-511AF75159B4}" PersistMode="Standalone">
 			<ChildrenList>
-				<SoundBank Name="Main" ID="{F132A8A6-CE09-432B-878F-6B7B36947D3F}">
+				<SoundBank Name="LevelSFX" ID="{F132A8A6-CE09-432B-878F-6B7B36947D3F}">
 					<ObjectInclusionList>
-						<ObjectRef Name="Default Work Unit" ID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" WorkUnitID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Ambiences" ID="{3DCDE90D-A9B1-487F-9008-A3DF5D59B2F0}" WorkUnitID="{3DCDE90D-A9B1-487F-9008-A3DF5D59B2F0}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="playTTSVoice" ID="{A7BA022E-9C12-49B1-9DD3-2312F53FFDAE}" WorkUnitID="{65B008BF-CF76-4761-A4ED-5CFCDCA7DD37}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="CDPlayer" ID="{59432D60-BD13-4C6B-9DD4-CDDD7D10C713}" WorkUnitID="{59432D60-BD13-4C6B-9DD4-CDDD7D10C713}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Enemies" ID="{A9AC12BE-9441-4D75-995B-0A71BBB3B9F3}" WorkUnitID="{A9AC12BE-9441-4D75-995B-0A71BBB3B9F3}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList>
+						<GameSyncRef Name="EVG" ID="{4B3BF5EA-C883-4501-BA08-9A538A19CD3C}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+					</GameSyncExclusionList>
+				</SoundBank>
+				<SoundBank Name="Title" ID="{BFB26C9A-8977-4905-AA23-380990C460D2}">
+					<ObjectInclusionList>
+						<ObjectRef Name="playTitleMusic" ID="{92881F73-1D62-4723-A8D4-97D3E37B52B1}" WorkUnitID="{761AC304-39E8-49DA-BEFE-A50C3CAE180C}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="EVG" ID="{124C86E6-9680-48A4-9CEB-F7DEA6913318}">
+					<ObjectInclusionList>
+						<ObjectRef Name="playCDMusic" ID="{043AEE38-761B-4737-A1BA-2880D828D290}" WorkUnitID="{59432D60-BD13-4C6B-9DD4-CDDD7D10C713}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList>
+						<GameSyncRef Name="NPR" ID="{E83B5186-AA77-418A-B6E1-246C536171B9}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="Static" ID="{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+					</GameSyncExclusionList>
+				</SoundBank>
+				<SoundBank Name="Shop" ID="{1640F93C-9564-4BCA-831D-0FC4C39B78BB}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Pinboard" ID="{AE13D2F3-0064-4066-812E-46DDD90C39D4}" WorkUnitID="{AE13D2F3-0064-4066-812E-46DDD90C39D4}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Global" ID="{F9CADABE-29C7-4907-BEBD-5EF68EC00710}">
+					<ObjectInclusionList>
+						<ObjectRef Name="playMouseClick" ID="{5D42DB81-5BD3-4444-B14A-9AC3906FA6EA}" WorkUnitID="{65B008BF-CF76-4761-A4ED-5CFCDCA7DD37}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="VanSFX" ID="{500C3F74-5570-4CF4-9F79-6D6E719A305F}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Van" ID="{75D373E6-AB92-4F7A-8D5D-472B2133F41C}" WorkUnitID="{75D373E6-AB92-4F7A-8D5D-472B2133F41C}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

@@ -1,18 +1,16 @@
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-public enum CharOpinion
-{
-    Positive,
-    Neutral,
-    Negative
-}
+
 public class Talker : MonoBehaviour
 {
-    public CharOpinion Opinion;
+    public bool StartedTalking;
+    public bool OnRight;
+    public Characters CharName;
     public Animator Anim;
     public void BeginDialogue()
     {
+        Anim.SetBool("right", OnRight);
         Anim.SetTrigger("enter");
     }
     public void SetTalking(bool toggle)
@@ -28,6 +26,8 @@ public class Talker : MonoBehaviour
         Anim.SetTrigger("exitLevel");
     }
 }
+
+#if UNITY_EDITOR
 
 [CustomEditor(typeof(Talker))]
 public class TalkerEditor : Editor
@@ -58,10 +58,12 @@ public class TalkerEditor : Editor
         EditorGUILayout.Space(20);
 
         toggle = GUILayout.Toggle(toggle, "Toggle Talking");
-        if(t.Anim != null) t.SetTalking(toggle);
+        if (t.Anim != null) t.SetTalking(toggle);
 
         GUILayout.EndHorizontal();
 
         GUILayout.EndVertical();
     }
 }
+
+#endif

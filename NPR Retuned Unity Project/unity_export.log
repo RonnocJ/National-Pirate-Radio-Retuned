@@ -1,0 +1,40 @@
+Unity Editor version:    6000.2.6f2 (4a4dcaec6541)
+Branch:                  6000.2/respin/6000.2.6f2-cc51a95c03
+Build type:              Release
+Batch mode:              YES
+macOS version:           Version 26.0.1 (Build 25A362)
+Darwin version:          25.0.0
+Architecture:            arm64
+Running under Rosetta:   NO
+Available memory:        24576 MB
+Date:                    2025-10-08T04:41:25Z
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-connorjohnson" at "2025-10-08T04:41:25.374611Z"
+Launching external process: /Applications/Unity/Hub/Editor/6000.2.6f2/Unity.app/Contents/Resources/PackageManager/Server/UnityPackageManager
+
+COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/6000.2.6f2/Unity.app/Contents/MacOS/Unity
+-batchmode
+-nographics
+-quit
+-projectPath
+/Users/connorjohnson/Desktop/GitHub/National-Pirate-Radio-Retuned/NPR Retuned Unity Project
+-executeMethod
+ShaderGraphExporter.ExportShaGrass
+-logFile
+unity_export.log
+Successfully changed project path to: /Users/connorjohnson/Desktop/GitHub/National-Pirate-Radio-Retuned/NPR Retuned Unity Project
+/Users/connorjohnson/Desktop/GitHub/National-Pirate-Radio-Retuned/NPR Retuned Unity Project
+It looks like another Unity instance is running with this project open.
+
+Multiple Unity instances cannot open the same project.
+
+Project: /Users/connorjohnson/Desktop/GitHub/National-Pirate-Radio-Retuned/NPR Retuned Unity Project
+Fatal Error! It looks like another Unity instance is running with this project open.
+
+Multiple Unity instances cannot open the same project.
+
+Project: /Users/connorjohnson/Desktop/GitHub/National-Pirate-Radio-Retuned/NPR Retuned Unity Project
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 25641, path: "/Applications/Unity Hub.app/Contents/Frameworks/UnityLicensingClient_V1.app/Contents/MacOS/Unity.Licensing.Client")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Package Manager] Server process was shutdown

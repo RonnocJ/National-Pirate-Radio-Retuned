@@ -1,10 +1,14 @@
 using System;
-using Unity.VisualScripting;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public enum GameState
 {
+    None,
     Title,
     Talking,
+    Shop,
     Level
 }
 public enum PlayerState
@@ -14,8 +18,10 @@ public enum PlayerState
     Weapon = 2,
     Dead = 3
 }
-public class GameManager : Singleton<GameManager>
+public class GameManager : Singleton<GameManager>, ISaveData
 {
+    public bool NewGame = true;
+    public int CurrentStage = 1;
     [SerializeField] private GameState _currentGState;
     public GameState CurrentGState
     {
@@ -46,15 +52,24 @@ public class GameManager : Singleton<GameManager>
     }
     public Action<GameState> OnGStateSwitch;
     public Action<PlayerState> OnPStateSwitch;
-    void Start()
+    public void ClearActions()
     {
-        PInputManager.root.actions[PlayerActionType.Switch].bAction += SwitchVanMode;
+        OnGStateSwitch = new Action<GameState>(_ => { });
+        OnPStateSwitch = new Action<PlayerState>(_ => { });
     }
-    private void SwitchVanMode()
+
+    public Dictionary<string, object> AddSaveData()
     {
-        if (CurrentPState is PlayerState.Utility or PlayerState.Weapon)
+        return new Dictionary<string, object>()
         {
-            CurrentPState = (PlayerState)(-(int)CurrentPState + 3);
+            { "newGame", NewGame }
+        };
+    }
+    public void ReadSaveData(Dictionary<string, object> dataDict)
+    {
+        if (dataDict.TryGetValue("newGame", out object newGame))
+        {
+            NewGame = Convert.ToBoolean(newGame);
         }
     }
 }

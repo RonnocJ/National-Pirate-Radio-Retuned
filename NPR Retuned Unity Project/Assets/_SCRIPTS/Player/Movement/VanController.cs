@@ -10,6 +10,9 @@ public enum GearState
 };
 public class VanController : Singleton<VanController>
 {
+    public bool InAutopilot;
+    public float BrakeInput;
+    public Vector2 DriveInput;
     [Header("Stats (Readonly)")]
     [SerializeField] private float currentSpeed;
     [SerializeField] private float currentWheelRPM;
@@ -36,19 +39,23 @@ public class VanController : Singleton<VanController>
     public Rigidbody PlayerRb;
     [SerializeField] private float maxSpeed;
     [SerializeField] private float gravity = 9.81f;
+    [SerializeField] private float slopeMultiplier;
+    [SerializeField] private LayerMask terrainMask;
     [SerializeField] private AnimationCurve motorBoostCurve;
+    [Header("AutoPilot Settings")]
+    [SerializeField] private VehicleAutopilot autopilot;
     [Header("Steering Settings")]
     [SerializeField] private float steerMultiplier;
     [SerializeField] private float maxSteering;
     [Header("Wheel References")]
     [SerializeField] private WheelColliders wheelColliders;
     [SerializeField] private WheelMeshes wheelMeshes;
+    [Header("Misc References")]
+    [SerializeField] private Transform needleTr;
     private bool _stopController;
     private GearState gearState;
     private float _steerAngle;
     private float _slipAngle => Vector3.Angle(transform.forward, PlayerRb.linearVelocity - transform.forward);
-    private float _brakeInput => PInputManager.root.actions[PlayerActionType.Brake].fValue;
-    private Vector2 _driveInput => PInputManager.root.actions[PlayerActionType.Drive].v2Value;
     private Coroutine _upShiftRoutine;
     private Coroutine _downShiftRoutine;
     private void Start()
@@ -64,12 +71,44 @@ public class VanController : Singleton<VanController>
             _stopController = true;
             AudioManager.root.SetSwitch(AudioSwitch.Engine_BREAK_Stopped, gameObject);
         };
+
+        if (!GameManager.root.NewGame) RegisterAutopilotActions();
+    }
+    public void RegisterAutopilotActions()
+    {
+        PInputManager.root.actions[PlayerActionType.Find].bAction += () =>
+        {
+            if (GameManager.root.CurrentPState == PlayerState.Weapon && (!GameManager.root.NewGame || Tutorial.root.Iteration > 2))
+            {
+                InAutopilot = !InAutopilot;
+                if (InAutopilot) autopilot.RebuildDrivePath();
+            }
+        };
     }
     private void FixedUpdate()
     {
         PlayerRb.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
 
         HandleAudio();
+
+        if (!InAutopilot)
+        {
+            DriveInput = PInputManager.root.actions[PlayerActionType.Drive].v2Value;
+            BrakeInput = PInputManager.root.actions[PlayerActionType.Brake].fValue;
+        }
+        else
+        {
+            var inputs = autopilot.DriveToTarget(0.5f);
+
+            DriveInput = inputs.driveInput;
+            BrakeInput = inputs.brakeInput;
+        }
+
+        if (GameManager.root.CurrentPState is PlayerState.Start or PlayerState.Dead)
+        {
+            DriveInput = Vector2.zero;
+            BrakeInput = 0;
+        }
 
         if (!_stopController)
         {
@@ -85,17 +124,17 @@ public class VanController : Singleton<VanController>
     }
     private void ApplyMotor()
     {
-        if (Mathf.Abs(_driveInput.y) > 0)
+        if (Mathf.Abs(DriveInput.y) > 0)
         {
             gearState = GearState.Running;
         }
 
-        if (gearState == GearState.Neutral && Mathf.Abs(_driveInput.y) > 0)
+        if (gearState == GearState.Neutral && Mathf.Abs(DriveInput.y) > 0)
         {
             gearState = GearState.Running;
         }
 
-        if (currentEngineRPM < idleRPM + 200 && _driveInput.y == 0 && currentGear == 0)
+        if (currentEngineRPM < idleRPM + 200 && DriveInput.y == 0 && currentGear == 0)
         {
             gearState = GearState.Neutral;
         }
@@ -113,32 +152,35 @@ public class VanController : Singleton<VanController>
             }
         }
 
-        // Convert average drive-wheel RPM to engine-equivalent RPM via gearing
         currentWheelRPM = Mathf.Abs((wheelColliders.WheelBL.rpm + wheelColliders.WheelBR.rpm) / 2f) * gearRatios[currentGear] * differentialRatio;
 
-        // Automatic "torque converter" style coupling (no manual clutch input)
-        float throttle = Mathf.Clamp01(Mathf.Abs(_driveInput.y));
-        float freeRevRPM = Mathf.Lerp(idleRPM, redLine, throttle); // engine free-rev target from throttle
+        float speed = PlayerRb.linearVelocity.magnitude;
+        float coupling = Mathf.Clamp01(Mathf.Lerp(minCoupling, 1f, Mathf.InverseLerp(0.1f, Mathf.Max(0.1f, clutchLockSpeed), speed)));
 
-        // As speed increases, coupling increases from minCoupling -> 1
-        float speed = PlayerRb.linearVelocity.magnitude; // m/s
-        float lockFactor = Mathf.InverseLerp(0.1f, Mathf.Max(0.1f, clutchLockSpeed), speed);
-        float coupling = Mathf.Clamp01(Mathf.Lerp(minCoupling, 1f, lockFactor));
-
-        // Target RPM blends from free-rev at low speed to wheel-driven RPM when coupled
-        float wheelDrivenRPM = Mathf.Max(idleRPM - 100f, currentWheelRPM);
-        float rpmTarget = Mathf.Lerp(freeRevRPM, wheelDrivenRPM, coupling);
+        float rpmTarget = Mathf.Lerp(Mathf.Lerp(idleRPM, redLine, Mathf.Clamp01(Mathf.Abs(DriveInput.y))), Mathf.Max(idleRPM - 100f, currentWheelRPM), coupling);
         currentEngineRPM = Mathf.Lerp(currentEngineRPM <= 1f ? idleRPM : currentEngineRPM, rpmTarget, Time.deltaTime * rpmResponse);
         currentEngineRPM = Mathf.Clamp(currentEngineRPM, idleRPM, redLine * 1.1f);
 
-        // Compute engine torque to wheels; guard against very low RPM
-        float rpmForTorque = Mathf.Max(100f, currentEngineRPM);
-        currentTorque = hpToRPMCurve.Evaluate(currentEngineRPM / redLine) * motorForce * gearRatios[currentGear] * differentialRatio * 5252f / rpmForTorque;
+        currentTorque = hpToRPMCurve.Evaluate(currentEngineRPM / redLine) * motorForce * gearRatios[currentGear] * differentialRatio * 5252f / Mathf.Max(100f, currentEngineRPM);
 
-        wheelColliders.WheelBL.motorTorque = currentTorque * _driveInput.y;
-        wheelColliders.WheelBR.motorTorque = currentTorque * _driveInput.y;
+        wheelColliders.WheelBL.motorTorque = currentTorque * DriveInput.y * PlayerStats.root.VehicleSpeed;
+        wheelColliders.WheelBR.motorTorque = currentTorque * DriveInput.y * PlayerStats.root.VehicleSpeed;
 
-        PlayerRb.AddForce(transform.forward * motorBoostCurve.Evaluate(PlayerRb.linearVelocity.magnitude) * _driveInput.y, ForceMode.Acceleration);
+        PlayerRb.AddForce(transform.forward * motorBoostCurve.Evaluate(speed) * DriveInput.y * PlayerStats.root.VehicleSpeed, ForceMode.Acceleration);
+
+        if (Physics.Raycast(transform.position + Vector3.up * 0.5f, Vector3.down, out RaycastHit slopeHit, Mathf.Infinity, terrainMask))
+        {
+            float slopeAngle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            Vector3 driveDirOnPlane = Vector3.ProjectOnPlane(transform.forward * Mathf.Sign(DriveInput.y), slopeHit.normal).normalized;
+            float downhillAlongDrive = Vector3.Dot(Vector3.ProjectOnPlane(Vector3.down, slopeHit.normal).normalized, driveDirOnPlane);
+
+            if (DriveInput.y != 0f && downhillAlongDrive < 0f && slopeAngle > 0.01f)
+            {
+                PlayerRb.AddForce(driveDirOnPlane * slopeMultiplier * slopeAngle * -downhillAlongDrive, ForceMode.Acceleration);
+            }
+        }
+
+        needleTr.localRotation = Quaternion.Euler(Vector3.right * 13 + Vector3.forward * -((PlayerRb.linearVelocity.magnitude * 4) - 140));
     }
     IEnumerator ChangeGear(int gearChange)
     {
@@ -179,14 +221,14 @@ public class VanController : Singleton<VanController>
     }
     private void ApplyBrakes(bool autoBrake = false)
     {
-        wheelColliders.WheelFL.brakeTorque = autoBrake ? 1 : _brakeInput * brakeForce;
-        wheelColliders.WheelFR.brakeTorque = autoBrake ? 1 : _brakeInput * brakeForce;
-        wheelColliders.WheelBL.brakeTorque = autoBrake ? 1 : _brakeInput * brakeForce * 0.6f;
-        wheelColliders.WheelBR.brakeTorque = autoBrake ? 1 : _brakeInput * brakeForce * 0.6f;
+        wheelColliders.WheelFL.brakeTorque = autoBrake ? 1 : BrakeInput * brakeForce;
+        wheelColliders.WheelFR.brakeTorque = autoBrake ? 1 : BrakeInput * brakeForce;
+        wheelColliders.WheelBL.brakeTorque = autoBrake ? 1 : BrakeInput * brakeForce * 0.6f;
+        wheelColliders.WheelBR.brakeTorque = autoBrake ? 1 : BrakeInput * brakeForce * 0.6f;
     }
     private void ApplySteering()
     {
-        _steerAngle = _driveInput.x * steerMultiplier;
+        _steerAngle = DriveInput.x * steerMultiplier;
 
         if (_slipAngle < 120f)
         {
@@ -217,7 +259,7 @@ public class VanController : Singleton<VanController>
     private void HandleAudio()
     {
         AudioManager.root.SetRTPC(AudioRTPC.Engine_RPM, currentEngineRPM);
-        AudioManager.root.SetRTPC(AudioRTPC.Engine_Throttle, _driveInput.y > 0f? 1f : 0f);
+        AudioManager.root.SetRTPC(AudioRTPC.Engine_Throttle, Mathf.Abs(DriveInput.y) > 0f ? 1f : 0f);
     }
 }
 [Serializable]

@@ -1,0 +1,31 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2430665392	playVanEngine			\Default Work Unit\Player\Van\Engine\playVanEngine	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	268529915	Engine			\Default Work Unit\Player\Van\Engine	
+
+Switch	ID	Name	Switch Group			Notes
+	2798660212	Started	Engine			
+	2904797076	Stopped	Engine			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1130155893	Engine_RPM			\Default Work Unit\Player\Van\Engine_RPM	
+	2727184314	Engine_Throttle			\Default Work Unit\Player\Van\Engine_Throttle	
+
+Effect plug-ins	ID	Name	Type				Notes
+	203725194	Parametric EQ (Custom)	Wwise Parametric EQ			
+	464193011	Guitar Distortion (Custom)	Wwise Guitar Distortion			
+
+Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
+	198169026	Synth One	Wwise Synth One		\Actor-Mixer Hierarchy\Default Work Unit\Player\Van\Engine\Motor\MotorRunning\VanMotorSynth\Synth One	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	123400107	VanMotorStop	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\1B\{1B4F3E58-6A60-74A2-4BD1-993E6935DC2C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Van\Engine\VanMotorStop		120304
+	180949644	2000 On Load Composite	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\72\{72131665-2A04-BF98-EB17-5C3770645930}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Van\Engine\Motor\MotorRunning\VanMotorReal\2000 On Load Composite		1022326
+	280486208	VanMotorStart	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\E5\{E5E8826E-E0B9-812D-6C40-87FA72B175F2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Van\Engine\Motor\VanMotorStart		114642
+	584805829	5000 On Load Composite	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\7B\{7B09CA40-4EED-B18B-4A5A-43EC9BBDA1FC}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Van\Engine\Motor\MotorRunning\VanMotorReal\5000 On Load Composite		902072
+	710705156	1000 On Load Composite	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\16\{16CCDD6D-7C97-27F7-DB10-BA7CC73C0900}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Van\Engine\Motor\MotorRunning\VanMotorReal\1000 On Load Composite		939864
+	742743554	3000 On Load Composite	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\4E\{4E165F79-2980-2B03-F79F-2F779456D028}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Van\Engine\Motor\MotorRunning\VanMotorReal\3000 On Load Composite		909576
+	842336508	4000 On Load Composite	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\8B\{8B048446-9463-BE86-A2AE-46C03F835DFD}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Van\Engine\Motor\MotorRunning\VanMotorReal\4000 On Load Composite		902210
+	1068787568	VanMotorIdle	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\BE\{BE0A64FD-994E-E57A-763D-1D00695BE217}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Van\Engine\Motor\MotorRunning\VanMotorIdle		144160
+

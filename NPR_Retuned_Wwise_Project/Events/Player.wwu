@@ -4,7 +4,6 @@
 		<WorkUnit Name="Player" ID="{72ECE1ED-FA46-488E-AEFA-7F4E47A3086D}" OwnerID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" PersistMode="Nested">
 			<ChildrenList>
 				<WorkUnit Name="Van" ID="{75D373E6-AB92-4F7A-8D5D-472B2133F41C}" PersistMode="Reference"/>
-				<WorkUnit Name="CDPlayer" ID="{59432D60-BD13-4C6B-9DD4-CDDD7D10C713}" PersistMode="Reference"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

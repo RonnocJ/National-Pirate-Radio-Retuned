@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44ce5e1833fd466eb879a81baff8bf3, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: Assembly-CSharp::GeneratorSettings
-  ViewDistance: 20
-  CullMargin: 1
+  PlaceDistance: 64
+  ViewDistance: 32
+  CullMargin: 0
   CellSize: 64
-  NoiseScale: 512
+  ChunkSize: 4096
+  NoiseScale: 2048
   HeightScale: 128
   InitialSlope:
     serializedVersion: 2
@@ -59,6 +61,15 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  Octaves: 1
+  Lacunarity: 2
+  Gain: 0.5
+  WarpStrength: 0.75
+  RidgeBlend: 0.05
+  MacroFrequency: 0.005
+  MacroStrength: 0.3
+  FlatThreshold: 192
+  FlatFade: 1024
   TCons:
   - {fileID: 11400000, guid: eaf09979baf74489883fd1c8e48dd215, type: 2}
   - {fileID: 11400000, guid: 4df062159a1f64601aac5fe5fcf8b2ca, type: 2}
@@ -69,9 +80,16 @@ MonoBehaviour:
   FCons:
   - {fileID: 11400000, guid: 246eb67063a4e450c96f6f35ee0c2b2e, type: 2}
   - {fileID: 11400000, guid: 1492725c604eb49bcb9eb3f2501de7c1, type: 2}
-  GrassLimit: 3000
-  RoadLimit: 256
-  TIntersectionLimit: 32
-  XIntersectionLimit: 32
-  LargeTreeLimit: 6000
-  SmallTreeLimit: 6000
+  BCons:
+  - {fileID: 11400000, guid: 503095bab6f6241049d05fcd83cd7012, type: 2}
+  - {fileID: 11400000, guid: fe3a4a525e30a4d0eb5e9e00d181e7cb, type: 2}
+  - {fileID: 11400000, guid: 350ff0f3516904b0bb10a7fbeb493a16, type: 2}
+  GrassLimit: 6000
+  RoadLimit: 500
+  TIntersectionLimit: 100
+  XIntersectionLimit: 100
+  LargeTreeLimit: 5000
+  SmallTreeLimit: 5000
+  LargeHouseLimit: 1000
+  SmallHouseLimit: 1000
+  AntennaLimit: 20

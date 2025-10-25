@@ -434,11 +434,11 @@ MonoBehaviour:
     ParentPath: SoundBanks/Default Work Unit
     guid: cf21b4d077fd20469610511af75159b4
     GuidInternal: 
-    m_lastTime: -8584443757708870929
+    m_lastTime: -8584402429622435106
     List:
-    - name: Main
-      guid: a6a832f109ce2b43878f6b7b36947d3f
-      id: 3161908922
+    - name: EVG
+      guid: e6864c128096a4489cebf7dea6913318
+      id: 932389263
       PathAndIcons:
       - ElementName: SoundBanks
         ObjectType: 5
@@ -446,10 +446,80 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: cf21b4d077fd20469610511af75159b4
-      - ElementName: Main
+      - ElementName: EVG
+        ObjectType: 7
+        guid: e6864c128096a4489cebf7dea6913318
+      Path: SoundBanks/Default Work Unit/EVG
+    - name: Global
+      guid: bedacaf9c7290749bebd5ef68ec00710
+      id: 1465331116
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cf21b4d077fd20469610511af75159b4
+      - ElementName: Global
+        ObjectType: 7
+        guid: bedacaf9c7290749bebd5ef68ec00710
+      Path: SoundBanks/Default Work Unit/Global
+    - name: LevelSFX
+      guid: a6a832f109ce2b43878f6b7b36947d3f
+      id: 1900718590
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cf21b4d077fd20469610511af75159b4
+      - ElementName: LevelSFX
         ObjectType: 7
         guid: a6a832f109ce2b43878f6b7b36947d3f
-      Path: SoundBanks/Default Work Unit/Main
+      Path: SoundBanks/Default Work Unit/LevelSFX
+    - name: Shop
+      guid: 3cf940166495ca4b831d0fc4c39b78bb
+      id: 251412225
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cf21b4d077fd20469610511af75159b4
+      - ElementName: Shop
+        ObjectType: 7
+        guid: 3cf940166495ca4b831d0fc4c39b78bb
+      Path: SoundBanks/Default Work Unit/Shop
+    - name: Title
+      guid: 9a6cb2bf77890549aa23380990c460d2
+      id: 3705726509
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cf21b4d077fd20469610511af75159b4
+      - ElementName: Title
+        ObjectType: 7
+        guid: 9a6cb2bf77890549aa23380990c460d2
+      Path: SoundBanks/Default Work Unit/Title
+    - name: VanSFX
+      guid: 743f0c507055f44c9f796d6e719a305f
+      id: 1939123861
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cf21b4d077fd20469610511af75159b4
+      - ElementName: VanSFX
+        ObjectType: 7
+        guid: 743f0c507055f44c9f796d6e719a305f
+      Path: SoundBanks/Default Work Unit/VanSFX
   EventWwu:
   - PhysicalPath: Events/Ambiences.wwu
     PathAndIcons:
@@ -487,6 +557,71 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+  - PhysicalPath: Events/ATV.wwu
+    PathAndIcons:
+    - ElementName: Events
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 0000820c076e574b8f6e69e488b2be04
+    - ElementName: Enemies
+      ObjectType: 12
+      guid: be12aca94194754d995b0a71bbb3b9f3
+    - ElementName: ATV
+      ObjectType: 12
+      guid: 37c6a7e61020024583a2f24a9e963098
+    ParentPath: Events/Default Work Unit/Enemies/ATV
+    guid: 37c6a7e61020024583a2f24a9e963098
+    GuidInternal: 
+    m_lastTime: -8584405992667575017
+    List:
+    - name: playATVAttack
+      guid: 2b9edd8adc470d4382c5e00a26a7b1d1
+      id: 113422346
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 0000820c076e574b8f6e69e488b2be04
+      - ElementName: Enemies
+        ObjectType: 12
+        guid: be12aca94194754d995b0a71bbb3b9f3
+      - ElementName: ATV
+        ObjectType: 12
+        guid: 37c6a7e61020024583a2f24a9e963098
+      - ElementName: playATVAttack
+        ObjectType: 3
+        guid: 2b9edd8adc470d4382c5e00a26a7b1d1
+      Path: Events/Default Work Unit/Enemies/ATV/playATVAttack
+      maxAttenuation: 256
+      maxDuration: 20
+      minDuration: 20
+    - name: playATVBlast
+      guid: e74e81d1631d4d4eb63e7de3ce3e2157
+      id: 1438338272
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 0000820c076e574b8f6e69e488b2be04
+      - ElementName: Enemies
+        ObjectType: 12
+        guid: be12aca94194754d995b0a71bbb3b9f3
+      - ElementName: ATV
+        ObjectType: 12
+        guid: 37c6a7e61020024583a2f24a9e963098
+      - ElementName: playATVBlast
+        ObjectType: 3
+        guid: e74e81d1631d4d4eb63e7de3ce3e2157
+      Path: Events/Default Work Unit/Enemies/ATV/playATVBlast
+      maxAttenuation: 0
+      maxDuration: 3
+      minDuration: 3
   - PhysicalPath: Events/CDPlayer.wwu
     PathAndIcons:
     - ElementName: Events
@@ -495,16 +630,16 @@ MonoBehaviour:
     - ElementName: Default Work Unit
       ObjectType: 12
       guid: 0000820c076e574b8f6e69e488b2be04
-    - ElementName: Player
+    - ElementName: UI
       ObjectType: 12
-      guid: ede1ec7246fa8e48aefa7f4e47a3086d
+      guid: bf08b06576cf6147a4ed5cfcdca7dd37
     - ElementName: CDPlayer
       ObjectType: 12
       guid: 602d435913bd6b4c9dd4cddd7d10c713
-    ParentPath: Events/Default Work Unit/Player/CDPlayer
+    ParentPath: Events/Default Work Unit/UI/CDPlayer
     guid: 602d435913bd6b4c9dd4cddd7d10c713
     GuidInternal: 
-    m_lastTime: -8584437845544569691
+    m_lastTime: -8584407055509110581
     List:
     - name: playCDMusic
       guid: 38ee3a041b763747a1ba2880d828d290
@@ -516,16 +651,16 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 0000820c076e574b8f6e69e488b2be04
-      - ElementName: Player
+      - ElementName: UI
         ObjectType: 12
-        guid: ede1ec7246fa8e48aefa7f4e47a3086d
+        guid: bf08b06576cf6147a4ed5cfcdca7dd37
       - ElementName: CDPlayer
         ObjectType: 12
         guid: 602d435913bd6b4c9dd4cddd7d10c713
       - ElementName: playCDMusic
         ObjectType: 3
         guid: 38ee3a041b763747a1ba2880d828d290
-      Path: Events/Default Work Unit/Player/CDPlayer/playCDMusic
+      Path: Events/Default Work Unit/UI/CDPlayer/playCDMusic
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -539,16 +674,16 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 0000820c076e574b8f6e69e488b2be04
-      - ElementName: Player
+      - ElementName: UI
         ObjectType: 12
-        guid: ede1ec7246fa8e48aefa7f4e47a3086d
+        guid: bf08b06576cf6147a4ed5cfcdca7dd37
       - ElementName: CDPlayer
         ObjectType: 12
         guid: 602d435913bd6b4c9dd4cddd7d10c713
       - ElementName: playCDPlayerClose
         ObjectType: 3
         guid: 2b7e13a1bf523741a76ae43fd49ebce7
-      Path: Events/Default Work Unit/Player/CDPlayer/playCDPlayerClose
+      Path: Events/Default Work Unit/UI/CDPlayer/playCDPlayerClose
       maxAttenuation: 0
       maxDuration: 2.029125
       minDuration: 2.029125
@@ -562,16 +697,16 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 0000820c076e574b8f6e69e488b2be04
-      - ElementName: Player
+      - ElementName: UI
         ObjectType: 12
-        guid: ede1ec7246fa8e48aefa7f4e47a3086d
+        guid: bf08b06576cf6147a4ed5cfcdca7dd37
       - ElementName: CDPlayer
         ObjectType: 12
         guid: 602d435913bd6b4c9dd4cddd7d10c713
       - ElementName: playCDPlayerOpen
         ObjectType: 3
         guid: 2f852a90d2fd5448874d2779c72f23a3
-      Path: Events/Default Work Unit/Player/CDPlayer/playCDPlayerOpen
+      Path: Events/Default Work Unit/UI/CDPlayer/playCDPlayerOpen
       maxAttenuation: 0
       maxDuration: 0.5
       minDuration: 0.5
@@ -585,16 +720,16 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 0000820c076e574b8f6e69e488b2be04
-      - ElementName: Player
+      - ElementName: UI
         ObjectType: 12
-        guid: ede1ec7246fa8e48aefa7f4e47a3086d
+        guid: bf08b06576cf6147a4ed5cfcdca7dd37
       - ElementName: CDPlayer
         ObjectType: 12
         guid: 602d435913bd6b4c9dd4cddd7d10c713
       - ElementName: setStatic
         ObjectType: 3
         guid: 4a0afde891790b4e829cd101c1561fc0
-      Path: Events/Default Work Unit/Player/CDPlayer/setStatic
+      Path: Events/Default Work Unit/UI/CDPlayer/setStatic
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -609,7 +744,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit
     guid: 0000820c076e574b8f6e69e488b2be04
     GuidInternal: 
-    m_lastTime: -8584437846697788279
+    m_lastTime: -8584405865742449931
     List: []
   - PhysicalPath: Events/Drone.wwu
     PathAndIcons:
@@ -713,7 +848,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/Enemies
     guid: be12aca94194754d995b0a71bbb3b9f3
     GuidInternal: 
-    m_lastTime: -8584438762389702453
+    m_lastTime: -8584406268310740945
     List: []
   - PhysicalPath: Events/Engine.wwu
     PathAndIcons:
@@ -805,6 +940,172 @@ MonoBehaviour:
       maxAttenuation: 512
       maxDuration: 0
       minDuration: 0
+  - PhysicalPath: Events/HyperMagnet.wwu
+    PathAndIcons:
+    - ElementName: Events
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 0000820c076e574b8f6e69e488b2be04
+    - ElementName: Enemies
+      ObjectType: 12
+      guid: be12aca94194754d995b0a71bbb3b9f3
+    - ElementName: HyperMagnet
+      ObjectType: 12
+      guid: e58f06836e57294b9ad66886d36ff0f3
+    ParentPath: Events/Default Work Unit/Enemies/HyperMagnet
+    guid: e58f06836e57294b9ad66886d36ff0f3
+    GuidInternal: 
+    m_lastTime: -8584406714171853770
+    List:
+    - name: playMagnetExplode
+      guid: 50ac4879e2b14940ab0bd3b957f37b0a
+      id: 580489224
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 0000820c076e574b8f6e69e488b2be04
+      - ElementName: Enemies
+        ObjectType: 12
+        guid: be12aca94194754d995b0a71bbb3b9f3
+      - ElementName: HyperMagnet
+        ObjectType: 12
+        guid: e58f06836e57294b9ad66886d36ff0f3
+      - ElementName: playMagnetExplode
+        ObjectType: 3
+        guid: 50ac4879e2b14940ab0bd3b957f37b0a
+      Path: Events/Default Work Unit/Enemies/HyperMagnet/playMagnetExplode
+      maxAttenuation: 256
+      maxDuration: 1
+      minDuration: 1
+    - name: playMagnetFloat
+      guid: c66337fb0fb554428b57084289fd4ecd
+      id: 276583697
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 0000820c076e574b8f6e69e488b2be04
+      - ElementName: Enemies
+        ObjectType: 12
+        guid: be12aca94194754d995b0a71bbb3b9f3
+      - ElementName: HyperMagnet
+        ObjectType: 12
+        guid: e58f06836e57294b9ad66886d36ff0f3
+      - ElementName: playMagnetFloat
+        ObjectType: 3
+        guid: c66337fb0fb554428b57084289fd4ecd
+      Path: Events/Default Work Unit/Enemies/HyperMagnet/playMagnetFloat
+      maxAttenuation: 256
+      maxDuration: 0
+      minDuration: 0
+  - PhysicalPath: Events/Music.wwu
+    PathAndIcons:
+    - ElementName: Events
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 0000820c076e574b8f6e69e488b2be04
+    - ElementName: Music
+      ObjectType: 12
+      guid: 04c31a76e839da49befea50c3cae180c
+    ParentPath: Events/Default Work Unit/Music
+    guid: 04c31a76e839da49befea50c3cae180c
+    GuidInternal: 
+    m_lastTime: -8584405865742433305
+    List:
+    - name: playTitleMusic
+      guid: 731f8892621d2347a8d497d3e37b52b1
+      id: 718394488
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 0000820c076e574b8f6e69e488b2be04
+      - ElementName: Music
+        ObjectType: 12
+        guid: 04c31a76e839da49befea50c3cae180c
+      - ElementName: playTitleMusic
+        ObjectType: 3
+        guid: 731f8892621d2347a8d497d3e37b52b1
+      Path: Events/Default Work Unit/Music/playTitleMusic
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+  - PhysicalPath: Events/Pinboard.wwu
+    PathAndIcons:
+    - ElementName: Events
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 0000820c076e574b8f6e69e488b2be04
+    - ElementName: UI
+      ObjectType: 12
+      guid: bf08b06576cf6147a4ed5cfcdca7dd37
+    - ElementName: Pinboard
+      ObjectType: 12
+      guid: f3d213ae64006640812e46ddd90c39d4
+    ParentPath: Events/Default Work Unit/UI/Pinboard
+    guid: f3d213ae64006640812e46ddd90c39d4
+    GuidInternal: 
+    m_lastTime: -8584407055366270779
+    List:
+    - name: playPinboardEject
+      guid: 449514aca61a6244944abad0d7f6c635
+      id: 578532127
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 0000820c076e574b8f6e69e488b2be04
+      - ElementName: UI
+        ObjectType: 12
+        guid: bf08b06576cf6147a4ed5cfcdca7dd37
+      - ElementName: Pinboard
+        ObjectType: 12
+        guid: f3d213ae64006640812e46ddd90c39d4
+      - ElementName: playPinboardEject
+        ObjectType: 3
+        guid: 449514aca61a6244944abad0d7f6c635
+      Path: Events/Default Work Unit/UI/Pinboard/playPinboardEject
+      maxAttenuation: 0
+      maxDuration: 1.1464871
+      minDuration: 0.9640769
+    - name: playPinboardInsert
+      guid: c6c5d63a30221746865ed82893941a70
+      id: 1197348043
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 0000820c076e574b8f6e69e488b2be04
+      - ElementName: UI
+        ObjectType: 12
+        guid: bf08b06576cf6147a4ed5cfcdca7dd37
+      - ElementName: Pinboard
+        ObjectType: 12
+        guid: f3d213ae64006640812e46ddd90c39d4
+      - ElementName: playPinboardInsert
+        ObjectType: 3
+        guid: c6c5d63a30221746865ed82893941a70
+      Path: Events/Default Work Unit/UI/Pinboard/playPinboardInsert
+      maxAttenuation: 0
+      maxDuration: 0.7447032
+      minDuration: 0.62621826
   - PhysicalPath: Events/Player.wwu
     PathAndIcons:
     - ElementName: Events
@@ -819,7 +1120,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/Player
     guid: ede1ec7246fa8e48aefa7f4e47a3086d
     GuidInternal: 
-    m_lastTime: -8584437846731925494
+    m_lastTime: -8584407055509088238
     List: []
   - PhysicalPath: Events/UI.wwu
     PathAndIcons:
@@ -835,8 +1136,28 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/UI
     guid: bf08b06576cf6147a4ed5cfcdca7dd37
     GuidInternal: 
-    m_lastTime: -8584441677311820911
+    m_lastTime: -8584407055366287707
     List:
+    - name: playMouseClick
+      guid: 81db425dd35b4444b14a9ac3906fa6ea
+      id: 436537884
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 0000820c076e574b8f6e69e488b2be04
+      - ElementName: UI
+        ObjectType: 12
+        guid: bf08b06576cf6147a4ed5cfcdca7dd37
+      - ElementName: playMouseClick
+        ObjectType: 3
+        guid: 81db425dd35b4444b14a9ac3906fa6ea
+      Path: Events/Default Work Unit/UI/playMouseClick
+      maxAttenuation: 0
+      maxDuration: 0.5
+      minDuration: 0.5
     - name: playTTSVoice
       guid: 2e02baa7129cb1499dd32312f53ffdae
       id: 1507170084
@@ -874,7 +1195,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/Player/Van
     guid: e673d37592ab7a4f8d5d472b2133f41c
     GuidInternal: 
-    m_lastTime: -8584437969718392484
+    m_lastTime: -8584428719630802114
     List: []
   RtpcWwu:
   - PhysicalPath: Game Parameters/Default Work Unit.wwu
@@ -888,8 +1209,24 @@ MonoBehaviour:
     ParentPath: Game Parameters/Default Work Unit
     guid: b5a366d9c7eff54c859b06419cd4409c
     GuidInternal: 
-    m_lastTime: -8584437977805419581
-    List: []
+    m_lastTime: -8584435312267745321
+    List:
+    - name: Engine_Rev
+      guid: 726925302feead458baaeb8fcf554e95
+      id: 1482485841
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b5a366d9c7eff54c859b06419cd4409c
+      - ElementName: Engine_Rev
+        ObjectType: 13
+        guid: 726925302feead458baaeb8fcf554e95
+      Path: Game Parameters/Default Work Unit/Engine_Rev
+      Min: 0
+      Max: 1
   - PhysicalPath: Game Parameters/Enemies.wwu
     PathAndIcons:
     - ElementName: Game Parameters
@@ -1192,6 +1529,93 @@ MonoBehaviour:
       ValueIcons: []
       valuesInternal: []
   SwitchWwu:
+  - PhysicalPath: Switches/ATV.wwu
+    PathAndIcons:
+    - ElementName: Switches
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: e23c08405bed5f458d4fae23cfe44f8e
+    - ElementName: Enemies
+      ObjectType: 12
+      guid: fb6b6de1e1cf924291b246d4f3ac6d95
+    - ElementName: ATV
+      ObjectType: 12
+      guid: 46d32eb7451d74489d31c7a656344ac9
+    ParentPath: Switches/Default Work Unit/Enemies/ATV
+    guid: 46d32eb7451d74489d31c7a656344ac9
+    GuidInternal: 
+    m_lastTime: -8584406273867035187
+    List:
+    - name: Attack
+      guid: f257f2f04830494b95c7e91a03000b42
+      id: 180661997
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e23c08405bed5f458d4fae23cfe44f8e
+      - ElementName: Enemies
+        ObjectType: 12
+        guid: fb6b6de1e1cf924291b246d4f3ac6d95
+      - ElementName: ATV
+        ObjectType: 12
+        guid: 46d32eb7451d74489d31c7a656344ac9
+      - ElementName: Attack
+        ObjectType: 11
+        guid: f257f2f04830494b95c7e91a03000b42
+      Path: Switches/Default Work Unit/Enemies/ATV/Attack
+      values:
+      - name: Charging
+        guid: 8c945869951bb9419995f6d4f401c97a
+        id: 3828622232
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e23c08405bed5f458d4fae23cfe44f8e
+        - ElementName: Enemies
+          ObjectType: 12
+          guid: fb6b6de1e1cf924291b246d4f3ac6d95
+        - ElementName: ATV
+          ObjectType: 12
+          guid: 46d32eb7451d74489d31c7a656344ac9
+        - ElementName: Attack
+          ObjectType: 11
+          guid: f257f2f04830494b95c7e91a03000b42
+        - ElementName: Charging
+          ObjectType: 10
+          guid: 8c945869951bb9419995f6d4f401c97a
+      - name: Releasing
+        guid: 719ff58a8df8b44e8e0e7b449a76991d
+        id: 1007009725
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e23c08405bed5f458d4fae23cfe44f8e
+        - ElementName: Enemies
+          ObjectType: 12
+          guid: fb6b6de1e1cf924291b246d4f3ac6d95
+        - ElementName: ATV
+          ObjectType: 12
+          guid: 46d32eb7451d74489d31c7a656344ac9
+        - ElementName: Attack
+          ObjectType: 11
+          guid: f257f2f04830494b95c7e91a03000b42
+        - ElementName: Releasing
+          ObjectType: 10
+          guid: 719ff58a8df8b44e8e0e7b449a76991d
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   - PhysicalPath: Switches/CDPlayer.wwu
     PathAndIcons:
     - ElementName: Switches
@@ -1312,7 +1736,23 @@ MonoBehaviour:
     ParentPath: Switches/Default Work Unit
     guid: e23c08405bed5f458d4fae23cfe44f8e
     GuidInternal: 
-    m_lastTime: -8584437971642799735
+    m_lastTime: -8584406274149671774
+    List: []
+  - PhysicalPath: Switches/Enemies.wwu
+    PathAndIcons:
+    - ElementName: Switches
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: e23c08405bed5f458d4fae23cfe44f8e
+    - ElementName: Enemies
+      ObjectType: 12
+      guid: fb6b6de1e1cf924291b246d4f3ac6d95
+    ParentPath: Switches/Default Work Unit/Enemies
+    guid: fb6b6de1e1cf924291b246d4f3ac6d95
+    GuidInternal: 
+    m_lastTime: -8584406274097047385
     List: []
   - PhysicalPath: Switches/Player.wwu
     PathAndIcons:
@@ -1432,7 +1872,7 @@ MonoBehaviour:
     m_lastTime: -8584443759201442497
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0a0000000b000000
+  ExpandedWaapiItemIds: 0a0000000b0000000e0000000f00000010000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

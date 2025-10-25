@@ -1,5 +1,8 @@
-using UnityEditor;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+using System.Linq;
 
 public class Singleton<T> : MonoBehaviour where T : Component
 {
@@ -10,19 +13,16 @@ public class Singleton<T> : MonoBehaviour where T : Component
         {
             if (_root == null)
             {
-
-                _root = FindFirstObjectByType<T>();
-                if (_root == null)
-                {
-                    GameObject singletonObject = new GameObject(typeof(T).Name);
-                    _root = singletonObject.AddComponent<T>();
-                    Debug.LogError($"No Singleton instance of {_root} found, creating new game object");
-                }
+#if UNITY_EDITOR
+                var all = Resources.FindObjectsOfTypeAll<T>();
+                _root = all.FirstOrDefault(o => !EditorUtility.IsPersistent(o) && (o.hideFlags & HideFlags.HideAndDontSave) == 0);
+#else
+                _root = FindObjectOfType<T>();
+#endif
             }
             return _root;
         }
     }
-
     protected virtual void Awake()
     {
         if (_root == null)
@@ -31,10 +31,43 @@ public class Singleton<T> : MonoBehaviour where T : Component
         }
         else if (_root != this)
         {
-            Destroy(gameObject);
+            HandleDuplicateInstance();
         }
     }
+
+    protected virtual void OnEnable()
+    {
+        if (_root == null)
+        {
+            _root = this as T;
+        }
+        else if (_root != this)
+        {
+            HandleDuplicateInstance();
+        }
+    }
+
+    protected virtual void OnDestroy()
+    {
+        if (_root == this)
+            _root = null;
+    }
+
+    private void HandleDuplicateInstance()
+    {
+
+#if UNITY_EDITOR
+        if (!Application.isPlaying)
+        {
+            DestroyImmediate(gameObject);
+            return;
+        }
+#endif
+
+        Destroy(gameObject);
+    }
 }
+
 
 public class ScriptableSingleton<T> : ScriptableObject where T : ScriptableObject
 {

@@ -1,0 +1,69 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "251412225",
+    "Type": "User",
+    "GUID": "{1640F93C-9564-4BCA-831D-0FC4C39B78BB}",
+    "Language": "SFX",
+    "Hash": "{C0291FA9-0FE5-D114-7607-8800251DE90E}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Shop",
+    "ShortName": "Shop",
+    "Path": "Shop.bnk",
+    "Media": [
+     {
+      "Id": "943891105",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Pinboard_Insert.wav",
+      "CachePath": "FE/{FECBEE4B-7FAA-3E51-8720-98618294D48D}.wem"
+     },
+     {
+      "Id": "1007173876",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Pinboard_Eject.wav",
+      "CachePath": "D8/{D8233ECF-2EDF-0C4F-81E1-2DB072BAE6AD}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "578532127",
+      "Name": "playPinboardEject",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Pinboard\\playPinboardEject",
+      "GUID": "{AC149544-1AA6-4462-944A-BAD0D7F6C635}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9640769",
+      "DurationMax": "1.1464871",
+      "MediaRefs": [
+       {
+        "Id": "1007173876"
+       }
+      ]
+     },
+     {
+      "Id": "1197348043",
+      "Name": "playPinboardInsert",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Pinboard\\playPinboardInsert",
+      "GUID": "{3AD6C5C6-2230-4617-865E-D82893941A70}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.62621826",
+      "DurationMax": "0.7447032",
+      "MediaRefs": [
+       {
+        "Id": "943891105"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{B77CCAED-751A-7135-9D0A-5C706DE2AA91}"
+ }
+}

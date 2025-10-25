@@ -5,4 +5,5 @@ public class WeaponSettings : ScriptableSingleton<WeaponSettings>
     public LayerMask LayerInclusions;
     [System.NonSerialized]
     public VanWeapon currentWeapon;
+    public float AimAssist;
 }

@@ -14,11 +14,160 @@
   "DialogueEvents": [],
   "SoundBanks": [
    {
+    "Id": "251412225",
+    "Type": "User",
+    "GUID": "{1640F93C-9564-4BCA-831D-0FC4C39B78BB}",
+    "Language": "SFX",
+    "Hash": "{C0291FA9-0FE5-D114-7607-8800251DE90E}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Shop",
+    "ShortName": "Shop",
+    "Path": "Shop.bnk",
+    "Media": [
+     {
+      "Id": "943891105",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Pinboard_Insert.wav",
+      "CachePath": "FE/{FECBEE4B-7FAA-3E51-8720-98618294D48D}.wem"
+     },
+     {
+      "Id": "1007173876",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Pinboard_Eject.wav",
+      "CachePath": "D8/{D8233ECF-2EDF-0C4F-81E1-2DB072BAE6AD}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "578532127",
+      "Name": "playPinboardEject",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Pinboard\\playPinboardEject",
+      "GUID": "{AC149544-1AA6-4462-944A-BAD0D7F6C635}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9640769",
+      "DurationMax": "1.1464871",
+      "MediaRefs": [
+       {
+        "Id": "1007173876"
+       }
+      ]
+     },
+     {
+      "Id": "1197348043",
+      "Name": "playPinboardInsert",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Pinboard\\playPinboardInsert",
+      "GUID": "{3AD6C5C6-2230-4617-865E-D82893941A70}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.62621826",
+      "DurationMax": "0.7447032",
+      "MediaRefs": [
+       {
+        "Id": "943891105"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "Id": "932389263",
+    "Type": "User",
+    "GUID": "{124C86E6-9680-48A4-9CEB-F7DEA6913318}",
+    "Language": "SFX",
+    "Hash": "{18DCBE35-98AC-D66A-212A-DA56B0F6DFF5}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\EVG",
+    "ShortName": "EVG",
+    "Path": "EVG.bnk",
+    "Media": [
+     {
+      "Id": "229697744",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "NPR_MSC_EVG.wav",
+      "CachePath": "DE/{DE9C1578-4C60-2C0A-7566-8104A31E555C}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "3752191667",
+      "Name": "playCDMusic",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\CDPlayer\\playCDMusic",
+      "GUID": "{043AEE38-761B-4737-A1BA-2880D828D290}",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "390902339",
+         "Id": "932389263",
+         "GUID": "{4B3BF5EA-C883-4501-BA08-9A538A19CD3C}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "229697744"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "Id": "185187129",
+      "Name": "setStatic",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\CDPlayer\\setStatic",
+      "GUID": "{E8FD0A4A-7991-4E0B-829C-D101C1561FC0}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetSwitch": [
+       {
+        "GroupId": "390902339",
+        "Id": "1409504247",
+        "Name": "Static",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\Static",
+        "GUID": "{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}"
+       }
+      ]
+     }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "390902339",
+      "Name": "NowPlaying",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying",
+      "GUID": "{200BD546-70E0-44CC-AE65-78038AA295EB}",
+      "Switches": [
+       {
+        "Id": "662417179",
+        "Name": "NPR",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\NPR",
+        "GUID": "{E83B5186-AA77-418A-B6E1-246C536171B9}"
+       },
+       {
+        "Id": "932389263",
+        "Name": "EVG",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\EVG",
+        "GUID": "{4B3BF5EA-C883-4501-BA08-9A538A19CD3C}"
+       },
+       {
+        "Id": "1409504247",
+        "Name": "Static",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\Static",
+        "GUID": "{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}"
+       }
+      ]
+     }
+    ]
+   },
+   {
     "Id": "1355168291",
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{B1260DC9-1370-4EAB-E239-22E60690BC6D}",
+    "Hash": "{4062354A-CA07-8DA9-E667-53D4CE25F42B}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -136,6 +285,12 @@
       "GUID": "{62FCC473-533E-4107-8738-C7031D18CC74}"
      },
      {
+      "Id": "1482485841",
+      "Name": "Engine_Rev",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Engine_Rev",
+      "GUID": "{30256972-EE2F-45AD-8BAA-EB8FCF554E95}"
+     },
+     {
       "Id": "2727184314",
       "Name": "Engine_Throttle",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Player\\Van\\Engine_Throttle",
@@ -183,6 +338,26 @@
      }
     ],
     "SwitchGroups": [
+     {
+      "Id": "180661997",
+      "Name": "Attack",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Enemies\\ATV\\Attack",
+      "GUID": "{F0F257F2-3048-4B49-95C7-E91A03000B42}",
+      "Switches": [
+       {
+        "Id": "1007009725",
+        "Name": "Releasing",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Enemies\\ATV\\Attack\\Releasing",
+        "GUID": "{8AF59F71-F88D-4EB4-8E0E-7B449A76991D}"
+       },
+       {
+        "Id": "3828622232",
+        "Name": "Charging",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Enemies\\ATV\\Attack\\Charging",
+        "GUID": "{6958948C-1B95-41B9-9995-F6D4F401C97A}"
+       }
+      ]
+     },
      {
       "Id": "268529915",
       "Name": "Engine",
@@ -709,15 +884,59 @@
     ]
    },
    {
-    "Id": "3161908922",
+    "Id": "1465331116",
+    "Type": "User",
+    "GUID": "{F9CADABE-29C7-4907-BEBD-5EF68EC00710}",
+    "Language": "SFX",
+    "Hash": "{285B4A1A-8CE5-D111-E7E4-7C0DF3422EA3}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Global",
+    "ShortName": "Global",
+    "Path": "Global.bnk",
+    "Media": [
+     {
+      "Id": "911849986",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MouseClick.wav",
+      "CachePath": "07/{07C5604D-F502-6B92-B119-1D0F0BEEC419}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "436537884",
+      "Name": "playMouseClick",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\playMouseClick",
+      "GUID": "{5D42DB81-5BD3-4444-B14A-9AC3906FA6EA}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.5",
+      "DurationMax": "0.5",
+      "MediaRefs": [
+       {
+        "Id": "911849986"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "Id": "1900718590",
     "Type": "User",
     "GUID": "{F132A8A6-CE09-432B-878F-6B7B36947D3F}",
     "Language": "SFX",
-    "Hash": "{984184E8-49BD-1879-BCFE-33E1C4FEA7D6}",
-    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
-    "ShortName": "Main",
-    "Path": "Main.bnk",
+    "Hash": "{8B7B9BD1-3850-9B82-95CE-09A8391E93DF}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\LevelSFX",
+    "ShortName": "LevelSFX",
+    "Path": "LevelSFX.bnk",
     "Media": [
+     {
+      "Id": "9321970",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MagnetFloat.wav",
+      "CachePath": "82/{8237D7CD-8345-5B0D-5EE9-74FD3E08E3E8}.wem"
+     },
      {
       "Id": "71858993",
       "Language": "SFX",
@@ -741,14 +960,6 @@
       "Location": "Memory",
       "ShortName": "TTS_u.wav",
       "CachePath": "4E/{4E6BBA65-4C39-32BF-8B8D-453229311FE3}.wem"
-     },
-     {
-      "Id": "123400107",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "VanMotorStop.wav",
-      "CachePath": "1B/{1B4F3E58-6A60-74A2-4BD1-993E6935DC2C}.wem"
      },
      {
       "Id": "135016173",
@@ -783,14 +994,6 @@
       "CachePath": "80/{8011CC9D-E67A-B4A4-36E9-FDA1F8CDE2FA}.wem"
      },
      {
-      "Id": "152223589",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "TTS_f-002.wav",
-      "CachePath": "42/{4263EC67-B9D2-2BA5-29B5-1009800A8A35}.wem"
-     },
-     {
       "Id": "161589739",
       "Language": "SFX",
       "Streaming": "false",
@@ -823,14 +1026,6 @@
       "CachePath": "BB/{BB85066A-622B-9880-F875-0DE5A79C383A}.wem"
      },
      {
-      "Id": "229697744",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "NPR_MSC_EVG.wav",
-      "CachePath": "DE/{DE9C1578-4C60-2C0A-7566-8104A31E555C}.wem"
-     },
-     {
       "Id": "234284573",
       "Language": "SFX",
       "Streaming": "false",
@@ -845,14 +1040,6 @@
       "Location": "Memory",
       "ShortName": "TTS_0.wav",
       "CachePath": "D8/{D8DA994F-7936-81AD-3038-1E328B8583DE}.wem"
-     },
-     {
-      "Id": "280486208",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "VanMotorStart.wav",
-      "CachePath": "4E/{4E62C118-C896-7FEB-4F74-B391F2DCECCB}.wem"
      },
      {
       "Id": "311148684",
@@ -919,6 +1106,14 @@
       "CachePath": "AA/{AAAE8DFB-6632-85C2-4116-1C488EF65B0D}.wem"
      },
      {
+      "Id": "495468939",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ATV_Blast.wav",
+      "CachePath": "3C/{3C3B5D24-74D9-FF6D-8D93-FAFABF506C79}.wem"
+     },
+     {
       "Id": "508032073",
       "Language": "SFX",
       "Streaming": "false",
@@ -983,6 +1178,14 @@
       "CachePath": "C8/{C85EE888-64F5-D872-9549-D97D6C276409}.wem"
      },
      {
+      "Id": "642206653",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MagnetExplode.wav",
+      "CachePath": "B5/{B5508EDB-DF9E-7F32-7B1D-59059BFC6048}.wem"
+     },
+     {
       "Id": "648383101",
       "Language": "SFX",
       "Streaming": "false",
@@ -1021,6 +1224,22 @@
       "Location": "Memory",
       "ShortName": "TTS_c.wav",
       "CachePath": "FA/{FADB001C-9A4F-1529-3523-1D12013A8039}.wem"
+     },
+     {
+      "Id": "714876311",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_r.wav",
+      "CachePath": "42/{4263EC67-B9D2-2BA5-29B5-1009800A8A35}.wem"
+     },
+     {
+      "Id": "731949943",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ATV_Attack.wav",
+      "CachePath": "04/{04903616-696A-7BAC-83FD-8E4D5AF34DFC}.wem"
      },
      {
       "Id": "734470826",
@@ -1095,6 +1314,14 @@
       "CachePath": "68/{68B1A64E-5FB1-BF73-BA79-4D564FD37BEF}.wem"
      },
      {
+      "Id": "913818757",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TTS_f.wav",
+      "CachePath": "93/{937BF02A-C405-BD58-A275-605F7C202D88}.wem"
+     },
+     {
       "Id": "953399489",
       "Language": "SFX",
       "Streaming": "false",
@@ -1133,57 +1360,58 @@
       "Location": "Memory",
       "ShortName": "WindStill.wav",
       "CachePath": "36/{36509EF9-39BE-C595-8533-81FA8D9BCE60}.wem"
-     },
-     {
-      "Id": "1056334725",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "TTS_f-001.wav",
-      "CachePath": "93/{937BF02A-C405-BD58-A275-605F7C202D88}.wem"
-     },
-     {
-      "Id": "1068787568",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "VanMotorIdle.wav",
-      "CachePath": "BE/{BE0A64FD-994E-E57A-763D-1D00695BE217}.wem"
      }
     ],
-    "Plugins": {
-     "Custom": [
-      {
-       "Id": "198169026",
-       "Name": "Synth One",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\Synth One",
-       "GUID": "{DE7BA040-34AF-4BF1-87E1-4E379284FD32}",
-       "LibName": "Wwise Synth One",
-       "LibId": "9699330"
-      },
-      {
-       "Id": "203725194",
-       "Name": "Parametric EQ (Custom)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\[Effect Slot [1]: (Parametric EQ)]\\Parametric EQ (Custom)",
-       "GUID": "{33DB2E3E-570E-4AD3-AE77-5D6CC4531F92}",
-       "LibName": "Wwise Parametric EQ",
-       "LibId": "6881283"
-      },
-      {
-       "Id": "464193011",
-       "Name": "Guitar Distortion (Custom)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\[Effect Slot [0]: (Guitar Distortion)]\\Guitar Distortion (Custom)",
-       "GUID": "{34483FF5-88CB-472E-87FA-81EE705AEA8F}",
-       "LibName": "Wwise Guitar Distortion",
-       "LibId": "8257539"
-      }
-     ]
-    },
     "Events": [
+     {
+      "Id": "113422346",
+      "Name": "playATVAttack",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\ATV\\playATVAttack",
+      "GUID": "{8ADD9E2B-47DC-430D-82C5-E00A26A7B1D1}",
+      "MaxAttenuation": "256",
+      "DurationType": "OneShot",
+      "DurationMin": "20",
+      "DurationMax": "20",
+      "MediaRefs": [
+       {
+        "Id": "731949943"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "3390657128",
+        "Name": "EnemyVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\GlobalBus\\SFXBus\\EnemyVerb",
+        "GUID": "{CA2D83F7-6E3C-43F4-94FD-D92BCB8A11F2}"
+       }
+      ]
+     },
+     {
+      "Id": "1438338272",
+      "Name": "playATVBlast",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\ATV\\playATVBlast",
+      "GUID": "{D1814EE7-1D63-4E4D-B63E-7DE3CE3E2157}",
+      "DurationType": "OneShot",
+      "DurationMin": "3",
+      "DurationMax": "3",
+      "MediaRefs": [
+       {
+        "Id": "495468939"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "3390657128",
+        "Name": "EnemyVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\GlobalBus\\SFXBus\\EnemyVerb",
+        "GUID": "{CA2D83F7-6E3C-43F4-94FD-D92BCB8A11F2}"
+       }
+      ]
+     },
      {
       "Id": "3752191667",
       "Name": "playCDMusic",
-      "ObjectPath": "\\Events\\Default Work Unit\\Player\\CDPlayer\\playCDMusic",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\CDPlayer\\playCDMusic",
       "GUID": "{043AEE38-761B-4737-A1BA-2880D828D290}",
       "DurationType": "Infinite",
       "SwitchContainers": [
@@ -1199,26 +1427,13 @@
           "Id": "556437566"
          }
         ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "Switch",
-         "GroupId": "390902339",
-         "Id": "932389263",
-         "GUID": "{4B3BF5EA-C883-4501-BA08-9A538A19CD3C}"
-        },
-        "MediaRefs": [
-         {
-          "Id": "229697744"
-         }
-        ]
        }
       ]
      },
      {
       "Id": "1736359555",
       "Name": "playCDPlayerClose",
-      "ObjectPath": "\\Events\\Default Work Unit\\Player\\CDPlayer\\playCDPlayerClose",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\CDPlayer\\playCDPlayerClose",
       "GUID": "{A1137E2B-52BF-4137-A76A-E43FD49EBCE7}",
       "DurationType": "OneShot",
       "DurationMin": "2.029125",
@@ -1232,7 +1447,7 @@
      {
       "Id": "2283007477",
       "Name": "playCDPlayerOpen",
-      "ObjectPath": "\\Events\\Default Work Unit\\Player\\CDPlayer\\playCDPlayerOpen",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\CDPlayer\\playCDPlayerOpen",
       "GUID": "{902A852F-FDD2-4854-874D-2779C72F23A3}",
       "DurationType": "OneShot",
       "DurationMin": "0.5",
@@ -1326,6 +1541,50 @@
       ]
      },
      {
+      "Id": "580489224",
+      "Name": "playMagnetExplode",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\HyperMagnet\\playMagnetExplode",
+      "GUID": "{7948AC50-B1E2-4049-AB0B-D3B957F37B0A}",
+      "MaxAttenuation": "256",
+      "DurationType": "OneShot",
+      "DurationMin": "1",
+      "DurationMax": "1",
+      "MediaRefs": [
+       {
+        "Id": "642206653"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "3390657128",
+        "Name": "EnemyVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\GlobalBus\\SFXBus\\EnemyVerb",
+        "GUID": "{CA2D83F7-6E3C-43F4-94FD-D92BCB8A11F2}"
+       }
+      ]
+     },
+     {
+      "Id": "276583697",
+      "Name": "playMagnetFloat",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\HyperMagnet\\playMagnetFloat",
+      "GUID": "{FB3763C6-B50F-4254-8B57-084289FD4ECD}",
+      "MaxAttenuation": "256",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "9321970"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "3390657128",
+        "Name": "EnemyVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\GlobalBus\\SFXBus\\EnemyVerb",
+        "GUID": "{CA2D83F7-6E3C-43F4-94FD-D92BCB8A11F2}"
+       }
+      ]
+     },
+     {
       "Id": "2715042163",
       "Name": "playRotorLoop",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Helicopter\\playRotorLoop",
@@ -1372,9 +1631,6 @@
        },
        {
         "Id": "145211566"
-       },
-       {
-        "Id": "152223589"
        },
        {
         "Id": "161589739"
@@ -1431,6 +1687,9 @@
         "Id": "697693174"
        },
        {
+        "Id": "714876311"
+       },
+       {
         "Id": "759610792"
        },
        {
@@ -1455,16 +1714,204 @@
         "Id": "895352388"
        },
        {
+        "Id": "913818757"
+       },
+       {
         "Id": "953399489"
        },
        {
         "Id": "1002723586"
-       },
-       {
-        "Id": "1056334725"
        }
       ]
      },
+     {
+      "Id": "628329353",
+      "Name": "playWindAmbience",
+      "ObjectPath": "\\Events\\Default Work Unit\\Ambiences\\playWindAmbience",
+      "GUID": "{6F05E3EB-D290-42B2-8994-58865BC7E64C}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "234284573"
+       },
+       {
+        "Id": "1048524115"
+       }
+      ]
+     },
+     {
+      "Id": "185187129",
+      "Name": "setStatic",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\CDPlayer\\setStatic",
+      "GUID": "{E8FD0A4A-7991-4E0B-829C-D101C1561FC0}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetSwitch": [
+       {
+        "GroupId": "390902339",
+        "Id": "1409504247",
+        "Name": "Static",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\Static",
+        "GUID": "{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}"
+       }
+      ]
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "1062779386",
+      "Name": "Player_Speed",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Player\\Van\\Player_Speed",
+      "GUID": "{7991D3EC-16D0-414D-A97B-37F37D78B0FA}"
+     },
+     {
+      "Id": "3881441573",
+      "Name": "Drone_Distance",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Enemies\\Drone_Distance",
+      "GUID": "{6D11BDBE-C7DA-4261-BE12-7AEEF7F0237B}"
+     },
+     {
+      "Id": "4203130972",
+      "Name": "TTS_Character",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\UI\\TTS_Character",
+      "GUID": "{2ED63AE9-050B-4AF6-B814-3BB942385BD3}"
+     }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "390902339",
+      "Name": "NowPlaying",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying",
+      "GUID": "{200BD546-70E0-44CC-AE65-78038AA295EB}",
+      "Switches": [
+       {
+        "Id": "662417179",
+        "Name": "NPR",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\NPR",
+        "GUID": "{E83B5186-AA77-418A-B6E1-246C536171B9}"
+       },
+       {
+        "Id": "932389263",
+        "Name": "EVG",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\EVG",
+        "GUID": "{4B3BF5EA-C883-4501-BA08-9A538A19CD3C}"
+       },
+       {
+        "Id": "1409504247",
+        "Name": "Static",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\Static",
+        "GUID": "{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "Id": "1939123861",
+    "Type": "User",
+    "GUID": "{500C3F74-5570-4CF4-9F79-6D6E719A305F}",
+    "Language": "SFX",
+    "Hash": "{D85235CC-8D1B-22E4-69D7-F828022D02A7}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\VanSFX",
+    "ShortName": "VanSFX",
+    "Path": "VanSFX.bnk",
+    "Media": [
+     {
+      "Id": "123400107",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "VanMotorStop.wav",
+      "CachePath": "1B/{1B4F3E58-6A60-74A2-4BD1-993E6935DC2C}.wem"
+     },
+     {
+      "Id": "180949644",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "2000 On Load Composite.wav",
+      "CachePath": "72/{72131665-2A04-BF98-EB17-5C3770645930}.wem"
+     },
+     {
+      "Id": "280486208",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "VanMotorStart.wav",
+      "CachePath": "E5/{E5E8826E-E0B9-812D-6C40-87FA72B175F2}.wem"
+     },
+     {
+      "Id": "584805829",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "5000 On Load Composite.wav",
+      "CachePath": "7B/{7B09CA40-4EED-B18B-4A5A-43EC9BBDA1FC}.wem"
+     },
+     {
+      "Id": "710705156",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "1000 On Load Composite.wav",
+      "CachePath": "16/{16CCDD6D-7C97-27F7-DB10-BA7CC73C0900}.wem"
+     },
+     {
+      "Id": "742743554",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "3000 On Load Composite.wav",
+      "CachePath": "4E/{4E165F79-2980-2B03-F79F-2F779456D028}.wem"
+     },
+     {
+      "Id": "842336508",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "4000 On Load Composite.wav",
+      "CachePath": "8B/{8B048446-9463-BE86-A2AE-46C03F835DFD}.wem"
+     },
+     {
+      "Id": "1068787568",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "VanMotorIdle.wav",
+      "CachePath": "BE/{BE0A64FD-994E-E57A-763D-1D00695BE217}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "198169026",
+       "Name": "Synth One",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\Synth One",
+       "GUID": "{DE7BA040-34AF-4BF1-87E1-4E379284FD32}",
+       "LibName": "Wwise Synth One",
+       "LibId": "9699330"
+      },
+      {
+       "Id": "203725194",
+       "Name": "Parametric EQ (Custom)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\[Effect Slot [1]: (Parametric EQ)]\\Parametric EQ (Custom)",
+       "GUID": "{33DB2E3E-570E-4AD3-AE77-5D6CC4531F92}",
+       "LibName": "Wwise Parametric EQ",
+       "LibId": "6881283"
+      },
+      {
+       "Id": "464193011",
+       "Name": "Guitar Distortion (Custom)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\[Effect Slot [0]: (Guitar Distortion)]\\Guitar Distortion (Custom)",
+       "GUID": "{34483FF5-88CB-472E-87FA-81EE705AEA8F}",
+       "LibName": "Wwise Guitar Distortion",
+       "LibId": "8257539"
+      }
+     ]
+    },
+    "Events": [
      {
       "Id": "2430665392",
       "Name": "playVanEngine",
@@ -1506,7 +1953,22 @@
         },
         "MediaRefs": [
          {
+          "Id": "180949644"
+         },
+         {
           "Id": "280486208"
+         },
+         {
+          "Id": "584805829"
+         },
+         {
+          "Id": "710705156"
+         },
+         {
+          "Id": "742743554"
+         },
+         {
+          "Id": "842336508"
          },
          {
           "Id": "1068787568"
@@ -1527,49 +1989,9 @@
         }
        }
       ]
-     },
-     {
-      "Id": "628329353",
-      "Name": "playWindAmbience",
-      "ObjectPath": "\\Events\\Default Work Unit\\Ambiences\\playWindAmbience",
-      "GUID": "{6F05E3EB-D290-42B2-8994-58865BC7E64C}",
-      "DurationType": "Infinite",
-      "MediaRefs": [
-       {
-        "Id": "234284573"
-       },
-       {
-        "Id": "1048524115"
-       }
-      ]
-     },
-     {
-      "Id": "185187129",
-      "Name": "setStatic",
-      "ObjectPath": "\\Events\\Default Work Unit\\Player\\CDPlayer\\setStatic",
-      "GUID": "{E8FD0A4A-7991-4E0B-829C-D101C1561FC0}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
-      "ActionSetSwitch": [
-       {
-        "GroupId": "390902339",
-        "Id": "1409504247",
-        "Name": "Static",
-        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\Static",
-        "GUID": "{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}"
-       }
-      ]
      }
     ],
     "GameParameters": [
-     {
-      "Id": "1062779386",
-      "Name": "Player_Speed",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Player\\Van\\Player_Speed",
-      "GUID": "{7991D3EC-16D0-414D-A97B-37F37D78B0FA}"
-     },
      {
       "Id": "1130155893",
       "Name": "Engine_RPM",
@@ -1581,18 +2003,6 @@
       "Name": "Engine_Throttle",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Player\\Van\\Engine_Throttle",
       "GUID": "{F984753E-BEAC-41AC-9069-11E82FF80241}"
-     },
-     {
-      "Id": "3881441573",
-      "Name": "Drone_Distance",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Enemies\\Drone_Distance",
-      "GUID": "{6D11BDBE-C7DA-4261-BE12-7AEEF7F0237B}"
-     },
-     {
-      "Id": "4203130972",
-      "Name": "TTS_Character",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\UI\\TTS_Character",
-      "GUID": "{2ED63AE9-050B-4AF6-B814-3BB942385BD3}"
      }
     ],
     "SwitchGroups": [
@@ -1615,36 +2025,55 @@
         "GUID": "{14F9D939-830F-4345-B7D7-4E4A4ABD2D02}"
        }
       ]
+     }
+    ]
+   },
+   {
+    "Id": "3705726509",
+    "Type": "User",
+    "GUID": "{BFB26C9A-8977-4905-AA23-380990C460D2}",
+    "Language": "SFX",
+    "Hash": "{6F02BFBA-7CB7-1DCC-BA8B-96A22728A5A2}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Title",
+    "ShortName": "Title",
+    "Path": "Title.bnk",
+    "Media": [
+     {
+      "Id": "451930117",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "NPR_MSC_TitleIntro.wav",
+      "CachePath": "5F/{5F969E7F-0766-E7E0-9449-20484D39327A}.wem"
      },
      {
-      "Id": "390902339",
-      "Name": "NowPlaying",
-      "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying",
-      "GUID": "{200BD546-70E0-44CC-AE65-78038AA295EB}",
-      "Switches": [
+      "Id": "913225190",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "NPR_MSC_TitleLoop.wav",
+      "CachePath": "C8/{C8292DA2-1C80-4F2D-5A95-17489CC42592}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "718394488",
+      "Name": "playTitleMusic",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\playTitleMusic",
+      "GUID": "{92881F73-1D62-4723-A8D4-97D3E37B52B1}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
        {
-        "Id": "662417179",
-        "Name": "NPR",
-        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\NPR",
-        "GUID": "{E83B5186-AA77-418A-B6E1-246C536171B9}"
+        "Id": "451930117"
        },
        {
-        "Id": "932389263",
-        "Name": "EVG",
-        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\EVG",
-        "GUID": "{4B3BF5EA-C883-4501-BA08-9A538A19CD3C}"
-       },
-       {
-        "Id": "1409504247",
-        "Name": "Static",
-        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\Static",
-        "GUID": "{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}"
+        "Id": "913225190"
        }
       ]
      }
     ]
    }
   ],
-  "FileHash": "{F07E78C7-B150-53A3-1A51-3B3DDFD1F3A4}"
+  "FileHash": "{10241D8A-DD77-34C6-7EE6-9E7C7CB0DD10}"
  }
 }

@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -5,6 +7,12 @@ using System.Text;
 using UnityEngine;
 using UnityEditor;
 using UnityEditorInternal;
+
+// NOTE: This script assumes the JSON structure produced by WriteDialogueToFile
+// uses the types/field names: TextFile { List<TextBlock> blocks }, TextBlock { string name; List<TextCluster> clusters },
+// TextCluster { int id; float pauseBefore; List<TextLine> lines }, TextLine { string speaker; string text; float wait; float speed; string wwiseEvent }
+// If your project already has these types defined elsewhere, this loader will use them via JsonUtility.
+// If not, JsonUtility will still be able to deserialize into matching names used here.
 
 [CreateAssetMenu(fileName = "DialogueGenerator", menuName = "Objects/Utility/DialogueGenerator", order = 0)]
 public class DialogueGenerator : ScriptableObject
@@ -33,6 +41,9 @@ public class DialogueGenerator : ScriptableObject
     public DialogueBlock[] Blocks;
     [HideInInspector] public string SaveFolderRelative;
     [HideInInspector] public string OutputFileName;
+
+    // ---- New: field to remember last loaded path (hidden in inspector)
+    [HideInInspector] public string LastLoadedFilePath;
 
     public void WriteDialogueToFile()
     {
@@ -123,8 +134,143 @@ public class DialogueGenerator : ScriptableObject
             Debug.LogError($"Failed to write dialogue JSON: {ex.Message}");
         }
     }
-}
 
+    // ---- NEW: Load a JSON file into this DialogueGenerator's Blocks
+    public void LoadDialogueFromFile(string path)
+    {
+        if (string.IsNullOrEmpty(path) || !File.Exists(path))
+        {
+            Debug.LogError($"LoadDialogueFromFile: Path is invalid or file does not exist: '{path}'");
+            return;
+        }
+
+        try
+        {
+            string json = File.ReadAllText(path, new UTF8Encoding(false));
+            if (string.IsNullOrEmpty(json))
+            {
+                Debug.LogWarning($"LoadDialogueFromFile: File was empty: '{path}'");
+                return;
+            }
+
+            // Try to deserialize into TextFile (matches the output format of WriteDialogueToFile)
+            var textFile = JsonUtility.FromJson<TextFile>(json);
+            if (textFile == null || textFile.blocks == null)
+            {
+                Debug.LogError($"LoadDialogueFromFile: JSON did not contain expected structure (blocks). Path: '{path}'");
+                return;
+            }
+
+            // Map parsed TextFile -> DialogueBlock[] structure
+            var newBlocks = new DialogueBlock[textFile.blocks.Count];
+            for (int bi = 0; bi < textFile.blocks.Count; bi++)
+            {
+                var tb = textFile.blocks[bi];
+                if (tb == null) continue;
+
+                var db = new DialogueBlock();
+                db.Name = tb.name ?? $"Block {bi}";
+
+                if (tb.clusters != null)
+                {
+                    db.Clusters = new DialogueCluster[tb.clusters.Count];
+                    for (int ci = 0; ci < tb.clusters.Count; ci++)
+                    {
+                        var tc = tb.clusters[ci];
+                        if (tc == null) continue;
+
+                        var dc = new DialogueCluster();
+                        dc.PauseBefore = tc.pauseBefore;
+
+                        // infer cluster speed: prefer cluster-level value if exists,
+                        // otherwise try first line speed if available, otherwise default 0.05f
+                        float speed = 0.05f;
+                        if (tc.lines != null && tc.lines.Count > 0)
+                        {
+                            // take the first line's speed if present
+                            speed = tc.lines[0].speed;
+                        }
+                        dc.Speed = speed;
+
+                        if (tc.lines != null)
+                        {
+                            dc.Lines = new DialogueLine[tc.lines.Count];
+                            for (int li = 0; li < tc.lines.Count; li++)
+                            {
+                                var tl = tc.lines[li];
+                                if (tl == null) continue;
+                                var dl = new DialogueLine
+                                {
+                                    Speaker = tl.speaker,
+                                    Line = tl.text,
+                                    Wait = tl.wait
+                                };
+                                dc.Lines[li] = dl;
+                            }
+                        }
+                        else
+                        {
+                            dc.Lines = new DialogueLine[0];
+                        }
+
+                        db.Clusters[ci] = dc;
+                    }
+                }
+                else
+                {
+                    db.Clusters = new DialogueCluster[0];
+                }
+
+                newBlocks[bi] = db;
+            }
+
+            // Apply changes to this ScriptableObject with undo support
+            Undo.RecordObject(this, "Load Dialogue From File");
+            Blocks = newBlocks;
+            LastLoadedFilePath = path;
+            EditorUtility.SetDirty(this);
+            AssetDatabase.SaveAssets();
+
+            Debug.Log($"Loaded dialogue from '{path}'. Blocks: {Blocks?.Length ?? 0}");
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"LoadDialogueFromFile: Failed to read/parse file '{path}': {ex.Message}");
+        }
+    }
+
+    // ---- Helper JSON types used for deserialization (match the output structure)
+    [Serializable]
+    private class TextFile
+    {
+        public List<TextBlock> blocks;
+    }
+
+    [Serializable]
+    private class TextBlock
+    {
+        public string name;
+        public List<TextCluster> clusters;
+    }
+
+    [Serializable]
+    private class TextCluster
+    {
+        public int id;
+        public float pauseBefore;
+        public List<TextLine> lines;
+    }
+
+    [Serializable]
+    private class TextLine
+    {
+        public string speaker;
+        public string text;
+        public float wait;
+        public float speed;
+        public string wwiseEvent;
+    }
+}
 
 [CustomEditor(typeof(DialogueGenerator))]
 public class DialogueGeneratorEditor : Editor
@@ -137,11 +283,21 @@ public class DialogueGeneratorEditor : Editor
     private readonly System.Collections.Generic.Dictionary<string, ReorderableList> _clustersLists = new System.Collections.Generic.Dictionary<string, ReorderableList>();
     private readonly System.Collections.Generic.Dictionary<string, ReorderableList> _linesLists = new System.Collections.Generic.Dictionary<string, ReorderableList>();
 
+    // Local editor state for load field
+    private string _loadFilePath = string.Empty;
+
     private void OnEnable()
     {
         if (target == null) return;
         _blocksProp = serializedObject.FindProperty("Blocks");
         SetupBlocksList();
+
+        // try to read last loaded path from target
+        var dGen = target as DialogueGenerator;
+        if (dGen != null && !string.IsNullOrEmpty(dGen.LastLoadedFilePath))
+        {
+            _loadFilePath = dGen.LastLoadedFilePath;
+        }
     }
 
     private void SetupBlocksList()
@@ -390,6 +546,53 @@ public class DialogueGeneratorEditor : Editor
             dGen.WriteDialogueToFile();
         }
 
+        // ---- NEW: Load UI
+        EditorGUILayout.Space(8);
+        EditorGUILayout.LabelField("Import", EditorStyles.boldLabel);
+        using (new EditorGUILayout.HorizontalScope())
+        {
+            EditorGUILayout.LabelField("JSON File Path", GUILayout.Width(100));
+            _loadFilePath = EditorGUILayout.TextField(_loadFilePath);
+            if (GUILayout.Button("Browse", GUILayout.Width(80)))
+            {
+                string start = string.IsNullOrEmpty(_loadFilePath) ? Application.dataPath : _loadFilePath;
+                string picked = EditorUtility.OpenFilePanel("Select Dialogue JSON", start, "json");
+                if (!string.IsNullOrEmpty(picked))
+                {
+                    _loadFilePath = picked;
+                }
+            }
+        }
+
+        using (new EditorGUILayout.HorizontalScope())
+        {
+            if (GUILayout.Button("Load From File"))
+            {
+                if (string.IsNullOrEmpty(_loadFilePath))
+                {
+                    EditorUtility.DisplayDialog("Load Dialogue", "Please pick a JSON file path first.", "OK");
+                }
+                else
+                {
+                    dGen.LoadDialogueFromFile(_loadFilePath);
+                    // update local stored last path and keep editor in sync
+                    dGen.LastLoadedFilePath = _loadFilePath;
+                    EditorUtility.SetDirty(dGen);
+                }
+            }
+
+            if (GUILayout.Button("Clear Blocks"))
+            {
+                if (EditorUtility.DisplayDialog("Clear Blocks", "Are you sure you want to clear all Blocks?", "Clear", "Cancel"))
+                {
+                    Undo.RecordObject(dGen, "Clear Dialogue Blocks");
+                    dGen.Blocks = new DialogueGenerator.DialogueBlock[0];
+                    EditorUtility.SetDirty(dGen);
+                }
+            }
+        }
+
         serializedObject.ApplyModifiedProperties();
     }
 }
+#endif

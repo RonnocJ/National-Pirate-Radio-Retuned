@@ -6,6 +6,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private float cameraDistance;
     [SerializeField] private float cameraHeight;
     [SerializeField] private float smoothSpeed;
+    [SerializeField] private float lookSensitivity;
     [SerializeField] private float pitchTop;
     [SerializeField] private float pitchBottom;
     [SerializeField] private float dollySpeed;
@@ -13,35 +14,36 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private float collisionRadius;
     [SerializeField] private LayerMask collisionInclusions;
     [SerializeField] private ArmAnimator[] arms;
-    private bool _cameraMoveable;
+    private bool _cameraMoveable = false;
     private float _currentYaw;
     private float _currentPitch;
     private Vector2 _lookInput => PInputManager.root.actions[PlayerActionType.Look].v2Value;
+    private Vector2 _currentLookInput;
     private Vector3 _desiredPosition;
     private Transform _target => VanController.root.transform;
 
-    IEnumerator Start()
+    void Start()
     {
-        _cameraMoveable = false;
+        if (!GameManager.root.NewGame) RegisterSwitchInputs();
+    }
+    public void RegisterSwitchInputs()
+    {
+        PInputManager.root.actions[PlayerActionType.Switch].bAction += SwitchState;
         GameManager.root.OnPStateSwitch += SwitchMode;
-
-        yield return null;
-
-        foreach (var arm in arms)
+    }
+    private void SwitchState()
+    {
+        if (GameManager.root.CurrentPState is PlayerState.Utility or PlayerState.Weapon)
         {
-            arm.GetComponent<Animator>().enabled = _cameraMoveable;
+            GameManager.root.CurrentPState = (PlayerState)(-(int)GameManager.root.CurrentPState + 3);
         }
     }
     private void SwitchMode(PlayerState newState)
     {
         if (newState is PlayerState.Utility or PlayerState.Weapon)
         {
-            _cameraMoveable = !_cameraMoveable;
-
-            foreach (var arm in arms)
-            {
-                arm.GetComponent<Animator>().enabled = _cameraMoveable;
-            }
+            if (newState == PlayerState.Utility) _cameraMoveable = false;
+            else _cameraMoveable = true;
         }
     }
     void FixedUpdate()
@@ -53,14 +55,14 @@ public class CameraManager : MonoBehaviour
 
         transform.position = _desiredPosition;
 
-        Vector3 lookDir = _target.position - _desiredPosition;
-        if (lookDir.magnitude < 0.1f)
-            lookDir = _target.forward;
-
         if (_cameraMoveable)
-            transform.rotation = Quaternion.LookRotation(lookDir, Vector3.up) * Quaternion.Euler(_currentPitch, 0, 0);
+        {
+            transform.rotation = Quaternion.LookRotation(_target.position - _desiredPosition, Vector3.up) * Quaternion.Euler(_currentPitch, 0, 0);
+        }
         else
+        {
             transform.rotation = Quaternion.LookRotation(_target.position + _target.forward - _desiredPosition, Vector3.up);
+        }
     }
 
     private void FixedCamera()
@@ -74,40 +76,152 @@ public class CameraManager : MonoBehaviour
 
     private void MoveableCamera()
     {
-        _currentYaw += _lookInput.x;
-        _currentPitch -= _lookInput.y;
+        _currentLookInput = Vector2.Lerp(_currentLookInput, _lookInput, Time.deltaTime * lookSensitivity);
+
+        if (GameManager.root.NewGame && Tutorial.root.Iteration < 2) _currentLookInput = Vector2.zero;
+         
+        _currentYaw += _currentLookInput.x;
+        _currentPitch -= _currentLookInput.y;
+
         _currentPitch = Mathf.Clamp(_currentPitch, -pitchTop, pitchBottom);
 
         Vector3 offset = Quaternion.Euler(0, _currentYaw, 0) * (Vector3.back * cameraDistance);
 
         _desiredPosition = _target.position + offset + Vector3.up * cameraHeight;
-
-        transform.rotation = Quaternion.LookRotation(_target.position - _desiredPosition, Vector3.up) * Quaternion.Euler(_currentPitch, 0, 0);
     }
 
     private void DetectCollisions()
     {
-        RaycastHit[] hits = Physics.SphereCastAll(
-            transform.position,
+        Vector3 targetPosition = _target.position;
+        Vector3 currentPosition = transform.position;
+        Vector3 desiredOffset = _desiredPosition - targetPosition;
+
+        float desiredDistance = desiredOffset.magnitude;
+        if (desiredDistance <= Mathf.Epsilon) return;
+
+        Vector3 desiredDirection = desiredOffset / desiredDistance;
+
+        bool blockedAlongPath = Physics.SphereCast(
+            targetPosition,
             collisionRadius,
-            _target.position - transform.position,
-            Vector3.Distance(transform.position, _target.position) + collisionRadius,
-            collisionInclusions
+            desiredDirection,
+            out RaycastHit hit,
+            desiredDistance,
+            collisionInclusions,
+            QueryTriggerInteraction.Ignore
         );
 
-        if (hits.Length > 0)
+        bool blockedAtDestination = Physics.CheckSphere(
+            targetPosition + desiredOffset,
+            collisionRadius,
+            collisionInclusions,
+            QueryTriggerInteraction.Ignore
+        );
+
+        if (!blockedAlongPath && !blockedAtDestination)
+            return;
+
+        if (TryFindSlidePosition(targetPosition, desiredOffset, out Vector3 slidePosition, out float yawAdjustment))
         {
-            float closestHitDistance = Vector3.Distance(transform.position, _target.position) + collisionRadius;
+            _desiredPosition = Vector3.Lerp(currentPosition, slidePosition, dollySpeed * Time.deltaTime);
 
-            foreach (RaycastHit hit in hits)
+            if (_cameraMoveable)
+                _currentYaw = NormalizeAngle(_currentYaw + yawAdjustment);
+
+            return;
+        }
+
+        if (blockedAlongPath)
+        {
+            float safeDistance = Mathf.Clamp(hit.distance - collisionRadius, 0f, desiredDistance);
+            Vector3 fallbackPosition = targetPosition + desiredDirection * safeDistance;
+            _desiredPosition = Vector3.Lerp(currentPosition, fallbackPosition, dollySpeed * Time.deltaTime);
+        }
+        else
+        {
+            float safeDistance = Mathf.Max(desiredDistance - collisionRadius, 0f);
+            Vector3 fallbackPosition = targetPosition + desiredDirection * safeDistance;
+            _desiredPosition = Vector3.Lerp(currentPosition, fallbackPosition, dollySpeed * Time.deltaTime);
+        }
+    }
+
+    private bool TryFindSlidePosition(Vector3 targetPosition, Vector3 desiredOffset, out Vector3 slidePosition, out float yawAdjustment)
+    {
+        slidePosition = default;
+        yawAdjustment = 0f;
+
+        int checks = Mathf.Max(2, maxCollisionChecks);
+        float angleStep = 180f / checks;
+        Vector3 upAxis = Vector3.up;
+
+        for (int i = 1; i <= checks; i++)
+        {
+            float angle = angleStep * i;
+
+            if (EvaluateSlideCandidate(targetPosition, desiredOffset, angle, upAxis, out slidePosition))
             {
-                float hitDistance = Vector3.Distance(hit.point, transform.position);
-
-                if (hitDistance < closestHitDistance)
-                    closestHitDistance = hitDistance;
+                yawAdjustment = angle;
+                return true;
             }
 
-            _desiredPosition = Vector3.Lerp(transform.position, _target.position - transform.forward * (closestHitDistance - collisionRadius) + Vector3.up * cameraHeight, dollySpeed * Time.deltaTime);
+            if (EvaluateSlideCandidate(targetPosition, desiredOffset, -angle, upAxis, out slidePosition))
+            {
+                yawAdjustment = -angle;
+                return true;
+            }
         }
+
+        return false;
+    }
+
+    private bool EvaluateSlideCandidate(Vector3 targetPosition, Vector3 desiredOffset, float angle, Vector3 upAxis, out Vector3 candidatePosition)
+    {
+        Quaternion rotation = Quaternion.AngleAxis(angle, upAxis);
+        Vector3 rotatedOffset = rotation * desiredOffset;
+        float rotatedDistance = rotatedOffset.magnitude;
+
+        if (rotatedDistance <= Mathf.Epsilon)
+        {
+            candidatePosition = default;
+            return false;
+        }
+
+        Vector3 direction = rotatedOffset / rotatedDistance;
+
+        bool pathBlocked = Physics.SphereCast(
+            targetPosition,
+            collisionRadius,
+            direction,
+            out _,
+            rotatedDistance,
+            collisionInclusions,
+            QueryTriggerInteraction.Ignore
+        );
+
+        if (pathBlocked)
+        {
+            candidatePosition = default;
+            return false;
+        }
+
+        candidatePosition = targetPosition + rotatedOffset;
+
+        bool destinationBlocked = Physics.CheckSphere(
+            candidatePosition,
+            collisionRadius,
+            collisionInclusions,
+            QueryTriggerInteraction.Ignore
+        );
+
+        return !destinationBlocked;
+    }
+
+    private float NormalizeAngle(float angle)
+    {
+        angle %= 360f;
+        if (angle < 0f)
+            angle += 360f;
+
+        return angle;
     }
 }

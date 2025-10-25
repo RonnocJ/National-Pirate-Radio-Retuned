@@ -1,51 +1,36 @@
 using UnityEngine;
 
-public class SideBooster : Ability
+public class SideBooster : AbilityDefinition
 {
-    protected override AbilityType Type => AbilityType.Charge;
+    public override AbilityType Type => AbilityType.Charge;
     [SerializeField] private float boostForce;
     [SerializeField] private ParticleSystem chargeParticles;
     [SerializeField] private ParticleSystem boostParticles;
     [SerializeField] private ParticleSystem overloadParticles;
-    protected override void AbilityHeld()
+    public override void AbilityHeld(float currentTime)
     {
-        base.AbilityHeld();
+        base.AbilityHeld(currentTime);
 
-        if (Position != _chargingPosition)
-        {
-            if (chargeParticles.isPlaying) chargeParticles.Stop();
-            return;
-        }
-        if (Position == _chargingPosition)
-        {
-            if (!chargeParticles.isPlaying)
-            {
-                var main = chargeParticles.main;
-                main.duration = Mathf.Max(0.025f, Mathf.Pow(AbilityMax - _abilityTimeActive, -3f));
-                chargeParticles.Play();
-            }
-        }
+        if (!chargeParticles.isPlaying) chargeParticles.Play();
+
+        var emission = chargeParticles.emission;
+        emission.rateOverTime = currentTime * 3;
+
+        var childEmission = chargeParticles.transform.GetChild(0).GetComponent<ParticleSystem>().emission;
+        childEmission.rateOverTime = 10 + (currentTime * 30);
     }
-    protected override void ReleaseLeft(bool overloaded)
+    public override void AbilityRelease(bool overloaded, float currentTime)
     {
-        base.ReleaseLeft(overloaded);
-        if (Position != AbilityPosition.Left) return;
+        Debug.Log(currentTime);
+        
+        if (currentTime > 0)
+        {
+            base.AbilityRelease(overloaded, currentTime);
+            boostParticles.Play();
+
+            if (!overloaded) VanController.root.PlayerRb.AddForceAtPosition(transform.forward * boostForce * currentTime, transform.position, ForceMode.Impulse);
+        }
 
         chargeParticles.Stop();
-        /*if (overloaded) overloadParticles.Play();
-        else */boostParticles.Play();
-
-        if (!overloaded) VanController.root.PlayerRb.AddForceAtPosition(-transform.forward * boostForce * _abilityTimeActive, transform.position, ForceMode.Impulse);
-    }
-    protected override void ReleaseRight(bool overloaded)
-    {
-        base.ReleaseRight(overloaded);
-        if (Position != AbilityPosition.Right) return;
-
-        chargeParticles.Stop();
-        /*if (overloaded) overloadParticles.Play();
-        else*/ boostParticles.Play();
-
-        if (!overloaded) VanController.root.PlayerRb.AddForceAtPosition(-transform.forward * boostForce * _abilityTimeActive, transform.position, ForceMode.Impulse);
     }
 }

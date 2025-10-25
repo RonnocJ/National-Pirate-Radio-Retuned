@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	436537884	playMouseClick			\Default Work Unit\UI\playMouseClick	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	911849986	MouseClick	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\07\{07C5604D-F502-6B92-B119-1D0F0BEEC419}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Mouse\MouseClick		48096
+

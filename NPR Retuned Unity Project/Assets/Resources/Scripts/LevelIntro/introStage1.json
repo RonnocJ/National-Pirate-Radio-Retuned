@@ -1,0 +1,61 @@
+{
+    "blocks": [
+        {
+            "name": "neutral",
+            "clusters": [
+                {
+                    "id": 0,
+                    "pauseBefore": 1.0,
+                    "lines": [
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "Don't forget my cut, this \noperation doesn't come cheap!",
+                            "wait": 3.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "pauseBefore": 1.0,
+                    "lines": [
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "The autopilots' been acting up \ntoday, don't trust it too much...",
+                            "wait": 3.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "pauseBefore": 1.0,
+                    "lines": [
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "Got everything plugged in? \nNo? Well that's the only \nequipment we can afford.",
+                            "wait": 3.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "pauseBefore": 1.0,
+                    "lines": [
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "Y'know, cutting big holes to \ninstall specialized armaments \nin a van doesn't do its \nstructural integrity any favors.",
+                            "wait": 3.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

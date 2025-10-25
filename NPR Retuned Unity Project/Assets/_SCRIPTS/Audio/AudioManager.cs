@@ -14,7 +14,6 @@ public class AudioCallback {
     }
 }
 public class AudioManager : Singleton<AudioManager> {
-    [SerializeField] private AkAudioListener _akListener;
     public GameObject ghostSoundPrefab;
     public float ghostPoolSize;
     void Start() {
@@ -109,12 +108,16 @@ public class AudioManager : Singleton<AudioManager> {
 
         return false;
     }
-    public bool BreakSound(AudioEvent soundType, GameObject soundSource = null, float instanceNumber = 0) {
-        if (soundType != AudioEvent.None) {
+    public bool BreakSound(AudioEvent soundType, GameObject soundSource = null, float instanceNumber = 0)
+    {
+        if (soundType != AudioEvent.None)
+        {
             GameObject sourceObj = soundSource != null ? soundSource : gameObject;
 
-            if (postedSoundEvents.TryGetValue((soundType, sourceObj, instanceNumber), out var eventIdQueue)) {
-                foreach (uint eventId in eventIdQueue) {
+            if (postedSoundEvents.TryGetValue((soundType, sourceObj, instanceNumber), out var eventIdQueue))
+            {
+                foreach (uint eventId in eventIdQueue)
+                {
                     AkUnitySoundEngine.ExecuteActionOnPlayingID(AkActionOnEventType.AkActionOnEventType_Break, eventId);
                 }
                 eventIdQueue.Clear();
@@ -125,6 +128,18 @@ public class AudioManager : Singleton<AudioManager> {
         }
 
         return false;
+    }
+    public void SeekSound(AudioEvent soundType, float seekPosition, GameObject soundSource = null, float instanceNumber = 0)
+    {
+        if (soundType != AudioEvent.None)
+        {
+            GameObject sourceObj = soundSource != null ? soundSource : gameObject;
+
+            if (postedSoundEvents.TryGetValue((soundType, sourceObj, instanceNumber), out var eventIdQueue))
+            {
+                AkUnitySoundEngine.SeekOnEvent(eventIdQueue.Peek(), sourceObj, Mathf.RoundToInt(seekPosition * 1000));
+            }
+        }
     }
     public void SilenceSound(AudioEvent soundType) {
         if (soundType != AudioEvent.None) {
@@ -202,14 +217,13 @@ public class AudioManager : Singleton<AudioManager> {
         return returnValue;
     }
 
-    public void SetTrigger(AudioTrigger triggerEnum, GameObject sourceObj = null) {
+    public void SetTrigger(AudioTrigger triggerEnum, GameObject sourceObj = null)
+    {
         AkUnitySoundEngine.PostTrigger(triggerEnum.ToString(), sourceObj != null ? sourceObj : gameObject);
     }
 
-
-#if UNITY_EDITOR
-    private void Update() {
-        _akListener.enabled = !EditorUtility.audioMasterMute;
+    private void OnDisable()
+    {
+        postedSoundEvents.Clear();
     }
-#endif
 }

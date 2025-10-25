@@ -8,6 +8,10 @@ public abstract class Interactable : MonoBehaviour
     {
         if (!Enabled) return;
     }
+    public virtual void OnEndHover()
+    {
+        if (!Enabled) return;
+    }
     public virtual void OnClick()
     {
         if (!Enabled) return;

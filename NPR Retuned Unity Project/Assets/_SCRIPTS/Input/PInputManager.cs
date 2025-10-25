@@ -68,25 +68,33 @@ public enum PlayerActionType
 {
     Drive,
     Look,
-    Cursor,
     Brake,
     Ability,
     Find,
     Action,
     Switch,
     Reload,
-    Interact
 }
 public class PInputManager : Singleton<PInputManager>
 {
-    public Action OnRegisterInputs;
     [SerializeField] private InputActionAsset inputAsset;
     public Dictionary<PlayerActionType, PlayerAction> actions = new Dictionary<PlayerActionType, PlayerAction>();
-
-    protected override void Awake()
+    public void ClearActions()
     {
-        base.Awake();
-        inputAsset.Enable();
+        foreach (var action in actions.Values)
+        {
+            action.bAction = new Action(() => { });
+            action.onFValueChange = new Action<float>(_ => { });
+            action.onV2ValueChange = new Action<Vector2>(_ => {});
+        }
+    }
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        if (inputAsset != null && !inputAsset.enabled)
+        {
+            inputAsset.Enable();
+        }
 
         foreach (var type in Enum.GetValues(typeof(PlayerActionType)))
         {
@@ -99,36 +107,22 @@ public class PInputManager : Singleton<PInputManager>
                 {
                     case PlayerActionType.Drive:
                     case PlayerActionType.Look:
-                    case PlayerActionType.Cursor:
                     case PlayerActionType.Ability:
                         actions[actionType] = new PlayerAction(action, ActionValueType.Vector2);
                         break;
                     case PlayerActionType.Brake:
-                    case PlayerActionType.Find:
                         actions[actionType] = new PlayerAction(action, ActionValueType.Float);
                         break;
                     case PlayerActionType.Reload:
                     case PlayerActionType.Switch:
-                    case PlayerActionType.Interact:
                         actions[actionType] = new PlayerAction(action, ActionValueType.Button);
                         break;
                     case PlayerActionType.Action:
+                    case PlayerActionType.Find:
                         actions[actionType] = new PlayerAction(action, ActionValueType.Button | ActionValueType.Float);
                         break;
                 }
             }
         }
-
-        OnRegisterInputs?.Invoke();
-    }
-
-    void OnDestroy()
-    {
-        foreach (var action in actions.Values)
-        {
-            action.action.Disable();
-        }
-
-        inputAsset.Disable();
     }
 }

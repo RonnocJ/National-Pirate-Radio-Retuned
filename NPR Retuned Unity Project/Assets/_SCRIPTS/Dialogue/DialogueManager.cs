@@ -1,36 +1,47 @@
-
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+public enum Characters
+{
+    FreeQuency,
+    JoeTools
+}
 public class DialogueManager : Singleton<DialogueManager>
 {
-    public Talker levelIntroTalker;
+    public Talker TalkerL;
+    public Talker TalkerR;
     public GameObject[] levelCards;
+    public Talker[] AllCharacters;
+    public Dictionary<Characters, Talker> TalkDict = new();
     void Start()
     {
-        levelIntroTalker.BeginDialogue();
-        DialoguePlayer.root.PlayFromResources($"{levelIntroTalker.gameObject.name}/levelIntroDialogue", levelIntroTalker.Opinion.ToString(), -1, ToLevel);
-    }
+        foreach (var c in AllCharacters)
+        {
+            TalkDict[c.CharName] = c;
+        }
 
+        if (TalkerL == null) TalkerL = TalkDict[Characters.FreeQuency];
+        if (TalkerR == null) TalkerR = TalkDict[Characters.JoeTools];
+
+        TalkerL.OnRight = false;
+        TalkerR.OnRight = true;
+
+        if (GameManager.root.NewGame) DialoguePlayer.root.PlayFromResources("GameIntro/newGame", "mono", -1, ToTitle);
+        else
+        {
+            DialoguePlayer.root.PlayFromResources($"LevelIntro/introStage{GameManager.root.CurrentStage}", "neutral", -1, ToLevel);
+        }
+    }
+    void ToTitle()
+    {
+        TalkerL.EndDialogue();
+        TalkerR.EndDialogue();
+
+        GameSceneManager.root.Invoke("LoadTitle", 2.5f);
+    }
     void ToLevel()
     {
-        levelIntroTalker.EndDialogueToLevel();
-        StartCoroutine(ToLevelTransition());
-    }
-
-    IEnumerator ToLevelTransition()
-    {
-        yield return new WaitForSeconds(1.25f);
-
-        levelCards[0].SetActive(true);
-        yield return new WaitForSeconds(0.75f);
-
-        levelCards[1].SetActive(true);
-        yield return new WaitForSeconds(0.75f);
-
-        levelCards[2].SetActive(true);
-        yield return new WaitForSeconds(0.75f);
-
-        GameSceneManager.root.LoadLevel();
+        TalkDict[Characters.JoeTools].EndDialogueToLevel();
+        StartCoroutine(NonDgUI.root.ToLevelTransition());
     }
 }

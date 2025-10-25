@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a7e2c552fcb47f293052606f64c666, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
-  MaxHype: 100
+  VehicleSpeed: 1
+  WeaponDamage: 1
+  AbilityStrength: 1
   RegenAmount: 10
   RegenDelay: 2.5
+  MaxHype: 100
+  CurrentMoney: 0
