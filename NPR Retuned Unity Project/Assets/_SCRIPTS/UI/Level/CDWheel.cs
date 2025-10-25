@@ -165,6 +165,8 @@ public class CDWheel : MonoBehaviour
 
         StartCoroutine(ReEnableMeshCol(OutDisc));
 
+        if (Enum.TryParse(OutDisc.LoadedSong.ToString(), out AudioSoundbank bank)) SoundbankManager.root.LoadSoundbank(bank);
+
         Found = false;
 
         if (InDisc == null)
@@ -189,6 +191,8 @@ public class CDWheel : MonoBehaviour
             d.Active = false;
             MouseMover.root.ForceRelease();
             StartCoroutine(SnapDiscBackToWheel(d));
+
+            if (Enum.TryParse(d.LoadedSong.ToString(), out AudioSoundbank bank)) SoundbankManager.root.UnloadSoundbank(bank);
 
             if(InDisc == null)
             {

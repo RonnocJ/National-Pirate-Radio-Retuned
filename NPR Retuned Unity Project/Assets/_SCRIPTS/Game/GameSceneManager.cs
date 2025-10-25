@@ -16,21 +16,37 @@ public class GameSceneManager : Singleton<GameSceneManager>
             switch (sc.name)
             {
                 case "Title":
-                AudioManager.root.PlaySound(AudioEvent.playTitleMusic);
+
+                    SoundbankManager.root.LoadSoundbank(AudioSoundbank.Title);
+                    AudioManager.root.PlaySound(AudioEvent.playTitleMusic);
+
                     GameManager.root.CurrentGState = GameState.Title;
                     break;
                 case "Talk":
+
                     AudioManager.root.StopSound(AudioEvent.playTitleMusic);
+                    SoundbankManager.root.UnloadSoundbank(AudioSoundbank.Title);
+
                     NonDgUI.root.toTalkPanel.anchoredPosition = Vector2.right * -2560;
                     GameManager.root.CurrentGState = GameState.Talking;
                     break;
                 case "Shop":
+
                     AudioManager.root.StopSound(AudioEvent.playTitleMusic);
+                    SoundbankManager.root.UnloadAll();
+                    SoundbankManager.root.LoadSoundbank(AudioSoundbank.Shop);
+
+
                     NonDgUI.root.StartCoroutine(NonDgUI.root.FadeToBlack(false));
                     GameManager.root.CurrentGState = GameState.Shop;
                     break;
                 case "Level":
+                    SoundbankManager.root.LoadSoundbank(AudioSoundbank.VanSFX);
+                    SoundbankManager.root.LoadSoundbank(AudioSoundbank.LevelSFX);
+                    
                     AudioManager.root.StopSound(AudioEvent.playTitleMusic);
+                    SoundbankManager.root.UnloadSoundbank(AudioSoundbank.Title);
+
                     GameManager.root.CurrentGState = GameState.Level;
                     GameManager.root.CurrentPState = PlayerState.Start;
 

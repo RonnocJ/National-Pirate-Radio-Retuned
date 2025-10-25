@@ -81,11 +81,12 @@ public class MouseMover : Singleton<MouseMover>
         }
         else
         {
-            if (Physics.SphereCast(_rayZ.origin, 0.01f, _rayZ.direction, out RaycastHit hitZ, 50f, 1 << 5, QueryTriggerInteraction.Ignore))
+            if (Physics.SphereCast(_rayZ, 0.01f, out RaycastHit hitZ, 50f, 1 << 5, QueryTriggerInteraction.Ignore))
             {
                 _hitPoint = hitZ.point - Vector3.forward * 0.05f;
             }
         }
+
         Ray rayY = new Ray(transform.position, -transform.up);
 
         if (_grabbing && _heldGrabTarget != null)
@@ -103,9 +104,9 @@ public class MouseMover : Singleton<MouseMover>
         }
         else
         {
-            if (Physics.Raycast(rayY, out RaycastHit hitY, 0.125f, 1 << 5, QueryTriggerInteraction.Ignore))
+            if (Physics.SphereCast(rayY, 0.01f, out RaycastHit hitY, 0.125f, 1 << 5, QueryTriggerInteraction.Ignore))
             {
-                _hitPoint.y = hitY.point.y + 0.05f;
+                _hitPoint.y += 0.1f - hitY.distance;
             }
         }
 
