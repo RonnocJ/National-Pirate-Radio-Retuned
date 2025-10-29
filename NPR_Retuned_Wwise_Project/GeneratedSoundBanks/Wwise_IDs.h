@@ -32,6 +32,7 @@ namespace AK
         static const AkUniqueID PLAYVANENGINE = 2430665392U;
         static const AkUniqueID PLAYWINDAMBIENCE = 628329353U;
         static const AkUniqueID SETSTATIC = 185187129U;
+        static const AkUniqueID STOPALL = 3086540886U;
     } // namespace EVENTS
 
     namespace STATES

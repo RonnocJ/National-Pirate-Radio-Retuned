@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{F132A8A6-CE09-432B-878F-6B7B36947D3F}",
     "Language": "SFX",
-    "Hash": "{8B7B9BD1-3850-9B82-95CE-09A8391E93DF}",
+    "Hash": "{43179AF3-8C82-45AE-4A3E-D1176D264A67}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\LevelSFX",
     "ShortName": "LevelSFX",
     "Path": "LevelSFX.bnk",
@@ -454,7 +454,7 @@
       "Name": "playATVAttack",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\ATV\\playATVAttack",
       "GUID": "{8ADD9E2B-47DC-430D-82C5-E00A26A7B1D1}",
-      "MaxAttenuation": "256",
+      "MaxAttenuation": "128",
       "DurationType": "OneShot",
       "DurationMin": "20",
       "DurationMax": "20",
@@ -895,6 +895,6 @@
     ]
    }
   ],
-  "FileHash": "{186F5CE3-6746-9FEE-A55A-9B87C0E21269}"
+  "FileHash": "{BA022E41-0144-0B85-51A2-5BBE8876FC07}"
  }
 }

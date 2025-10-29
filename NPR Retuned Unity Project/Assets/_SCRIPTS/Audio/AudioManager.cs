@@ -222,8 +222,9 @@ public class AudioManager : Singleton<AudioManager> {
         AkUnitySoundEngine.PostTrigger(triggerEnum.ToString(), sourceObj != null ? sourceObj : gameObject);
     }
 
-    private void OnDisable()
+    protected override void OnDestroy()
     {
         postedSoundEvents.Clear();
+        base.OnDestroy();
     }
 }

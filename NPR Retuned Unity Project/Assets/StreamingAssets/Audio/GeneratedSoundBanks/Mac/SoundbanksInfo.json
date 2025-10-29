@@ -888,7 +888,7 @@
     "Type": "User",
     "GUID": "{F9CADABE-29C7-4907-BEBD-5EF68EC00710}",
     "Language": "SFX",
-    "Hash": "{285B4A1A-8CE5-D111-E7E4-7C0DF3422EA3}",
+    "Hash": "{FA3D8660-7A63-E093-6BB9-3268B573142B}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Global",
     "ShortName": "Global",
     "Path": "Global.bnk",
@@ -906,7 +906,7 @@
      {
       "Id": "436537884",
       "Name": "playMouseClick",
-      "ObjectPath": "\\Events\\Default Work Unit\\UI\\playMouseClick",
+      "ObjectPath": "\\Events\\Default Work Unit\\Global\\playMouseClick",
       "GUID": "{5D42DB81-5BD3-4444-B14A-9AC3906FA6EA}",
       "DurationType": "OneShot",
       "DurationMin": "0.5",
@@ -916,6 +916,16 @@
         "Id": "911849986"
        }
       ]
+     },
+     {
+      "Id": "3086540886",
+      "Name": "stopAll",
+      "ObjectPath": "\\Events\\Default Work Unit\\Global\\stopAll",
+      "GUID": "{82B6B9A5-D13B-456D-8F4D-C0979750B87C}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
      }
     ]
    },
@@ -924,7 +934,7 @@
     "Type": "User",
     "GUID": "{F132A8A6-CE09-432B-878F-6B7B36947D3F}",
     "Language": "SFX",
-    "Hash": "{8B7B9BD1-3850-9B82-95CE-09A8391E93DF}",
+    "Hash": "{43179AF3-8C82-45AE-4A3E-D1176D264A67}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\LevelSFX",
     "ShortName": "LevelSFX",
     "Path": "LevelSFX.bnk",
@@ -1368,7 +1378,7 @@
       "Name": "playATVAttack",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\ATV\\playATVAttack",
       "GUID": "{8ADD9E2B-47DC-430D-82C5-E00A26A7B1D1}",
-      "MaxAttenuation": "256",
+      "MaxAttenuation": "128",
       "DurationType": "OneShot",
       "DurationMin": "20",
       "DurationMax": "20",
@@ -2074,6 +2084,6 @@
     ]
    }
   ],
-  "FileHash": "{FD1DD4FF-11D9-B1DF-F5EB-2022122935FB}"
+  "FileHash": "{20503B76-0BCE-B1B9-E76E-7F82B23A4C53}"
  }
 }

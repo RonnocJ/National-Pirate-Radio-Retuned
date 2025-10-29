@@ -434,7 +434,7 @@ MonoBehaviour:
     ParentPath: SoundBanks/Default Work Unit
     guid: cf21b4d077fd20469610511af75159b4
     GuidInternal: 
-    m_lastTime: -8584402429622435106
+    m_lastTime: -8584399004579077480
     List:
     - name: EVG
       guid: e6864c128096a4489cebf7dea6913318
@@ -596,7 +596,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: 2b9edd8adc470d4382c5e00a26a7b1d1
       Path: Events/Default Work Unit/Enemies/ATV/playATVAttack
-      maxAttenuation: 256
+      maxAttenuation: 128
       maxDuration: 20
       minDuration: 20
     - name: playATVBlast
@@ -632,14 +632,14 @@ MonoBehaviour:
       guid: 0000820c076e574b8f6e69e488b2be04
     - ElementName: UI
       ObjectType: 12
-      guid: bf08b06576cf6147a4ed5cfcdca7dd37
+      guid: fddc91663adb4a438fdddab5c90cad03
     - ElementName: CDPlayer
       ObjectType: 12
       guid: 602d435913bd6b4c9dd4cddd7d10c713
     ParentPath: Events/Default Work Unit/UI/CDPlayer
     guid: 602d435913bd6b4c9dd4cddd7d10c713
     GuidInternal: 
-    m_lastTime: -8584407055509110581
+    m_lastTime: -8584399004579142694
     List:
     - name: playCDMusic
       guid: 38ee3a041b763747a1ba2880d828d290
@@ -653,7 +653,7 @@ MonoBehaviour:
         guid: 0000820c076e574b8f6e69e488b2be04
       - ElementName: UI
         ObjectType: 12
-        guid: bf08b06576cf6147a4ed5cfcdca7dd37
+        guid: fddc91663adb4a438fdddab5c90cad03
       - ElementName: CDPlayer
         ObjectType: 12
         guid: 602d435913bd6b4c9dd4cddd7d10c713
@@ -676,7 +676,7 @@ MonoBehaviour:
         guid: 0000820c076e574b8f6e69e488b2be04
       - ElementName: UI
         ObjectType: 12
-        guid: bf08b06576cf6147a4ed5cfcdca7dd37
+        guid: fddc91663adb4a438fdddab5c90cad03
       - ElementName: CDPlayer
         ObjectType: 12
         guid: 602d435913bd6b4c9dd4cddd7d10c713
@@ -699,7 +699,7 @@ MonoBehaviour:
         guid: 0000820c076e574b8f6e69e488b2be04
       - ElementName: UI
         ObjectType: 12
-        guid: bf08b06576cf6147a4ed5cfcdca7dd37
+        guid: fddc91663adb4a438fdddab5c90cad03
       - ElementName: CDPlayer
         ObjectType: 12
         guid: 602d435913bd6b4c9dd4cddd7d10c713
@@ -722,7 +722,7 @@ MonoBehaviour:
         guid: 0000820c076e574b8f6e69e488b2be04
       - ElementName: UI
         ObjectType: 12
-        guid: bf08b06576cf6147a4ed5cfcdca7dd37
+        guid: fddc91663adb4a438fdddab5c90cad03
       - ElementName: CDPlayer
         ObjectType: 12
         guid: 602d435913bd6b4c9dd4cddd7d10c713
@@ -744,7 +744,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit
     guid: 0000820c076e574b8f6e69e488b2be04
     GuidInternal: 
-    m_lastTime: -8584405865742449931
+    m_lastTime: -8584399004579179720
     List: []
   - PhysicalPath: Events/Drone.wwu
     PathAndIcons:
@@ -898,6 +898,62 @@ MonoBehaviour:
       maxAttenuation: 32
       maxDuration: Infinity
       minDuration: 1.2521666
+  - PhysicalPath: Events/Global.wwu
+    PathAndIcons:
+    - ElementName: Events
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 0000820c076e574b8f6e69e488b2be04
+    - ElementName: Global
+      ObjectType: 12
+      guid: ca51480181d04e41a3e60918b46bb502
+    ParentPath: Events/Default Work Unit/Global
+    guid: ca51480181d04e41a3e60918b46bb502
+    GuidInternal: 
+    m_lastTime: -8584399004670458453
+    List:
+    - name: playMouseClick
+      guid: 81db425dd35b4444b14a9ac3906fa6ea
+      id: 436537884
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 0000820c076e574b8f6e69e488b2be04
+      - ElementName: Global
+        ObjectType: 12
+        guid: ca51480181d04e41a3e60918b46bb502
+      - ElementName: playMouseClick
+        ObjectType: 3
+        guid: 81db425dd35b4444b14a9ac3906fa6ea
+      Path: Events/Default Work Unit/Global/playMouseClick
+      maxAttenuation: 0
+      maxDuration: 0.5
+      minDuration: 0.5
+    - name: stopAll
+      guid: a5b9b6823bd16d458f4dc0979750b87c
+      id: 3086540886
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 0000820c076e574b8f6e69e488b2be04
+      - ElementName: Global
+        ObjectType: 12
+        guid: ca51480181d04e41a3e60918b46bb502
+      - ElementName: stopAll
+        ObjectType: 3
+        guid: a5b9b6823bd16d458f4dc0979750b87c
+      Path: Events/Default Work Unit/Global/stopAll
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
   - PhysicalPath: Events/Helicopter.wwu
     PathAndIcons:
     - ElementName: Events
@@ -1051,14 +1107,14 @@ MonoBehaviour:
       guid: 0000820c076e574b8f6e69e488b2be04
     - ElementName: UI
       ObjectType: 12
-      guid: bf08b06576cf6147a4ed5cfcdca7dd37
+      guid: fddc91663adb4a438fdddab5c90cad03
     - ElementName: Pinboard
       ObjectType: 12
       guid: f3d213ae64006640812e46ddd90c39d4
     ParentPath: Events/Default Work Unit/UI/Pinboard
     guid: f3d213ae64006640812e46ddd90c39d4
     GuidInternal: 
-    m_lastTime: -8584407055366270779
+    m_lastTime: -8584399004579107795
     List:
     - name: playPinboardEject
       guid: 449514aca61a6244944abad0d7f6c635
@@ -1072,7 +1128,7 @@ MonoBehaviour:
         guid: 0000820c076e574b8f6e69e488b2be04
       - ElementName: UI
         ObjectType: 12
-        guid: bf08b06576cf6147a4ed5cfcdca7dd37
+        guid: fddc91663adb4a438fdddab5c90cad03
       - ElementName: Pinboard
         ObjectType: 12
         guid: f3d213ae64006640812e46ddd90c39d4
@@ -1095,7 +1151,7 @@ MonoBehaviour:
         guid: 0000820c076e574b8f6e69e488b2be04
       - ElementName: UI
         ObjectType: 12
-        guid: bf08b06576cf6147a4ed5cfcdca7dd37
+        guid: fddc91663adb4a438fdddab5c90cad03
       - ElementName: Pinboard
         ObjectType: 12
         guid: f3d213ae64006640812e46ddd90c39d4
@@ -1132,32 +1188,12 @@ MonoBehaviour:
       guid: 0000820c076e574b8f6e69e488b2be04
     - ElementName: UI
       ObjectType: 12
-      guid: bf08b06576cf6147a4ed5cfcdca7dd37
+      guid: fddc91663adb4a438fdddab5c90cad03
     ParentPath: Events/Default Work Unit/UI
-    guid: bf08b06576cf6147a4ed5cfcdca7dd37
+    guid: fddc91663adb4a438fdddab5c90cad03
     GuidInternal: 
-    m_lastTime: -8584407055366287707
+    m_lastTime: -8584399004579020274
     List:
-    - name: playMouseClick
-      guid: 81db425dd35b4444b14a9ac3906fa6ea
-      id: 436537884
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 0000820c076e574b8f6e69e488b2be04
-      - ElementName: UI
-        ObjectType: 12
-        guid: bf08b06576cf6147a4ed5cfcdca7dd37
-      - ElementName: playMouseClick
-        ObjectType: 3
-        guid: 81db425dd35b4444b14a9ac3906fa6ea
-      Path: Events/Default Work Unit/UI/playMouseClick
-      maxAttenuation: 0
-      maxDuration: 0.5
-      minDuration: 0.5
     - name: playTTSVoice
       guid: 2e02baa7129cb1499dd32312f53ffdae
       id: 1507170084
@@ -1170,7 +1206,7 @@ MonoBehaviour:
         guid: 0000820c076e574b8f6e69e488b2be04
       - ElementName: UI
         ObjectType: 12
-        guid: bf08b06576cf6147a4ed5cfcdca7dd37
+        guid: fddc91663adb4a438fdddab5c90cad03
       - ElementName: playTTSVoice
         ObjectType: 3
         guid: 2e02baa7129cb1499dd32312f53ffdae

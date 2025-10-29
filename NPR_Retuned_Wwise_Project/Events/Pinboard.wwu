@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{AE13D2F3-0064-4066-812E-46DDD90C39D4}" SchemaVersion="123" RootDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" ParentDocumentID="{65B008BF-CF76-4761-A4ED-5CFCDCA7DD37}">
+<WwiseDocument Type="WorkUnit" ID="{AE13D2F3-0064-4066-812E-46DDD90C39D4}" SchemaVersion="123" RootDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" ParentDocumentID="{6691DCFD-DB3A-434A-8FDD-DAB5C90CAD03}">
 	<Events>
-		<WorkUnit Name="Pinboard" ID="{AE13D2F3-0064-4066-812E-46DDD90C39D4}" OwnerID="{65B008BF-CF76-4761-A4ED-5CFCDCA7DD37}" PersistMode="Nested">
+		<WorkUnit Name="Pinboard" ID="{AE13D2F3-0064-4066-812E-46DDD90C39D4}" OwnerID="{6691DCFD-DB3A-434A-8FDD-DAB5C90CAD03}" PersistMode="Nested">
 			<ChildrenList>
 				<Event Name="playPinboardEject" ID="{AC149544-1AA6-4462-944A-BAD0D7F6C635}">
 					<ChildrenList>

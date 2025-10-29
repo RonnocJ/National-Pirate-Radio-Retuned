@@ -23,12 +23,8 @@ public class SoundbankManager : Singleton<SoundbankManager>
     public void UnloadAll()
     {
         AkUnitySoundEngine.ClearBanks();
-        _loadedBanks.Clear();
-    }
+        AkUnitySoundEngine.LoadBank(AudioSoundbank.Init.ToString(), out _);
 
-    protected override void OnDestroy()
-    {
-        UnloadAll();
-        base.OnDestroy();
+        _loadedBanks.Clear();
     }
 }

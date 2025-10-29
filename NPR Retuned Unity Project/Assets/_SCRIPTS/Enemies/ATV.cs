@@ -67,38 +67,13 @@ public class ATV : EnemyVehicle
             {
                 if (c.CompareTag("Player"))
                 {
-                    if (ATVManager.cr == null) ATVManager.cr = spawner.StartCoroutine(StaticHit());
-                    else
-                    {
-                        spawner.StopCoroutine(ATVManager.cr);
-                        ATVManager.cr = spawner.StartCoroutine(StaticHit());
-                    }
-
+                    ScreenManager.root.PlayAtvStatic();
                     break;
                 }
             }
 
         }
         else _accel = 1;
-    }
-
-    private IEnumerator StaticHit()
-    {
-        AudioManager.root.PlaySound(AudioEvent.playATVBlast, Camera.main.gameObject, 1);
-
-        float elapsed = 0;
-        while (elapsed < 3f)
-        {
-            staticMat.SetFloat("_Intensity", staticCurve.Evaluate(elapsed));
-            _vignette.intensity.value = (staticCurve.Evaluate(elapsed) * 0.25f) + 0.25f;
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-
-        staticMat.SetFloat("_Intensity", 0);
-        _vignette.intensity.value = 0.25f;
-
-        ATVManager.cr = null;
     }
     public override void DestroyEnemy(bool killedByPlayer)
     {

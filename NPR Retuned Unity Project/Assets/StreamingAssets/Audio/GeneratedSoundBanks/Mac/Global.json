@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{F9CADABE-29C7-4907-BEBD-5EF68EC00710}",
     "Language": "SFX",
-    "Hash": "{285B4A1A-8CE5-D111-E7E4-7C0DF3422EA3}",
+    "Hash": "{FA3D8660-7A63-E093-6BB9-3268B573142B}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Global",
     "ShortName": "Global",
     "Path": "Global.bnk",
@@ -28,7 +28,7 @@
      {
       "Id": "436537884",
       "Name": "playMouseClick",
-      "ObjectPath": "\\Events\\Default Work Unit\\UI\\playMouseClick",
+      "ObjectPath": "\\Events\\Default Work Unit\\Global\\playMouseClick",
       "GUID": "{5D42DB81-5BD3-4444-B14A-9AC3906FA6EA}",
       "DurationType": "OneShot",
       "DurationMin": "0.5",
@@ -38,10 +38,20 @@
         "Id": "911849986"
        }
       ]
+     },
+     {
+      "Id": "3086540886",
+      "Name": "stopAll",
+      "ObjectPath": "\\Events\\Default Work Unit\\Global\\stopAll",
+      "GUID": "{82B6B9A5-D13B-456D-8F4D-C0979750B87C}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
      }
     ]
    }
   ],
-  "FileHash": "{E0120DDB-0995-715F-0854-0DC8BC25EDC1}"
+  "FileHash": "{C2AC04F2-F888-CC3F-C7E1-E8B0FC98DAA2}"
  }
 }

@@ -117,7 +117,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _LaserLength: 510.74554
+    - _LaserLength: 32.246944
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005

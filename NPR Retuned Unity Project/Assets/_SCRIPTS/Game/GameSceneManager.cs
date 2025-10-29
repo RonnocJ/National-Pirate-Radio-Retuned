@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameSceneManager : Singleton<GameSceneManager>
 {
+    public string LastLoadedScene;
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -17,11 +18,15 @@ public class GameSceneManager : Singleton<GameSceneManager>
             {
                 case "Title":
 
+                    LastLoadedScene = "Title";
+
                     SoundbankManager.root.LoadSoundbank(AudioSoundbank.Title);
                     AudioManager.root.PlaySound(AudioEvent.playTitleMusic);
 
                     GameManager.root.CurrentGState = GameState.Title;
+
                     break;
+
                 case "Talk":
 
                     AudioManager.root.StopSound(AudioEvent.playTitleMusic);
@@ -29,21 +34,49 @@ public class GameSceneManager : Singleton<GameSceneManager>
 
                     NonDgUI.root.toTalkPanel.anchoredPosition = Vector2.right * -2560;
                     GameManager.root.CurrentGState = GameState.Talking;
+
+                    if (GameManager.root.NewGame) DialoguePlayer.root.PlayFromResources("GameIntro/newGame", "mono", -1, DialoguePlayer.root.ToTitle);
+                    else
+                    {
+                        switch (LastLoadedScene)
+                        {
+                            case "Shop":
+
+                                DialoguePlayer.root.PlayDialogue(LevelIntro.introStage1);
+                                break;
+
+                            case "Level":
+
+                                DialoguePlayer.root.PlayDialogue(AfterLevel.afterStage0);
+                                break;
+
+                        }
+                    }
+
                     break;
+
                 case "Shop":
 
+                    LastLoadedScene = "Shop";
+
                     AudioManager.root.StopSound(AudioEvent.playTitleMusic);
-                    SoundbankManager.root.UnloadAll();
+                    //SoundbankManager.root.UnloadAll();
                     SoundbankManager.root.LoadSoundbank(AudioSoundbank.Shop);
 
 
                     NonDgUI.root.StartCoroutine(NonDgUI.root.FadeToBlack(false));
                     GameManager.root.CurrentGState = GameState.Shop;
+
                     break;
+
                 case "Level":
-                    SoundbankManager.root.LoadSoundbank(AudioSoundbank.VanSFX);
-                    SoundbankManager.root.LoadSoundbank(AudioSoundbank.LevelSFX);
+
+                    LastLoadedScene = "Level";
                     
+                    SoundbankManager.root.LoadSoundbank(AudioSoundbank.LevelSFX);
+                    SoundbankManager.root.LoadSoundbank(AudioSoundbank.VanSFX);
+  
+
                     AudioManager.root.StopSound(AudioEvent.playTitleMusic);
                     SoundbankManager.root.UnloadSoundbank(AudioSoundbank.Title);
 
@@ -54,7 +87,9 @@ public class GameSceneManager : Singleton<GameSceneManager>
                     {
                         NonDgUI.root.StartCoroutine(NonDgUI.root.ShowIntroQuotes());
                     }
+
                     break;
+
             }
         };
     }

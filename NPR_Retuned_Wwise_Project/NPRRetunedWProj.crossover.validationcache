@@ -12,19 +12,19 @@
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\States\IntroDialogue.wwu" DateLow="1757612313" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\States\Default Work Unit.wwu" DateLow="1757612290" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1757230965" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\SoundBanks\Default Work Unit.wwu" DateLow="1761363923" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\SoundBanks\Default Work Unit.wwu" DateLow="1761706427" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Queries\Factory Queries.wwu" DateLow="1757220980" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Queries\Default Work Unit.wwu" DateLow="1757230965" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Presets\Factory Spatial Audio.wwu" DateLow="1757220980" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Presets\Default Work Unit.wwu" DateLow="1757230965" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\NPRRetunedWProj.wproj" DateLow="1757232651" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\NPRRetunedWProj.crossover.wsettings" DateLow="1761275661" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\NPRRetunedWProj.crossover.wsettings" DateLow="1761366928" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Modulators\Default Work Unit.wwu" DateLow="1757230965" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Mixing Sessions\Default Work Unit.wwu" DateLow="1757230965" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Metadata\Default Work Unit.wwu" DateLow="1757230965" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1757810972" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Interactive Music Hierarchy\NonDGSongs.wwu" DateLow="1761020117" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Interactive Music Hierarchy\GameSongs.wwu" DateLow="1760901334" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Interactive Music Hierarchy\GameSongs.wwu" DateLow="1761706427" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1761019855" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Game Parameters\Van.wwu" DateLow="1757818806" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Game Parameters\UI.wwu" DateLow="1757439106" DateHigh="0"/>
@@ -32,17 +32,18 @@
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Game Parameters\Enemies.wwu" DateLow="1757735276" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Game Parameters\Default Work Unit.wwu" DateLow="1758075658" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Events\Van.wwu" DateLow="1758734922" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Events\UI.wwu" DateLow="1760901348" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Events\UI.wwu" DateLow="1761706427" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Events\Player.wwu" DateLow="1760901334" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Events\Pinboard.wwu" DateLow="1760901348" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Events\Pinboard.wwu" DateLow="1761706427" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Events\Music.wwu" DateLow="1761020311" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Events\HyperMagnet.wwu" DateLow="1760935468" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Events\Helicopter.wwu" DateLow="1757726182" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Events\Global.wwu" DateLow="1761706418" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Events\Engine.wwu" DateLow="1757810012" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Events\Enemies.wwu" DateLow="1760980054" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Events\Drone.wwu" DateLow="1757820624" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Events\Default Work Unit.wwu" DateLow="1761020311" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Events\CDPlayer.wwu" DateLow="1760901334" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Events\Default Work Unit.wwu" DateLow="1761706427" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Events\CDPlayer.wwu" DateLow="1761706427" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Events\ATV.wwu" DateLow="1761007618" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Events\Ambiences.wwu" DateLow="1757813125" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\Effects\Factory Mastering Suite.wwu" DateLow="1757221154" DateHigh="0"/>

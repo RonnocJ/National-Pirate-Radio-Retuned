@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{014851CA-D081-414E-A3E6-0918B46BB502}" SchemaVersion="123" RootDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" ParentDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}">
+	<Events>
+		<WorkUnit Name="Global" ID="{014851CA-D081-414E-A3E6-0918B46BB502}" OwnerID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="stopAll" ID="{82B6B9A5-D13B-456D-8F4D-C0979750B87C}">
+					<ChildrenList>
+						<Action Name="" ID="{8993A6C5-0A06-4266-8C7A-9B22CCB02DD1}" ShortID="860813036">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playMouseClick" ID="{5D42DB81-5BD3-4444-B14A-9AC3906FA6EA}">
+					<ChildrenList>
+						<Action Name="" ID="{BFD40208-7526-4295-A8E7-1E9DC6033F9C}" ShortID="822916175">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MouseClick" ID="{372E2490-E81C-4A98-9CA5-508CE39FEFF5}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

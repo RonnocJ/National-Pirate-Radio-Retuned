@@ -6,10 +6,14 @@ public class Talker : MonoBehaviour
 {
     public bool StartedTalking;
     public bool OnRight;
+    public bool Obscured;
     public Characters CharName;
     public Animator Anim;
     public void BeginDialogue()
     {
+        if (Obscured) GetComponentInChildren<MeshRenderer>().sharedMaterial.color = Color.black;
+        else GetComponentInChildren<MeshRenderer>().sharedMaterial.color = Color.white;
+
         Anim.SetBool("right", OnRight);
         Anim.SetTrigger("enter");
     }

@@ -2020,7 +2020,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
-									<ObjectRef Name="DroneAttenuation" ID="{60D8D7E7-8DD5-4FDF-A9AB-DC01BB277DDB}" WorkUnitID="{08A57674-6AE5-4184-B743-8AA024C35EBB}"/>
+									<ObjectRef Name="ATVAttenuation" ID="{AFA633BB-36A3-42A1-99CE-A5E813066650}" WorkUnitID="{08A57674-6AE5-4184-B743-8AA024C35EBB}"/>
 								</Reference>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{41B5D519-AB6F-4EE3-BC3C-420CFE6AC1D2}"/>

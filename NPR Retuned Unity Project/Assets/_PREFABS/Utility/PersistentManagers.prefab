@@ -815,6 +815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fbcec9ea934416784cf0c29993e68f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameSceneManager
+  LastLoadedScene: 
 --- !u!1 &8005976244589114852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,8 +1060,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a2619427a5d496cb5bacbf23ef82b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  NewGame: 0
-  CurrentStage: 1
+  NewGame: 1
+  CurrentStage: 0
   _currentGState: 0
   _currentPState: 0
 --- !u!114 &5837815733511468571

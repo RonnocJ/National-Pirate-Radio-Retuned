@@ -172,6 +172,10 @@ PrefabInstance:
       value: MouseHand
       objectReference: {fileID: 0}
     - target: {fileID: 2792686344048498178, guid: 055bf2e6c40ec4e9aa6124195dff2878, type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 1142389375}
+    - target: {fileID: 2792686344048498178, guid: 055bf2e6c40ec4e9aa6124195dff2878, type: 3}
       propertyPath: mouseSpeed
       value: 3
       objectReference: {fileID: 0}

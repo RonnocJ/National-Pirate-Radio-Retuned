@@ -13,35 +13,62 @@ MonoBehaviour:
   m_Name: DialogueGenerator
   m_EditorClassIdentifier: Assembly-CSharp::DialogueGenerator
   Blocks:
-  - Name: neutral
+  - Name: mono
     Clusters:
-    - PauseBefore: 1
+    - PauseBefore: 3
       Speed: 0.05
       Lines:
-      - Speaker: Joe Tools
-        Line: "Don't forget my cut, this \noperation doesn't come cheap!"
+      - Speaker: Auxy
+        Line: 'You drive pretty well, at least
+
+          as good as you can in that
+
+          piece
+          of crap car.'
         Wait: 3
-    - PauseBefore: 1
-      Speed: 0.05
-      Lines:
-      - Speaker: Joe Tools
-        Line: "The autopilots' been acting up \ntoday, don't trust it too much..."
+      - Speaker: Free Quency
+        Line: 'Who are you and how the hell
+
+          did you get this number?!?'
         Wait: 3
-    - PauseBefore: 1
-      Speed: 0.05
-      Lines:
-      - Speaker: Joe Tools
-        Line: "Got everything plugged in? \nNo? Well that's the only \nequipment
-          we can afford."
+      - Speaker: Auxy
+        Line: 'Just tryna look out for you kid,
+
+          nothing else to it. I''m
+          nobody
+
+          to you.'
         Wait: 3
-    - PauseBefore: 1
-      Speed: 0.05
-      Lines:
-      - Speaker: Joe Tools
-        Line: "Y'know, cutting big holes to \ninstall specialized armaments \nin
-          a van doesn't do its \nstructural integrity any favors."
+      - Speaker: Auxy
+        Line: 'But if I were you I''d watch out
+
+          for your little friend
+          you''re
+
+          working with. Guy''s bad news.'
         Wait: 3
-  SaveFolderRelative: LevelIntro
-  OutputFileName: introStage1
+      - Speaker: Free Quency
+        Line: 'Thank''s for the heads up but
+
+          frankly, we''ve known each
+          other
+
+          since college.'
+        Wait: 3
+      - Speaker: Free Quency
+        Line: "So between him and the random \nasshole calling me I'm trusting \nhim
+          a hell of a lot more."
+        Wait: 3
+      - Speaker: Auxy
+        Line: 'Even as he''s putting you in worse
+
+          debt then you were already
+          in?'
+        Wait: 3
+      - Speaker: Free Quency
+        Line: Seriously, who ar- Hello? Hello!?
+        Wait: 3
+  SaveFolderRelative: AfterLevel
+  OutputFileName: afterStage0
   LastLoadedFilePath: /Users/connorjohnson/Desktop/GitHub/National-Pirate-Radio-Retuned/NPR
-    Retuned Unity Project/Assets/Resources/Scripts/LevelIntro/introStage1.json
+    Retuned Unity Project/Assets/Resources/Scripts/AfterLevel/afterLevelStage0.json

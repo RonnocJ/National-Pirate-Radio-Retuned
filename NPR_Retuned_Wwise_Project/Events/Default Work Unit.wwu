@@ -3,11 +3,12 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" PersistMode="Standalone">
 			<ChildrenList>
-				<WorkUnit Name="UI" ID="{65B008BF-CF76-4761-A4ED-5CFCDCA7DD37}" PersistMode="Reference"/>
 				<WorkUnit Name="Enemies" ID="{A9AC12BE-9441-4D75-995B-0A71BBB3B9F3}" PersistMode="Reference"/>
 				<WorkUnit Name="Player" ID="{72ECE1ED-FA46-488E-AEFA-7F4E47A3086D}" PersistMode="Reference"/>
 				<WorkUnit Name="Ambiences" ID="{3DCDE90D-A9B1-487F-9008-A3DF5D59B2F0}" PersistMode="Reference"/>
 				<WorkUnit Name="Music" ID="{761AC304-39E8-49DA-BEFE-A50C3CAE180C}" PersistMode="Reference"/>
+				<WorkUnit Name="Global" ID="{014851CA-D081-414E-A3E6-0918B46BB502}" PersistMode="Reference"/>
+				<WorkUnit Name="UI" ID="{6691DCFD-DB3A-434A-8FDD-DAB5C90CAD03}" PersistMode="Reference"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

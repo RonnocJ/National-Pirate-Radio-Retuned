@@ -21,7 +21,7 @@ public enum PlayerState
 public class GameManager : Singleton<GameManager>, ISaveData
 {
     public bool NewGame = true;
-    public int CurrentStage = 1;
+    public int Runs = 0;
     [SerializeField] private GameState _currentGState;
     public GameState CurrentGState
     {
@@ -62,7 +62,9 @@ public class GameManager : Singleton<GameManager>, ISaveData
     {
         return new Dictionary<string, object>()
         {
-            { "newGame", NewGame }
+            { "newGame", NewGame },
+
+            { "runs", Runs }
         };
     }
     public void ReadSaveData(Dictionary<string, object> dataDict)
@@ -71,5 +73,17 @@ public class GameManager : Singleton<GameManager>, ISaveData
         {
             NewGame = Convert.ToBoolean(newGame);
         }
+
+        if (dataDict.TryGetValue("runs", out object runs))
+        {
+            Runs = Convert.ToInt32(runs);
+        }
+    }
+    public void TriggerAfterLevelDialogue()
+    {
+        Runs++;
+
+        if (Runs == 1) StartCoroutine(NonDgUI.root.FadeToBlack(true, GameState.Talking));
+        else StartCoroutine(NonDgUI.root.FadeToBlack(true, GameState.Shop));
     }
 }

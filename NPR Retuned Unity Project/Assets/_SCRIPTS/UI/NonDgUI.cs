@@ -10,16 +10,16 @@ public class NonDgUI : Singleton<NonDgUI>
     public RectTransform toTalkPanel;
     [SerializeField] private RectTransform[] levelCards;
     [SerializeField] private TextMeshProUGUI[] deepQuotes;
+
     public IEnumerator FadeToBlack(bool direction, GameState sceneToLoad = GameState.None)
-    {
-        
+    {        
         toTalkPanel.anchoredPosition = Vector2.zero;
         float timer = direction ? 0 : 1;
         toTalkPanel.GetComponent<Image>().color = new Vector4(0, 0, 0, timer);
 
         yield return new WaitForSeconds(0.5f);
         
-        while (direction ? timer <= 1f : timer >= 0f)
+        while (direction ? timer <= 1.1f : timer >= -0.1f)
         {
             toTalkPanel.GetComponent<Image>().color = new Vector4(0, 0, 0, timer);
             timer = direction ? timer + Time.deltaTime : timer - Time.deltaTime;
@@ -35,6 +35,9 @@ public class NonDgUI : Singleton<NonDgUI>
                 break;
             case GameState.Shop:
                 GameSceneManager.root.LoadShop();
+                break;
+            case GameState.Talking:
+                GameSceneManager.root.LoadTalk();
                 break;
         }
     }
@@ -90,6 +93,11 @@ public class NonDgUI : Singleton<NonDgUI>
     }
     public IEnumerator ToLevelTransition()
     {
+        for(int i = -1; i <= 1; i++)
+        {
+            levelCards[i + 1].anchoredPosition = Vector2.right * i * 770;
+            levelCards[i + 1].gameObject.SetActive(false);
+        }
         yield return new WaitForSeconds(1.25f);
 
         levelCards[0].gameObject.SetActive(true);
@@ -106,8 +114,8 @@ public class NonDgUI : Singleton<NonDgUI>
 
     public IEnumerator RemoveLevelCard()
     {
-        yield return new WaitForSeconds(0.5f);
-        for (int i = 0; i < 120; i++)
+        yield return new WaitForSeconds(1f);
+        for (int i = 0; i < 100; i++)
         {
             for (int j = 0; j < 3; j++)
             {

@@ -137,6 +137,8 @@ public class FoliageGenerator : MonoBehaviour
 
         // Early Voronoi reject; world-space & tile-agnostic
 
+        if(Mathf.Abs(worldX) < 32f && Mathf.Abs(worldZ) < 32f) return null;
+
         if (!PassesVoronoiGate(worldX, worldZ) && Random.value > 0.01f) return null;
 
         Vector3 globalProbe = new Vector3(worldX, raycastHeight, worldZ);

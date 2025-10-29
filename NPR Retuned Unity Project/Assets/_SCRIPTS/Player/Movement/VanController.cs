@@ -52,6 +52,7 @@ public class VanController : Singleton<VanController>
     [SerializeField] private WheelMeshes wheelMeshes;
     [Header("Misc References")]
     [SerializeField] private Transform needleTr;
+    [SerializeField] private Material trunkMat;
     private bool _stopController;
     private GearState gearState;
     private float _steerAngle;
@@ -221,10 +222,13 @@ public class VanController : Singleton<VanController>
     }
     private void ApplyBrakes(bool autoBrake = false)
     {
-        wheelColliders.WheelFL.brakeTorque = autoBrake ? 1 : BrakeInput * brakeForce;
-        wheelColliders.WheelFR.brakeTorque = autoBrake ? 1 : BrakeInput * brakeForce;
-        wheelColliders.WheelBL.brakeTorque = autoBrake ? 1 : BrakeInput * brakeForce * 0.6f;
-        wheelColliders.WheelBR.brakeTorque = autoBrake ? 1 : BrakeInput * brakeForce * 0.6f;
+        float input = autoBrake ? 1f : BrakeInput;
+        wheelColliders.WheelFL.brakeTorque = input * brakeForce;
+        wheelColliders.WheelFR.brakeTorque = input * brakeForce;
+        wheelColliders.WheelBL.brakeTorque = input * brakeForce * 0.6f;
+        wheelColliders.WheelBR.brakeTorque = input * brakeForce * 0.6f;
+
+        trunkMat.SetColor("_EmissionColor", ((input * 800f) + 0.05f) * Color.red);
     }
     private void ApplySteering()
     {

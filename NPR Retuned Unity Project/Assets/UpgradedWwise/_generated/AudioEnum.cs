@@ -10,6 +10,7 @@ public enum AudioEvent {
     playCDMusic = -542775629,
     setStatic = 185187129,
     playMouseClick = 436537884,
+    stopAll = -1208426410,
     playATVAttack = 113422346,
     playATVBlast = 1438338272,
     playCDPlayerClose = 1736359555,

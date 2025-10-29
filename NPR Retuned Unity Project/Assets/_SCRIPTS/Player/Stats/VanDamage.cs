@@ -15,17 +15,22 @@ public class VanDamage : Singleton<VanDamage>
             {
                 if (value < _hype) _regenTimer = 0;
 
-                if (value <= 0)
+                if (!TestOverrides.root.immortal || value > _hype) _hype = Mathf.Clamp(value, 0, _p.MaxHype);
+                
+                hypeFluid.SetFloat("_Fill", _hype / _p.MaxHype);
+                hypeText.SetText($"Hype: \n{Mathf.RoundToInt(_hype)} / {_p.MaxHype}", 0);
+
+                if (value <= 0 && !_hasDied)
                 {
                     OnPlayerDie?.Invoke();
-                    StartCoroutine(NonDgUI.root.FadeToBlack(true, GameState.Shop));
+
+                    AudioManager.root.PlaySound(AudioEvent.stopAll);
+
                     GameManager.root.CurrentPState = PlayerState.Dead;
+                    GameManager.root.TriggerAfterLevelDialogue();
+
+                    _hasDied = true;
                 }
-
-                if(!TestOverrides.root.immortal || value > _hype) _hype = Mathf.Clamp(value, 0, _p.MaxHype);
-                hypeFluid.SetFloat("_Fill", value / _p.MaxHype);
-                hypeText.SetText($"Hype: \n{Mathf.RoundToInt(value)} / {_p.MaxHype}", 0);
-
             }
         }
     }
@@ -43,6 +48,7 @@ public class VanDamage : Singleton<VanDamage>
     }
     [SerializeField] private Material hypeFluid;
     [SerializeField] private GlyphTextRenderer hypeText;
+    private bool _hasDied = false;
     private float _regenTimer;
     private PlayerStats _p => PlayerStats.root;
     private Queue<Action> _damageQueue = new();

@@ -28,6 +28,9 @@ MonoBehaviour:
   - eventName: playMouseClick
     bankName: Global
     eventId: 436537884
+  - eventName: stopAll
+    bankName: Global
+    eventId: 3086540886
   - eventName: playATVAttack
     bankName: LevelSFX
     eventId: 113422346

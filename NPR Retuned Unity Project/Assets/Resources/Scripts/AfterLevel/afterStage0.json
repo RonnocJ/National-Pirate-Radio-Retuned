@@ -1,0 +1,71 @@
+{
+    "blocks": [
+        {
+            "name": "mono",
+            "clusters": [
+                {
+                    "id": 0,
+                    "pauseBefore": 3.0,
+                    "lines": [
+                        {
+                            "speaker": "Auxy",
+                            "text": "You drive pretty well, at least\nas good as you can in that\npiece of crap car.",
+                            "wait": 3.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        },
+                        {
+                            "speaker": "Free Quency",
+                            "text": "Who are you and how the hell\ndid you get this number?!?",
+                            "wait": 3.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        },
+                        {
+                            "speaker": "Auxy",
+                            "text": "Just tryna look out for you kid,\nnothing else to it. I'm nobody\nto you.",
+                            "wait": 3.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        },
+                        {
+                            "speaker": "Auxy",
+                            "text": "But if I were you I'd watch out\nfor your little friend you're\nworking with. Guy's bad news.",
+                            "wait": 3.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        },
+                        {
+                            "speaker": "Free Quency",
+                            "text": "Thank's for the heads up but\nfrankly, we've known each other\nsince college.",
+                            "wait": 3.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        },
+                        {
+                            "speaker": "Free Quency",
+                            "text": "So between him and the random \nasshole calling me I'm trusting \nhim a hell of a lot more.",
+                            "wait": 3.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        },
+                        {
+                            "speaker": "Auxy",
+                            "text": "Even as he's putting you in worse\ndebt then you were already in?",
+                            "wait": 3.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        },
+                        {
+                            "speaker": "Free Quency",
+                            "text": "Seriously, who ar- Hello? Hello!?",
+                            "wait": 3.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

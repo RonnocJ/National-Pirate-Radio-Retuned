@@ -6,7 +6,7 @@
 				<SoundBank Name="LevelSFX" ID="{F132A8A6-CE09-432B-878F-6B7B36947D3F}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Ambiences" ID="{3DCDE90D-A9B1-487F-9008-A3DF5D59B2F0}" WorkUnitID="{3DCDE90D-A9B1-487F-9008-A3DF5D59B2F0}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="playTTSVoice" ID="{A7BA022E-9C12-49B1-9DD3-2312F53FFDAE}" WorkUnitID="{65B008BF-CF76-4761-A4ED-5CFCDCA7DD37}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="playTTSVoice" ID="{A7BA022E-9C12-49B1-9DD3-2312F53FFDAE}" WorkUnitID="{6691DCFD-DB3A-434A-8FDD-DAB5C90CAD03}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="CDPlayer" ID="{59432D60-BD13-4C6B-9DD4-CDDD7D10C713}" WorkUnitID="{59432D60-BD13-4C6B-9DD4-CDDD7D10C713}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Enemies" ID="{A9AC12BE-9441-4D75-995B-0A71BBB3B9F3}" WorkUnitID="{A9AC12BE-9441-4D75-995B-0A71BBB3B9F3}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
@@ -41,7 +41,7 @@
 				</SoundBank>
 				<SoundBank Name="Global" ID="{F9CADABE-29C7-4907-BEBD-5EF68EC00710}">
 					<ObjectInclusionList>
-						<ObjectRef Name="playMouseClick" ID="{5D42DB81-5BD3-4444-B14A-9AC3906FA6EA}" WorkUnitID="{65B008BF-CF76-4761-A4ED-5CFCDCA7DD37}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Global" ID="{014851CA-D081-414E-A3E6-0918B46BB502}" WorkUnitID="{014851CA-D081-414E-A3E6-0918B46BB502}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
