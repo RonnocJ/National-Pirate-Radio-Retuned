@@ -1,0 +1,132 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "765054347",
+    "Type": "User",
+    "GUID": "{699F1252-B778-44D1-AE27-56F2DA2047E2}",
+    "Language": "SFX",
+    "Hash": "{B887D82F-5535-3443-F6BE-85C6E21F3384}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Songs\\BRD",
+    "ShortName": "BRD",
+    "Path": "BRD.bnk",
+    "Media": [
+     {
+      "Id": "578100176",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BRD.wav",
+      "CachePath": "3C/{3C76B6A5-6001-7682-D171-51D13F00965D}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "3752191667",
+      "Name": "playCDMusic",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\CDPlayer\\playCDMusic",
+      "GUID": "{043AEE38-761B-4737-A1BA-2880D828D290}",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "390902339",
+         "Id": "765054347",
+         "GUID": "{62DA2B9A-6C14-4B94-9D20-8E6AB8BD9B3D}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "578100176"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "Id": "185187129",
+      "Name": "setStatic",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\CDPlayer\\setStatic",
+      "GUID": "{E8FD0A4A-7991-4E0B-829C-D101C1561FC0}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetSwitch": [
+       {
+        "GroupId": "390902339",
+        "Id": "1409504247",
+        "Name": "Static",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\Static",
+        "GUID": "{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}"
+       }
+      ]
+     }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "390902339",
+      "Name": "NowPlaying",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying",
+      "GUID": "{200BD546-70E0-44CC-AE65-78038AA295EB}",
+      "Switches": [
+       {
+        "Id": "444705608",
+        "Name": "LIH",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\LIH",
+        "GUID": "{7302FB5D-C3C9-41CC-8A62-C1A7FD667404}"
+       },
+       {
+        "Id": "544238342",
+        "Name": "SOW",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\SOW",
+        "GUID": "{A3B28F83-B286-43E2-93DB-0F1536F65797}"
+       },
+       {
+        "Id": "662417179",
+        "Name": "NPR",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\NPR",
+        "GUID": "{E83B5186-AA77-418A-B6E1-246C536171B9}"
+       },
+       {
+        "Id": "765054347",
+        "Name": "BRD",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\BRD",
+        "GUID": "{62DA2B9A-6C14-4B94-9D20-8E6AB8BD9B3D}"
+       },
+       {
+        "Id": "932389263",
+        "Name": "EVG",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\EVG",
+        "GUID": "{4B3BF5EA-C883-4501-BA08-9A538A19CD3C}"
+       },
+       {
+        "Id": "982472045",
+        "Name": "FUG",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\FUG",
+        "GUID": "{C3C5B604-A7C0-40FE-9993-39F1C53A21F8}"
+       },
+       {
+        "Id": "1030097862",
+        "Name": "WLZ",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\WLZ",
+        "GUID": "{E6CE990A-0436-4548-9F3A-2B8CE7845AC4}"
+       },
+       {
+        "Id": "1409504247",
+        "Name": "Static",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\Static",
+        "GUID": "{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{913574B7-957F-FA0F-0DE2-43468B6F9A07}"
+ }
+}

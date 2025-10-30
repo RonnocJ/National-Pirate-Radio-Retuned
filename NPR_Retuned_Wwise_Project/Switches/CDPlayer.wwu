@@ -8,6 +8,11 @@
 						<Switch Name="Static" ID="{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}"/>
 						<Switch Name="EVG" ID="{4B3BF5EA-C883-4501-BA08-9A538A19CD3C}"/>
 						<Switch Name="NPR" ID="{E83B5186-AA77-418A-B6E1-246C536171B9}"/>
+						<Switch Name="LIH" ID="{7302FB5D-C3C9-41CC-8A62-C1A7FD667404}"/>
+						<Switch Name="BRD" ID="{62DA2B9A-6C14-4B94-9D20-8E6AB8BD9B3D}"/>
+						<Switch Name="FUG" ID="{C3C5B604-A7C0-40FE-9993-39F1C53A21F8}"/>
+						<Switch Name="WLZ" ID="{E6CE990A-0436-4548-9F3A-2B8CE7845AC4}"/>
+						<Switch Name="SOW" ID="{A3B28F83-B286-43E2-93DB-0F1536F65797}"/>
 					</ChildrenList>
 				</SwitchGroup>
 			</ChildrenList>

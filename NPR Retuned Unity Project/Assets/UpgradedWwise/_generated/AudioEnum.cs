@@ -42,8 +42,13 @@ public enum AudioState {
 /// </summary>
 public enum AudioSwitch {
     None = 0,
+    NowPlaying_BREAK_LIH = 444705608,
+    NowPlaying_BREAK_SOW = 544238342,
     NowPlaying_BREAK_NPR = 662417179,
+    NowPlaying_BREAK_BRD = 765054347,
     NowPlaying_BREAK_EVG = 932389263,
+    NowPlaying_BREAK_FUG = 982472045,
+    NowPlaying_BREAK_WLZ = 1030097862,
     NowPlaying_BREAK_Static = 1409504247,
     Attack_BREAK_Releasing = 1007009725,
     Attack_BREAK_Charging = -466345064,
@@ -77,7 +82,12 @@ public enum AudioRTPC {
 /// </summary>
 public enum AudioSoundbank {
     Shop = 251412225,
+    LIH = 444705608,
+    SOW = 544238342,
+    BRD = 765054347,
     EVG = 932389263,
+    FUG = 982472045,
+    WLZ = 1030097862,
     Init = 1355168291,
     Global = 1465331116,
     LevelSFX = 1900718590,

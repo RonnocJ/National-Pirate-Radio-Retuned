@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{E052878E-8F81-440A-B753-A7371CFF6461}" SchemaVersion="123" RootDocumentID="{D0B421CF-FD77-4620-9610-511AF75159B4}" ParentDocumentID="{D0B421CF-FD77-4620-9610-511AF75159B4}">
+	<SoundBanks>
+		<WorkUnit Name="Songs" ID="{E052878E-8F81-440A-B753-A7371CFF6461}" OwnerID="{D0B421CF-FD77-4620-9610-511AF75159B4}" PersistMode="Nested">
+			<ChildrenList>
+				<SoundBank Name="EVG" ID="{124C86E6-9680-48A4-9CEB-F7DEA6913318}">
+					<ObjectInclusionList>
+						<ObjectRef Name="playCDMusic" ID="{043AEE38-761B-4737-A1BA-2880D828D290}" WorkUnitID="{59432D60-BD13-4C6B-9DD4-CDDD7D10C713}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList>
+						<GameSyncRef Name="FUG" ID="{C3C5B604-A7C0-40FE-9993-39F1C53A21F8}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="NPR" ID="{E83B5186-AA77-418A-B6E1-246C536171B9}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="LIH" ID="{7302FB5D-C3C9-41CC-8A62-C1A7FD667404}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="SOW" ID="{A3B28F83-B286-43E2-93DB-0F1536F65797}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="WLZ" ID="{E6CE990A-0436-4548-9F3A-2B8CE7845AC4}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="BRD" ID="{62DA2B9A-6C14-4B94-9D20-8E6AB8BD9B3D}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="Static" ID="{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+					</GameSyncExclusionList>
+				</SoundBank>
+				<SoundBank Name="SOW" ID="{09D144F7-908A-461E-9709-4F6492D991D4}">
+					<ObjectInclusionList>
+						<ObjectRef Name="playCDMusic" ID="{043AEE38-761B-4737-A1BA-2880D828D290}" WorkUnitID="{59432D60-BD13-4C6B-9DD4-CDDD7D10C713}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList>
+						<GameSyncRef Name="FUG" ID="{C3C5B604-A7C0-40FE-9993-39F1C53A21F8}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="NPR" ID="{E83B5186-AA77-418A-B6E1-246C536171B9}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="LIH" ID="{7302FB5D-C3C9-41CC-8A62-C1A7FD667404}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="EVG" ID="{4B3BF5EA-C883-4501-BA08-9A538A19CD3C}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="WLZ" ID="{E6CE990A-0436-4548-9F3A-2B8CE7845AC4}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="BRD" ID="{62DA2B9A-6C14-4B94-9D20-8E6AB8BD9B3D}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="Static" ID="{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+					</GameSyncExclusionList>
+				</SoundBank>
+				<SoundBank Name="BRD" ID="{699F1252-B778-44D1-AE27-56F2DA2047E2}">
+					<ObjectInclusionList>
+						<ObjectRef Name="playCDMusic" ID="{043AEE38-761B-4737-A1BA-2880D828D290}" WorkUnitID="{59432D60-BD13-4C6B-9DD4-CDDD7D10C713}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList>
+						<GameSyncRef Name="FUG" ID="{C3C5B604-A7C0-40FE-9993-39F1C53A21F8}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="NPR" ID="{E83B5186-AA77-418A-B6E1-246C536171B9}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="LIH" ID="{7302FB5D-C3C9-41CC-8A62-C1A7FD667404}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="SOW" ID="{A3B28F83-B286-43E2-93DB-0F1536F65797}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="EVG" ID="{4B3BF5EA-C883-4501-BA08-9A538A19CD3C}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="WLZ" ID="{E6CE990A-0436-4548-9F3A-2B8CE7845AC4}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="Static" ID="{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+					</GameSyncExclusionList>
+				</SoundBank>
+				<SoundBank Name="WLZ" ID="{FA3A1568-D460-42C5-9B27-DAB6E42651BA}">
+					<ObjectInclusionList>
+						<ObjectRef Name="playCDMusic" ID="{043AEE38-761B-4737-A1BA-2880D828D290}" WorkUnitID="{59432D60-BD13-4C6B-9DD4-CDDD7D10C713}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList>
+						<GameSyncRef Name="FUG" ID="{C3C5B604-A7C0-40FE-9993-39F1C53A21F8}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="NPR" ID="{E83B5186-AA77-418A-B6E1-246C536171B9}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="LIH" ID="{7302FB5D-C3C9-41CC-8A62-C1A7FD667404}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="SOW" ID="{A3B28F83-B286-43E2-93DB-0F1536F65797}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="EVG" ID="{4B3BF5EA-C883-4501-BA08-9A538A19CD3C}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="BRD" ID="{62DA2B9A-6C14-4B94-9D20-8E6AB8BD9B3D}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="Static" ID="{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+					</GameSyncExclusionList>
+				</SoundBank>
+				<SoundBank Name="FUG" ID="{01E97D24-4EF5-4C3F-8743-B0C961FFF0CC}">
+					<ObjectInclusionList>
+						<ObjectRef Name="playCDMusic" ID="{043AEE38-761B-4737-A1BA-2880D828D290}" WorkUnitID="{59432D60-BD13-4C6B-9DD4-CDDD7D10C713}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList>
+						<GameSyncRef Name="NPR" ID="{E83B5186-AA77-418A-B6E1-246C536171B9}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="LIH" ID="{7302FB5D-C3C9-41CC-8A62-C1A7FD667404}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="SOW" ID="{A3B28F83-B286-43E2-93DB-0F1536F65797}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="EVG" ID="{4B3BF5EA-C883-4501-BA08-9A538A19CD3C}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="WLZ" ID="{E6CE990A-0436-4548-9F3A-2B8CE7845AC4}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="BRD" ID="{62DA2B9A-6C14-4B94-9D20-8E6AB8BD9B3D}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="Static" ID="{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+					</GameSyncExclusionList>
+				</SoundBank>
+				<SoundBank Name="LIH" ID="{F6071A6F-6B3E-4D37-811B-2B344AEA26C1}">
+					<ObjectInclusionList>
+						<ObjectRef Name="playCDMusic" ID="{043AEE38-761B-4737-A1BA-2880D828D290}" WorkUnitID="{59432D60-BD13-4C6B-9DD4-CDDD7D10C713}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList>
+						<GameSyncRef Name="FUG" ID="{C3C5B604-A7C0-40FE-9993-39F1C53A21F8}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="NPR" ID="{E83B5186-AA77-418A-B6E1-246C536171B9}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="SOW" ID="{A3B28F83-B286-43E2-93DB-0F1536F65797}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="EVG" ID="{4B3BF5EA-C883-4501-BA08-9A538A19CD3C}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="WLZ" ID="{E6CE990A-0436-4548-9F3A-2B8CE7845AC4}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="BRD" ID="{62DA2B9A-6C14-4B94-9D20-8E6AB8BD9B3D}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+						<GameSyncRef Name="Static" ID="{A36DF6EA-03F2-4CF7-BBFC-CC0EE067A64F}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
+					</GameSyncExclusionList>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

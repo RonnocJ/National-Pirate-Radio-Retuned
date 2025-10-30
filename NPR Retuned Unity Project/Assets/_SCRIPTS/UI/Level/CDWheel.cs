@@ -5,10 +5,13 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 public enum SongName
 {
-    NPR = 0,
+    BRD = 0,
     EVG = 1,
-    DEF = 2,
-    GHI = 3
+    FUG = 2,
+    LIH = 3,
+    NPR = 4,
+    SOW = 5,
+    WLZ = 6,
 }
 public class CDWheel : MonoBehaviour
 {

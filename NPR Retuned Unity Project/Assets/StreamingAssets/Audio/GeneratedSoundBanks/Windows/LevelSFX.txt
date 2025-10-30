@@ -18,8 +18,13 @@ Switch Group	ID	Name			Wwise Object Path	Notes
 	390902339	NowPlaying			\Default Work Unit\Player\CDPlayer\NowPlaying	
 
 Switch	ID	Name	Switch Group			Notes
+	444705608	LIH	NowPlaying			
+	544238342	SOW	NowPlaying			
 	662417179	NPR	NowPlaying			
+	765054347	BRD	NowPlaying			
 	932389263	EVG	NowPlaying			
+	982472045	FUG	NowPlaying			
+	1030097862	WLZ	NowPlaying			
 	1409504247	Static	NowPlaying			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
@@ -55,7 +60,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	513343443	DroneShoot_02	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\B0\{B0153C74-D802-4F49-2B73-9072EA6BFBDD}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Drone\Shoot\DroneShoot_02		48096
 	545432631	b	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\CB\{CBEAD1B4-ABE0-1203-4721-E5CFB4812B1E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\TTS_Voice\b		44234
 	548770087	o	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\A7\{A7131A10-2FDE-DCA3-14B0-9C9B6BA94574}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\TTS_Voice\o		42194
-	556437566	CDPlayer_Static	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\76\{7616060D-7799-0F7C-1652-17788D570B18}.wem		\Interactive Music Hierarchy\Default Work Unit\GameSongs\CDPlayer\Static\Loop\CDPlayer_Static		2880182
+	556437566	CDPlayer_Static	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\8C\{8CC0C10B-F4CC-411C-4B93-B4EE86DFF4CF}.wem		\Interactive Music Hierarchy\Default Work Unit\GameSongs\CDPlayer\Static\Loop\CDPlayer_Static		2880198
 	584794395	w	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\58\{5822D237-A480-A551-741A-1AEFD3858253}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\TTS_Voice\w		51248
 	607523251	2	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\E5\{E5BD2F57-2026-2DB0-1E93-E88F342788E3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\TTS_Voice\2		39148
 	634384915	7	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\C8\{C85EE888-64F5-D872-9549-D97D6C276409}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\TTS_Voice\7		48686

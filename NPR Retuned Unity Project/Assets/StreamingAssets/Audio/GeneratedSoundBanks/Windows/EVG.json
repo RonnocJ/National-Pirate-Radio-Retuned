@@ -10,8 +10,8 @@
     "Type": "User",
     "GUID": "{124C86E6-9680-48A4-9CEB-F7DEA6913318}",
     "Language": "SFX",
-    "Hash": "{18DCBE35-98AC-D66A-212A-DA56B0F6DFF5}",
-    "ObjectPath": "\\SoundBanks\\Default Work Unit\\EVG",
+    "Hash": "{385D6931-BED5-1B85-3355-1F6227CD8B38}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Songs\\EVG",
     "ShortName": "EVG",
     "Path": "EVG.bnk",
     "Media": [
@@ -21,7 +21,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "NPR_MSC_EVG.wav",
-      "CachePath": "DE/{DE9C1578-4C60-2C0A-7566-8104A31E555C}.wem"
+      "CachePath": "79/{79B3605A-4F68-DB22-3CED-425BE32A6B6D}.wem"
      }
     ],
     "Events": [
@@ -75,16 +75,46 @@
       "GUID": "{200BD546-70E0-44CC-AE65-78038AA295EB}",
       "Switches": [
        {
+        "Id": "444705608",
+        "Name": "LIH",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\LIH",
+        "GUID": "{7302FB5D-C3C9-41CC-8A62-C1A7FD667404}"
+       },
+       {
+        "Id": "544238342",
+        "Name": "SOW",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\SOW",
+        "GUID": "{A3B28F83-B286-43E2-93DB-0F1536F65797}"
+       },
+       {
         "Id": "662417179",
         "Name": "NPR",
         "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\NPR",
         "GUID": "{E83B5186-AA77-418A-B6E1-246C536171B9}"
        },
        {
+        "Id": "765054347",
+        "Name": "BRD",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\BRD",
+        "GUID": "{62DA2B9A-6C14-4B94-9D20-8E6AB8BD9B3D}"
+       },
+       {
         "Id": "932389263",
         "Name": "EVG",
         "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\EVG",
         "GUID": "{4B3BF5EA-C883-4501-BA08-9A538A19CD3C}"
+       },
+       {
+        "Id": "982472045",
+        "Name": "FUG",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\FUG",
+        "GUID": "{C3C5B604-A7C0-40FE-9993-39F1C53A21F8}"
+       },
+       {
+        "Id": "1030097862",
+        "Name": "WLZ",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\WLZ",
+        "GUID": "{E6CE990A-0436-4548-9F3A-2B8CE7845AC4}"
        },
        {
         "Id": "1409504247",
@@ -97,6 +127,6 @@
     ]
    }
   ],
-  "FileHash": "{E38EE2EB-E058-B960-F577-B53735679FF9}"
+  "FileHash": "{AF60E82B-1CA5-CFFD-205B-0B23CD0F8D59}"
  }
 }

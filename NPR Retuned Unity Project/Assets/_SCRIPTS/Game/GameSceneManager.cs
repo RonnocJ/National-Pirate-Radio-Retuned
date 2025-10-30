@@ -72,10 +72,10 @@ public class GameSceneManager : Singleton<GameSceneManager>
                 case "Level":
 
                     LastLoadedScene = "Level";
-                    
+
                     SoundbankManager.root.LoadSoundbank(AudioSoundbank.LevelSFX);
                     SoundbankManager.root.LoadSoundbank(AudioSoundbank.VanSFX);
-  
+
 
                     AudioManager.root.StopSound(AudioEvent.playTitleMusic);
                     SoundbankManager.root.UnloadSoundbank(AudioSoundbank.Title);
@@ -90,6 +90,12 @@ public class GameSceneManager : Singleton<GameSceneManager>
 
                     break;
 
+                default:
+
+                    if (GameManager.root.NewGame) LoadTalk();
+                    else LoadTitle();
+
+                    break;
             }
         };
     }

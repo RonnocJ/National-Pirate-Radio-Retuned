@@ -6,10 +6,15 @@ Switch Group	ID	Name			Wwise Object Path	Notes
 	390902339	NowPlaying			\Default Work Unit\Player\CDPlayer\NowPlaying	
 
 Switch	ID	Name	Switch Group			Notes
+	444705608	LIH	NowPlaying			
+	544238342	SOW	NowPlaying			
 	662417179	NPR	NowPlaying			
+	765054347	BRD	NowPlaying			
 	932389263	EVG	NowPlaying			
+	982472045	FUG	NowPlaying			
+	1030097862	WLZ	NowPlaying			
 	1409504247	Static	NowPlaying			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	229697744	NPR_MSC_EVG	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\DE\{DE9C1578-4C60-2C0A-7566-8104A31E555C}.wem		\Interactive Music Hierarchy\Default Work Unit\GameSongs\CDPlayer\EVG\NPR_MSC_EVG		51388512
+	229697744	NPR_MSC_EVG	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\79\{79B3605A-4F68-DB22-3CED-425BE32A6B6D}.wem		\Interactive Music Hierarchy\Default Work Unit\GameSongs\CDPlayer\EVG\NPR_MSC_EVG		51388528
 

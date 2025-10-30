@@ -81,9 +81,14 @@ namespace AK
 
             namespace SWITCH
             {
+                static const AkUniqueID BRD = 765054347U;
                 static const AkUniqueID EVG = 932389263U;
+                static const AkUniqueID FUG = 982472045U;
+                static const AkUniqueID LIH = 444705608U;
                 static const AkUniqueID NPR = 662417179U;
+                static const AkUniqueID SOW = 544238342U;
                 static const AkUniqueID STATIC = 1409504247U;
+                static const AkUniqueID WLZ = 1030097862U;
             } // namespace SWITCH
         } // namespace NOWPLAYING
 
@@ -103,12 +108,17 @@ namespace AK
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
+        static const AkUniqueID BRD = 765054347U;
         static const AkUniqueID EVG = 932389263U;
+        static const AkUniqueID FUG = 982472045U;
         static const AkUniqueID GLOBAL = 1465331116U;
         static const AkUniqueID LEVELSFX = 1900718590U;
+        static const AkUniqueID LIH = 444705608U;
         static const AkUniqueID SHOP = 251412225U;
+        static const AkUniqueID SOW = 544238342U;
         static const AkUniqueID TITLE = 3705726509U;
         static const AkUniqueID VANSFX = 1939123861U;
+        static const AkUniqueID WLZ = 1030097862U;
     } // namespace BANKS
 
     namespace BUSSES

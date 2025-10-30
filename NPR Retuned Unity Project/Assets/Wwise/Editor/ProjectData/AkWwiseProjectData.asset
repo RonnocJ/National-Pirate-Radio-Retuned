@@ -434,22 +434,8 @@ MonoBehaviour:
     ParentPath: SoundBanks/Default Work Unit
     guid: cf21b4d077fd20469610511af75159b4
     GuidInternal: 
-    m_lastTime: -8584399004579077480
+    m_lastTime: -8584398113636828958
     List:
-    - name: EVG
-      guid: e6864c128096a4489cebf7dea6913318
-      id: 932389263
-      PathAndIcons:
-      - ElementName: SoundBanks
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: cf21b4d077fd20469610511af75159b4
-      - ElementName: EVG
-        ObjectType: 7
-        guid: e6864c128096a4489cebf7dea6913318
-      Path: SoundBanks/Default Work Unit/EVG
     - name: Global
       guid: bedacaf9c7290749bebd5ef68ec00710
       id: 1465331116
@@ -520,6 +506,124 @@ MonoBehaviour:
         ObjectType: 7
         guid: 743f0c507055f44c9f796d6e719a305f
       Path: SoundBanks/Default Work Unit/VanSFX
+  - PhysicalPath: SoundBanks/Songs.wwu
+    PathAndIcons:
+    - ElementName: SoundBanks
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: cf21b4d077fd20469610511af75159b4
+    - ElementName: Songs
+      ObjectType: 12
+      guid: 8e8752e0818f0a44b753a7371cff6461
+    ParentPath: SoundBanks/Default Work Unit/Songs
+    guid: 8e8752e0818f0a44b753a7371cff6461
+    GuidInternal: 
+    m_lastTime: -8584398114000699257
+    List:
+    - name: BRD
+      guid: 52129f6978b7d144ae2756f2da2047e2
+      id: 765054347
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cf21b4d077fd20469610511af75159b4
+      - ElementName: Songs
+        ObjectType: 12
+        guid: 8e8752e0818f0a44b753a7371cff6461
+      - ElementName: BRD
+        ObjectType: 7
+        guid: 52129f6978b7d144ae2756f2da2047e2
+      Path: SoundBanks/Default Work Unit/Songs/BRD
+    - name: EVG
+      guid: e6864c128096a4489cebf7dea6913318
+      id: 932389263
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cf21b4d077fd20469610511af75159b4
+      - ElementName: Songs
+        ObjectType: 12
+        guid: 8e8752e0818f0a44b753a7371cff6461
+      - ElementName: EVG
+        ObjectType: 7
+        guid: e6864c128096a4489cebf7dea6913318
+      Path: SoundBanks/Default Work Unit/Songs/EVG
+    - name: FUG
+      guid: 247de901f54e3f4c8743b0c961fff0cc
+      id: 982472045
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cf21b4d077fd20469610511af75159b4
+      - ElementName: Songs
+        ObjectType: 12
+        guid: 8e8752e0818f0a44b753a7371cff6461
+      - ElementName: FUG
+        ObjectType: 7
+        guid: 247de901f54e3f4c8743b0c961fff0cc
+      Path: SoundBanks/Default Work Unit/Songs/FUG
+    - name: LIH
+      guid: 6f1a07f63e6b374d811b2b344aea26c1
+      id: 444705608
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cf21b4d077fd20469610511af75159b4
+      - ElementName: Songs
+        ObjectType: 12
+        guid: 8e8752e0818f0a44b753a7371cff6461
+      - ElementName: LIH
+        ObjectType: 7
+        guid: 6f1a07f63e6b374d811b2b344aea26c1
+      Path: SoundBanks/Default Work Unit/Songs/LIH
+    - name: SOW
+      guid: f744d1098a901e4697094f6492d991d4
+      id: 544238342
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cf21b4d077fd20469610511af75159b4
+      - ElementName: Songs
+        ObjectType: 12
+        guid: 8e8752e0818f0a44b753a7371cff6461
+      - ElementName: SOW
+        ObjectType: 7
+        guid: f744d1098a901e4697094f6492d991d4
+      Path: SoundBanks/Default Work Unit/Songs/SOW
+    - name: WLZ
+      guid: 68153afa60d4c5429b27dab6e42651ba
+      id: 1030097862
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cf21b4d077fd20469610511af75159b4
+      - ElementName: Songs
+        ObjectType: 12
+        guid: 8e8752e0818f0a44b753a7371cff6461
+      - ElementName: WLZ
+        ObjectType: 7
+        guid: 68153afa60d4c5429b27dab6e42651ba
+      Path: SoundBanks/Default Work Unit/Songs/WLZ
   EventWwu:
   - PhysicalPath: Events/Ambiences.wwu
     PathAndIcons:
@@ -1669,7 +1773,7 @@ MonoBehaviour:
     ParentPath: Switches/Default Work Unit/Player/CDPlayer
     guid: 90cae068c17ff44f9f442dd1902406f0
     GuidInternal: 
-    m_lastTime: -8584437859227185793
+    m_lastTime: -8584398115311174895
     List:
     - name: NowPlaying
       guid: 46d50b20e070cc44ae6578038aa295eb
@@ -1692,6 +1796,28 @@ MonoBehaviour:
         guid: 46d50b20e070cc44ae6578038aa295eb
       Path: Switches/Default Work Unit/Player/CDPlayer/NowPlaying
       values:
+      - name: BRD
+        guid: 9a2bda62146c944b9d208e6ab8bd9b3d
+        id: 765054347
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e23c08405bed5f458d4fae23cfe44f8e
+        - ElementName: Player
+          ObjectType: 12
+          guid: 66b226ded1bec241a22e67342f77e9c0
+        - ElementName: CDPlayer
+          ObjectType: 12
+          guid: 90cae068c17ff44f9f442dd1902406f0
+        - ElementName: NowPlaying
+          ObjectType: 11
+          guid: 46d50b20e070cc44ae6578038aa295eb
+        - ElementName: BRD
+          ObjectType: 10
+          guid: 9a2bda62146c944b9d208e6ab8bd9b3d
       - name: EVG
         guid: eaf53b4b83c80145ba089a538a19cd3c
         id: 932389263
@@ -1714,6 +1840,50 @@ MonoBehaviour:
         - ElementName: EVG
           ObjectType: 10
           guid: eaf53b4b83c80145ba089a538a19cd3c
+      - name: FUG
+        guid: 04b6c5c3c0a7fe40999339f1c53a21f8
+        id: 982472045
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e23c08405bed5f458d4fae23cfe44f8e
+        - ElementName: Player
+          ObjectType: 12
+          guid: 66b226ded1bec241a22e67342f77e9c0
+        - ElementName: CDPlayer
+          ObjectType: 12
+          guid: 90cae068c17ff44f9f442dd1902406f0
+        - ElementName: NowPlaying
+          ObjectType: 11
+          guid: 46d50b20e070cc44ae6578038aa295eb
+        - ElementName: FUG
+          ObjectType: 10
+          guid: 04b6c5c3c0a7fe40999339f1c53a21f8
+      - name: LIH
+        guid: 5dfb0273c9c3cc418a62c1a7fd667404
+        id: 444705608
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e23c08405bed5f458d4fae23cfe44f8e
+        - ElementName: Player
+          ObjectType: 12
+          guid: 66b226ded1bec241a22e67342f77e9c0
+        - ElementName: CDPlayer
+          ObjectType: 12
+          guid: 90cae068c17ff44f9f442dd1902406f0
+        - ElementName: NowPlaying
+          ObjectType: 11
+          guid: 46d50b20e070cc44ae6578038aa295eb
+        - ElementName: LIH
+          ObjectType: 10
+          guid: 5dfb0273c9c3cc418a62c1a7fd667404
       - name: NPR
         guid: 86513be877aa8a41b6e1246c536171b9
         id: 662417179
@@ -1736,6 +1906,28 @@ MonoBehaviour:
         - ElementName: NPR
           ObjectType: 10
           guid: 86513be877aa8a41b6e1246c536171b9
+      - name: SOW
+        guid: 838fb2a386b2e24393db0f1536f65797
+        id: 544238342
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e23c08405bed5f458d4fae23cfe44f8e
+        - ElementName: Player
+          ObjectType: 12
+          guid: 66b226ded1bec241a22e67342f77e9c0
+        - ElementName: CDPlayer
+          ObjectType: 12
+          guid: 90cae068c17ff44f9f442dd1902406f0
+        - ElementName: NowPlaying
+          ObjectType: 11
+          guid: 46d50b20e070cc44ae6578038aa295eb
+        - ElementName: SOW
+          ObjectType: 10
+          guid: 838fb2a386b2e24393db0f1536f65797
       - name: Static
         guid: eaf66da3f203f74cbbfccc0ee067a64f
         id: 1409504247
@@ -1758,6 +1950,28 @@ MonoBehaviour:
         - ElementName: Static
           ObjectType: 10
           guid: eaf66da3f203f74cbbfccc0ee067a64f
+      - name: WLZ
+        guid: 0a99cee6360448459f3a2b8ce7845ac4
+        id: 1030097862
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e23c08405bed5f458d4fae23cfe44f8e
+        - ElementName: Player
+          ObjectType: 12
+          guid: 66b226ded1bec241a22e67342f77e9c0
+        - ElementName: CDPlayer
+          ObjectType: 12
+          guid: 90cae068c17ff44f9f442dd1902406f0
+        - ElementName: NowPlaying
+          ObjectType: 11
+          guid: 46d50b20e070cc44ae6578038aa295eb
+        - ElementName: WLZ
+          ObjectType: 10
+          guid: 0a99cee6360448459f3a2b8ce7845ac4
       ValueGuids: []
       ValueIcons: []
       valuesInternal: []

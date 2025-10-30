@@ -10997,3 +10997,234 @@ Memory consumption went from 188.4 MB to 183.5 MB.
 Total: 5.567875 ms (FindLiveObjects: 0.366750 ms CreateObjectMapping: 0.153167 ms MarkObjects: 3.702292 ms  DeleteObjects: 1.345166 ms)
 
 Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+LogWwiseProjectDatabase Log: Platform Mac: Having both "Generate All Banks Metadata file" and "Generate Per Bank Metadata file" will use the latter.
+Thread 0x1705f3000 may have been prematurely finalized
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.511 seconds
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 0.98 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.540 seconds
+Domain Reload Profiling: 1055ms
+	BeginReloadAssembly (157ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (10ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (63ms)
+	RebuildCommonClasses (25ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (30ms)
+	LoadAllAssembliesAndSetupDomain (295ms)
+		LoadAssemblies (210ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (117ms)
+			TypeCache.Refresh (10ms)
+				TypeCache.ScanAssembly (1ms)
+			BuildScriptInfoCaches (97ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (540ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (417ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (1ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (83ms)
+			ProcessInitializeOnLoadAttributes (300ms)
+			ProcessInitializeOnLoadMethodAttributes (29ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (35ms)
+WARNING: Shader Unsupported: 'Universal Render Pipeline/VR/SpatialMapping/Wireframe' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/VR/SpatialMapping/Wireframe' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+Refreshing native plugins compatible for Editor in 1.18 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7779 unused Assets / (4.9 MB). Loaded Objects now: 8971.
+Memory consumption went from 188.4 MB to 183.5 MB.
+Total: 5.826625 ms (FindLiveObjects: 0.370334 ms CreateObjectMapping: 0.137750 ms MarkObjects: 3.892500 ms  DeleteObjects: 1.425542 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 12330.904656 seconds.
+  path: Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset
+  artifactKey: Guid(bab1015a6931c41bfa8f8612d6c9cfc9) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset using Guid(bab1015a6931c41bfa8f8612d6c9cfc9) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '27c5877a17da3431d8b4ab875000df30') in 0.124172708 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/StreamingAssets/Audio/GeneratedSoundBanks/Mac/LevelSFX.json
+  artifactKey: Guid(518d7a9ab828a476c9703c91221cceea) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/StreamingAssets/Audio/GeneratedSoundBanks/Mac/LevelSFX.json using Guid(518d7a9ab828a476c9703c91221cceea) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'cbb3c15bbbd55185fae2ec5f8dd603c2') in 0.001867125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/_ART/Materials/Player/MAT_Van.mat
+  artifactKey: Guid(10d0affaaed1e41348f4910ce33f73e8) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Materials/Player/MAT_Van.mat using Guid(10d0affaaed1e41348f4910ce33f73e8) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'fdbe925838eb21c4ea2450426c8f0dc0') in 0.025162708 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/_ART/Textures/Player/TEX_PlayerVan_Emissive.png
+  artifactKey: Guid(1ea953b6087e542ffb30a0e1368c0b84) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Textures/Player/TEX_PlayerVan_Emissive.png using Guid(1ea953b6087e542ffb30a0e1368c0b84) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1266facb972bd26bc345138f41a902b5') in 0.031356584 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000074 seconds.
+  path: Assets/_SCRIPTS/Audio/AudioManager.cs
+  artifactKey: Guid(188abf0ed84d64c2f8deeadc8b54deff) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_SCRIPTS/Audio/AudioManager.cs using Guid(188abf0ed84d64c2f8deeadc8b54deff) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0e5559328afb50ab344eb2c9714676c1') in 0.009118333 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/LevelSFX.bnk
+  artifactKey: Guid(595773f5b36ea4b4092885f026432891) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/LevelSFX.bnk using Guid(595773f5b36ea4b4092885f026432891) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '50b239b88b1c025ed2a8866e75ee6a3b') in 0.001677083 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000054 seconds.
+  path: Assets/_SCENES/Level.unity
+  artifactKey: Guid(99c9720ab356a0642a771bea13969a05) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_SCENES/Level.unity using Guid(99c9720ab356a0642a771bea13969a05) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'a5750c4f76b6268ed1db5a257db1510c') in 0.013929792 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/StreamingAssets/Audio/GeneratedSoundBanks/Mac/SoundbanksInfo.json
+  artifactKey: Guid(d57d07df8fc1645e4abeaccf6ff0aedc) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/StreamingAssets/Audio/GeneratedSoundBanks/Mac/SoundbanksInfo.json using Guid(d57d07df8fc1645e4abeaccf6ff0aedc) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e3315e7c08be8764b995533cd22d32b2') in 0.00211725 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/_SCRIPTS/Generation/FoliageGenerator.cs
+  artifactKey: Guid(9495dd2121f8f461ba0f0b84c4423444) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_SCRIPTS/Generation/FoliageGenerator.cs using Guid(9495dd2121f8f461ba0f0b84c4423444) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e692ba089226aa25eabec7004df70b42') in 0.00171475 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000053 seconds.
+  path: Assets/_ART/Materials/Player/MAT_Trunk.mat
+  artifactKey: Guid(1940bef600bf84a6a8e201be13c25c50) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Materials/Player/MAT_Trunk.mat using Guid(1940bef600bf84a6a8e201be13c25c50) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6472f7e0b20c6d366cda8fb2dddba136') in 0.006356417 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000071 seconds.
+  path: Assets/_SCRIPTS/UI/Level/ScreenManager.cs
+  artifactKey: Guid(09f9df4dab12142289251fe0e154d86d) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_SCRIPTS/UI/Level/ScreenManager.cs using Guid(09f9df4dab12142289251fe0e154d86d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '24e3288b0fd14522bbbf7839d3d5b395') in 0.004071333 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/StreamingAssets/Audio/GeneratedSoundBanks/Mac/Global.bnk
+  artifactKey: Guid(4d66b9f98787941df8647bf69a59a392) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/StreamingAssets/Audio/GeneratedSoundBanks/Mac/Global.bnk using Guid(4d66b9f98787941df8647bf69a59a392) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1e37e534c04a563cc1f31dd7c1a855c9') in 0.001654416 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/_ART/Materials/Player/MAT_TrumpetLaser.mat
+  artifactKey: Guid(e6194fa37c4c84b39a98d97df888343d) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_ART/Materials/Player/MAT_TrumpetLaser.mat using Guid(e6194fa37c4c84b39a98d97df888343d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'cbbdcc7c341e5d8762c11f61ad5c2778') in 0.010123542 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/_SCRIPTS/Dialogue/_generated/DialogueEnum.cs
+  artifactKey: Guid(101626615b4b4490a968cd9b6645fca1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_SCRIPTS/Dialogue/_generated/DialogueEnum.cs using Guid(101626615b4b4490a968cd9b6645fca1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'a3726ce8cda65b8cf5ee3bccc659049c') in 0.001813208 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Assets/_SCRIPTS/Player/Stats/VanDamage.cs
+  artifactKey: Guid(f3432b6f68d6d47b58da4b48a45ca307) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_SCRIPTS/Player/Stats/VanDamage.cs using Guid(f3432b6f68d6d47b58da4b48a45ca307) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e107244a47adfc3092cf8e38fc3af74c') in 0.001824292 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/LevelSFX.json
+  artifactKey: Guid(41b195df2df7b47c1b4668406b7b2208) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/LevelSFX.json using Guid(41b195df2df7b47c1b4668406b7b2208) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '7c33f5bde0ea5c11095ce2c97e44815b') in 0.001739959 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/SoundbanksInfo.json
+  artifactKey: Guid(196fc8d1192ee47c9821a2fbb8ae0045) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/SoundbanksInfo.json using Guid(196fc8d1192ee47c9821a2fbb8ae0045) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '39c4993e78bb4065ae69b6c8b7139766') in 0.001602667 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/StreamingAssets/Audio/GeneratedSoundBanks/Mac/Global.txt
+  artifactKey: Guid(a6931db077353428fad97ef48ed465f4) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/StreamingAssets/Audio/GeneratedSoundBanks/Mac/Global.txt using Guid(a6931db077353428fad97ef48ed465f4) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6d1a87b409e6cc83f41f15d6e4ce6cc4') in 0.001547708 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/_SCENES/Shop.unity
+  artifactKey: Guid(ce157d5e14dbb496db926218dfde7ec8) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_SCENES/Shop.unity using Guid(ce157d5e14dbb496db926218dfde7ec8) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1a66d711bfb16a01279f4bab6656d8ae') in 0.007601917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+AssetImportWorker is now disconnected from the server
+Process exiting
+LogWwiseProjectDatabase Log: Platform Mac: Having both "Generate All Banks Metadata file" and "Generate Per Bank Metadata file" will use the latter.

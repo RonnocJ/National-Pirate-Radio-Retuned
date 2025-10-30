@@ -20,10 +20,10 @@ MonoBehaviour:
     bankName: Shop
     eventId: 1197348043
   - eventName: playCDMusic
-    bankName: EVG
+    bankName: LIH
     eventId: 3752191667
   - eventName: setStatic
-    bankName: EVG
+    bankName: LIH
     eventId: 185187129
   - eventName: playMouseClick
     bankName: Global

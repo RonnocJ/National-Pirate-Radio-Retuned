@@ -228,16 +228,46 @@
       "GUID": "{200BD546-70E0-44CC-AE65-78038AA295EB}",
       "Switches": [
        {
+        "Id": "444705608",
+        "Name": "LIH",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\LIH",
+        "GUID": "{7302FB5D-C3C9-41CC-8A62-C1A7FD667404}"
+       },
+       {
+        "Id": "544238342",
+        "Name": "SOW",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\SOW",
+        "GUID": "{A3B28F83-B286-43E2-93DB-0F1536F65797}"
+       },
+       {
         "Id": "662417179",
         "Name": "NPR",
         "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\NPR",
         "GUID": "{E83B5186-AA77-418A-B6E1-246C536171B9}"
        },
        {
+        "Id": "765054347",
+        "Name": "BRD",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\BRD",
+        "GUID": "{62DA2B9A-6C14-4B94-9D20-8E6AB8BD9B3D}"
+       },
+       {
         "Id": "932389263",
         "Name": "EVG",
         "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\EVG",
         "GUID": "{4B3BF5EA-C883-4501-BA08-9A538A19CD3C}"
+       },
+       {
+        "Id": "982472045",
+        "Name": "FUG",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\FUG",
+        "GUID": "{C3C5B604-A7C0-40FE-9993-39F1C53A21F8}"
+       },
+       {
+        "Id": "1030097862",
+        "Name": "WLZ",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\CDPlayer\\NowPlaying\\WLZ",
+        "GUID": "{E6CE990A-0436-4548-9F3A-2B8CE7845AC4}"
        },
        {
         "Id": "1409504247",
@@ -727,6 +757,6 @@
     ]
    }
   ],
-  "FileHash": "{DABB2C82-6C4A-A6A2-E03A-1B06263E4943}"
+  "FileHash": "{E8982918-C646-FED3-D2A9-96749D487A3C}"
  }
 }
