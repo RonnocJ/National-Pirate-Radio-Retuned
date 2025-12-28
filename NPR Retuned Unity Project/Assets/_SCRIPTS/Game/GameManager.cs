@@ -9,7 +9,8 @@ public enum GameState
     Title,
     Talking,
     Shop,
-    Level
+    Level,
+    Debt
 }
 public enum PlayerState
 {
@@ -18,10 +19,19 @@ public enum PlayerState
     Weapon = 2,
     Dead = 3
 }
-public class GameManager : Singleton<GameManager>, ISaveData
+public class GameManager : Singleton<GameManager>
 {
-    public bool NewGame = true;
-    public int Runs = 0;
+    public bool Paused
+    {
+        get => _paused;
+        set
+        {
+            OnPauseSwitch?.Invoke(value);
+
+            _paused = value;
+        }
+    }
+    [SerializeField] private bool _paused;
     [SerializeField] private GameState _currentGState;
     public GameState CurrentGState
     {
@@ -50,6 +60,7 @@ public class GameManager : Singleton<GameManager>, ISaveData
             }
         }
     }
+    public Action<bool> OnPauseSwitch;
     public Action<GameState> OnGStateSwitch;
     public Action<PlayerState> OnPStateSwitch;
     public void ClearActions()
@@ -57,33 +68,11 @@ public class GameManager : Singleton<GameManager>, ISaveData
         OnGStateSwitch = new Action<GameState>(_ => { });
         OnPStateSwitch = new Action<PlayerState>(_ => { });
     }
-
-    public Dictionary<string, object> AddSaveData()
-    {
-        return new Dictionary<string, object>()
-        {
-            { "newGame", NewGame },
-
-            { "runs", Runs }
-        };
-    }
-    public void ReadSaveData(Dictionary<string, object> dataDict)
-    {
-        if (dataDict.TryGetValue("newGame", out object newGame))
-        {
-            NewGame = Convert.ToBoolean(newGame);
-        }
-
-        if (dataDict.TryGetValue("runs", out object runs))
-        {
-            Runs = Convert.ToInt32(runs);
-        }
-    }
     public void TriggerAfterLevelDialogue()
     {
-        Runs++;
+        PlayerStats.root.Runs++;
 
-        if (Runs == 1) StartCoroutine(NonDgUI.root.FadeToBlack(true, GameState.Talking));
-        else StartCoroutine(NonDgUI.root.FadeToBlack(true, GameState.Shop));
+        /*if (PlayerStats.root.Runs == 1) StartCoroutine(NonDgUI.root.FadeToBlack(true, GameState.Talking));
+        else*/ StartCoroutine(NonDgUI.root.FadeToBlack(true, GameState.Shop));
     }
 }

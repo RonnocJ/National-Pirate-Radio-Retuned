@@ -40,6 +40,7 @@ public class VanController : Singleton<VanController>
     [SerializeField] private float maxSpeed;
     [SerializeField] private float gravity = 9.81f;
     [SerializeField] private float slopeMultiplier;
+    [SerializeField] private float initalBoostForce;
     [SerializeField] private LayerMask terrainMask;
     [SerializeField] private AnimationCurve motorBoostCurve;
     [Header("AutoPilot Settings")]
@@ -50,13 +51,19 @@ public class VanController : Singleton<VanController>
     [Header("Wheel References")]
     [SerializeField] private WheelColliders wheelColliders;
     [SerializeField] private WheelMeshes wheelMeshes;
+    [SerializeField] private WheelEffects wheelParticles;
+    [Header("Wheel FX Settings")]
+    [SerializeField] private float particleSlipThreshold;
+    [SerializeField] private LayerMask grassMask;
     [Header("Misc References")]
     [SerializeField] private Transform needleTr;
     [SerializeField] private Material trunkMat;
+    [SerializeField] private ParticleSystem initialBoostParticles;
     private bool _stopController;
+    private bool _boosted;
     private GearState gearState;
     private float _steerAngle;
-    private float _slipAngle => Vector3.Angle(transform.forward, PlayerRb.linearVelocity - transform.forward);
+    private float _slipAngle => Vector3.Angle(transform.forward, PlayerRb.linearVelocity);
     private Coroutine _upShiftRoutine;
     private Coroutine _downShiftRoutine;
     private void Start()
@@ -64,8 +71,18 @@ public class VanController : Singleton<VanController>
         PlayerRb = GetComponent<Rigidbody>();
         PlayerRb.maxLinearVelocity = maxSpeed;
 
+        PInputManager.root.actions[PlayerActionType.Drive].onV2ValueChange += ApplyInitialBoost;
+
         AudioManager.root.PlaySound(AudioEvent.playVanEngine, gameObject);
         AudioManager.root.SetSwitch(AudioSwitch.Engine_BREAK_Started, gameObject);
+
+        AudioManager.root.PlaySound(AudioEvent.playTireSqueal, wheelMeshes.WheelBL.gameObject, 1);
+        AudioManager.root.PlaySound(AudioEvent.playTireSqueal, wheelMeshes.WheelBR.gameObject, 1);
+        AudioManager.root.PlaySound(AudioEvent.playTireSqueal, wheelMeshes.WheelFL.gameObject, 1);
+        AudioManager.root.PlaySound(AudioEvent.playTireSqueal, wheelMeshes.WheelFR.gameObject, 1);
+
+        GameManager.root.OnPauseSwitch += c => { if (c) InAutopilot = false; };
+        GameManager.root.OnPStateSwitch += c => { if (c != PlayerState.Weapon) InAutopilot = false; };
 
         VanDamage.root.OnPlayerDie += () =>
         {
@@ -73,13 +90,13 @@ public class VanController : Singleton<VanController>
             AudioManager.root.SetSwitch(AudioSwitch.Engine_BREAK_Stopped, gameObject);
         };
 
-        if (!GameManager.root.NewGame) RegisterAutopilotActions();
+        if (!PlayerStats.root.NewGame) RegisterAutopilotActions();
     }
     public void RegisterAutopilotActions()
     {
         PInputManager.root.actions[PlayerActionType.Find].bAction += () =>
         {
-            if (GameManager.root.CurrentPState == PlayerState.Weapon && (!GameManager.root.NewGame || Tutorial.root.Iteration > 2))
+            if (GameManager.root.CurrentPState == PlayerState.Weapon && (!PlayerStats.root.NewGame || Tutorial.root.Iteration > 2) && !GameManager.root.Paused)
             {
                 InAutopilot = !InAutopilot;
                 if (InAutopilot) autopilot.RebuildDrivePath();
@@ -116,7 +133,7 @@ public class VanController : Singleton<VanController>
             ApplyMotor();
             ApplyBrakes();
             ApplySteering();
-            ApplyWheelPos();
+            ApplyWheels();
         }
         else
         {
@@ -159,7 +176,7 @@ public class VanController : Singleton<VanController>
         float coupling = Mathf.Clamp01(Mathf.Lerp(minCoupling, 1f, Mathf.InverseLerp(0.1f, Mathf.Max(0.1f, clutchLockSpeed), speed)));
 
         float rpmTarget = Mathf.Lerp(Mathf.Lerp(idleRPM, redLine, Mathf.Clamp01(Mathf.Abs(DriveInput.y))), Mathf.Max(idleRPM - 100f, currentWheelRPM), coupling);
-        currentEngineRPM = Mathf.Lerp(currentEngineRPM <= 1f ? idleRPM : currentEngineRPM, rpmTarget, Time.deltaTime * rpmResponse);
+        currentEngineRPM = Mathf.Lerp(currentEngineRPM <= 1f ? idleRPM : currentEngineRPM, rpmTarget, Time.fixedDeltaTime * rpmResponse);
         currentEngineRPM = Mathf.Clamp(currentEngineRPM, idleRPM, redLine * 1.1f);
 
         currentTorque = hpToRPMCurve.Evaluate(currentEngineRPM / redLine) * motorForce * gearRatios[currentGear] * differentialRatio * 5252f / Mathf.Max(100f, currentEngineRPM);
@@ -182,6 +199,20 @@ public class VanController : Singleton<VanController>
         }
 
         needleTr.localRotation = Quaternion.Euler(Vector3.right * 13 + Vector3.forward * -((PlayerRb.linearVelocity.magnitude * 4) - 140));
+    }
+    private void ApplyInitialBoost(Vector2 driveInput)
+    {
+        if (GameManager.root.CurrentPState is PlayerState.Start or PlayerState.Dead) return;
+        if (_stopController) return;
+        if (InAutopilot) return;
+
+        if (!_boosted && driveInput.y > 0f && PlayerRb.linearVelocity.magnitude < 10f)
+        {
+            PlayerRb.AddForce(transform.forward * initalBoostForce, ForceMode.Impulse);
+            initialBoostParticles.Play();
+        }
+        if (driveInput.y > 0f) _boosted = true;
+        else if (driveInput.y <= 0f) _boosted = false;
     }
     IEnumerator ChangeGear(int gearChange)
     {
@@ -244,20 +275,56 @@ public class VanController : Singleton<VanController>
         wheelColliders.WheelFL.steerAngle = _steerAngle;
         wheelColliders.WheelFR.steerAngle = _steerAngle;
     }
-    private void ApplyWheelPos()
+    private void ApplyWheels()
     {
-        UpdateWheel(wheelColliders.WheelBL, wheelMeshes.WheelBL);
-        UpdateWheel(wheelColliders.WheelBR, wheelMeshes.WheelBR);
-        UpdateWheel(wheelColliders.WheelFL, wheelMeshes.WheelFL);
-        UpdateWheel(wheelColliders.WheelFR, wheelMeshes.WheelFR);
+        UpdateWheel(wheelColliders.WheelBL, wheelMeshes.WheelBL, wheelParticles.WheelBL);
+        UpdateWheel(wheelColliders.WheelBR, wheelMeshes.WheelBR, wheelParticles.WheelBR);
+        UpdateWheel(wheelColliders.WheelFL, wheelMeshes.WheelFL, wheelParticles.WheelFL);
+        UpdateWheel(wheelColliders.WheelFR, wheelMeshes.WheelFR, wheelParticles.WheelFR);
     }
-    private void UpdateWheel(WheelCollider col, MeshRenderer mesh)
+    private void UpdateWheel(WheelCollider col, MeshRenderer mesh, WheelFX fx)
     {
-        Vector3 pos;
-        Quaternion rot;
-        col.GetWorldPose(out pos, out rot);
+        col.GetWorldPose(out Vector3 pos, out Quaternion rot);
         mesh.transform.position = pos;
         mesh.transform.rotation = rot;
+
+        fx.Smoke.transform.parent.position = pos - mesh.transform.forward - (mesh.transform.up * 0.25f);
+        fx.Smoke.transform.parent.localRotation = Quaternion.Euler(-30f, col.steerAngle + 180f, 0f);
+
+        if (col.GetGroundHit(out WheelHit hit))
+        {
+            float slipAmount = Mathf.Abs(hit.forwardSlip) + Mathf.Abs(hit.sidewaysSlip);
+
+            if (slipAmount >= particleSlipThreshold)
+            {
+                if (!fx.Smoke.isPlaying) fx.Smoke.Play();
+            }
+            else if (fx.Smoke.isPlaying)
+            {
+                fx.Smoke.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            }
+
+            if (hit.collider.gameObject.layer == 6)
+            {
+                if (!fx.Dirt.isPlaying) fx.Dirt.Play();
+
+                ParticleSystem.EmissionModule emission = fx.Dirt.emission;
+                emission.rateOverTime = PlayerRb.linearVelocity.magnitude * 10f;
+            }
+            else
+            {
+                fx.Dirt.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            }
+
+            AudioManager.root.SetRTPC(AudioRTPC.WheelFriction, slipAmount, false, AudioEvent.playTireSqueal, mesh.gameObject);
+        }
+        else
+        {
+            fx.Smoke.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            fx.Dirt.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+
+            AudioManager.root.SetRTPC(AudioRTPC.WheelFriction, 0, false, AudioEvent.playTireSqueal, mesh.gameObject);
+        }
     }
 
     private void HandleAudio()
@@ -281,4 +348,18 @@ public class WheelMeshes
     public MeshRenderer WheelBR;
     public MeshRenderer WheelFL;
     public MeshRenderer WheelFR;
+}
+[Serializable]
+public class WheelEffects
+{
+    public WheelFX WheelBL;
+    public WheelFX WheelBR;
+    public WheelFX WheelFL;
+    public WheelFX WheelFR;
+}
+[Serializable]
+public class WheelFX
+{
+    public ParticleSystem Smoke;
+    public ParticleSystem Dirt;
 }

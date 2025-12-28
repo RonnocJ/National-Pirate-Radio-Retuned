@@ -20,9 +20,7 @@ public class SideBooster : AbilityDefinition
         childEmission.rateOverTime = 10 + (currentTime * 30);
     }
     public override void AbilityRelease(bool overloaded, float currentTime)
-    {
-        Debug.Log(currentTime);
-        
+    {        
         if (currentTime > 0)
         {
             base.AbilityRelease(overloaded, currentTime);

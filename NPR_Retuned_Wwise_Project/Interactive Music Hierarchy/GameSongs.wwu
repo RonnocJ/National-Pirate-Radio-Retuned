@@ -13,7 +13,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{41B5D519-AB6F-4EE3-BC3C-420CFE6AC1D2}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
+							<ObjectRef Name="MusicBus" ID="{9E6F5B83-3133-4515-BC1E-DD91A3AB4721}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
 						</Reference>
 						<Reference Name="TransitionRoot">
 							<Custom>
@@ -164,6 +164,13 @@
 							</ObjectLists>
 						</MusicSegment>
 						<MusicPlaylistContainer Name="Static" ID="{B61EEE57-A6B7-449C-A431-A972C759A206}" ShortID="808141810">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{41B5D519-AB6F-4EE3-BC3C-420CFE6AC1D2}"/>
@@ -720,9 +727,7 @@
 								<ObjectList Name="Effects">
 									<Reference>
 										<Local>
-											<EffectSlot Name="" ID="{979265B6-4708-4F92-8E84-322E54CD6FBF}" ShortID="789022027">
-												<ReferenceList/>
-											</EffectSlot>
+											<EffectSlot Name="" ID="{979265B6-4708-4F92-8E84-322E54CD6FBF}" ShortID="789022027"/>
 										</Local>
 									</Reference>
 								</ObjectList>

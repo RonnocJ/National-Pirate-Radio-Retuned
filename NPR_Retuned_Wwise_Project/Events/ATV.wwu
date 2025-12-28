@@ -8,7 +8,7 @@
 						<Action Name="" ID="{9A9BAB3A-AB6B-433F-BC87-8DCBC24151A1}" ShortID="447918277">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Attack" ID="{CC41302B-2D1D-4E1E-9077-85644DB5FE88}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+									<ObjectRef Name="Attack" ID="{CC41302B-2D1D-4E1E-9077-85644DB5FE88}" WorkUnitID="{AFBB8294-2DE2-4504-8363-70F17225B8B1}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -19,7 +19,7 @@
 						<Action Name="" ID="{EDF93B7F-EE10-45CF-B61C-F172EF4735BE}" ShortID="495587574">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Blast" ID="{B530641A-E364-41D4-9852-9288F08703BA}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+									<ObjectRef Name="Blast" ID="{B530641A-E364-41D4-9852-9288F08703BA}" WorkUnitID="{AFBB8294-2DE2-4504-8363-70F17225B8B1}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

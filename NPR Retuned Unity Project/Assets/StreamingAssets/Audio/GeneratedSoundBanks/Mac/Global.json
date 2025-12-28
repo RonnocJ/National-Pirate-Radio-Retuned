@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{F9CADABE-29C7-4907-BEBD-5EF68EC00710}",
     "Language": "SFX",
-    "Hash": "{FA3D8660-7A63-E093-6BB9-3268B573142B}",
+    "Hash": "{561AEB07-5560-0ABA-169F-05C10635C6E5}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Global",
     "ShortName": "Global",
     "Path": "Global.bnk",
@@ -26,6 +26,16 @@
     ],
     "Events": [
      {
+      "Id": "4091047182",
+      "Name": "pauseAll",
+      "ObjectPath": "\\Events\\Default Work Unit\\Global\\pauseAll",
+      "GUID": "{D3AEAAD2-2A7D-4284-A67D-5E1DF091DEF9}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
+     {
       "Id": "436537884",
       "Name": "playMouseClick",
       "ObjectPath": "\\Events\\Default Work Unit\\Global\\playMouseClick",
@@ -40,6 +50,16 @@
       ]
      },
      {
+      "Id": "3240900869",
+      "Name": "resumeAll",
+      "ObjectPath": "\\Events\\Default Work Unit\\Global\\resumeAll",
+      "GUID": "{9CC02CEE-53EF-46C6-9C2F-8C34AF9FA55A}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
+     {
       "Id": "3086540886",
       "Name": "stopAll",
       "ObjectPath": "\\Events\\Default Work Unit\\Global\\stopAll",
@@ -52,6 +72,6 @@
     ]
    }
   ],
-  "FileHash": "{C2AC04F2-F888-CC3F-C7E1-E8B0FC98DAA2}"
+  "FileHash": "{7CF06B2F-07AE-E4B0-F3DB-F87A0A8534AF}"
  }
 }

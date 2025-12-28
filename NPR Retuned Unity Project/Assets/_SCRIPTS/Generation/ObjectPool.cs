@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class ObjectPool
 {
-    private readonly Queue<GameObject> _activePool = new();
+    private readonly List<GameObject> _activeList = new();
     private readonly Queue<GameObject> _inactivePool = new();
     private int _createdCount = 0;
 
@@ -26,81 +25,51 @@ public class ObjectPool
     }
     public GameObject Get(GameObject[] variants, Transform parent)
     {
-        if (_activePool.Count == 0)
+        if (_inactivePool.Count == 0)
         {
             AddRandomInstance(variants, parent);
         }
 
-        GameObject obj;
+        var obj = _inactivePool.Dequeue();
 
-        if (_inactivePool.Count > 0)
-        {
-            obj = _inactivePool.Dequeue();
-        }
-        else
-        {
-            obj = _activePool.Dequeue();
-        }
-        
         obj.SetActive(true);
-        _activePool.Enqueue(obj);
+        _activeList.Add(obj);
         return obj;
     }
     public GameObject Get(GameObject prefab, Transform parent)
     {
-       if (_activePool.Count == 0)
+       if (_inactivePool.Count == 0)
         {
             AddRandomInstance(prefab, parent);
         }
 
-        GameObject obj;
+        var obj = _inactivePool.Dequeue();
 
-        if (_inactivePool.Count > 0)
-        {
-            obj = _inactivePool.Dequeue();
-        }
-        else
-        {
-            obj = _activePool.Dequeue();
-        }
-        
         obj.SetActive(true);
-        _activePool.Enqueue(obj);
+        _activeList.Add(obj);
         return obj;
     }
     public void Return(GameObject obj)
     {
         if (obj == null) return;
-        obj.SetActive(false);
-        _inactivePool.Enqueue(obj);
+
+        if (_activeList.Remove(obj))
+        {
+            obj.SetActive(false);
+            _inactivePool.Enqueue(obj);
+        }
     }
 
     public void SortActiveByDistance(Vector3 referencePosition)
     {
-        if (_activePool.Count < 2) return;
+        if (_activeList.Count < 2) return;
 
-        var ordered = new List<GameObject>(_activePool.Count);
-
-        while (_activePool.Count > 0)
-        {
-            GameObject obj = _activePool.Dequeue();
-            if (obj != null)
-            {
-                ordered.Add(obj);
-            }
-        }
-
-        ordered.Sort((a, b) =>
+        _activeList.Sort((a, b) =>
         {
             float distB = Vector3.SqrMagnitude(b.transform.position - referencePosition);
             float distA = Vector3.SqrMagnitude(a.transform.position - referencePosition);
             return distB.CompareTo(distA);
         });
-
-        for (int i = 0; i < ordered.Count; i++)
-        {
-            _activePool.Enqueue(ordered[i]);
-        }
     }
 
     private void AddRandomInstance(GameObject[] variants, Transform parent)

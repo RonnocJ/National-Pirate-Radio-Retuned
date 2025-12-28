@@ -10,7 +10,7 @@ public class CDButton : Interactable
     {
         base.OnClick();
 
-        if (GameManager.root.NewGame) Tutorial.root.AddDiscFill();
+        if (PlayerStats.root.NewGame) Tutorial.root.AddDiscFill();
 
         cdWheel.SelectedSong(Song);
     }

@@ -38,6 +38,77 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2560, y: 1440}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1891240479923935843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1656612313790814507}
+  - component: {fileID: 3215287839539531571}
+  - component: {fileID: 6704763738921600465}
+  m_Layer: 0
+  m_Name: Stats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1656612313790814507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891240479923935843}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6677827799743396170}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3215287839539531571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891240479923935843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a7e2c552fcb47f293052606f64c666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  NewGame: 1
+  Runs: 0
+  EnemyKills: 0
+  VehicleSpeed: 1
+  WeaponDamage: 1
+  AbilityStrength: 1
+  RegenAmount: 10
+  RegenDelay: 2.5
+  MaxHype: 100
+  CurrentMoney: 0
+  LastRunMoney: 0
+  FCCFine: 50
+  VanUpkeep: 25
+--- !u!114 &6704763738921600465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891240479923935843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a2ab71beb7a24b39932b73686fcf51b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectIDManager
+  uniqueId: f89c005e-dad8-487c-8d3d-7b9039c328c5
 --- !u!1 &2867070628958163579
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,6 +750,7 @@ Transform:
   - {fileID: 2713625290405913221}
   - {fileID: 2909158977475413843}
   - {fileID: 3826314049697436834}
+  - {fileID: 1656612313790814507}
   - {fileID: 3838051573232284588}
   - {fileID: 8824550000445464084}
   - {fileID: 6107357637361306454}
@@ -1025,7 +1097,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3826314049697436834}
   - component: {fileID: 3330000001603767221}
-  - component: {fileID: 5837815733511468571}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -1060,20 +1131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a2619427a5d496cb5bacbf23ef82b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  NewGame: 1
-  CurrentStage: 0
+  _paused: 0
   _currentGState: 0
   _currentPState: 0
---- !u!114 &5837815733511468571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8884145880579729086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a2ab71beb7a24b39932b73686fcf51b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ObjectIDManager
-  uniqueId: ee976b81-4508-4118-998c-4c872a4b160a

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Trumpet : VanWeapon
@@ -12,6 +14,9 @@ public class Trumpet : VanWeapon
     [SerializeField] private float beamCurveSpeed;
     [SerializeField] private LineRenderer laserBeam;
     [SerializeField] private Material laserMat;
+    [SerializeField] private ParticleSystem fireParticles;
+    [SerializeField] private Transform hitEffect;
+    [SerializeField] private ParticleSystem hitParticles;
     private float _timer;
     private float _palmXRot;
     private Vector3 _valve01Target;
@@ -35,6 +40,13 @@ public class Trumpet : VanWeapon
     {
         base.AimWeapon();
     }
+    protected override void StartFireWeapon()
+    {
+        base.StartFireWeapon();
+
+        fireParticles.Play();
+        AudioManager.root.PlaySound(AudioEvent.playTrumpetFireFull, gameObject);
+    }
     protected override void FireWeapon()
     {
         base.FireWeapon();
@@ -53,15 +65,15 @@ public class Trumpet : VanWeapon
 
             _palmXRot = 0f;
 
-            _valve01Target.y = (r == 0) ? 0.6f : 0.5f;
+            _valve01Target.y = (r == 0) ? 0.4f : 0.3f;
             _palmXRot += (r == 0) ? 0f : -5f;
 
             r = Random.Range(0, 2);
-            _valve02Target.y = (r == 0) ? 0.6f : 0.5f;
+            _valve02Target.y = (r == 0) ? 0.4f : 0.3f;
             _palmXRot += (r == 0) ? 0f : -5f;
 
             r = Random.Range(0, 2);
-            _valve03Target.y = (r == 0) ? 0.6f : 0.5f;
+            _valve03Target.y = (r == 0) ? 0.4f : 0.3f;
             _palmXRot += (r == 0) ? 0f : -5f;
 
             _timer = 0f;
@@ -78,7 +90,7 @@ public class Trumpet : VanWeapon
                 float lerpSpeed = Mathf.Lerp(beamCurveSpeed * 0.25f, beamCurveSpeed, Mathf.Abs(0.5f - t) * 2f);
 
                 Vector3 targetPos = Vector3.Lerp(laserBeam.transform.position, HitTarget, t);
-                laserBeam.SetPosition(i, Vector3.Lerp(laserBeam.GetPosition(i), targetPos + Random.insideUnitSphere * 0.1f, Time.deltaTime * lerpSpeed));
+                laserBeam.SetPosition(i, Vector3.Lerp(laserBeam.GetPosition(i), targetPos + Random.insideUnitSphere * 0.5f, Time.deltaTime * lerpSpeed));
             }
         }
 
@@ -86,13 +98,27 @@ public class Trumpet : VanWeapon
 
         var hits = Physics.SphereCastAll(transform.position, 0.25f, transform.forward, weaponRange, 1 << 15);
 
-        foreach (var h in hits)
+        if(hits.Length == 0)
         {
-            if (h.collider.TryGetComponent(out Enemy e))
+            hitParticles.Stop();
+            return;
+        }
+
+        for (int i = 0; i < hits.Length; i++)
+        {
+            if (hits[i].collider.TryGetComponent(out Enemy e))
             {
+                if(i == 0)
+                {
+                    hitEffect.position = hits[i].point;
+                    hitEffect.forward = hits[i].normal;
+                    hitParticles.Play();
+                }
+
                 e.DamageEnemy(weaponDamage * Time.deltaTime);
             }
         }
+        
     }
     protected override void StopFireWeapon()
     {
@@ -102,5 +128,9 @@ public class Trumpet : VanWeapon
         {
             laserBeam.SetPosition(i, laserBeam.transform.position);
         }
+
+        fireParticles.Stop();
+        hitParticles.Stop();
+        AudioManager.root.StopSound(AudioEvent.playTrumpetFireFull, gameObject);
     }
 }

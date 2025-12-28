@@ -9,7 +9,7 @@
 						<Action Name="" ID="{1F1EA418-9CDB-49F5-9A42-4AB68C024F87}" ShortID="106534846">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="TTS_Voice" ID="{3172F14A-36C7-407E-B1E2-7E49D8FF60C3}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+									<ObjectRef Name="TTS_Voice" ID="{3172F14A-36C7-407E-B1E2-7E49D8FF60C3}" WorkUnitID="{AFBB8294-2DE2-4504-8363-70F17225B8B1}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

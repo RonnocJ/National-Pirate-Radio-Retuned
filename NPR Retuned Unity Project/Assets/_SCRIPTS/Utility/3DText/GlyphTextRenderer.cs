@@ -50,26 +50,18 @@ public class GlyphTextRenderer : MonoBehaviour
     private readonly List<float> _lineMinCache = new List<float>();
     private readonly List<float> _lineMaxCache = new List<float>();
     private readonly List<float> _lineOffsetCache = new List<float>();
-
-    public void SetText(TextLine line)
-    {
-        if (line == null)
-        {
-            text = string.Empty;
-            if (_textRoutine != null) StopCoroutine(_textRoutine);
-            _textRoutine = null;
-            return;
-        }
-
-        SetText(line.text, line.speed);
-    }
-
+    private int _alreadyVisibleCharacters;
     public void SetText(string content)
     {
         SetText(content, defaultCharDelay);
     }
 
     public void SetText(string content, float charDelay, bool playAudio = false)
+    {
+        SetText(content, charDelay, playAudio, 0);
+    }
+
+    public void SetText(string content, float charDelay, bool playAudio, int alreadyVisibleCharacters)
     {
         Mesh mesh = new Mesh();
         mesh.name = name;
@@ -84,12 +76,14 @@ public class GlyphTextRenderer : MonoBehaviour
 
         text = content;
         if (_textRoutine != null) StopCoroutine(_textRoutine);
+        _alreadyVisibleCharacters = Mathf.Clamp(alreadyVisibleCharacters, 0, content.Length);
         _textRoutine = StartCoroutine(TypeOut(content, charDelay, playAudio));
     }
 
     private IEnumerator TypeOut(string content, float charDelay, bool playAudio)
     {
         _lastBuiltText = content ?? string.Empty;
+        int skipCharacters = Mathf.Clamp(_alreadyVisibleCharacters, 0, _lastBuiltText.Length);
 
         var verts = new List<Vector3>();
         var norms = new List<Vector3>();
@@ -210,9 +204,15 @@ public class GlyphTextRenderer : MonoBehaviour
             mesh.RecalculateBounds();
 
             if (charDelay > 0f)
-                yield return new WaitForSeconds(charDelay);
+            {
+                if (i >= skipCharacters)
+                {
+                    yield return new WaitForSeconds(charDelay);
+                }
+            }
         }
 
+        _alreadyVisibleCharacters = 0;
         if (playAudio) AudioManager.root.StopSound(AudioEvent.playTTSVoice, gameObject, 1);
     }
     public void ClearText()

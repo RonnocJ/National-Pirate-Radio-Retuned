@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{AD8B0135-A46D-460C-AC79-E16301949886}" SchemaVersion="123" RootDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" ParentDocumentID="{ED858FA2-BB56-4A82-A062-DE22A070F968}">
+	<Events>
+		<WorkUnit Name="Trumpet" ID="{AD8B0135-A46D-460C-AC79-E16301949886}" OwnerID="{ED858FA2-BB56-4A82-A062-DE22A070F968}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="playTrumpetFireFull" ID="{BA2BF905-3997-42A9-BB79-4F05BE45E90E}">
+					<ChildrenList>
+						<Action Name="" ID="{A49E245E-BF26-468A-AD3C-BC1B38A80511}" ShortID="469147287">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Trumpet_Fire" ID="{55498C3D-6E8F-4B4A-9F08-A77B0246228B}" WorkUnitID="{AFBB8294-2DE2-4504-8363-70F17225B8B1}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{E582D865-6E20-4A49-9F33-C7C27ACE2D8B}" ShortID="512812038">
+							<PropertyList>
+								<Property Name="Delay" Type="Real64" Value="0.05"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Trumpet_FireLoop" ID="{6AF2528D-17B4-427B-911F-2166277B5694}" WorkUnitID="{AFBB8294-2DE2-4504-8363-70F17225B8B1}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

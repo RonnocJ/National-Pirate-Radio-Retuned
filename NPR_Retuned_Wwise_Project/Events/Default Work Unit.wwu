@@ -9,6 +9,7 @@
 				<WorkUnit Name="Music" ID="{761AC304-39E8-49DA-BEFE-A50C3CAE180C}" PersistMode="Reference"/>
 				<WorkUnit Name="Global" ID="{014851CA-D081-414E-A3E6-0918B46BB502}" PersistMode="Reference"/>
 				<WorkUnit Name="UI" ID="{6691DCFD-DB3A-434A-8FDD-DAB5C90CAD03}" PersistMode="Reference"/>
+				<WorkUnit Name="Dialogue" ID="{7EDED435-3E87-4A16-A6B3-426B7BBFFDAB}" PersistMode="Reference"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

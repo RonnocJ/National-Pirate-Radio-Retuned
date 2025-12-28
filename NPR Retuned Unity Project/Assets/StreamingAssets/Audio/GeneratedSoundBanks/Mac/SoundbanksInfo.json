@@ -18,7 +18,7 @@
     "Type": "User",
     "GUID": "{1640F93C-9564-4BCA-831D-0FC4C39B78BB}",
     "Language": "SFX",
-    "Hash": "{C0291FA9-0FE5-D114-7607-8800251DE90E}",
+    "Hash": "{EAE574BA-06B2-3D9F-31B1-5FC70B2312B6}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Shop",
     "ShortName": "Shop",
     "Path": "Shop.bnk",
@@ -76,7 +76,7 @@
     "Type": "User",
     "GUID": "{F6071A6F-6B3E-4D37-811B-2B344AEA26C1}",
     "Language": "SFX",
-    "Hash": "{63D5A693-3E57-00B5-8C43-F3CF086D2928}",
+    "Hash": "{C6F87429-7A41-4723-A523-17AA5539C763}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Songs\\LIH",
     "ShortName": "LIH",
     "Path": "LIH.bnk",
@@ -197,7 +197,7 @@
     "Type": "User",
     "GUID": "{09D144F7-908A-461E-9709-4F6492D991D4}",
     "Language": "SFX",
-    "Hash": "{762F3157-5CD1-B8F3-1F36-2A5298510C13}",
+    "Hash": "{19BB65F6-8556-4C0B-8BF6-B5C4CC0378EF}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Songs\\SOW",
     "ShortName": "SOW",
     "Path": "SOW.bnk",
@@ -318,7 +318,7 @@
     "Type": "User",
     "GUID": "{699F1252-B778-44D1-AE27-56F2DA2047E2}",
     "Language": "SFX",
-    "Hash": "{B887D82F-5535-3443-F6BE-85C6E21F3384}",
+    "Hash": "{D78A3BF3-DC7B-6011-94B2-86282C96D0B2}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Songs\\BRD",
     "ShortName": "BRD",
     "Path": "BRD.bnk",
@@ -439,7 +439,7 @@
     "Type": "User",
     "GUID": "{124C86E6-9680-48A4-9CEB-F7DEA6913318}",
     "Language": "SFX",
-    "Hash": "{385D6931-BED5-1B85-3355-1F6227CD8B38}",
+    "Hash": "{371292AA-7366-5899-17A1-3A004BC5C830}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Songs\\EVG",
     "ShortName": "EVG",
     "Path": "EVG.bnk",
@@ -560,7 +560,7 @@
     "Type": "User",
     "GUID": "{01E97D24-4EF5-4C3F-8743-B0C961FFF0CC}",
     "Language": "SFX",
-    "Hash": "{DBF7868D-1FAA-F607-2D0D-6B9C1BAE536B}",
+    "Hash": "{197274E8-B7C8-0534-8EA3-ED7B02D80694}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Songs\\FUG",
     "ShortName": "FUG",
     "Path": "FUG.bnk",
@@ -681,7 +681,7 @@
     "Type": "User",
     "GUID": "{FA3A1568-D460-42C5-9B27-DAB6E42651BA}",
     "Language": "SFX",
-    "Hash": "{951A0C31-32F9-AF5E-EB34-779533D7223C}",
+    "Hash": "{8BDA2DB7-43C0-A5E4-C739-5B73E80B67D7}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Songs\\WLZ",
     "ShortName": "WLZ",
     "Path": "WLZ.bnk",
@@ -802,7 +802,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{B4E5C015-1DF1-A85B-2116-05D4D165C545}",
+    "Hash": "{3F9C3E3E-BBAC-8DB5-1599-466E8EBD3736}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -902,6 +902,12 @@
     ],
     "GameParameters": [
      {
+      "Id": "1006694123",
+      "Name": "Music_Volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\UI\\Music_Volume",
+      "GUID": "{3B0D0C9C-5F89-44E0-809A-279590FF72E3}"
+     },
+     {
       "Id": "1062779386",
       "Name": "Player_Speed",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Player\\Van\\Player_Speed",
@@ -924,6 +930,24 @@
       "Name": "Engine_Rev",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Engine_Rev",
       "GUID": "{30256972-EE2F-45AD-8BAA-EB8FCF554E95}"
+     },
+     {
+      "Id": "1564184899",
+      "Name": "SFX_Volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\UI\\SFX_Volume",
+      "GUID": "{6A95699B-85BD-4A48-838E-46DEF8346488}"
+     },
+     {
+      "Id": "2312172015",
+      "Name": "Main_Volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\UI\\Main_Volume",
+      "GUID": "{A8DFEC07-E47F-40EF-9C1D-C3DCD43322C1}"
+     },
+     {
+      "Id": "2477488076",
+      "Name": "WheelFriction",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Player\\Van\\WheelFriction",
+      "GUID": "{45C76E6B-9AD2-4096-B238-1E0F0A4DD811}"
      },
      {
       "Id": "2727184314",
@@ -1553,7 +1577,7 @@
     "Type": "User",
     "GUID": "{F9CADABE-29C7-4907-BEBD-5EF68EC00710}",
     "Language": "SFX",
-    "Hash": "{FA3D8660-7A63-E093-6BB9-3268B573142B}",
+    "Hash": "{561AEB07-5560-0ABA-169F-05C10635C6E5}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Global",
     "ShortName": "Global",
     "Path": "Global.bnk",
@@ -1569,6 +1593,16 @@
     ],
     "Events": [
      {
+      "Id": "4091047182",
+      "Name": "pauseAll",
+      "ObjectPath": "\\Events\\Default Work Unit\\Global\\pauseAll",
+      "GUID": "{D3AEAAD2-2A7D-4284-A67D-5E1DF091DEF9}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
+     {
       "Id": "436537884",
       "Name": "playMouseClick",
       "ObjectPath": "\\Events\\Default Work Unit\\Global\\playMouseClick",
@@ -1581,6 +1615,16 @@
         "Id": "911849986"
        }
       ]
+     },
+     {
+      "Id": "3240900869",
+      "Name": "resumeAll",
+      "ObjectPath": "\\Events\\Default Work Unit\\Global\\resumeAll",
+      "GUID": "{9CC02CEE-53EF-46C6-9C2F-8C34AF9FA55A}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
      },
      {
       "Id": "3086540886",
@@ -1599,7 +1643,7 @@
     "Type": "User",
     "GUID": "{F132A8A6-CE09-432B-878F-6B7B36947D3F}",
     "Language": "SFX",
-    "Hash": "{3143ACC9-CD9F-B404-07BF-E98ED611E941}",
+    "Hash": "{CE44075E-8488-50E2-2D11-B35704725D04}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\LevelSFX",
     "ShortName": "LevelSFX",
     "Path": "LevelSFX.bnk",
@@ -2518,7 +2562,7 @@
     "Type": "User",
     "GUID": "{500C3F74-5570-4CF4-9F79-6D6E719A305F}",
     "Language": "SFX",
-    "Hash": "{D85235CC-8D1B-22E4-69D7-F828022D02A7}",
+    "Hash": "{1E414B68-0259-80CA-9966-D8FCEF591478}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\VanSFX",
     "ShortName": "VanSFX",
     "Path": "VanSFX.bnk",
@@ -2548,6 +2592,14 @@
       "CachePath": "E5/{E5E8826E-E0B9-812D-6C40-87FA72B175F2}.wem"
      },
      {
+      "Id": "287493215",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Trumpet_FireLoop.wav",
+      "CachePath": "24/{24B602DA-3023-E0EC-13E7-A151BDAEF9BF}.wem"
+     },
+     {
       "Id": "584805829",
       "Language": "SFX",
       "Streaming": "false",
@@ -2564,12 +2616,28 @@
       "CachePath": "16/{16CCDD6D-7C97-27F7-DB10-BA7CC73C0900}.wem"
      },
      {
+      "Id": "737495885",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TireSqueal.wav",
+      "CachePath": "45/{45B88269-C4CB-756A-650E-0195F20F39F7}.wem"
+     },
+     {
       "Id": "742743554",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "3000 On Load Composite.wav",
       "CachePath": "4E/{4E165F79-2980-2B03-F79F-2F779456D028}.wem"
+     },
+     {
+      "Id": "746913725",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Trumpet_Fire.wav",
+      "CachePath": "82/{827DCCFB-0BC0-73D6-DAAA-9269BC5CCA4B}.wem"
      },
      {
       "Id": "842336508",
@@ -2593,7 +2661,7 @@
       {
        "Id": "198169026",
        "Name": "Synth One",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\Synth One",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SFX\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\Synth One",
        "GUID": "{DE7BA040-34AF-4BF1-87E1-4E379284FD32}",
        "LibName": "Wwise Synth One",
        "LibId": "9699330"
@@ -2601,7 +2669,7 @@
       {
        "Id": "203725194",
        "Name": "Parametric EQ (Custom)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\[Effect Slot [1]: (Parametric EQ)]\\Parametric EQ (Custom)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SFX\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\[Effect Slot [1]: (Parametric EQ)]\\Parametric EQ (Custom)",
        "GUID": "{33DB2E3E-570E-4AD3-AE77-5D6CC4531F92}",
        "LibName": "Wwise Parametric EQ",
        "LibId": "6881283"
@@ -2609,7 +2677,7 @@
       {
        "Id": "464193011",
        "Name": "Guitar Distortion (Custom)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\[Effect Slot [0]: (Guitar Distortion)]\\Guitar Distortion (Custom)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SFX\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\[Effect Slot [0]: (Guitar Distortion)]\\Guitar Distortion (Custom)",
        "GUID": "{34483FF5-88CB-472E-87FA-81EE705AEA8F}",
        "LibName": "Wwise Guitar Distortion",
        "LibId": "8257539"
@@ -2617,6 +2685,51 @@
      ]
     },
     "Events": [
+     {
+      "Id": "4002278104",
+      "Name": "playTireSqueal",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Van\\Tires\\playTireSqueal",
+      "GUID": "{680AA6D2-6E40-427E-91DD-B40DB74E9913}",
+      "MaxAttenuation": "32",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "737495885"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "3347336007",
+        "Name": "VanVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\GlobalBus\\SFXBus\\VanVerb",
+        "GUID": "{7D0BEEA6-0C82-4EB3-8FAF-8F4EE04017BF}"
+       }
+      ]
+     },
+     {
+      "Id": "549296393",
+      "Name": "playTrumpetFireFull",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Van\\Weapons\\Trumpet\\playTrumpetFireFull",
+      "GUID": "{BA2BF905-3997-42A9-BB79-4F05BE45E90E}",
+      "MaxAttenuation": "32",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "287493215"
+       },
+       {
+        "Id": "746913725"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "3347336007",
+        "Name": "VanVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\GlobalBus\\SFXBus\\VanVerb",
+        "GUID": "{7D0BEEA6-0C82-4EB3-8FAF-8F4EE04017BF}"
+       }
+      ]
+     },
      {
       "Id": "2430665392",
       "Name": "playVanEngine",
@@ -2704,6 +2817,12 @@
       "GUID": "{0727A64E-DCB7-4B80-AC81-98F141CD9CC6}"
      },
      {
+      "Id": "2477488076",
+      "Name": "WheelFriction",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Player\\Van\\WheelFriction",
+      "GUID": "{45C76E6B-9AD2-4096-B238-1E0F0A4DD811}"
+     },
+     {
       "Id": "2727184314",
       "Name": "Engine_Throttle",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Player\\Van\\Engine_Throttle",
@@ -2777,8 +2896,110 @@
       ]
      }
     ]
+   },
+   {
+    "Id": "3930136735",
+    "Type": "User",
+    "GUID": "{97B030DB-62AA-4D6C-8AE2-BE4A82928E59}",
+    "Language": "SFX",
+    "Hash": "{299733BE-BC15-5EB3-981E-AC39D73ABF46}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Dialogue",
+    "ShortName": "Dialogue",
+    "Path": "Dialogue.bnk",
+    "Media": [
+     {
+      "Id": "51437689",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GameIntro_01_JoeTools.wav",
+      "CachePath": "8C/{8C4E316C-5152-A093-4F62-DDFB64999A26}.wem"
+     },
+     {
+      "Id": "206843742",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GameIntro_05_JoeTools.wav",
+      "CachePath": "8F/{8F9A2105-A294-39CD-39B0-8C92CD45AB44}.wem"
+     },
+     {
+      "Id": "290675538",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GameIntro_07_FreeQuency.wav",
+      "CachePath": "13/{13936DD1-6A73-5A98-3F7E-DDA9ECAEADE9}.wem"
+     },
+     {
+      "Id": "354181712",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GameIntro_06_JoeTools.wav",
+      "CachePath": "43/{43F97B52-4218-D753-045C-951E369E1BA6}.wem"
+     },
+     {
+      "Id": "555064223",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GameIntro_04_FreeQuency.wav",
+      "CachePath": "C4/{C43BF954-5261-1CD2-73E6-8B285F4A6B38}.wem"
+     },
+     {
+      "Id": "606801207",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GameIntro_03_JoeTools.wav",
+      "CachePath": "C0/{C01510CA-3ADA-2449-806C-681E6AF17CFF}.wem"
+     },
+     {
+      "Id": "651965916",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GameIntro_02_FreeQuency.wav",
+      "CachePath": "F7/{F704F25C-C976-E574-7677-9E8A0C386AC2}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "2892656105",
+      "Name": "playGameIntro",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogue\\playGameIntro",
+      "GUID": "{4F39A1B8-EDFD-4F03-9EEA-0F54F7EBCF3C}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.9736458",
+      "DurationMax": "8.300104",
+      "MediaRefs": [
+       {
+        "Id": "51437689"
+       },
+       {
+        "Id": "206843742"
+       },
+       {
+        "Id": "290675538"
+       },
+       {
+        "Id": "354181712"
+       },
+       {
+        "Id": "555064223"
+       },
+       {
+        "Id": "606801207"
+       },
+       {
+        "Id": "651965916"
+       }
+      ]
+     }
+    ]
    }
   ],
-  "FileHash": "{8A7B130C-8B7E-4C20-7657-2B880961167C}"
+  "FileHash": "{EBAE0701-CE45-0557-C076-2B939A06D323}"
  }
 }

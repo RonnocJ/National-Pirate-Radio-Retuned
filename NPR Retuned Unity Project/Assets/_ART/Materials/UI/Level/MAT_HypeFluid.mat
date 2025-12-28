@@ -111,7 +111,7 @@ Material:
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
     - _Feather: 0.1
-    - _Fill: 0
+    - _Fill: 1
     - _FillAmount: 10
     - _GlossMapScale: 0
     - _Glossiness: 0

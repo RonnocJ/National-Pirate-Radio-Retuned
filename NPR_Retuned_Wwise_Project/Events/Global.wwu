@@ -20,9 +20,31 @@
 						<Action Name="" ID="{BFD40208-7526-4295-A8E7-1E9DC6033F9C}" ShortID="822916175">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="MouseClick" ID="{372E2490-E81C-4A98-9CA5-508CE39FEFF5}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+									<ObjectRef Name="MouseClick" ID="{372E2490-E81C-4A98-9CA5-508CE39FEFF5}" WorkUnitID="{AFBB8294-2DE2-4504-8363-70F17225B8B1}"/>
 								</Reference>
 							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="pauseAll" ID="{D3AEAAD2-2A7D-4284-A67D-5E1DF091DEF9}">
+					<ChildrenList>
+						<Action Name="" ID="{506C497C-825B-4694-BF38-D75D15BAD615}" ShortID="2724686">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="8"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="resumeAll" ID="{9CC02CEE-53EF-46C6-9C2F-8C34AF9FA55A}">
+					<ChildrenList>
+						<Action Name="" ID="{E0AC6046-FE48-481E-811F-9C95BD012CC2}" ShortID="651526862">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="10"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
 						</Action>
 					</ChildrenList>
 				</Event>

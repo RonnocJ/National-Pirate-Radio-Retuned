@@ -7,12 +7,13 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private float cameraHeight;
     [SerializeField] private float smoothSpeed;
     [SerializeField] private float lookSensitivity;
+    [SerializeField] private float aimAssistSensitivity;
     [SerializeField] private float pitchTop;
     [SerializeField] private float pitchBottom;
     [SerializeField] private LayerMask collisionMask;
     private bool _cameraMoveable = false;
-    private float _currentYaw;
-    private float _currentPitch;
+    [SerializeField] private float _currentYaw;
+    [SerializeField] private float _currentPitch;
     private Vector2 _lookInput => PInputManager.root.actions[PlayerActionType.Look].v2Value;
     private Vector2 _currentLookInput;
     private Vector3 _desiredPosition;
@@ -21,7 +22,7 @@ public class CameraManager : MonoBehaviour
 
     void Start()
     {
-        if (!GameManager.root.NewGame) RegisterSwitchInputs();
+        if (!PlayerStats.root.NewGame) RegisterSwitchInputs();
     }
     public void RegisterSwitchInputs()
     {
@@ -50,6 +51,7 @@ public class CameraManager : MonoBehaviour
 
         DetectCollisions();
 
+        transform.rotation = Quaternion.LookRotation(_target.position - _desiredPosition, Vector3.up) * Quaternion.Euler(_currentPitch, 0, 0);
         transform.position = _desiredPosition;
 
         _lastFrameTargetPos = _target.position;
@@ -62,9 +64,6 @@ public class CameraManager : MonoBehaviour
         flatForward = Vector3.Lerp(flatForward, _target.forward, Vector3.Distance(_lastFrameTargetPos, _target.position) * smoothSpeed * Time.fixedDeltaTime);
 
         _desiredPosition = _target.position - (flatForward * cameraDistance) + (Vector3.up * cameraHeight);
-        
-        flatForward = (_target.position - _desiredPosition).normalized;
-        transform.forward = flatForward;
 
         _currentYaw = transform.eulerAngles.y;
         _currentPitch = 0;
@@ -74,26 +73,57 @@ public class CameraManager : MonoBehaviour
     {
         _currentLookInput = Vector2.Lerp(_currentLookInput, _lookInput, Time.deltaTime * lookSensitivity);
 
-        if (GameManager.root.NewGame && Tutorial.root.Iteration < 2) _currentLookInput = Vector2.zero;
+        if (PlayerStats.root.NewGame && Tutorial.root.Iteration < 2) _currentLookInput = Vector2.zero;
 
         _currentYaw += _currentLookInput.x;
         _currentPitch -= _currentLookInput.y;
 
+        _currentYaw %= 360f;
         _currentPitch = Mathf.Clamp(_currentPitch, -pitchTop, pitchBottom);
+
+//         var cols = Physics.SphereCastAll(transform.position, WeaponSettings.root.AimAssist, transform.forward.normalized, 512f, WeaponSettings.root.LayerInclusions);
+
+//         foreach (var c in cols)
+//         {
+//             if (c.collider.gameObject.TryGetComponent(out Enemy e))
+//             {
+//                 Vector3 toEnemy = (e.transform.position - transform.position).normalized;
+//                 Vector3 localDir = transform.InverseTransformDirection(toEnemy);
+
+//                 if (localDir.z > 0f)
+//                 {
+//                     _currentYaw += localDir.x * aimAssistSensitivity;
+//                     _currentPitch -= localDir.y * aimAssistSensitivity;
+//                     _currentPitch = Mathf.Clamp(_currentPitch, -pitchTop, pitchBottom);
+//                 }
+// ;
+//             }
+//         }
 
         Vector3 offset = Quaternion.Euler(0, _currentYaw, 0) * (Vector3.back * cameraDistance);
 
         _desiredPosition = _target.position + offset + (Vector3.up * cameraHeight);
-
-        transform.rotation = Quaternion.LookRotation(_target.position - _desiredPosition, Vector3.up) * Quaternion.Euler(_currentPitch, 0, 0);
     }
 
     private void DetectCollisions()
     {
-        if(Physics.SphereCast(_target.position, 0.05f, transform.position - _target.position, out RaycastHit hit, cameraDistance, collisionMask))
+        if (Physics.SphereCast(_target.position, 0.05f, _desiredPosition - _target.position, out RaycastHit hit, cameraDistance, collisionMask))
         {
             _desiredPosition = hit.point + ((_target.position - transform.position) * 0.05f);
             _desiredPosition.y = _target.position.y + cameraHeight;
+        }
+    }
+
+    public void ShakeCamera(float intensity)
+    {
+        StartCoroutine(CameraShake(intensity));
+    }
+    IEnumerator CameraShake(float intensity)
+    {
+        for (int i = 0; i < Mathf.RoundToInt(intensity * 10); i++)
+        {
+            transform.position += Random.insideUnitSphere * intensity / 4f;
+            yield return null;
         }
     }
 }

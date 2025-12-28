@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{699F1252-B778-44D1-AE27-56F2DA2047E2}",
     "Language": "SFX",
-    "Hash": "{B887D82F-5535-3443-F6BE-85C6E21F3384}",
+    "Hash": "{D78A3BF3-DC7B-6011-94B2-86282C96D0B2}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Songs\\BRD",
     "ShortName": "BRD",
     "Path": "BRD.bnk",
@@ -127,6 +127,6 @@
     ]
    }
   ],
-  "FileHash": "{913574B7-957F-FA0F-0DE2-43468B6F9A07}"
+  "FileHash": "{2534BC90-AA87-AAF2-BE2A-06931AC59E63}"
  }
 }

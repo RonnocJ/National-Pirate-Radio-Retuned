@@ -7,6 +7,7 @@ TagManager:
   - Disc
   - Connector
   - Tutorial
+  - Buffable
   layers:
   - Default
   - TransparentFX
@@ -38,7 +39,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - PauseUI
   - NonDGUI
   m_SortingLayers:
   - name: Default

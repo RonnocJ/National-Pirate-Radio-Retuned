@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{124C86E6-9680-48A4-9CEB-F7DEA6913318}",
     "Language": "SFX",
-    "Hash": "{385D6931-BED5-1B85-3355-1F6227CD8B38}",
+    "Hash": "{371292AA-7366-5899-17A1-3A004BC5C830}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Songs\\EVG",
     "ShortName": "EVG",
     "Path": "EVG.bnk",
@@ -127,6 +127,6 @@
     ]
    }
   ],
-  "FileHash": "{FDC0DC1C-A884-1B89-C809-1E5380013D8D}"
+  "FileHash": "{C1EE3B3F-3417-96A4-B55C-406E5D3CBEB0}"
  }
 }

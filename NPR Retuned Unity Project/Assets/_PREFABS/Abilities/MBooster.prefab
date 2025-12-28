@@ -133,7 +133,7 @@ MonoBehaviour:
   MaxCharges: 0
   MaxActiveTime: 4
   DrainRate: 2
-  boostForce: 25000
+  boostForce: 10000
   boostParticles: {fileID: 1542185796496488422}
   overloadParticles: {fileID: 0}
 --- !u!1 &3746736564737770752

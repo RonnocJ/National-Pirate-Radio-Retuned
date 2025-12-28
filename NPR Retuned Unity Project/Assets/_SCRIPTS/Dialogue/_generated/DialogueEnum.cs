@@ -14,6 +14,7 @@ public enum LevelIntro
 
 public enum AfterLevel
 {
+    afterFirstDrive,
     afterStage0,
 }
 

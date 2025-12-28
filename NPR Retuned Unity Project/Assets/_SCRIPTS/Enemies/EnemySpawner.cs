@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
         {
             yield return wait;
 
-            if (Alive >= PoolSize - 1) continue;
+            if (Alive >= PoolSize) continue;
 
             success = 0;
             Vector3 playerPos = VanController.root.transform.position;

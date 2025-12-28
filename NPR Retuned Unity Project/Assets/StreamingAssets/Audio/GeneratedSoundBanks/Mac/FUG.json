@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{01E97D24-4EF5-4C3F-8743-B0C961FFF0CC}",
     "Language": "SFX",
-    "Hash": "{DBF7868D-1FAA-F607-2D0D-6B9C1BAE536B}",
+    "Hash": "{197274E8-B7C8-0534-8EA3-ED7B02D80694}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Songs\\FUG",
     "ShortName": "FUG",
     "Path": "FUG.bnk",
@@ -127,6 +127,6 @@
     ]
    }
   ],
-  "FileHash": "{DEF21E0F-A526-E2E9-7471-DFF3026E0242}"
+  "FileHash": "{6F046589-4891-1B54-6391-FE18F71AA386}"
  }
 }

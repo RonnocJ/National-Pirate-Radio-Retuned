@@ -1,0 +1,22 @@
+{
+    "blocks": [
+        {
+            "name": "mono",
+            "clusters": [
+                {
+                    "id": 0,
+                    "pauseBefore": 1.0,
+                    "lines": [
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "this is a piece of test dialogue",
+                            "wait": 1.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

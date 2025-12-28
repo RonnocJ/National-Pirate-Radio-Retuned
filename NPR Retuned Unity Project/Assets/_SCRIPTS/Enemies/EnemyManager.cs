@@ -11,7 +11,7 @@ public enum FCCEnemyType
     Tunneler,
     HyperMagnet,
     CarjackMine,
-    MobileBaseTank
+    MobileCommandUnit
 }
 public class EnemyManager : Singleton<EnemyManager>
 {

@@ -87,7 +87,7 @@ public class GrassGenerator : MonoBehaviour
                     else DepopulateGrass(tile);
                 }
             }
-            yield return null;
+            if(x % 3 ==0) yield return null;
         }
     }
     private void LateUpdate()

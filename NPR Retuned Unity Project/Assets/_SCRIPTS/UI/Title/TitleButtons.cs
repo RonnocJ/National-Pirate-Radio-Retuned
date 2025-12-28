@@ -32,7 +32,7 @@ public class TitleButtons : Interactable
         switch (type)
         {
             case TButtonType.Play:
-                if (GameManager.root.NewGame && GameManager.root.CurrentGState == GameState.Title)
+                if (PlayerStats.root.NewGame && GameManager.root.CurrentGState == GameState.Title)
                 {
                     StartCoroutine(NonDgUI.root.FadeToBlack(true, GameState.Level));
                 }
@@ -40,7 +40,7 @@ public class TitleButtons : Interactable
                 {
                     StartCoroutine(NonDgUI.root.ToTalkTransition());
                 }
-                else GameSceneManager.root.LoadShop();
+                else StartCoroutine(NonDgUI.root.FadeToBlack(true, GameState.Shop));
                 break;
             case TButtonType.Quit:
                 Application.Quit();

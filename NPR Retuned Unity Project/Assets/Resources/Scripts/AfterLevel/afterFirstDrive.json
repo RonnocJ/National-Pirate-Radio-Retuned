@@ -1,0 +1,78 @@
+{
+    "blocks": [
+        {
+            "name": "mono",
+            "clusters": [
+                {
+                    "id": 0,
+                    "pauseBefore": 1.0,
+                    "lines": [
+                        {
+                            "speaker": "Free Quency",
+                            "text": "What. The. Hell.",
+                            "wait": 2.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        },
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "All things considered I thought\nit went pretty-",
+                            "wait": 2.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        },
+                        {
+                            "speaker": "Free Quency",
+                            "text": "They had fucking lasers! What\nkind of sci-fi bullshit are these\nspooks whippiing out \nfor a petty criminal?",
+                            "wait": 2.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        },
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "Well they've certainly upped the\nante since last time... ",
+                            "wait": 2.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        },
+                        {
+                            "speaker": "Free Quency",
+                            "text": "Last time?!?",
+                            "wait": 2.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        },
+                        {
+                            "speaker": "Free Quency",
+                            "text": "Who else have you roped into\nthis moronic get rich quick scheme?",
+                            "wait": 2.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        },
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "But the mobile broadcasting unit\ncertainly prolonged the station's\nuptime... ",
+                            "wait": 2.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        },
+                        {
+                            "speaker": "Free Quency",
+                            "text": "Are you even listening to me\nanymore? Or are you too busy\ndreaming up the next big plan?",
+                            "wait": 2.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        },
+                        {
+                            "speaker": "Joe Tools",
+                            "text": "Maybe I ought to tune some of \nthe components. Quency, come take\na look, I might have a way to make\nthe job a bit easier next time",
+                            "wait": 2.0,
+                            "speed": 0.05000000074505806,
+                            "wwiseEvent": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

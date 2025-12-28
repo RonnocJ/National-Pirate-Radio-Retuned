@@ -4,6 +4,8 @@
 		<WorkUnit Name="Van" ID="{75D373E6-AB92-4F7A-8D5D-472B2133F41C}" OwnerID="{72ECE1ED-FA46-488E-AEFA-7F4E47A3086D}" PersistMode="Nested">
 			<ChildrenList>
 				<WorkUnit Name="Engine" ID="{B945D656-E6B4-45FE-A11D-9C734C5563B6}" PersistMode="Reference"/>
+				<WorkUnit Name="Weapons" ID="{ED858FA2-BB56-4A82-A062-DE22A070F968}" PersistMode="Reference"/>
+				<WorkUnit Name="Tires" ID="{8F4D65FD-96F0-46D4-81A7-00A5410ABE51}" PersistMode="Reference"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

@@ -8,7 +8,7 @@
 						<Action Name="" ID="{4EF4FAD7-F59B-4BE3-BD32-E28D50A6A0F1}" ShortID="1068726765">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Explosion" ID="{B3D0101A-0776-4769-AE77-130E4C469607}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+									<ObjectRef Name="Explosion" ID="{B3D0101A-0776-4769-AE77-130E4C469607}" WorkUnitID="{AFBB8294-2DE2-4504-8363-70F17225B8B1}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -18,7 +18,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="HoverLoop" ID="{3DAAA383-E8AA-468B-A239-C571E81CD699}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+									<ObjectRef Name="HoverLoop" ID="{3DAAA383-E8AA-468B-A239-C571E81CD699}" WorkUnitID="{AFBB8294-2DE2-4504-8363-70F17225B8B1}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -29,7 +29,7 @@
 						<Action Name="" ID="{7E8C3735-AF9E-4FA5-B8B6-00F2FC48E210}" ShortID="343651723">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="HoverLoop" ID="{3DAAA383-E8AA-468B-A239-C571E81CD699}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+									<ObjectRef Name="HoverLoop" ID="{3DAAA383-E8AA-468B-A239-C571E81CD699}" WorkUnitID="{AFBB8294-2DE2-4504-8363-70F17225B8B1}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -40,7 +40,7 @@
 						<Action Name="" ID="{C3170B99-4E38-4FC8-8D46-0F9F181FD6F4}" ShortID="433839630">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Shoot" ID="{24F195F4-CA5D-41C1-92F5-B8EE8C099429}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+									<ObjectRef Name="Shoot" ID="{24F195F4-CA5D-41C1-92F5-B8EE8C099429}" WorkUnitID="{AFBB8294-2DE2-4504-8363-70F17225B8B1}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

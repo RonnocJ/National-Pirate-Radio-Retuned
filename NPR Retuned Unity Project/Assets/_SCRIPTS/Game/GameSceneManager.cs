@@ -18,7 +18,10 @@ public class GameSceneManager : Singleton<GameSceneManager>
             {
                 case "Title":
 
+                    if (LastLoadedScene == "Title") break;
                     LastLoadedScene = "Title";
+
+                    SoundbankManager.root.UnloadAll();
 
                     SoundbankManager.root.LoadSoundbank(AudioSoundbank.Title);
                     AudioManager.root.PlaySound(AudioEvent.playTitleMusic);
@@ -29,13 +32,17 @@ public class GameSceneManager : Singleton<GameSceneManager>
 
                 case "Talk":
 
+                    if (LastLoadedScene == "Talk") break;
+
                     AudioManager.root.StopSound(AudioEvent.playTitleMusic);
-                    SoundbankManager.root.UnloadSoundbank(AudioSoundbank.Title);
+                    SoundbankManager.root.UnloadAll();
+
+                    SoundbankManager.root.LoadSoundbank(AudioSoundbank.Dialogue);
 
                     NonDgUI.root.toTalkPanel.anchoredPosition = Vector2.right * -2560;
                     GameManager.root.CurrentGState = GameState.Talking;
 
-                    if (GameManager.root.NewGame) DialoguePlayer.root.PlayFromResources("GameIntro/newGame", "mono", -1, DialoguePlayer.root.ToTitle);
+                    if (PlayerStats.root.NewGame) DialoguePlayer.root.PlayFromResources("GameIntro/newGame", "mono", -1, DialoguePlayer.root.ToTitle);
                     else
                     {
                         switch (LastLoadedScene)
@@ -45,24 +52,29 @@ public class GameSceneManager : Singleton<GameSceneManager>
                                 DialoguePlayer.root.PlayDialogue(LevelIntro.introStage1);
                                 break;
 
-                            case "Level":
+                            case "Debt":
 
-                                DialoguePlayer.root.PlayDialogue(AfterLevel.afterStage0);
+                                DialoguePlayer.root.PlayDialogue(AfterLevel.afterFirstDrive);
+                                break;
+                            default:
                                 break;
 
                         }
                     }
 
+                    LastLoadedScene = "Talk";
+
                     break;
 
                 case "Shop":
 
+                    if (LastLoadedScene == "Shop") break;
                     LastLoadedScene = "Shop";
 
                     AudioManager.root.StopSound(AudioEvent.playTitleMusic);
-                    //SoundbankManager.root.UnloadAll();
-                    SoundbankManager.root.LoadSoundbank(AudioSoundbank.Shop);
+                    SoundbankManager.root.UnloadAll();
 
+                    SoundbankManager.root.LoadSoundbank(AudioSoundbank.Shop);
 
                     NonDgUI.root.StartCoroutine(NonDgUI.root.FadeToBlack(false));
                     GameManager.root.CurrentGState = GameState.Shop;
@@ -71,28 +83,32 @@ public class GameSceneManager : Singleton<GameSceneManager>
 
                 case "Level":
 
+                    if (LastLoadedScene == "Level") break;
                     LastLoadedScene = "Level";
+
+                    AudioManager.root.StopSound(AudioEvent.playTitleMusic);
+                    SoundbankManager.root.UnloadAll();
 
                     SoundbankManager.root.LoadSoundbank(AudioSoundbank.LevelSFX);
                     SoundbankManager.root.LoadSoundbank(AudioSoundbank.VanSFX);
 
-
-                    AudioManager.root.StopSound(AudioEvent.playTitleMusic);
-                    SoundbankManager.root.UnloadSoundbank(AudioSoundbank.Title);
-
                     GameManager.root.CurrentGState = GameState.Level;
                     GameManager.root.CurrentPState = PlayerState.Start;
 
-                    if (GameManager.root.NewGame)
+                    if (PlayerStats.root.NewGame)
                     {
                         NonDgUI.root.StartCoroutine(NonDgUI.root.ShowIntroQuotes());
                     }
 
                     break;
 
+                case "Debt":
+                NonDgUI.root.StartCoroutine(NonDgUI.root.FadeToBlack(false));
+                    break;
+
                 default:
 
-                    if (GameManager.root.NewGame) LoadTalk();
+                    if (PlayerStats.root.NewGame) LoadTalk();
                     else LoadTitle();
 
                     break;
@@ -114,5 +130,9 @@ public class GameSceneManager : Singleton<GameSceneManager>
     public void LoadShop()
     {
         SceneManager.LoadSceneAsync("Shop", LoadSceneMode.Single);
+    }
+    public void LoadDebt()
+    {
+        SceneManager.LoadSceneAsync("Debt", LoadSceneMode.Single);
     }
 }

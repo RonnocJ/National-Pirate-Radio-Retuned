@@ -26,7 +26,7 @@ public class TerrainGenerator : MonoBehaviour
 
         // Place garage tile at 0,0
 
-        Tile garageTile = AddTile(TConType.Garage, Vector2Int.zero);
+        AddTile(TConType.Garage, Vector2Int.zero);
 
         // Instantiate object pools for each tile
 
@@ -35,7 +35,7 @@ public class TerrainGenerator : MonoBehaviour
     }
     public IEnumerator GenerateTerrain()
     {
-        // Rounds player position to 1 / 64th scale
+        // Rounds player position to 1 / 32nd scale
 
         Vector3 p = _playerPos;
         int pX = Mathf.FloorToInt(p.x / g.CellSize);
@@ -89,9 +89,11 @@ public class TerrainGenerator : MonoBehaviour
         {
             tile = new Tile(type);
             g.TileDict[checkPos] = tile;
-        }
 
-        tile.Position = checkPos;
+            tile.Position = checkPos;
+
+            GeneratePfCells(tile, checkPos);
+        }
 
         return tile;
     }
@@ -173,7 +175,6 @@ public class TerrainGenerator : MonoBehaviour
             Mesh mesh = meshFilter.mesh;
             newTile.Meshes = mesh;
 
-            GeneratePfCells(newTile, newPos);
             GenerateHeight(newTile);
         }
     }

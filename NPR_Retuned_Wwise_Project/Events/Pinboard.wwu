@@ -8,7 +8,7 @@
 						<Action Name="" ID="{9CA176F3-8EE8-43FE-A06A-361264CFF8D8}" ShortID="622705489">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Pinboard_Eject" ID="{597D302D-182D-4259-90C4-858332777D89}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+									<ObjectRef Name="Pinboard_Eject" ID="{597D302D-182D-4259-90C4-858332777D89}" WorkUnitID="{AFBB8294-2DE2-4504-8363-70F17225B8B1}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -19,7 +19,7 @@
 						<Action Name="" ID="{3956CA81-0D73-4790-B851-7E2B60CACDD9}" ShortID="840922818">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Pinboard_Insert" ID="{CF73461B-1A96-48D8-AE16-3E4A7FA57B26}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+									<ObjectRef Name="Pinboard_Insert" ID="{CF73461B-1A96-48D8-AE16-3E4A7FA57B26}" WorkUnitID="{AFBB8294-2DE2-4504-8363-70F17225B8B1}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

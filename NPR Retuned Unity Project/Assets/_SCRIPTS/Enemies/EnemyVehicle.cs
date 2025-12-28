@@ -40,8 +40,7 @@ public class EnemyVehicle : Enemy
     [Header("Autopilot Settings")]
     [SerializeField] private VehicleAutopilot autopilot;
     [Header("Wheel References")]
-    [SerializeField] private WheelColliders wheelColliders;
-    [SerializeField] private WheelMeshes wheelMeshes;
+    [SerializeField] private WheelCollider[] wheelColliders;
     [Header("Visual References")]
     [SerializeField] private MeshRenderer[] bodyRens;
     [SerializeField] private MeshRenderer[] wheelRens;
@@ -105,7 +104,7 @@ public class EnemyVehicle : Enemy
             }
         }
 
-        currentWheelRPM = Mathf.Abs((wheelColliders.WheelBL.rpm + wheelColliders.WheelBR.rpm) / 2f) * gearRatios[currentGear] * differentialRatio;
+        currentWheelRPM = Mathf.Abs((wheelColliders[0].rpm + wheelColliders[1].rpm) / 2f) * gearRatios[currentGear] * differentialRatio;
 
         float speed = _rb.linearVelocity.magnitude;
         float coupling = Mathf.Clamp01(Mathf.Lerp(minCoupling, 1f, Mathf.InverseLerp(0.1f, Mathf.Max(0.1f, clutchLockSpeed), speed)));
@@ -116,8 +115,10 @@ public class EnemyVehicle : Enemy
 
         currentTorque = hpToRPMCurve.Evaluate(currentEngineRPM / redLine) * motorForce * gearRatios[currentGear] * differentialRatio * 5252f / Mathf.Max(100f, currentEngineRPM);
 
-        wheelColliders.WheelBL.motorTorque = currentTorque * DriveInput.y;
-        wheelColliders.WheelBR.motorTorque = currentTorque * DriveInput.y;
+        for(int i = 0; i < 2; i++)
+        {
+            wheelColliders[i].motorTorque = currentTorque * DriveInput.y;
+        }
 
         if (_rb.isKinematic) return;
 
@@ -175,10 +176,11 @@ public class EnemyVehicle : Enemy
     }
     private void ApplyBrakes(bool autoBrake = false)
     {
-        wheelColliders.WheelFL.brakeTorque = autoBrake ? 1 : BrakeInput * brakeForce;
-        wheelColliders.WheelFR.brakeTorque = autoBrake ? 1 : BrakeInput * brakeForce;
-        wheelColliders.WheelBL.brakeTorque = autoBrake ? 1 : BrakeInput * brakeForce * 0.6f;
-        wheelColliders.WheelBR.brakeTorque = autoBrake ? 1 : BrakeInput * brakeForce * 0.6f;
+        for(int i = 0; i < wheelColliders.Length; i++)
+        {
+            if (autoBrake) wheelColliders[i].brakeTorque = 1;
+            else wheelColliders[i].brakeTorque = BrakeInput * brakeForce * (i < 2 ? 1f : 0.6f);
+        }
     }
     private void ApplySteering()
     {
@@ -192,15 +194,17 @@ public class EnemyVehicle : Enemy
 
         _steerAngle = Mathf.Clamp(_steerAngle, -maxSteering, maxSteering);
 
-        wheelColliders.WheelFL.steerAngle = _steerAngle;
-        wheelColliders.WheelFR.steerAngle = _steerAngle;
+        for(int i = wheelColliders.Length - 1; i >= wheelColliders.Length / 2; i--)
+        {
+            wheelColliders[i].steerAngle = _steerAngle;
+        }
     }
     private void ApplyWheelPos()
     {
-        UpdateWheel(wheelColliders.WheelBL, wheelMeshes.WheelBL);
-        UpdateWheel(wheelColliders.WheelBR, wheelMeshes.WheelBR);
-        UpdateWheel(wheelColliders.WheelFL, wheelMeshes.WheelFL);
-        UpdateWheel(wheelColliders.WheelFR, wheelMeshes.WheelFR);
+        for(int i = 0; i < wheelColliders.Length; i++)
+        {
+            UpdateWheel(wheelColliders[i], wheelRens[i]);
+        }
     }
     private void UpdateWheel(WheelCollider col, MeshRenderer mesh)
     {

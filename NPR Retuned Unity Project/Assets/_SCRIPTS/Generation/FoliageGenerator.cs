@@ -229,6 +229,50 @@ public class FoliageGenerator : MonoBehaviour
         }
     }
 
+    public bool TryReturnFoliage(GameObject obj)
+    {
+        if (obj == null) return false;
+
+        if (!_folObjDict.TryGetValue(obj, out var positions)) return false;
+        if (!g.TileDict.TryGetValue(positions.tilePos, out var tile)) return false;
+
+        Foliage matchedFoliage = null;
+        foreach (var fol in tile.Foliage)
+        {
+            if (fol.Position == positions.folPos)
+            {
+                matchedFoliage = fol;
+                break;
+            }
+        }
+
+        if (matchedFoliage == null) return false;
+
+        var (pool, _) = GetPoolAndParent(matchedFoliage.Type);
+        pool?.Return(obj);
+
+        RemovePathfindingObstacle(matchedFoliage.Position);
+
+        tile.Foliage.Remove(matchedFoliage);
+        _folObjDict.Remove(obj);
+        return true;
+    }
+
+    private void RemovePathfindingObstacle(Vector3Int folPos)
+    {
+        PfGraph graph = PfGraph.root;
+        if (graph == null) return;
+
+        Vector3 worldObstacle = PosUtil.GetWorldPos((Vector3)folPos);
+        Vector2Int cellKey = PosUtil.V3RoundToInt(worldObstacle / graph.CellSize) * graph.CellSize;
+
+        if (graph.CellDict.TryGetValue(cellKey, out var cell))
+        {
+            Vector2Int obstaclePos = new Vector2Int(Mathf.RoundToInt(worldObstacle.x), Mathf.RoundToInt(worldObstacle.z));
+            cell.Obstacles.Remove(obstaclePos);
+        }
+    }
+
     public (ObjectPool pool, Transform parent) GetPoolAndParent(FConType type)
     {
         //Quickly access transform target and object pool from construct
@@ -253,7 +297,6 @@ public class FoliageGenerator : MonoBehaviour
                 return (null, null);
         }
     }
-
     //Voroni noise generator stuff
 
     private bool PassesVoronoiGate(float worldX, float worldZ)

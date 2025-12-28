@@ -8,7 +8,7 @@
 						<Action Name="" ID="{28B10889-3525-40F7-A564-94D7B6BE4A97}" ShortID="391856842">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="MagnetFloat" ID="{E9F0B6E8-2BBD-4655-8124-C7E1C4999F54}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+									<ObjectRef Name="MagnetFloat" ID="{E9F0B6E8-2BBD-4655-8124-C7E1C4999F54}" WorkUnitID="{AFBB8294-2DE2-4504-8363-70F17225B8B1}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -19,7 +19,7 @@
 						<Action Name="" ID="{4CC24025-5812-47B6-BB29-BD00BEF1044B}" ShortID="384382192">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="MagnetExplode" ID="{6C502536-F124-4B34-9517-2B112E36ECBD}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+									<ObjectRef Name="MagnetExplode" ID="{6C502536-F124-4B34-9517-2B112E36ECBD}" WorkUnitID="{AFBB8294-2DE2-4504-8363-70F17225B8B1}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

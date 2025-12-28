@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{F6071A6F-6B3E-4D37-811B-2B344AEA26C1}",
     "Language": "SFX",
-    "Hash": "{63D5A693-3E57-00B5-8C43-F3CF086D2928}",
+    "Hash": "{C6F87429-7A41-4723-A523-17AA5539C763}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Songs\\LIH",
     "ShortName": "LIH",
     "Path": "LIH.bnk",
@@ -127,6 +127,6 @@
     ]
    }
   ],
-  "FileHash": "{5DC5D556-9E94-0DB8-7A10-518DEFE67001}"
+  "FileHash": "{C3E9A4D6-AF2E-8D1F-33C0-F6239D4E631E}"
  }
 }

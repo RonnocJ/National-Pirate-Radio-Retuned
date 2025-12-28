@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{FA3A1568-D460-42C5-9B27-DAB6E42651BA}",
     "Language": "SFX",
-    "Hash": "{951A0C31-32F9-AF5E-EB34-779533D7223C}",
+    "Hash": "{8BDA2DB7-43C0-A5E4-C739-5B73E80B67D7}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Songs\\WLZ",
     "ShortName": "WLZ",
     "Path": "WLZ.bnk",
@@ -127,6 +127,6 @@
     ]
    }
   ],
-  "FileHash": "{8C8C10C8-15AC-A127-7271-28C772B9772C}"
+  "FileHash": "{1B7CF177-9ECB-6B14-FC0F-B01BE9F1E4F9}"
  }
 }

@@ -11,12 +11,13 @@ public class Tutorial : Singleton<Tutorial>
     [SerializeField] private Transform frontFillBar;
     [SerializeField] private Transform backFillBar;
     [SerializeField] private CameraManager cam;
+    [SerializeField] private AbilityManager ab;
     private Coroutine tutorialRoutine;
     private void Start()
     {
         GameManager.root.OnPStateSwitch += state =>
         {
-            if (GameManager.root.NewGame && state == PlayerState.Utility && tutorialRoutine == null) tutorialRoutine = StartCoroutine(PlayTutorial());
+            if (PlayerStats.root.NewGame && state == PlayerState.Utility && tutorialRoutine == null) tutorialRoutine = StartCoroutine(PlayTutorial());
         };
     }
     private IEnumerator PlayTutorial()
@@ -132,6 +133,8 @@ public class Tutorial : Singleton<Tutorial>
         frontText.SetText(texts[Iteration], 0);
         frontFillBar.localScale -= Vector3.right * frontFillBar.localScale.x;
 
+        ab.RegsiterAbilityInputs();
+
         while (frontFillBar.localScale.x <= 0.325f)
         {
             frontFillBar.localScale += Vector3.right * Mathf.Abs(PInputManager.root.actions[PlayerActionType.Ability].v2Value.x) * Time.deltaTime * 0.1f;
@@ -141,7 +144,7 @@ public class Tutorial : Singleton<Tutorial>
         }
 
         anim.SetTrigger("exit");
-        GameManager.root.NewGame = false;
+        PlayerStats.root.NewGame = false;
     }
     private void AddSwitchFill()
     {

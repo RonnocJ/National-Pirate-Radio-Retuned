@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class ExplosionManager : Singleton<ExplosionManager>
 {
@@ -35,7 +36,15 @@ public class ExplosionManager : Singleton<ExplosionManager>
     }
     private IEnumerator ExplodeRoutine(GameObject explosionFX, ObjectPool explosionPool, float waitTime)
     {
-        explosionFX.GetComponent<ParticleSystem>().Play();
+        if(explosionFX.TryGetComponent(out VisualEffect vfx))
+        {
+            vfx.Play();
+        }
+        else if (explosionFX.TryGetComponent(out ParticleSystem particle))
+        {
+            particle.Play();
+        }
+
         yield return new WaitForSeconds(waitTime);
         explosionPool.Return(explosionFX);
     }

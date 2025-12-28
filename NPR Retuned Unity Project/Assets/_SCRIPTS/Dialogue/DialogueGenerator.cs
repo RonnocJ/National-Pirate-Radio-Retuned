@@ -10,7 +10,7 @@ using UnityEditorInternal;
 
 // NOTE: This script assumes the JSON structure produced by WriteDialogueToFile
 // uses the types/field names: TextFile { List<TextBlock> blocks }, TextBlock { string name; List<TextCluster> clusters },
-// TextCluster { int id; float pauseBefore; List<TextLine> lines }, TextLine { string speaker; string text; float wait; float speed; string wwiseEvent }
+// TextCluster { int id; float pauseBefore; List<TextLine> lines }, TextLine { Characters speaker; string text; double wait; ; string wwiseEvent }
 // If your project already has these types defined elsewhere, this loader will use them via JsonUtility.
 // If not, JsonUtility will still be able to deserialize into matching names used here.
 
@@ -41,15 +41,15 @@ public class DialogueGenerator : ScriptableObject
     [Serializable]
     public class DialogueLine
     {
-        public string Speaker;
+        public Characters Speaker;
         [TextArea] public string Line;
-        public float Wait;
+        public double Wait;
     }
     [Serializable]
     public class DialogueCluster
     {
         public float PauseBefore;
-        public float Speed;
+        public AudioEvent LineAudio;
         public DialogueLine[] Lines;
     }
     [Serializable]
@@ -98,6 +98,7 @@ public class DialogueGenerator : ScriptableObject
                     {
                         id = ci, // cluster id from index
                         pauseBefore = c.PauseBefore,
+                        wwiseEvent = c.LineAudio,
                         lines = new List<TextLine>()
                     };
 
@@ -111,8 +112,6 @@ public class DialogueGenerator : ScriptableObject
                                 speaker = ln.Speaker,
                                 text = ln.Line ?? string.Empty,
                                 wait = ln.Wait,
-                                speed = c.Speed,
-                                wwiseEvent = null
                             };
                             outCluster.lines.Add(outLine);
                         }
@@ -211,16 +210,6 @@ public class DialogueGenerator : ScriptableObject
                         var dc = new DialogueCluster();
                         dc.PauseBefore = tc.pauseBefore;
 
-                        // infer cluster speed: prefer cluster-level value if exists,
-                        // otherwise try first line speed if available, otherwise default 0.05f
-                        float speed = 0.05f;
-                        if (tc.lines != null && tc.lines.Count > 0)
-                        {
-                            // take the first line's speed if present
-                            speed = tc.lines[0].speed;
-                        }
-                        dc.Speed = speed;
-
                         if (tc.lines != null)
                         {
                             dc.Lines = new DialogueLine[tc.lines.Count];
@@ -287,17 +276,16 @@ public class DialogueGenerator : ScriptableObject
     {
         public int id;
         public float pauseBefore;
+        public AudioEvent wwiseEvent;
         public List<TextLine> lines;
     }
 
     [Serializable]
     private class TextLine
     {
-        public string speaker;
+        public Characters speaker;
         public string text;
-        public float wait;
-        public float speed;
-        public string wwiseEvent;
+        public double wait;
     }
 
     private static void RegenerateDialogueEnumScript()
@@ -408,8 +396,8 @@ public class DialogueGeneratorEditor : Editor
 
     private SerializedProperty _blocksProp;
     private ReorderableList _blocksList;
-    private readonly System.Collections.Generic.Dictionary<string, ReorderableList> _clustersLists = new System.Collections.Generic.Dictionary<string, ReorderableList>();
-    private readonly System.Collections.Generic.Dictionary<string, ReorderableList> _linesLists = new System.Collections.Generic.Dictionary<string, ReorderableList>();
+    private readonly Dictionary<string, ReorderableList> _clustersLists = new Dictionary<string, ReorderableList>();
+    private readonly Dictionary<string, ReorderableList> _linesLists = new Dictionary<string, ReorderableList>();
 
     // Local editor state for load field
     private string _loadFilePath = string.Empty;
@@ -491,7 +479,6 @@ public class DialogueGeneratorEditor : Editor
             var el = l.serializedProperty.GetArrayElementAtIndex(i);
             el.isExpanded = true; // expand new clusters
             el.FindPropertyRelative("PauseBefore").floatValue = 1f;
-            el.FindPropertyRelative("Speed").floatValue = 0.05f;
             el.FindPropertyRelative("Lines").arraySize = 0;
         };
         list.elementHeightCallback = idx =>
@@ -516,7 +503,7 @@ public class DialogueGeneratorEditor : Editor
             var lineRect = new Rect(r.x, r.y, r.width, EditorGUIUtility.singleLineHeight);
             EditorGUI.PropertyField(lineRect, el.FindPropertyRelative("PauseBefore"));
             lineRect.y += EditorGUIUtility.singleLineHeight + 2f;
-            EditorGUI.PropertyField(lineRect, el.FindPropertyRelative("Speed"));
+            EditorGUI.PropertyField(lineRect, el.FindPropertyRelative("LineAudio"));
 
             var linesProp = el.FindPropertyRelative("Lines");
             var linesList = GetOrCreateLinesList(linesProp);

@@ -303,7 +303,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy/Default Work Unit
     guid: 0696d07b685380448087dbb4675dab21
     GuidInternal: 
-    m_lastTime: -8584437959131752151
+    m_lastTime: -8584396315131845024
     List:
     - name: EnemyVerb
       guid: f7832dca3c6ef44394fdd92bcb8a11f2
@@ -434,8 +434,22 @@ MonoBehaviour:
     ParentPath: SoundBanks/Default Work Unit
     guid: cf21b4d077fd20469610511af75159b4
     GuidInternal: 
-    m_lastTime: -8584398113636828958
+    m_lastTime: -8584347207505173665
     List:
+    - name: Dialogue
+      guid: db30b097aa626c4d8ae2be4a82928e59
+      id: 3930136735
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cf21b4d077fd20469610511af75159b4
+      - ElementName: Dialogue
+        ObjectType: 7
+        guid: db30b097aa626c4d8ae2be4a82928e59
+      Path: SoundBanks/Default Work Unit/Dialogue
     - name: Global
       guid: bedacaf9c7290749bebd5ef68ec00710
       id: 1465331116
@@ -639,7 +653,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/Ambiences
     guid: 0de9cd3db1a97f489008a3df5d59b2f0
     GuidInternal: 
-    m_lastTime: -8584437937602388624
+    m_lastTime: -8584374095354994422
     List:
     - name: playWindAmbience
       guid: ebe3056f90d2b242899458865bc7e64c
@@ -678,7 +692,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/Enemies/ATV
     guid: 37c6a7e61020024583a2f24a9e963098
     GuidInternal: 
-    m_lastTime: -8584405992667575017
+    m_lastTime: -8584374095354954610
     List:
     - name: playATVAttack
       guid: 2b9edd8adc470d4382c5e00a26a7b1d1
@@ -743,7 +757,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/UI/CDPlayer
     guid: 602d435913bd6b4c9dd4cddd7d10c713
     GuidInternal: 
-    m_lastTime: -8584399004579142694
+    m_lastTime: -8584374095354937759
     List:
     - name: playCDMusic
       guid: 38ee3a041b763747a1ba2880d828d290
@@ -848,8 +862,44 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit
     guid: 0000820c076e574b8f6e69e488b2be04
     GuidInternal: 
-    m_lastTime: -8584399004579179720
+    m_lastTime: -8584347208014435983
     List: []
+  - PhysicalPath: Events/Dialogue.wwu
+    PathAndIcons:
+    - ElementName: Events
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 0000820c076e574b8f6e69e488b2be04
+    - ElementName: Dialogue
+      ObjectType: 12
+      guid: 35d4de7e873e164aa6b3426b7bbffdab
+    ParentPath: Events/Default Work Unit/Dialogue
+    guid: 35d4de7e873e164aa6b3426b7bbffdab
+    GuidInternal: 
+    m_lastTime: -8584347207876508484
+    List:
+    - name: playGameIntro
+      guid: b8a1394ffded034f9eea0f54f7ebcf3c
+      id: 2892656105
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 0000820c076e574b8f6e69e488b2be04
+      - ElementName: Dialogue
+        ObjectType: 12
+        guid: 35d4de7e873e164aa6b3426b7bbffdab
+      - ElementName: playGameIntro
+        ObjectType: 3
+        guid: b8a1394ffded034f9eea0f54f7ebcf3c
+      Path: Events/Default Work Unit/Dialogue/playGameIntro
+      maxAttenuation: 0
+      maxDuration: 8.300104
+      minDuration: 1.9736458
   - PhysicalPath: Events/Drone.wwu
     PathAndIcons:
     - ElementName: Events
@@ -867,7 +917,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/Enemies/Drone
     guid: 2789e81e9d2653449cffbff7196604ec
     GuidInternal: 
-    m_lastTime: -8584437862611945025
+    m_lastTime: -8584374095354922614
     List:
     - name: playDroneExplosion
       guid: 9cf4550eee35c84b9d0c622d97506829
@@ -974,7 +1024,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/Player/Van/Engine
     guid: 56d645b9b4e6fe45a11d9c734c5563b6
     GuidInternal: 
-    m_lastTime: -8584437968728842884
+    m_lastTime: -8584374095354904055
     List:
     - name: playVanEngine
       guid: f860ed1cd2502848a22cd3532d8d288b
@@ -1016,8 +1066,28 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/Global
     guid: ca51480181d04e41a3e60918b46bb502
     GuidInternal: 
-    m_lastTime: -8584399004670458453
+    m_lastTime: -8584347208091211258
     List:
+    - name: pauseAll
+      guid: d2aaaed37d2a8442a67d5e1df091def9
+      id: 4091047182
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 0000820c076e574b8f6e69e488b2be04
+      - ElementName: Global
+        ObjectType: 12
+        guid: ca51480181d04e41a3e60918b46bb502
+      - ElementName: pauseAll
+        ObjectType: 3
+        guid: d2aaaed37d2a8442a67d5e1df091def9
+      Path: Events/Default Work Unit/Global/pauseAll
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: playMouseClick
       guid: 81db425dd35b4444b14a9ac3906fa6ea
       id: 436537884
@@ -1038,6 +1108,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.5
       minDuration: 0.5
+    - name: resumeAll
+      guid: ee2cc09cef53c6469c2f8c34af9fa55a
+      id: 3240900869
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 0000820c076e574b8f6e69e488b2be04
+      - ElementName: Global
+        ObjectType: 12
+        guid: ca51480181d04e41a3e60918b46bb502
+      - ElementName: resumeAll
+        ObjectType: 3
+        guid: ee2cc09cef53c6469c2f8c34af9fa55a
+      Path: Events/Default Work Unit/Global/resumeAll
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: stopAll
       guid: a5b9b6823bd16d458f4dc0979750b87c
       id: 3086540886
@@ -1075,7 +1165,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/Enemies/Helicopter
     guid: 7143d8d165a94a41b40f2200022f60c8
     GuidInternal: 
-    m_lastTime: -8584438807033383930
+    m_lastTime: -8584374095354872955
     List:
     - name: playRotorLoop
       guid: 56ddb79eb8f5f040b5e6a7d78fd2eb76
@@ -1117,7 +1207,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/Enemies/HyperMagnet
     guid: e58f06836e57294b9ad66886d36ff0f3
     GuidInternal: 
-    m_lastTime: -8584406714171853770
+    m_lastTime: -8584374095354859500
     List:
     - name: playMagnetExplode
       guid: 50ac4879e2b14940ab0bd3b957f37b0a
@@ -1218,7 +1308,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/UI/Pinboard
     guid: f3d213ae64006640812e46ddd90c39d4
     GuidInternal: 
-    m_lastTime: -8584399004579107795
+    m_lastTime: -8584374095354845158
     List:
     - name: playPinboardEject
       guid: 449514aca61a6244944abad0d7f6c635
@@ -1282,6 +1372,108 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8584407055509088238
     List: []
+  - PhysicalPath: Events/Tires.wwu
+    PathAndIcons:
+    - ElementName: Events
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 0000820c076e574b8f6e69e488b2be04
+    - ElementName: Player
+      ObjectType: 12
+      guid: ede1ec7246fa8e48aefa7f4e47a3086d
+    - ElementName: Van
+      ObjectType: 12
+      guid: e673d37592ab7a4f8d5d472b2133f41c
+    - ElementName: Tires
+      ObjectType: 12
+      guid: fd654d8ff096d44681a700a5410abe51
+    ParentPath: Events/Default Work Unit/Player/Van/Tires
+    guid: fd654d8ff096d44681a700a5410abe51
+    GuidInternal: 
+    m_lastTime: -8584374095354830002
+    List:
+    - name: playTireSqueal
+      guid: d2a60a68406e7e4291ddb40db74e9913
+      id: 4002278104
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 0000820c076e574b8f6e69e488b2be04
+      - ElementName: Player
+        ObjectType: 12
+        guid: ede1ec7246fa8e48aefa7f4e47a3086d
+      - ElementName: Van
+        ObjectType: 12
+        guid: e673d37592ab7a4f8d5d472b2133f41c
+      - ElementName: Tires
+        ObjectType: 12
+        guid: fd654d8ff096d44681a700a5410abe51
+      - ElementName: playTireSqueal
+        ObjectType: 3
+        guid: d2a60a68406e7e4291ddb40db74e9913
+      Path: Events/Default Work Unit/Player/Van/Tires/playTireSqueal
+      maxAttenuation: 32
+      maxDuration: 0
+      minDuration: 0
+  - PhysicalPath: Events/Trumpet.wwu
+    PathAndIcons:
+    - ElementName: Events
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 0000820c076e574b8f6e69e488b2be04
+    - ElementName: Player
+      ObjectType: 12
+      guid: ede1ec7246fa8e48aefa7f4e47a3086d
+    - ElementName: Van
+      ObjectType: 12
+      guid: e673d37592ab7a4f8d5d472b2133f41c
+    - ElementName: Weapons
+      ObjectType: 12
+      guid: a28f85ed56bb824aa062de22a070f968
+    - ElementName: Trumpet
+      ObjectType: 12
+      guid: 35018bad6da40c46ac79e16301949886
+    ParentPath: Events/Default Work Unit/Player/Van/Weapons/Trumpet
+    guid: 35018bad6da40c46ac79e16301949886
+    GuidInternal: 
+    m_lastTime: -8584374095354815649
+    List:
+    - name: playTrumpetFireFull
+      guid: 05f92bba9739a942bb794f05be45e90e
+      id: 549296393
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 0000820c076e574b8f6e69e488b2be04
+      - ElementName: Player
+        ObjectType: 12
+        guid: ede1ec7246fa8e48aefa7f4e47a3086d
+      - ElementName: Van
+        ObjectType: 12
+        guid: e673d37592ab7a4f8d5d472b2133f41c
+      - ElementName: Weapons
+        ObjectType: 12
+        guid: a28f85ed56bb824aa062de22a070f968
+      - ElementName: Trumpet
+        ObjectType: 12
+        guid: 35018bad6da40c46ac79e16301949886
+      - ElementName: playTrumpetFireFull
+        ObjectType: 3
+        guid: 05f92bba9739a942bb794f05be45e90e
+      Path: Events/Default Work Unit/Player/Van/Weapons/Trumpet/playTrumpetFireFull
+      maxAttenuation: 32
+      maxDuration: 0
+      minDuration: 0
   - PhysicalPath: Events/UI.wwu
     PathAndIcons:
     - ElementName: Events
@@ -1296,7 +1488,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/UI
     guid: fddc91663adb4a438fdddab5c90cad03
     GuidInternal: 
-    m_lastTime: -8584399004579020274
+    m_lastTime: -8584374095354801128
     List:
     - name: playTTSVoice
       guid: 2e02baa7129cb1499dd32312f53ffdae
@@ -1335,7 +1527,29 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/Player/Van
     guid: e673d37592ab7a4f8d5d472b2133f41c
     GuidInternal: 
-    m_lastTime: -8584428719630802114
+    m_lastTime: -8584383431518786048
+    List: []
+  - PhysicalPath: Events/Weapons.wwu
+    PathAndIcons:
+    - ElementName: Events
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 0000820c076e574b8f6e69e488b2be04
+    - ElementName: Player
+      ObjectType: 12
+      guid: ede1ec7246fa8e48aefa7f4e47a3086d
+    - ElementName: Van
+      ObjectType: 12
+      guid: e673d37592ab7a4f8d5d472b2133f41c
+    - ElementName: Weapons
+      ObjectType: 12
+      guid: a28f85ed56bb824aa062de22a070f968
+    ParentPath: Events/Default Work Unit/Player/Van/Weapons
+    guid: a28f85ed56bb824aa062de22a070f968
+    GuidInternal: 
+    m_lastTime: -8584393783827354865
     List: []
   RtpcWwu:
   - PhysicalPath: Game Parameters/Default Work Unit.wwu
@@ -1432,8 +1646,65 @@ MonoBehaviour:
     ParentPath: Game Parameters/Default Work Unit/UI
     guid: 4029df4e103809468340c92392a1e63d
     GuidInternal: 
-    m_lastTime: -8584441677788675350
+    m_lastTime: -8584396310558627964
     List:
+    - name: Main_Volume
+      guid: 07ecdfa87fe4ef409c1dc3dcd43322c1
+      id: 2312172015
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b5a366d9c7eff54c859b06419cd4409c
+      - ElementName: UI
+        ObjectType: 12
+        guid: 4029df4e103809468340c92392a1e63d
+      - ElementName: Main_Volume
+        ObjectType: 13
+        guid: 07ecdfa87fe4ef409c1dc3dcd43322c1
+      Path: Game Parameters/Default Work Unit/UI/Main_Volume
+      Min: 0
+      Max: 1
+    - name: Music_Volume
+      guid: 9c0c0d3b895fe044809a279590ff72e3
+      id: 1006694123
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b5a366d9c7eff54c859b06419cd4409c
+      - ElementName: UI
+        ObjectType: 12
+        guid: 4029df4e103809468340c92392a1e63d
+      - ElementName: Music_Volume
+        ObjectType: 13
+        guid: 9c0c0d3b895fe044809a279590ff72e3
+      Path: Game Parameters/Default Work Unit/UI/Music_Volume
+      Min: 0
+      Max: 1
+    - name: SFX_Volume
+      guid: 9b69956abd85484a838e46def8346488
+      id: 1564184899
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b5a366d9c7eff54c859b06419cd4409c
+      - ElementName: UI
+        ObjectType: 12
+        guid: 4029df4e103809468340c92392a1e63d
+      - ElementName: SFX_Volume
+        ObjectType: 13
+        guid: 9b69956abd85484a838e46def8346488
+      Path: Game Parameters/Default Work Unit/UI/SFX_Volume
+      Min: 0
+      Max: 1
     - name: TTS_Character
       guid: e93ad62e0b05f64ab8143bb942385bd3
       id: 4203130972
@@ -1470,7 +1741,7 @@ MonoBehaviour:
     ParentPath: Game Parameters/Default Work Unit/Player/Van
     guid: 52cd6227f04baf4891908179ecf68b1e
     GuidInternal: 
-    m_lastTime: -8584437880787505228
+    m_lastTime: -8584383428627119082
     List:
     - name: Engine_Gear
       guid: 73c4fc623e5307418738c7031d18cc74
@@ -1560,6 +1831,28 @@ MonoBehaviour:
       Path: Game Parameters/Default Work Unit/Player/Van/Player_Speed
       Min: 0
       Max: 75
+    - name: WheelFriction
+      guid: 6b6ec745d29a9640b2381e0f0a4dd811
+      id: 2477488076
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b5a366d9c7eff54c859b06419cd4409c
+      - ElementName: Player
+        ObjectType: 12
+        guid: f1397df99ccb6a458acde370b4795158
+      - ElementName: Van
+        ObjectType: 12
+        guid: 52cd6227f04baf4891908179ecf68b1e
+      - ElementName: WheelFriction
+        ObjectType: 13
+        guid: 6b6ec745d29a9640b2381e0f0a4dd811
+      Path: Game Parameters/Default Work Unit/Player/Van/WheelFriction
+      Min: 0
+      Max: 1.5
   StateWwu:
   - PhysicalPath: States/Default Work Unit.wwu
     PathAndIcons:

@@ -119,8 +119,8 @@ public class RoadGenerator : Singleton<RoadGenerator>
 
         // Seed the system with two starter roads pointing in opposite directions
 
-        Road road1 = new Road(Vector3.forward * 64f, Vector3.right);
-        Road road2 = new Road(Vector3.forward * 64f, -Vector3.right);
+        Road road1 = new Road(Vector3.forward * 32f, Vector3.right);
+        Road road2 = new Road(Vector3.forward * 32f, -Vector3.right);
         road1.IsActive = true;
         road2.IsActive = true;
 
@@ -240,42 +240,29 @@ public class RoadGenerator : Singleton<RoadGenerator>
 
         Vector3 SteerAwayFromOrigin(Vector3 direction, Vector3 anchor)
         {
-            Vector3 flatDir = new Vector3(direction.x, 0f, direction.z);
-            if (flatDir.sqrMagnitude < 0.0001f)
-                return flatDir;
-
-            flatDir = flatDir.normalized;
-
+            Vector3 flatDir = new Vector3(direction.x, 0f, direction.z).normalized;
             Vector3 flatAnchor = new Vector3(anchor.x, 0f, anchor.z);
-            float radius = flatAnchor.magnitude;
-            if (radius < 0.0001f)
+
+            if (flatAnchor.magnitude >= g.FlatThreshold)
                 return flatDir;
 
-            float threshold = Mathf.Max(g.FlatThreshold, 0.01f);
-            if (radius >= threshold)
-                return flatDir;
+            float heading = Vector3.Dot(flatDir, -flatAnchor.normalized);
 
-            Vector3 away = flatAnchor.normalized;
-            float heading = Vector3.Dot(flatDir, -away);
             if (heading <= 0f)
                 return flatDir;
 
-            float influence = (1f - radius / threshold) * heading;
-            Vector3 adjusted = Vector3.Slerp(flatDir, away, Mathf.Clamp01(influence) * 0.6f);
-            return adjusted.normalized;
+            float influence = (1f - flatAnchor.magnitude / g.FlatThreshold) * heading;
+
+            return Vector3.Slerp(flatDir, flatAnchor.normalized, Mathf.Clamp01(influence) * 0.6f).normalized;
         }
 
         // When we detect a collision with our own road, steer sideways to stay separated
 
         Vector3 ResolveSelfCollision(Vector3 direction, Vector3 center)
         {
-            Vector3 candidateDir = new Vector3(direction.x, 0f, direction.z);
-            if (candidateDir.sqrMagnitude < 0.0001f)
-                return candidateDir;
-
-            candidateDir = candidateDir.normalized;
-
+            Vector3 candidateDir = new Vector3(direction.x, 0f, direction.z).normalized;
             Vector3 sample = center + candidateDir * halfWidth;
+            
             if (!TryFindSelfBlocker(sample, out var blocker))
                 return candidateDir;
 
@@ -728,8 +715,6 @@ public class RoadGenerator : Singleton<RoadGenerator>
         {
             Vector3 localVert = PosUtil.GetLocalPos(seg.VertexPos[i]);
 
-            // Clear any foliage or obstacles that now fall beneath the road footprint
-
             var overlaps = Physics.OverlapSphere(localVert, halfWidth * Random.Range(0.5f, 1.5f), roadDetectMask);
             for (int j = 0; j < overlaps.Length; j++)
             {
@@ -772,8 +757,6 @@ public class RoadGenerator : Singleton<RoadGenerator>
             col.sharedMesh = m;
         }
 
-        // Flag the affected pathfinding cells so AI treats them as road
-
         for(int j = 0; j < seg.Centers.Length; j++)
         {
             PfGraph.root.CellDict[PosUtil.V3RoundToInt(seg.Centers[j] / 16) * 16].IsRoad = true;
@@ -785,8 +768,6 @@ public class RoadGenerator : Singleton<RoadGenerator>
 
     private void PruneRoadNodes()
     {
-        // Remove cached road nodes that fall outside the retention distance
-
         float keepDist = (g.ViewDistance + g.CullMargin) * g.CellSize + 64f;
         Vector3 p = PosUtil.GetWorldPos(_playerPos);
         for (int i = _roadNodes.Count - 1; i >= 0; i--)

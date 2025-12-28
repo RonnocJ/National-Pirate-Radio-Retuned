@@ -58,7 +58,7 @@ public class AbilityManager : MonoBehaviour
     [SerializeField] private AbilityDefinition _heldDef;
     void Start()
     {
-        if (!GameManager.root.NewGame) RegsiterAbilityInputs();
+        if (!PlayerStats.root.NewGame) RegsiterAbilityInputs();
 
         foreach (var a in Abilities)
         {

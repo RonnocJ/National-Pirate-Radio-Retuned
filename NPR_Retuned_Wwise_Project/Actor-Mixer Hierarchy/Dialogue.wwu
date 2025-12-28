@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{23517BA4-71E4-4584-94F6-3EA75AAEEABF}" SchemaVersion="123" RootDocumentID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}" ParentDocumentID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}">
+	<AudioObjects>
+		<WorkUnit Name="Dialogue" ID="{23517BA4-71E4-4584-94F6-3EA75AAEEABF}" OwnerID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}" PersistMode="Nested">
+			<ChildrenList>
+				<ActorMixer Name="Test" ID="{7E034731-1F76-4E65-A2D5-BC571AE15218}" ShortID="124790841">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{41B5D519-AB6F-4EE3-BC3C-420CFE6AC1D2}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="TestDialogue" ID="{1742B697-04FE-41F7-946E-D838CED268E4}" ShortID="711756112">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{41B5D519-AB6F-4EE3-BC3C-420CFE6AC1D2}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="TestDialogue" ID="{AD149865-DE2E-4942-8565-232AAB3F1C03}">
+									<PropertyList>
+										<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+									</PropertyList>
+									<Language>English(US)</Language>
+									<AudioFile>TestDialogue.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="657241342"/>
+									</MediaIDList>
+									<ObjectLists>
+										<ObjectList Name="Markers">
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{204980FC-DB8A-486F-8DB8-0058E63A1C45}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.5"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{E6AE1D15-7D7A-4376-A248-B1C4204F8F32}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.15"/>
+															<Property Name="Time" Type="Real64" Value="0.51136"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{29DB04EF-5D9A-4E92-AFA8-90CCA34E5B2B}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.15"/>
+															<Property Name="Time" Type="Real64" Value="0.66682"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{27398D35-1708-48FC-9D2F-E28FDB9038E4}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.45"/>
+															<Property Name="Time" Type="Real64" Value="0.80182"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{F8827529-33E3-48F0-A138-D2018FC068DE}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.2"/>
+															<Property Name="Time" Type="Real64" Value="1.37045"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{6B923058-6762-4153-BA0C-ECF5FE36A426}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.8"/>
+															<Property Name="Time" Type="Real64" Value="2.79818174405532"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{4F545106-187D-4DC1-9923-A9637682F35A}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.55"/>
+															<Property Name="Time" Type="Real64" Value="1.59954541217197"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="TestDialogue" ID="{AD149865-DE2E-4942-8565-232AAB3F1C03}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</ActorMixer>
+				<RandomSequenceContainer Name="GameIntro" ID="{AD2479E1-BD7C-48C1-AD5D-5F645D599264}" ShortID="102743822">
+					<PropertyList>
+						<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{41B5D519-AB6F-4EE3-BC3C-420CFE6AC1D2}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="GameIntro_01_JoeTools" ID="{96639319-3013-4D85-BC88-5F046351E647}" ShortID="32771354">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{41B5D519-AB6F-4EE3-BC3C-420CFE6AC1D2}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="GameIntro_01_JoeTools" ID="{DF3B649B-7403-4AC5-AE6B-9CBD15698E8A}">
+									<PropertyList>
+										<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>GameIntro_01_JoeTools.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="51437689"/>
+									</MediaIDList>
+									<ObjectLists>
+										<ObjectList Name="Markers">
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{B2DBF32D-680A-4E6E-B705-37EE8238B395}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.7"/>
+															<Property Name="Time" Type="Real64" Value="0.0672923025314001"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{E25F733F-A3A6-486B-B691-0B563E286B9D}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.15"/>
+															<Property Name="Time" Type="Real64" Value="0.977981463456348"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{90B07BBC-938D-4284-9022-38AF8BEBF436}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.15"/>
+															<Property Name="Time" Type="Real64" Value="1.13499683602961"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{5D461430-F7B6-47CE-A0D3-4A5AC80D6AAC}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="1.29201220860288"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{7D924581-8186-4373-9A94-725DCAA2F702}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.5"/>
+															<Property Name="Time" Type="Real64" Value="1.50734757670336"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{CA5015D5-D5C9-4073-AE40-C7C34338FF04}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.15"/>
+															<Property Name="Time" Type="Real64" Value="2.46738442615134"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{86A70423-EB4F-4A7E-B998-064B8CDF5686}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.3"/>
+															<Property Name="Time" Type="Real64" Value="3.14479360496743"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{E139A4F8-46EB-4E60-9A3C-70E02FB021C4}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.15"/>
+															<Property Name="Time" Type="Real64" Value="3.75042432775003"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{6233CE87-A9AC-45C9-B673-8AC1605D4066}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.075"/>
+															<Property Name="Time" Type="Real64" Value="3.98819046336098"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{8483A3E1-C131-4ADE-ADB4-FC9ACE64AC7F}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.35"/>
+															<Property Name="Time" Type="Real64" Value="4.13174737542796"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{312FEAE2-02D7-4FCF-B1FF-78E470B9DCCC}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.45"/>
+															<Property Name="Time" Type="Real64" Value="4.49063965559543"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="GameIntro_01_JoeTools" ID="{DF3B649B-7403-4AC5-AE6B-9CBD15698E8A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="GameIntro_02_FreeQuency" ID="{C8608F72-6A29-4D53-849A-B32E9EAA1517}" ShortID="632171579">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{41B5D519-AB6F-4EE3-BC3C-420CFE6AC1D2}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="GameIntro_02_FreeQuency" ID="{89407DA5-FF18-45EA-81C6-8672435D4FE8}">
+									<Language>SFX</Language>
+									<AudioFile>GameIntro_02_FreeQuency.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="651965916"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="GameIntro_02_FreeQuency" ID="{89407DA5-FF18-45EA-81C6-8672435D4FE8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="GameIntro_03_JoeTools" ID="{70111DC7-E288-4199-941F-3D0306BCD25B}" ShortID="636010769">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{41B5D519-AB6F-4EE3-BC3C-420CFE6AC1D2}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="GameIntro_03_JoeTools" ID="{E71BEB85-EB07-490B-99B2-E4F3BE89B705}">
+									<Language>SFX</Language>
+									<AudioFile>GameIntro_03_JoeTools.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="606801207"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="GameIntro_03_JoeTools" ID="{E71BEB85-EB07-490B-99B2-E4F3BE89B705}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="GameIntro_04_FreeQuency" ID="{29469582-A4E1-41E9-AE7B-33B864704482}" ShortID="1007474151">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{41B5D519-AB6F-4EE3-BC3C-420CFE6AC1D2}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="GameIntro_04_FreeQuency" ID="{47F972C7-CFC9-4691-A02D-FEFB97FAE951}">
+									<Language>SFX</Language>
+									<AudioFile>GameIntro_04_FreeQuency.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="555064223"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="GameIntro_04_FreeQuency" ID="{47F972C7-CFC9-4691-A02D-FEFB97FAE951}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="GameIntro_05_JoeTools" ID="{DBF0D859-CC69-430D-8165-61E95E0A82D9}" ShortID="287402494">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{41B5D519-AB6F-4EE3-BC3C-420CFE6AC1D2}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="GameIntro_05_JoeTools" ID="{8CA98370-20AE-40F8-AE82-37D71FA79F2F}">
+									<Language>SFX</Language>
+									<AudioFile>GameIntro_05_JoeTools.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="206843742"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="GameIntro_05_JoeTools" ID="{8CA98370-20AE-40F8-AE82-37D71FA79F2F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="GameIntro_06_JoeTools" ID="{53CDE977-DC76-4FA6-B1D2-7AEC160C8029}" ShortID="704770555">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{41B5D519-AB6F-4EE3-BC3C-420CFE6AC1D2}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="GameIntro_06_JoeTools" ID="{BA58EB7A-1D3D-41E5-A834-726ADD50CB64}">
+									<Language>SFX</Language>
+									<AudioFile>GameIntro_06_JoeTools.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="354181712"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="GameIntro_06_JoeTools" ID="{BA58EB7A-1D3D-41E5-A834-726ADD50CB64}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="GameIntro_07_FreeQuency" ID="{32CD5B7F-DC62-4F52-BBBD-DAAFD53F78DF}" ShortID="161144379">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{41B5D519-AB6F-4EE3-BC3C-420CFE6AC1D2}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7BD09606-5368-4480-8087-DBB4675DAB21}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="GameIntro_07_FreeQuency" ID="{C1815925-1B91-483A-8F12-5E829A8C098E}">
+									<Language>SFX</Language>
+									<AudioFile>GameIntro_07_FreeQuency.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="290675538"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="GameIntro_07_FreeQuency" ID="{C1815925-1B91-483A-8F12-5E829A8C098E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Playlist">
+							<Reference>
+								<ObjectRef Name="GameIntro_01_JoeTools" ID="{96639319-3013-4D85-BC88-5F046351E647}" WorkUnitID="{23517BA4-71E4-4584-94F6-3EA75AAEEABF}"/>
+							</Reference>
+							<Reference>
+								<ObjectRef Name="GameIntro_02_FreeQuency" ID="{C8608F72-6A29-4D53-849A-B32E9EAA1517}" WorkUnitID="{23517BA4-71E4-4584-94F6-3EA75AAEEABF}"/>
+							</Reference>
+							<Reference>
+								<ObjectRef Name="GameIntro_03_JoeTools" ID="{70111DC7-E288-4199-941F-3D0306BCD25B}" WorkUnitID="{23517BA4-71E4-4584-94F6-3EA75AAEEABF}"/>
+							</Reference>
+							<Reference>
+								<ObjectRef Name="GameIntro_04_FreeQuency" ID="{29469582-A4E1-41E9-AE7B-33B864704482}" WorkUnitID="{23517BA4-71E4-4584-94F6-3EA75AAEEABF}"/>
+							</Reference>
+							<Reference>
+								<ObjectRef Name="GameIntro_05_JoeTools" ID="{DBF0D859-CC69-430D-8165-61E95E0A82D9}" WorkUnitID="{23517BA4-71E4-4584-94F6-3EA75AAEEABF}"/>
+							</Reference>
+							<Reference>
+								<ObjectRef Name="GameIntro_06_JoeTools" ID="{53CDE977-DC76-4FA6-B1D2-7AEC160C8029}" WorkUnitID="{23517BA4-71E4-4584-94F6-3EA75AAEEABF}"/>
+							</Reference>
+							<Reference>
+								<ObjectRef Name="GameIntro_07_FreeQuency" ID="{32CD5B7F-DC62-4F52-BBBD-DAAFD53F78DF}" WorkUnitID="{23517BA4-71E4-4584-94F6-3EA75AAEEABF}"/>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</RandomSequenceContainer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

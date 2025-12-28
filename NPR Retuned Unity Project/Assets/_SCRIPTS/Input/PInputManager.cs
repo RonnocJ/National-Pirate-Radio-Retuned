@@ -74,6 +74,7 @@ public enum PlayerActionType
     Action,
     Switch,
     Reload,
+    Pause,
 }
 public class PInputManager : Singleton<PInputManager>
 {
@@ -85,7 +86,7 @@ public class PInputManager : Singleton<PInputManager>
         {
             action.bAction = new Action(() => { });
             action.onFValueChange = new Action<float>(_ => { });
-            action.onV2ValueChange = new Action<Vector2>(_ => {});
+            action.onV2ValueChange = new Action<Vector2>(_ => { });
         }
     }
     protected override void OnEnable()
@@ -115,6 +116,7 @@ public class PInputManager : Singleton<PInputManager>
                         break;
                     case PlayerActionType.Reload:
                     case PlayerActionType.Switch:
+                    case PlayerActionType.Pause:
                         actions[actionType] = new PlayerAction(action, ActionValueType.Button);
                         break;
                     case PlayerActionType.Action:

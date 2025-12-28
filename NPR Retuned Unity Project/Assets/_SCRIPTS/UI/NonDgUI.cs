@@ -39,6 +39,9 @@ public class NonDgUI : Singleton<NonDgUI>
             case GameState.Talking:
                 GameSceneManager.root.LoadTalk();
                 break;
+            case GameState.Debt:
+                GameSceneManager.root.LoadDebt();
+                break;
         }
     }
     public IEnumerator ShowIntroQuotes()

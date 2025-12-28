@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{09D144F7-908A-461E-9709-4F6492D991D4}",
     "Language": "SFX",
-    "Hash": "{762F3157-5CD1-B8F3-1F36-2A5298510C13}",
+    "Hash": "{19BB65F6-8556-4C0B-8BF6-B5C4CC0378EF}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Songs\\SOW",
     "ShortName": "SOW",
     "Path": "SOW.bnk",
@@ -127,6 +127,6 @@
     ]
    }
   ],
-  "FileHash": "{F9281C02-FC81-3F66-0A3A-F4C19B285073}"
+  "FileHash": "{DD256CBE-32AE-1603-5E15-FB46AE9F413A}"
  }
 }

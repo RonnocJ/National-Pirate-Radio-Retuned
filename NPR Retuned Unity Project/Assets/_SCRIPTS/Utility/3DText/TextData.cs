@@ -18,6 +18,7 @@ public class TextBlock
 public class TextCluster
 {
     public int id;
+    public AudioEvent wwiseEvent;
     public List<TextLine> lines;
     public float pauseBefore;
 }
@@ -25,10 +26,8 @@ public class TextCluster
 [Serializable]
 public class TextLine
 {
-    public string speaker;
+    public Characters speaker;
     public string text;
-    public string wwiseEvent;
-    public float wait;
-    public float speed;
+    public double wait;
 }
 

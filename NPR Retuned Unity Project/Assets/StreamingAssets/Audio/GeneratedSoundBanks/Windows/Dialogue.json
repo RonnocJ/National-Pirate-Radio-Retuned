@@ -1,0 +1,113 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3930136735",
+    "Type": "User",
+    "GUID": "{97B030DB-62AA-4D6C-8AE2-BE4A82928E59}",
+    "Language": "SFX",
+    "Hash": "{299733BE-BC15-5EB3-981E-AC39D73ABF46}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Dialogue",
+    "ShortName": "Dialogue",
+    "Path": "Dialogue.bnk",
+    "Media": [
+     {
+      "Id": "51437689",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GameIntro_01_JoeTools.wav",
+      "CachePath": "8C/{8C4E316C-5152-A093-4F62-DDFB64999A26}.wem"
+     },
+     {
+      "Id": "206843742",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GameIntro_05_JoeTools.wav",
+      "CachePath": "8F/{8F9A2105-A294-39CD-39B0-8C92CD45AB44}.wem"
+     },
+     {
+      "Id": "290675538",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GameIntro_07_FreeQuency.wav",
+      "CachePath": "13/{13936DD1-6A73-5A98-3F7E-DDA9ECAEADE9}.wem"
+     },
+     {
+      "Id": "354181712",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GameIntro_06_JoeTools.wav",
+      "CachePath": "43/{43F97B52-4218-D753-045C-951E369E1BA6}.wem"
+     },
+     {
+      "Id": "555064223",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GameIntro_04_FreeQuency.wav",
+      "CachePath": "C4/{C43BF954-5261-1CD2-73E6-8B285F4A6B38}.wem"
+     },
+     {
+      "Id": "606801207",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GameIntro_03_JoeTools.wav",
+      "CachePath": "C0/{C01510CA-3ADA-2449-806C-681E6AF17CFF}.wem"
+     },
+     {
+      "Id": "651965916",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GameIntro_02_FreeQuency.wav",
+      "CachePath": "F7/{F704F25C-C976-E574-7677-9E8A0C386AC2}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "2892656105",
+      "Name": "playGameIntro",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogue\\playGameIntro",
+      "GUID": "{4F39A1B8-EDFD-4F03-9EEA-0F54F7EBCF3C}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.9736458",
+      "DurationMax": "8.300104",
+      "MediaRefs": [
+       {
+        "Id": "51437689"
+       },
+       {
+        "Id": "206843742"
+       },
+       {
+        "Id": "290675538"
+       },
+       {
+        "Id": "354181712"
+       },
+       {
+        "Id": "555064223"
+       },
+       {
+        "Id": "606801207"
+       },
+       {
+        "Id": "651965916"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{08CA41BD-895F-559A-BCB8-67DFE5E0DE95}"
+ }
+}

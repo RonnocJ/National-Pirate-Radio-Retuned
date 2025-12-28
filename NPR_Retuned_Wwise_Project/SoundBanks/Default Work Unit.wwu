@@ -50,6 +50,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<WorkUnit Name="Songs" ID="{E052878E-8F81-440A-B753-A7371CFF6461}" PersistMode="Reference"/>
+				<SoundBank Name="Dialogue" ID="{97B030DB-62AA-4D6C-8AE2-BE4A82928E59}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Dialogue" ID="{7EDED435-3E87-4A16-A6B3-426B7BBFFDAB}" WorkUnitID="{7EDED435-3E87-4A16-A6B3-426B7BBFFDAB}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
 			</ChildrenList>
 		</WorkUnit>
 	</SoundBanks>

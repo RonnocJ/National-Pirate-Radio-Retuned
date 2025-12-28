@@ -8,7 +8,7 @@
 						<Action Name="" ID="{3FBF8DE4-72F2-47FA-800F-35FF31948F6A}" ShortID="616841458">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Wind" ID="{0F966AC3-A2EF-4E5A-9B4F-E1A2F1789577}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+									<ObjectRef Name="Wind" ID="{0F966AC3-A2EF-4E5A-9B4F-E1A2F1789577}" WorkUnitID="{AFBB8294-2DE2-4504-8363-70F17225B8B1}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

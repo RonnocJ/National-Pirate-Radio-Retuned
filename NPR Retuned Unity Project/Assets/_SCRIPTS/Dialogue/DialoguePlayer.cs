@@ -20,6 +20,13 @@ public class DialoguePlayer : Singleton<DialoguePlayer>
     public GlyphTextRenderer textBody;
     public GlyphTextRenderer namePlate;
     public Animator speechBubbleAnim;
+    private static readonly Regex WordChunkRegex = new Regex(@"\S+", RegexOptions.Compiled);
+    private static readonly Regex NamePlateSpacingRegex = new Regex("(?<!^)([A-Z])", RegexOptions.Compiled);
+    private MatchCollection _activeWordMatches;
+    private int _activeWordIndex;
+    private string _activeFullLineText;
+    private int _activeVisibleCharacters;
+    private bool _waitingOnMarkers;
     public void PlayDialogue(LevelIntro dialogue, Opinion opinion = Opinion.neutral)
     {
         PlayFromResources($"LevelIntro/{dialogue}", opinion.ToString(), -1, ToLevel);
@@ -67,10 +74,8 @@ public class DialoguePlayer : Singleton<DialoguePlayer>
 
         foreach (var l in cluster.lines)
         {
-            if (!Enum.TryParse(Regex.Replace(l.speaker, @"\s+", ""), out Characters c)) continue;
-
-            if (TalkerR == null && c != Characters.FreeQuency) TalkerR = TalkDict[c];
-            else if (TalkDict[c] != TalkerR) TalkerL = TalkDict[c];
+            if (TalkerR == null && l.speaker != Characters.FreeQuency) TalkerR = TalkDict[l.speaker];
+            else if (TalkDict[l.speaker] != TalkerR) TalkerL = TalkDict[l.speaker];
 
         }
 
@@ -88,11 +93,12 @@ public class DialoguePlayer : Singleton<DialoguePlayer>
             yield return new WaitForSeconds(cluster.pauseBefore - 0.1f);
         }
 
+
         if (cluster.lines != null)
         {
             foreach (var line in cluster.lines)
             {
-                yield return PlayLineRoutine(line);
+                yield return PlayLineRoutine(line, cluster.wwiseEvent);
             }
         }
 
@@ -100,14 +106,9 @@ public class DialoguePlayer : Singleton<DialoguePlayer>
         OnComplete?.Invoke();
     }
 
-    private IEnumerator PlayLineRoutine(TextLine line)
+    private IEnumerator PlayLineRoutine(TextLine line, AudioEvent dialogueAudio)
     {
-        if (!Enum.TryParse(Regex.Replace(line.speaker, @"\s+", ""), out Characters c))
-        {
-            Debug.LogError("Add speaker to enum!");
-            yield break;
-        }
-        var talker = TalkDict[c];
+        var talker = TalkDict[line.speaker];
 
         if (!talker.StartedTalking)
         {
@@ -119,24 +120,104 @@ public class DialoguePlayer : Singleton<DialoguePlayer>
             yield return new WaitForSeconds(0.25f);
         }
 
-        if (c != CurrentSpeaker)
+        if (line.speaker != CurrentSpeaker)
         {
-            CurrentSpeaker = c;
-            namePlate.SetText(talker.Obscured ? "???" : line.speaker);
+            CurrentSpeaker = line.speaker;
+            string displayName = talker.Obscured ? "???" : NamePlateSpacingRegex.Replace(line.speaker.ToString(), " $1");
+            namePlate.SetText(displayName);
             speechBubbleAnim.SetBool("right", talker.OnRight);
         }
 
         yield return new WaitForSeconds(0.1f);
 
+        ResetWordSyncState();
+
+        var matches = WordChunkRegex.Matches(line.text);
+
+        _activeWordMatches = matches;
+        _activeWordIndex = 0;
+        _activeFullLineText = line.text;
+        _activeVisibleCharacters = 0;
+        _waitingOnMarkers = true;
+        textBody.SetText(string.Empty, 0f);
+
+        yield return new WaitForSeconds((float)line.wait);
+
+        AudioManager.root.PlaySound(dialogueAudio, talker.gameObject, 0, new AudioCallback(HandleWordMarkerCallback, AkCallbackType.AK_Marker | AkCallbackType.AK_EndOfEvent));
+
         talker.SetTalking(true);
 
-        textBody.SetText(line);
-
-        yield return new WaitForSeconds(line.speed * line.text.Length);
+        yield return new WaitUntil(() => !_waitingOnMarkers);
 
         talker.SetTalking(false);
 
-        yield return new WaitForSeconds(line.wait);
+        ResetWordSyncState();
+    }
+    private void HandleWordMarkerCallback(AkCallbackType type, AkCallbackInfo info)
+    {
+        if (!_waitingOnMarkers) return;
+
+        if (type == AkCallbackType.AK_EndOfEvent)
+        {
+            CompleteWordSyncTyping();
+            return;
+        }
+
+        if (info is not AkMarkerCallbackInfo markerInfo) return;
+
+        float.TryParse(markerInfo.strLabel, out float durationSeconds);
+
+        if (_activeWordMatches == null || _activeWordIndex >= _activeWordMatches.Count) return;
+        if (string.IsNullOrEmpty(_activeFullLineText)) return;
+
+        var match = _activeWordMatches[_activeWordIndex++];
+        int matchStart = match.Index;
+
+        if (_activeVisibleCharacters < matchStart)
+        {
+            int whitespaceEnd = Mathf.Clamp(matchStart, 0, _activeFullLineText.Length);
+            string uptoWhitespace = _activeFullLineText.Substring(0, whitespaceEnd);
+            textBody.SetText(uptoWhitespace, 0f, false, _activeVisibleCharacters);
+            _activeVisibleCharacters = whitespaceEnd;
+        }
+
+        int wordEnd = Mathf.Clamp(match.Index + match.Length, 0, _activeFullLineText.Length);
+        int charsToAdd = Mathf.Max(0, wordEnd - _activeVisibleCharacters);
+        if (charsToAdd == 0) return;
+
+        float charDelay = 0f;
+        if (durationSeconds > 0f && charsToAdd > 0)
+        {
+            charDelay = durationSeconds / charsToAdd;
+        }
+
+        string nextSlice = _activeFullLineText.Substring(0, wordEnd);
+        textBody.SetText(nextSlice, charDelay, false, _activeVisibleCharacters);
+        _activeVisibleCharacters = wordEnd;
+    }
+    private void CompleteWordSyncTyping()
+    {
+        if (string.IsNullOrEmpty(_activeFullLineText))
+        {
+            _waitingOnMarkers = false;
+            return;
+        }
+
+        if (_activeVisibleCharacters < _activeFullLineText.Length)
+        {
+            textBody.SetText(_activeFullLineText, 0f, false, _activeVisibleCharacters);
+            _activeVisibleCharacters = _activeFullLineText.Length;
+        }
+
+        _waitingOnMarkers = false;
+    }
+    private void ResetWordSyncState()
+    {
+        _activeWordMatches = null;
+        _activeWordIndex = 0;
+        _activeFullLineText = null;
+        _activeVisibleCharacters = 0;
+        _waitingOnMarkers = false;
     }
     public void ToTitle()
     {

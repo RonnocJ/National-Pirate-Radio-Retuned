@@ -25,9 +25,15 @@ MonoBehaviour:
   - eventName: setStatic
     bankName: LIH
     eventId: 185187129
+  - eventName: pauseAll
+    bankName: Global
+    eventId: 4091047182
   - eventName: playMouseClick
     bankName: Global
     eventId: 436537884
+  - eventName: resumeAll
+    bankName: Global
+    eventId: 3240900869
   - eventName: stopAll
     bankName: Global
     eventId: 3086540886
@@ -67,12 +73,21 @@ MonoBehaviour:
   - eventName: playWindAmbience
     bankName: LevelSFX
     eventId: 628329353
+  - eventName: playTireSqueal
+    bankName: VanSFX
+    eventId: 4002278104
+  - eventName: playTrumpetFireFull
+    bankName: VanSFX
+    eventId: 549296393
   - eventName: playVanEngine
     bankName: VanSFX
     eventId: 2430665392
   - eventName: playTitleMusic
     bankName: Title
     eventId: 718394488
+  - eventName: playGameIntro
+    bankName: Dialogue
+    eventId: 2892656105
   serializedRTPCs:
   - Name: Engine_Rev
     Min: 0
@@ -80,6 +95,15 @@ MonoBehaviour:
   - Name: Drone_Distance
     Min: 0
     Max: 256
+  - Name: Main_Volume
+    Min: 0
+    Max: 1
+  - Name: Music_Volume
+    Min: 0
+    Max: 1
+  - Name: SFX_Volume
+    Min: 0
+    Max: 1
   - Name: TTS_Character
     Min: 0
     Max: 36
@@ -95,3 +119,6 @@ MonoBehaviour:
   - Name: Player_Speed
     Min: 0
     Max: 75
+  - Name: WheelFriction
+    Min: 0
+    Max: 1.5

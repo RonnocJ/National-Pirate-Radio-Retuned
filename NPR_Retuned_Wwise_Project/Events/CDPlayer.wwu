@@ -19,7 +19,7 @@
 						<Action Name="" ID="{29A1B979-D48C-44E5-ADBB-9E023BC90C72}" ShortID="494869311">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Close" ID="{3CADA031-3A21-47AF-B225-7F788A010D3D}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+									<ObjectRef Name="Close" ID="{3CADA031-3A21-47AF-B225-7F788A010D3D}" WorkUnitID="{AFBB8294-2DE2-4504-8363-70F17225B8B1}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -30,7 +30,7 @@
 						<Action Name="" ID="{3DE87595-2EED-4241-B7CE-50D4A99ECE26}" ShortID="171620246">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Open" ID="{D98D0908-538B-4D51-80E9-88286433CA2B}" WorkUnitID="{4BB19215-0C0D-4B82-A945-1C77A9D9165F}"/>
+									<ObjectRef Name="Open" ID="{D98D0908-538B-4D51-80E9-88286433CA2B}" WorkUnitID="{AFBB8294-2DE2-4504-8363-70F17225B8B1}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

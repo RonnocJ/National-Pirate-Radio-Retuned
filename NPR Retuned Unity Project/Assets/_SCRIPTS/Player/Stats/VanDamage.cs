@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class VanDamage : Singleton<VanDamage>
 {
@@ -16,20 +18,25 @@ public class VanDamage : Singleton<VanDamage>
                 if (value < _hype) _regenTimer = 0;
 
                 if (!TestOverrides.root.immortal || value > _hype) _hype = Mathf.Clamp(value, 0, _p.MaxHype);
-                
+
                 hypeFluid.SetFloat("_Fill", _hype / _p.MaxHype);
                 hypeText.SetText($"Hype: \n{Mathf.RoundToInt(_hype)} / {_p.MaxHype}", 0);
 
-                if (value <= 0 && !_hasDied)
+                if (_hype / _p.MaxHype < 0.5f)
+                {
+                    _vignetteComp.intensity.value = screenFxCurve.Evaluate(_hype / _p.MaxHype * 2f) * 0.75f;
+                    _colorComp.saturation.value = screenFxCurve.Evaluate(_hype / _p.MaxHype * 2f) * -33f;
+                    _colorComp.contrast.value = screenFxCurve.Evaluate(_hype / _p.MaxHype * 2f) * 20f;
+                }
+
+                if (value <= 0 && GameManager.root.CurrentPState != PlayerState.Dead)
                 {
                     OnPlayerDie?.Invoke();
 
                     AudioManager.root.PlaySound(AudioEvent.stopAll);
 
                     GameManager.root.CurrentPState = PlayerState.Dead;
-                    GameManager.root.TriggerAfterLevelDialogue();
-
-                    _hasDied = true;
+                    StartCoroutine(NonDgUI.root.FadeToBlack(true, GameState.Debt));
                 }
             }
         }
@@ -48,12 +55,24 @@ public class VanDamage : Singleton<VanDamage>
     }
     [SerializeField] private Material hypeFluid;
     [SerializeField] private GlyphTextRenderer hypeText;
-    private bool _hasDied = false;
+    [SerializeField] private AnimationCurve screenFxCurve;
+    [SerializeField] private VolumeProfile globalProfile;
+
     private float _regenTimer;
+        private Vignette _vignetteComp;
+    private ColorAdjustments _colorComp;
     private PlayerStats _p => PlayerStats.root;
+    
     private Queue<Action> _damageQueue = new();
     void Start()
     {
+        _vignetteComp = globalProfile.components.Find(c => c is Vignette) as Vignette;
+        _colorComp = globalProfile.components.Find(c => c is ColorAdjustments) as ColorAdjustments;
+
+        _vignetteComp.intensity.value = 0f;
+        _colorComp.saturation.value = 0f;
+        _colorComp.contrast.value = 0f;
+
         Hype = _p.MaxHype;
     }
     void Update()

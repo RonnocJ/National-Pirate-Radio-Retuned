@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1660413538571601213}
   - component: {fileID: 2822529384301963280}
   - component: {fileID: 570578178659930809}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BoostParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4905,7 +4905,7 @@ GameObject:
   - component: {fileID: 6295207077037752827}
   - component: {fileID: 9024871030540154565}
   - component: {fileID: 5829404589161047272}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChargeParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9802,7 +9802,7 @@ GameObject:
   - component: {fileID: 2708611828366431135}
   - component: {fileID: 3023904963047292975}
   - component: {fileID: 8511062907797423336}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SBooster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9923,7 +9923,7 @@ MonoBehaviour:
   MaxCharges: 0
   MaxActiveTime: 0
   DrainRate: 0
-  boostForce: 7500
+  boostForce: 3500
   chargeParticles: {fileID: 9024871030540154565}
   boostParticles: {fileID: 2822529384301963280}
   overloadParticles: {fileID: 0}
@@ -9938,7 +9938,7 @@ GameObject:
   - component: {fileID: 7524649332773406442}
   - component: {fileID: 4949247354809983540}
   - component: {fileID: 4034056403294824815}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CubeChargeParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 5240503603977755280}
   m_Layer: 15
   m_Name: ATV
-  m_TagString: Untagged
+  m_TagString: Buffable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

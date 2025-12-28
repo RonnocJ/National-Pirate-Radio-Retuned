@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="Project" SchemaVersion="123" WwiseVersion="v2024.1.7" WwiseBuild="8863">
 	<ProjectInfo>
-		<Project Name="NPR Retuned Wwise Project" ID="{6C1A5570-F139-419A-A790-6A57C5EB4B57}">
+		<Project Name="NPRRetunedWProj" ID="{6C1A5570-F139-419A-A790-6A57C5EB4B57}">
 			<Platforms>
 				<Platform Name="Mac" ReferencePlatform="Mac" ID="{C3854E87-675D-4AAC-9C1B-E2064F9DC26A}" />
 				<Platform Name="Windows" ReferencePlatform="Windows" ID="{7809EC04-F110-4FB6-B67E-BF0B64B40EF4}" />

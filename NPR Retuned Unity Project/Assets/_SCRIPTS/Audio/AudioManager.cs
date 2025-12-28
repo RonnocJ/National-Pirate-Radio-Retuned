@@ -2,27 +2,39 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 public class AudioCallback {
-    public Action method;
+    public Action<AkCallbackType, AkCallbackInfo> method;
     public AkCallbackType type;
-    public AudioCallback(Action newMethod, AkCallbackType newType) {
+    public AudioCallback(Action<AkCallbackType, AkCallbackInfo> newMethod, AkCallbackType newType) {
         method = newMethod;
         type = newType;
+    }
+    public AudioCallback(Action<AkCallbackInfo> newMethod, AkCallbackType newType) {
+        type = newType;
+        if (newMethod != null)
+        {
+            method = (_, info) => newMethod(info);
+        }
     }
 }
 public class AudioManager : Singleton<AudioManager> {
     public GameObject ghostSoundPrefab;
     public float ghostPoolSize;
+        private Dictionary<(AudioEvent, GameObject, float), Queue<uint>> postedSoundEvents = new();
     void Start() {
-        for (int i = 0; i < ghostPoolSize; i++) {
+        for (int i = 0; i < ghostPoolSize; i++)
+        {
             var gs = Instantiate(ghostSoundPrefab, transform);
             gs.SetActive(false);
         }
+        
+        GameManager.root.OnPauseSwitch += OnPause;
     }
-    private Dictionary<(AudioEvent, GameObject, float), Queue<uint>> postedSoundEvents = new();
+    private void OnPause(bool paused)
+    {
+        if (paused) PlaySound(AudioEvent.pauseAll);
+        else PlaySound(AudioEvent.resumeAll);
+    }
     public bool PlaySound(AudioEvent soundType, GameObject soundSource, float instanceNumber, AudioCallback customCB, out uint eventId) {
         eventId = 0;
         if (soundType == AudioEvent.None)
@@ -40,8 +52,8 @@ public class AudioManager : Singleton<AudioManager> {
                 }
             }
 
-            if (sourceObj != null && customCB != null && type == customCB.type) {
-                customCB.method.Invoke();
+            if (customCB != null && (customCB.type & type) != 0) {
+                customCB.method?.Invoke(type, info);
             }
         };
 
@@ -72,7 +84,7 @@ public class AudioManager : Singleton<AudioManager> {
         }
         var ghostTr = transform.GetChild(0);
 
-        var cb = new AudioCallback(() => {
+        var cb = new AudioCallback(_ => {
             ghostTr.position = Vector3.zero;
             ghostTr.rotation = Quaternion.identity;
             ghostTr.SetParent(transform);

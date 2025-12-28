@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{500C3F74-5570-4CF4-9F79-6D6E719A305F}",
     "Language": "SFX",
-    "Hash": "{D85235CC-8D1B-22E4-69D7-F828022D02A7}",
+    "Hash": "{1E414B68-0259-80CA-9966-D8FCEF591478}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\VanSFX",
     "ShortName": "VanSFX",
     "Path": "VanSFX.bnk",
@@ -40,6 +40,14 @@
       "CachePath": "E5/{E5E8826E-E0B9-812D-6C40-87FA72B175F2}.wem"
      },
      {
+      "Id": "287493215",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Trumpet_FireLoop.wav",
+      "CachePath": "24/{24B602DA-3023-E0EC-13E7-A151BDAEF9BF}.wem"
+     },
+     {
       "Id": "584805829",
       "Language": "SFX",
       "Streaming": "false",
@@ -56,12 +64,28 @@
       "CachePath": "16/{16CCDD6D-7C97-27F7-DB10-BA7CC73C0900}.wem"
      },
      {
+      "Id": "737495885",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TireSqueal.wav",
+      "CachePath": "45/{45B88269-C4CB-756A-650E-0195F20F39F7}.wem"
+     },
+     {
       "Id": "742743554",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "3000 On Load Composite.wav",
       "CachePath": "4E/{4E165F79-2980-2B03-F79F-2F779456D028}.wem"
+     },
+     {
+      "Id": "746913725",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Trumpet_Fire.wav",
+      "CachePath": "82/{827DCCFB-0BC0-73D6-DAAA-9269BC5CCA4B}.wem"
      },
      {
       "Id": "842336508",
@@ -85,7 +109,7 @@
       {
        "Id": "198169026",
        "Name": "Synth One",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\Synth One",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SFX\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\Synth One",
        "GUID": "{DE7BA040-34AF-4BF1-87E1-4E379284FD32}",
        "LibName": "Wwise Synth One",
        "LibId": "9699330"
@@ -93,7 +117,7 @@
       {
        "Id": "203725194",
        "Name": "Parametric EQ (Custom)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\[Effect Slot [1]: (Parametric EQ)]\\Parametric EQ (Custom)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SFX\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\[Effect Slot [1]: (Parametric EQ)]\\Parametric EQ (Custom)",
        "GUID": "{33DB2E3E-570E-4AD3-AE77-5D6CC4531F92}",
        "LibName": "Wwise Parametric EQ",
        "LibId": "6881283"
@@ -101,7 +125,7 @@
       {
        "Id": "464193011",
        "Name": "Guitar Distortion (Custom)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\[Effect Slot [0]: (Guitar Distortion)]\\Guitar Distortion (Custom)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SFX\\Player\\Van\\Engine\\Motor\\MotorRunning\\VanMotorSynth\\[Effect Slot [0]: (Guitar Distortion)]\\Guitar Distortion (Custom)",
        "GUID": "{34483FF5-88CB-472E-87FA-81EE705AEA8F}",
        "LibName": "Wwise Guitar Distortion",
        "LibId": "8257539"
@@ -109,6 +133,51 @@
      ]
     },
     "Events": [
+     {
+      "Id": "4002278104",
+      "Name": "playTireSqueal",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Van\\Tires\\playTireSqueal",
+      "GUID": "{680AA6D2-6E40-427E-91DD-B40DB74E9913}",
+      "MaxAttenuation": "32",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "737495885"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "3347336007",
+        "Name": "VanVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\GlobalBus\\SFXBus\\VanVerb",
+        "GUID": "{7D0BEEA6-0C82-4EB3-8FAF-8F4EE04017BF}"
+       }
+      ]
+     },
+     {
+      "Id": "549296393",
+      "Name": "playTrumpetFireFull",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Van\\Weapons\\Trumpet\\playTrumpetFireFull",
+      "GUID": "{BA2BF905-3997-42A9-BB79-4F05BE45E90E}",
+      "MaxAttenuation": "32",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "287493215"
+       },
+       {
+        "Id": "746913725"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "3347336007",
+        "Name": "VanVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\GlobalBus\\SFXBus\\VanVerb",
+        "GUID": "{7D0BEEA6-0C82-4EB3-8FAF-8F4EE04017BF}"
+       }
+      ]
+     },
      {
       "Id": "2430665392",
       "Name": "playVanEngine",
@@ -196,6 +265,12 @@
       "GUID": "{0727A64E-DCB7-4B80-AC81-98F141CD9CC6}"
      },
      {
+      "Id": "2477488076",
+      "Name": "WheelFriction",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Player\\Van\\WheelFriction",
+      "GUID": "{45C76E6B-9AD2-4096-B238-1E0F0A4DD811}"
+     },
+     {
       "Id": "2727184314",
       "Name": "Engine_Throttle",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Player\\Van\\Engine_Throttle",
@@ -226,6 +301,6 @@
     ]
    }
   ],
-  "FileHash": "{3840CD60-CC14-608E-0177-090061A4C57B}"
+  "FileHash": "{E9EC600E-88AA-3778-2097-F89536D2FC84}"
  }
 }

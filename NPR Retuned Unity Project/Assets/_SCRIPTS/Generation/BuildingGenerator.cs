@@ -151,7 +151,7 @@ public class BuildingGenerator : MonoBehaviour
         if (_buildingDict.ContainsKey((PosUtil.V3FloorToInt(anchorHit / data.MinSpacing), type))) return;
         if (Vector3.Distance(anchorHit, Vector3.zero) < g.FlatFade) return;
 
-        var cols = Physics.OverlapSphere(PosUtil.GetLocalPos(anchorHit), Mathf.Max(data.Area.extents.z / 2f, data.Area.extents.x / 2f), onTerrainMask).ToList();
+        var cols = Physics.OverlapSphere(PosUtil.GetLocalPos(anchorHit), Mathf.Max(data.Area.extents.z, data.Area.extents.x), onTerrainMask).ToList();
         cols.ForEach(c => { if ((onTerrainMask & (1 << c.gameObject.layer)) != 0 && c.gameObject.layer != 6) return; });
 
         List<Vector3> footprint = new()

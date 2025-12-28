@@ -15,7 +15,7 @@ MonoBehaviour:
   PlaceDistance: 64
   ViewDistance: 32
   CullMargin: 0
-  CellSize: 64
+  CellSize: 32
   ChunkSize: 4096
   NoiseScale: 2048
   HeightScale: 128
@@ -84,7 +84,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 503095bab6f6241049d05fcd83cd7012, type: 2}
   - {fileID: 11400000, guid: fe3a4a525e30a4d0eb5e9e00d181e7cb, type: 2}
   - {fileID: 11400000, guid: 350ff0f3516904b0bb10a7fbeb493a16, type: 2}
-  GrassLimit: 6000
+  GrassLimit: 3000
   RoadLimit: 500
   TIntersectionLimit: 100
   XIntersectionLimit: 100

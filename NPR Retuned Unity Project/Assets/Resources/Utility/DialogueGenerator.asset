@@ -15,60 +15,34 @@ MonoBehaviour:
   Blocks:
   - Name: mono
     Clusters:
-    - PauseBefore: 3
-      Speed: 0.05
+    - PauseBefore: 0.25
+      LineAudio: -1402311191
       Lines:
-      - Speaker: Auxy
-        Line: 'You drive pretty well, at least
-
-          as good as you can in that
-
-          piece
-          of crap car.'
-        Wait: 3
-      - Speaker: Free Quency
-        Line: 'Who are you and how the hell
-
-          did you get this number?!?'
-        Wait: 3
-      - Speaker: Auxy
-        Line: 'Just tryna look out for you kid,
-
-          nothing else to it. I''m
-          nobody
-
-          to you.'
-        Wait: 3
-      - Speaker: Auxy
-        Line: 'But if I were you I''d watch out
-
-          for your little friend
-          you''re
-
-          working with. Guy''s bad news.'
-        Wait: 3
-      - Speaker: Free Quency
-        Line: 'Thank''s for the heads up but
-
-          frankly, we''ve known each
-          other
-
-          since college.'
-        Wait: 3
-      - Speaker: Free Quency
-        Line: "So between him and the random \nasshole calling me I'm trusting \nhim
-          a hell of a lot more."
-        Wait: 3
-      - Speaker: Auxy
-        Line: 'Even as he''s putting you in worse
-
-          debt then you were already
-          in?'
-        Wait: 3
-      - Speaker: Free Quency
-        Line: Seriously, who ar- Hello? Hello!?
-        Wait: 3
-  SaveFolderRelative: AfterLevel
-  OutputFileName: afterStage0
+      - Speaker: 1
+        Line: "Listen, you're gonna be fine. \nY- we need this money, alright?"
+        Wait: 2
+      - Speaker: 0
+        Line: "This is insane! How am I even \nmaking money off of this? "
+        Wait: 2
+      - Speaker: 1
+        Line: I'm working on that...
+        Wait: 2
+      - Speaker: 0
+        Line: "And won't the FCC be on my ass? \nHijacking all of the local \nradio
+          stations seems like a surefire \nway to get them to be."
+        Wait: 2
+      - Speaker: 1
+        Line: "And that's why I need you - \nyou're the best damn driver I\nknow,
+          dodging those clowns will\nbe a cakewalk."
+        Wait: 2
+      - Speaker: 1
+        Line: "You just go out there,  keep \nthe CD player fed and happy, \nand
+          do some badass driving."
+        Wait: 2
+      - Speaker: 0
+        Line: What could possibly go wrong?
+        Wait: 2
+  SaveFolderRelative: GameIntro
+  OutputFileName: newGame
   LastLoadedFilePath: /Users/connorjohnson/Desktop/GitHub/National-Pirate-Radio-Retuned/NPR
-    Retuned Unity Project/Assets/Resources/Scripts/AfterLevel/afterLevelStage0.json
+    Retuned Unity Project/Assets/Resources/Scripts/GameIntro/newGame.json

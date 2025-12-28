@@ -20,7 +20,7 @@ public class Drone : Enemy
     private float _randFireInterval;
     private float _fireTimer;
     private RaycastHit _hit;
-    [SerializeField] private List<Vector2Int> _currentPath = new List<Vector2Int>();
+    private List<Vector2Int> _currentPath = new List<Vector2Int>();
     public override void Spawn()
     {
         base.Spawn();

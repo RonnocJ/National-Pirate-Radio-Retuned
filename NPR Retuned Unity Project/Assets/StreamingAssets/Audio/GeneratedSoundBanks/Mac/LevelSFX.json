@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{F132A8A6-CE09-432B-878F-6B7B36947D3F}",
     "Language": "SFX",
-    "Hash": "{3143ACC9-CD9F-B404-07BF-E98ED611E941}",
+    "Hash": "{CE44075E-8488-50E2-2D11-B35704725D04}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\LevelSFX",
     "ShortName": "LevelSFX",
     "Path": "LevelSFX.bnk",
@@ -925,6 +925,6 @@
     ]
    }
   ],
-  "FileHash": "{4BCAFCBC-76E2-10BC-2723-41031108864F}"
+  "FileHash": "{84B288EB-1840-2995-A236-7D3969924809}"
  }
 }

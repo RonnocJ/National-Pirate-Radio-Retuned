@@ -21,4 +21,4 @@ MonoBehaviour:
     - {fileID: 4272665665844851351, guid: c6bf564246da14c71bf7cd6c73f984b5, type: 3}
     GeneratesOnRoads: 1
     MinSpacing: 128
-    SpawnChance: 0.05
+    SpawnChance: 0.1

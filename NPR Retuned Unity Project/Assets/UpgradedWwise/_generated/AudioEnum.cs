@@ -9,7 +9,9 @@ public enum AudioEvent {
     playPinboardInsert = 1197348043,
     playCDMusic = -542775629,
     setStatic = 185187129,
+    pauseAll = -203920114,
     playMouseClick = 436537884,
+    resumeAll = -1054066427,
     stopAll = -1208426410,
     playATVAttack = 113422346,
     playATVBlast = 1438338272,
@@ -23,8 +25,11 @@ public enum AudioEvent {
     playRotorLoop = -1579925133,
     playTTSVoice = 1507170084,
     playWindAmbience = 628329353,
+    playTireSqueal = -292689192,
+    playTrumpetFireFull = 549296393,
     playVanEngine = -1864301904,
     playTitleMusic = 718394488,
+    playGameIntro = -1402311191,
 }
 
 /// <summary>
@@ -68,10 +73,14 @@ public enum AudioTrigger {
 /// </summary>
 public enum AudioRTPC {
     None = 0,
+    Music_Volume = 1006694123,
     Player_Speed = 1062779386,
     Engine_RPM = 1130155893,
     Engine_Gear = 1358796823,
     Engine_Rev = 1482485841,
+    SFX_Volume = 1564184899,
+    Main_Volume = -1982795281,
+    WheelFriction = -1817479220,
     Engine_Throttle = -1567782982,
     Drone_Distance = -413525723,
     TTS_Character = -91836324,
@@ -93,4 +102,5 @@ public enum AudioSoundbank {
     LevelSFX = 1900718590,
     VanSFX = 1939123861,
     Title = -589240787,
+    Dialogue = -364830561,
 }

@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{1640F93C-9564-4BCA-831D-0FC4C39B78BB}",
     "Language": "SFX",
-    "Hash": "{C0291FA9-0FE5-D114-7607-8800251DE90E}",
+    "Hash": "{EAE574BA-06B2-3D9F-31B1-5FC70B2312B6}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Shop",
     "ShortName": "Shop",
     "Path": "Shop.bnk",
@@ -64,6 +64,6 @@
     ]
    }
   ],
-  "FileHash": "{B77CCAED-751A-7135-9D0A-5C706DE2AA91}"
+  "FileHash": "{9899AC0F-F7EC-3E25-EC17-9021773EED9D}"
  }
 }

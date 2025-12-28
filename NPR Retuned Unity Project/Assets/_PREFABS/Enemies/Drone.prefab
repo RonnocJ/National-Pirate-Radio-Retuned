@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 935400109457206357}
   m_Layer: 15
   m_Name: Drone
-  m_TagString: Untagged
+  m_TagString: Buffable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   terrainMask:
     serializedVersion: 2
     m_Bits: 705
-  rotateSpeedDegPerSec: 400
+  rotateSpeedDegPerSec: 600
   firePoint: {fileID: 8973238533237578101}
   waypointArrivalDistance: 2.5
   hoverBrakeForce: 8
@@ -140,7 +140,6 @@ MonoBehaviour:
   explosionDamage: 100
   explosionForce: 50000
   fireParticle: {fileID: 45932094103801937}
-  _currentPath: []
 --- !u!1 &2838206720589322134
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,7 +208,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: af7109e9fc13049dea6f48b5ed9555a7, type: 3}
+  - {fileID: 2100000, guid: 1717475e82cc045398daf9a156a66d06, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5228,7 +5227,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: af7109e9fc13049dea6f48b5ed9555a7, type: 3}
+  - {fileID: 2100000, guid: 1717475e82cc045398daf9a156a66d06, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

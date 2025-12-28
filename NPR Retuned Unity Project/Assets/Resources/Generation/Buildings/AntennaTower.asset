@@ -20,5 +20,5 @@ MonoBehaviour:
     Prefabs:
     - {fileID: 2884519355806874580, guid: 39fa861521b6848fdbdd198a6e80c995, type: 3}
     GeneratesOnRoads: 0
-    MinSpacing: 4096
-    SpawnChance: 0.05
+    MinSpacing: 2048
+    SpawnChance: 1

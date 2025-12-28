@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{7EDED435-3E87-4A16-A6B3-426B7BBFFDAB}" SchemaVersion="123" RootDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" ParentDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}">
+	<Events>
+		<WorkUnit Name="Dialogue" ID="{7EDED435-3E87-4A16-A6B3-426B7BBFFDAB}" OwnerID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="playGameIntro" ID="{4F39A1B8-EDFD-4F03-9EEA-0F54F7EBCF3C}">
+					<ChildrenList>
+						<Action Name="" ID="{D7616E3F-9C31-41B2-BA6F-00B639C09F53}" ShortID="1069912598">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="GameIntro" ID="{AD2479E1-BD7C-48C1-AD5D-5F645D599264}" WorkUnitID="{23517BA4-71E4-4584-94F6-3EA75AAEEABF}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

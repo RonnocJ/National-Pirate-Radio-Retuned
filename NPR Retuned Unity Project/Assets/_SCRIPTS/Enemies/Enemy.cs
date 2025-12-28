@@ -81,9 +81,13 @@ public abstract class Enemy : MonoBehaviour
 
         _destroyed = true;
 
-        if (killedByPlayer) PlayerMoney.root.RunMoney += value;
+        if (killedByPlayer) 
+        {
+            PlayerMoney.root.RunMoney += value;
+            PlayerStats.root.EnemyKills++;
+        }
 
-        AudioManager.root.PlaySound(deathSound, gameObject, 1, new AudioCallback(() =>
+        AudioManager.root.PlaySound(deathSound, gameObject, 1, new AudioCallback(_ =>
         {
             spawner.EnemyPool.Return(gameObject);
             spawner.Alive--;

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerMoney : Singleton<PlayerMoney>
 {
-    private float _runMoney;
+    [SerializeField] private float _runMoney = 0f;
     public float RunMoney
     {
         get => _runMoney;
@@ -19,4 +19,13 @@ public class PlayerMoney : Singleton<PlayerMoney>
         }
     }
     [SerializeField] private GlyphTextRenderer moneyText;
+    void Start()
+    {
+        VanDamage.root.OnPlayerDie += CalculateEarnings;
+    }
+    private void CalculateEarnings()
+    {
+        PlayerStats.root.LastRunMoney = RunMoney;
+        PlayerStats.root.CurrentMoney += RunMoney - PlayerStats.root.FCCFine - PlayerStats.root.VanUpkeep;
+    }
 }

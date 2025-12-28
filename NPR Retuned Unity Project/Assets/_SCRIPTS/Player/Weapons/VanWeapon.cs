@@ -2,13 +2,17 @@ using UnityEngine;
 public abstract class VanWeapon : MonoBehaviour
 {
     [HideInInspector] public Vector3 HitTarget;
+    [HideInInspector] public Vector3 HitNormal;
+    [HideInInspector] public Collider HitCollider;
     [Header("Arm Alignment")]
     public Transform[] PalmTargets;
     [Header("Weapon Settings")]
 
     [SerializeField] protected float weaponRange;
     [SerializeField] protected float weaponDamage;
+    [SerializeField] protected float hypeDrain;
     [SerializeField] protected LineRenderer aimBeam;
+    [SerializeField] protected CameraManager c;
     public float MoveSpeed;
     private bool _weaponActive;
     private bool _weaponFiring => PInputManager.root.actions[PlayerActionType.Action].fValue > 0.1f;
@@ -22,41 +26,63 @@ public abstract class VanWeapon : MonoBehaviour
     protected virtual void Start()
     {
         GameManager.root.OnPStateSwitch += ToggleWeapon;
-        PInputManager.root.actions[PlayerActionType.Action].onFValueChange += c =>
-        {
-            if (c < 0.1f) StopFireWeapon();
-        };
+        GameManager.root.OnPauseSwitch += c => { if (c) StopFireWeapon(); };
+        PInputManager.root.actions[PlayerActionType.Action].onFValueChange += SetWeaponState;
     }
     protected virtual void ToggleWeapon(PlayerState newState)
     {
         if (newState == PlayerState.Weapon) _weaponActive = true;
         else _weaponActive = false;
     }
+    protected void SetWeaponState(float inVal)
+    {
+        if (!_weaponActive || GameManager.root.Paused) return;
+
+        if (inVal > 0.1f) StartFireWeapon();
+        else StopFireWeapon();
+    }
     protected virtual void AimWeapon()
     {
-        HitTarget = Vector3.zero;
-        var cols = Physics.SphereCastAll(_mainCamera.transform.position, WeaponSettings.root.AimAssist, _mainCamera.transform.forward.normalized, weaponRange, WeaponSettings.root.LayerInclusions);
+        var hits = Physics.SphereCastAll(transform.position, WeaponSettings.root.AimAssist, transform.forward, weaponRange, WeaponSettings.root.LayerInclusions);
 
-        foreach (var c in cols)
+        foreach (var sphereHit in hits)
         {
-            if (c.collider.gameObject.TryGetComponent(out Enemy e))
+            if (sphereHit.collider.gameObject.TryGetComponent(out Enemy e))
             {
                 HitTarget = e.transform.position;
-                break;
+                HitNormal = sphereHit.normal;
+                HitCollider = sphereHit.collider;
+
+                MouseMover.root.WeaponTarget = HitTarget;
+
+                if (aimBeam.enabled)
+                {
+                    aimBeam.SetPosition(0, aimBeam.transform.position);
+                    aimBeam.SetPosition(1, HitTarget);
+                }
+
+                transform.rotation = Quaternion.LookRotation((HitTarget - transform.position).normalized);
+
+                return;
             }
         }
-        if (HitTarget == Vector3.zero)
+
+        Ray ray = new Ray(transform.position, transform.forward.normalized);
+
+        if (Physics.Raycast(ray, out RaycastHit hit, weaponRange, WeaponSettings.root.LayerInclusions))
         {
-            Ray ray = new Ray(transform.position, _mainCamera.transform.forward.normalized);
-            if (Physics.Raycast(ray, out RaycastHit hit, weaponRange, WeaponSettings.root.LayerInclusions))
-            {
-                HitTarget = hit.point;
-            }
-            else
-            {
-                HitTarget = ray.origin + ray.direction * weaponRange;
-            }
+            HitTarget = hit.point;
+            HitNormal = hit.normal;
+            HitCollider = hit.collider;
         }
+        else
+        {
+            HitTarget = ray.origin + ray.direction * weaponRange;
+            HitNormal = Vector3.zero;
+            HitCollider = null;
+        }
+
+        MouseMover.root.WeaponTarget = HitTarget;
 
         if (aimBeam.enabled)
         {
@@ -64,21 +90,29 @@ public abstract class VanWeapon : MonoBehaviour
             aimBeam.SetPosition(1, HitTarget);
         }
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(HitTarget - transform.position), Time.deltaTime * MoveSpeed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_mainCamera.transform.forward.normalized), Time.deltaTime * MoveSpeed);
+    }
+    protected virtual void StartFireWeapon()
+    {
+        if (!_weaponActive) return;
+        VanDamage.root.DPS += hypeDrain;
+        //c.ShakeCamera(1f);
     }
     protected virtual void FireWeapon()
     {
         if (!_weaponActive) return;
+
+        //c.ShakeCamera(0.2f);
     }
     protected virtual void StopFireWeapon()
     {
-
+        VanDamage.root.DPS -= hypeDrain;
     }
     private void LateUpdate()
     {
         aimBeam.enabled = _weaponActive && !_weaponFiring;
 
-        if (!_weaponActive) return;
+        if (!_weaponActive || GameManager.root.Paused) return;
 
         AimWeapon();
 

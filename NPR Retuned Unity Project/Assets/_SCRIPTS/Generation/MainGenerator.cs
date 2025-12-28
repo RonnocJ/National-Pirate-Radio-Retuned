@@ -39,7 +39,7 @@ public class MainGenerator : Singleton<MainGenerator>
                 StartCoroutine(NonDgUI.root.RemoveLevelCard());
                 StartCoroutine(GrassGen());
 
-                if (!GameManager.root.NewGame) GameManager.root.CurrentPState = PlayerState.Utility;
+                if (!PlayerStats.root.NewGame) GameManager.root.CurrentPState = PlayerState.Utility;
             }
         }
     }

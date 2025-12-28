@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 8601099374204951995}
   m_Layer: 15
   m_Name: Cruiser
-  m_TagString: Untagged
+  m_TagString: Buffable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -477,6 +477,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  lateralCorrectionForce: 0
   steerMultiplier: 10
   maxSteering: 70
   autopilot:

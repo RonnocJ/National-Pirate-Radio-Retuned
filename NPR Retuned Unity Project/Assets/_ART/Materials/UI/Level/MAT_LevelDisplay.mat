@@ -123,7 +123,7 @@ Material:
     - _GlossyReflections: 0
     - _GlowIntensity: 1
     - _Metallic: 0
-    - _NoiseIntensity: 0.05
+    - _NoiseIntensity: 1.7481116
     - _NoiseScale: 800
     - _OcclusionStrength: 1
     - _Parallax: 0.005

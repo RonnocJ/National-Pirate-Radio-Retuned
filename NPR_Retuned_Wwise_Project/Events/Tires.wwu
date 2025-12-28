@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{8F4D65FD-96F0-46D4-81A7-00A5410ABE51}" SchemaVersion="123" RootDocumentID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" ParentDocumentID="{75D373E6-AB92-4F7A-8D5D-472B2133F41C}">
+	<Events>
+		<WorkUnit Name="Tires" ID="{8F4D65FD-96F0-46D4-81A7-00A5410ABE51}" OwnerID="{75D373E6-AB92-4F7A-8D5D-472B2133F41C}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="playTireSqueal" ID="{680AA6D2-6E40-427E-91DD-B40DB74E9913}">
+					<ChildrenList>
+						<Action Name="" ID="{70A588A5-9AE4-45D1-AB4B-76A7704C0B7D}" ShortID="70609962">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="TireSqueal" ID="{529EFF43-D01C-45ED-BBAB-E8FD0BB033B2}" WorkUnitID="{AFBB8294-2DE2-4504-8363-70F17225B8B1}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

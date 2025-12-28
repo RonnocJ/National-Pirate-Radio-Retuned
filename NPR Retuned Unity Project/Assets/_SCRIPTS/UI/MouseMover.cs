@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class MouseMover : Singleton<MouseMover>
 {
+    [HideInInspector] public Vector3 WeaponTarget;
     [SerializeField] private float mouseSpeed;
     [SerializeField] private float rotationLerpSpeed = 12f;
     [SerializeField] private float mouseDeltaSensitivity = 1f;
     [SerializeField] private float mouseScaleMult;
-        [SerializeField] private Camera mainCam;
+    [SerializeField] private Camera mainCam;
+    [SerializeField] private Camera playerCam;
+    [SerializeField] private Vector3 crosshairPos;
     private bool _mouseActive = false;
     public bool _grabbing;
     private bool _hasHit;
@@ -45,23 +48,60 @@ public class MouseMover : Singleton<MouseMover>
     {
         if (newState == PlayerState.Utility)
         {
-            transform.localScale = _originalScale;
             _mouseActive = true;
+            _anim.SetTrigger("toMouse");
+            transform.localRotation = Quaternion.identity;
         }
         else if (newState == PlayerState.Weapon)
         {
-            transform.localScale = Vector3.zero;
             _mouseActive = false;
+            _anim.SetTrigger("toCrosshair");
         }
     }
 
     void Update()
     {
-        if (!_mouseActive) return;
+        if (_mouseActive)
+        {
+            _rayZ = mainCam.ScreenPointToRay(_virtualMousePos);
+            _rayZ.origin = mainCam.transform.position;
 
-        _rayZ = mainCam.ScreenPointToRay(_virtualMousePos);
-        _rayZ.origin = mainCam.transform.position;
+            CheckOffsets();
 
+            _virtualMousePos += PInputManager.root.actions[PlayerActionType.Look].v2Value * mouseDeltaSensitivity;
+            _virtualMousePos.x = Mathf.Clamp(_virtualMousePos.x, 0f, Mathf.Max(0f, Screen.width - 1f));
+            _virtualMousePos.y = Mathf.Clamp(_virtualMousePos.y, 0f, Mathf.Max(0f, Screen.height - 1f));
+
+            UpdateAnimator();
+
+            transform.localPosition = Vector3.Lerp(transform.localPosition, transform.InverseTransformPoint(_hitPoint), Time.deltaTime * mouseSpeed);
+
+            Quaternion targetLocal = _anim.GetBool("hoveringPoint") ? _hoverTargetLocalRotation : Quaternion.LookRotation(transform.InverseTransformDirection(mainCam.transform.forward), transform.InverseTransformDirection(mainCam.transform.up));
+            _child.localRotation = Quaternion.Lerp(_child.localRotation, targetLocal, Time.deltaTime * rotationLerpSpeed);
+
+            if (_grabbing && _heldGrabTarget != null) _heldGrabTarget.OnDrag();
+        }
+        else if (GameManager.root.CurrentPState == PlayerState.Weapon)
+        {
+            Vector3 screenPoint = playerCam.WorldToViewportPoint(WeaponTarget);
+            screenPoint.z = 1f;
+            transform.position = Vector3.Lerp(transform.position, playerCam.ViewportToWorldPoint(screenPoint), Time.deltaTime * 300f);
+            transform.rotation = Quaternion.LookRotation(playerCam.transform.forward, playerCam.transform.up);
+        }
+    }
+    private bool IsPartOfHeld(Transform t)
+    {
+        if (_heldGrabTarget == null) return false;
+        Transform root = _heldGrabTarget.transform;
+        while (t != null)
+        {
+            if (t == root) return true;
+            t = t.parent;
+        }
+        return false;
+    }
+    private void CheckOffsets()
+    {
         if (_grabbing && _heldGrabTarget != null)
         {
             RaycastHit[] hits = Physics.SphereCastAll(_rayZ.origin, 0.01f, _rayZ.direction, 50f, 1 << 5, QueryTriggerInteraction.Ignore);
@@ -109,11 +149,9 @@ public class MouseMover : Singleton<MouseMover>
                 _hitPoint.y += 0.1f - hitY.distance;
             }
         }
-
-        _virtualMousePos += PInputManager.root.actions[PlayerActionType.Look].v2Value * mouseDeltaSensitivity;
-        _virtualMousePos.x = Mathf.Clamp(_virtualMousePos.x, 0f, Mathf.Max(0f, Screen.width - 1f));
-        _virtualMousePos.y = Mathf.Clamp(_virtualMousePos.y, 0f, Mathf.Max(0f, Screen.height - 1f));
-
+    }
+    private void UpdateAnimator()
+    {
         if (!Physics.SphereCast(_rayZ.origin, 0.05f, _rayZ.direction, out RaycastHit triggerHit, 50f, 1 << 5))
         {
             _hasHit = false;
@@ -162,26 +200,7 @@ public class MouseMover : Singleton<MouseMover>
         {
             _anim.SetBool("hoveringGrab", false);
         }
-
-        transform.localPosition = Vector3.Lerp(transform.localPosition, transform.InverseTransformPoint(_hitPoint), Time.deltaTime * mouseSpeed);
-
-        Quaternion targetLocal = _anim.GetBool("hoveringPoint") ? _hoverTargetLocalRotation : Quaternion.LookRotation(transform.InverseTransformDirection(mainCam.transform.forward), transform.InverseTransformDirection(mainCam.transform.up));
-        _child.localRotation = Quaternion.Lerp(_child.localRotation, targetLocal, Time.deltaTime * rotationLerpSpeed);
-
-        if (_grabbing && _heldGrabTarget != null) _heldGrabTarget.OnDrag();
     }
-    private bool IsPartOfHeld(Transform t)
-    {
-        if (_heldGrabTarget == null) return false;
-        Transform root = _heldGrabTarget.transform;
-        while (t != null)
-        {
-            if (t == root) return true;
-            t = t.parent;
-        }
-        return false;
-    }
-
     private void CheckClick(float newFVal)
     {
         if (!_hasHit) return;

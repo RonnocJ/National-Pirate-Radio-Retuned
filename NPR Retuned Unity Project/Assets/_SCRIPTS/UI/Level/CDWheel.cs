@@ -45,7 +45,7 @@ public class CDWheel : MonoBehaviour
     }
     void Update()
     {
-        if (GameManager.root.NewGame && Tutorial.root.Iteration < 4) return;
+        if (PlayerStats.root.NewGame && Tutorial.root.Iteration < 4) return;
         
         if (_findValue == 0 || Found || GameManager.root.CurrentPState != PlayerState.Utility)
         {

@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID PAUSEALL = 4091047182U;
         static const AkUniqueID PLAYATVATTACK = 113422346U;
         static const AkUniqueID PLAYATVBLAST = 1438338272U;
         static const AkUniqueID PLAYCDMUSIC = 3752191667U;
@@ -21,16 +22,20 @@ namespace AK
         static const AkUniqueID PLAYDRONEEXPLOSION = 1793089900U;
         static const AkUniqueID PLAYDRONEHOVERLOOP = 1561607685U;
         static const AkUniqueID PLAYDRONESHOOT = 3233078124U;
+        static const AkUniqueID PLAYGAMEINTRO = 2892656105U;
         static const AkUniqueID PLAYMAGNETEXPLODE = 580489224U;
         static const AkUniqueID PLAYMAGNETFLOAT = 276583697U;
         static const AkUniqueID PLAYMOUSECLICK = 436537884U;
         static const AkUniqueID PLAYPINBOARDEJECT = 578532127U;
         static const AkUniqueID PLAYPINBOARDINSERT = 1197348043U;
         static const AkUniqueID PLAYROTORLOOP = 2715042163U;
+        static const AkUniqueID PLAYTIRESQUEAL = 4002278104U;
         static const AkUniqueID PLAYTITLEMUSIC = 718394488U;
+        static const AkUniqueID PLAYTRUMPETFIREFULL = 549296393U;
         static const AkUniqueID PLAYTTSVOICE = 1507170084U;
         static const AkUniqueID PLAYVANENGINE = 2430665392U;
         static const AkUniqueID PLAYWINDAMBIENCE = 628329353U;
+        static const AkUniqueID RESUMEALL = 3240900869U;
         static const AkUniqueID SETSTATIC = 185187129U;
         static const AkUniqueID STOPALL = 3086540886U;
     } // namespace EVENTS
@@ -101,14 +106,19 @@ namespace AK
         static const AkUniqueID ENGINE_REV = 1482485841U;
         static const AkUniqueID ENGINE_RPM = 1130155893U;
         static const AkUniqueID ENGINE_THROTTLE = 2727184314U;
+        static const AkUniqueID MAIN_VOLUME = 2312172015U;
+        static const AkUniqueID MUSIC_VOLUME = 1006694123U;
         static const AkUniqueID PLAYER_SPEED = 1062779386U;
+        static const AkUniqueID SFX_VOLUME = 1564184899U;
         static const AkUniqueID TTS_CHARACTER = 4203130972U;
+        static const AkUniqueID WHEELFRICTION = 2477488076U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
         static const AkUniqueID BRD = 765054347U;
+        static const AkUniqueID DIALOGUE = 3930136735U;
         static const AkUniqueID EVG = 932389263U;
         static const AkUniqueID FUG = 982472045U;
         static const AkUniqueID GLOBAL = 1465331116U;
