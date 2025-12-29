@@ -21,10 +21,12 @@ public class GameSceneManager : Singleton<GameSceneManager>
                     if (LastLoadedScene == "Title") break;
                     LastLoadedScene = "Title";
 
-                    SoundbankManager.root.UnloadAll();
+                    // SoundbankManager.root.UnloadAll();
 
-                    SoundbankManager.root.LoadSoundbank(AudioSoundbank.Title);
-                    AudioManager.root.PlaySound(AudioEvent.playTitleMusic);
+                    SoundbankManager.root.LoadSoundbank(AudioSoundbank.NonDGMusic);
+                    
+                    AudioManager.root.PlaySound(AudioEvent.playNonDGMusic, gameObject, 1);
+                    AudioManager.root.SetState(AudioState.NonDGMusic_BREAK_Title);
 
                     GameManager.root.CurrentGState = GameState.Title;
 
@@ -34,10 +36,14 @@ public class GameSceneManager : Singleton<GameSceneManager>
 
                     if (LastLoadedScene == "Talk") break;
 
-                    AudioManager.root.StopSound(AudioEvent.playTitleMusic);
-                    SoundbankManager.root.UnloadAll();
+                    // SoundbankManager.root.UnloadAll();
 
+                    SoundbankManager.root.LoadSoundbank(AudioSoundbank.NonDGMusic);
                     SoundbankManager.root.LoadSoundbank(AudioSoundbank.Dialogue);
+
+                    AudioManager.root.PlaySound(AudioEvent.playNonDGMusic, gameObject, 1);
+                    AudioManager.root.SetState(AudioState.NonDGMusic_BREAK_Dialogue);
+                    
 
                     NonDgUI.root.toTalkPanel.anchoredPosition = Vector2.right * -2560;
                     GameManager.root.CurrentGState = GameState.Talking;
@@ -71,7 +77,7 @@ public class GameSceneManager : Singleton<GameSceneManager>
                     if (LastLoadedScene == "Shop") break;
                     LastLoadedScene = "Shop";
 
-                    AudioManager.root.StopSound(AudioEvent.playTitleMusic);
+                    AudioManager.root.StopSound(AudioEvent.playNonDGMusic, gameObject, 1, 0.5f);
                     SoundbankManager.root.UnloadAll();
 
                     SoundbankManager.root.LoadSoundbank(AudioSoundbank.Shop);
@@ -86,7 +92,6 @@ public class GameSceneManager : Singleton<GameSceneManager>
                     if (LastLoadedScene == "Level") break;
                     LastLoadedScene = "Level";
 
-                    AudioManager.root.StopSound(AudioEvent.playTitleMusic);
                     SoundbankManager.root.UnloadAll();
 
                     SoundbankManager.root.LoadSoundbank(AudioSoundbank.LevelSFX);

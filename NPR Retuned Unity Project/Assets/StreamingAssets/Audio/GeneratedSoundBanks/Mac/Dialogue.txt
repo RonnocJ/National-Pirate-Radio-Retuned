@@ -2,11 +2,11 @@ Event	ID	Name			Wwise Object Path	Notes
 	2892656105	playGameIntro			\Default Work Unit\Dialogue\playGameIntro	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	51437689	GameIntro_01_JoeTools	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\8C\{8C4E316C-5152-A093-4F62-DDFB64999A26}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\GameIntro\GameIntro_01_JoeTools		1009448
-	206843742	GameIntro_05_JoeTools	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\8F\{8F9A2105-A294-39CD-39B0-8C92CD45AB44}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\GameIntro\GameIntro_05_JoeTools		1376768
-	290675538	GameIntro_07_FreeQuency	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\13\{13936DD1-6A73-5A98-3F7E-DDA9ECAEADE9}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\GameIntro\GameIntro_07_FreeQuency		387996
-	354181712	GameIntro_06_JoeTools	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\43\{43F97B52-4218-D753-045C-951E369E1BA6}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\GameIntro\GameIntro_06_JoeTools		1207584
-	555064223	GameIntro_04_FreeQuency	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\C4\{C43BF954-5261-1CD2-73E6-8B285F4A6B38}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\GameIntro\GameIntro_04_FreeQuency		1593716
-	606801207	GameIntro_03_JoeTools	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\C0\{C01510CA-3ADA-2449-806C-681E6AF17CFF}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\GameIntro\GameIntro_03_JoeTools		379036
-	651965916	GameIntro_02_FreeQuency	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\F7\{F704F25C-C976-E574-7677-9E8A0C386AC2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\GameIntro\GameIntro_02_FreeQuency		640132
+	51437689	GameIntro_01_JoeTools	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\D0\{D06CF4B6-1FDA-E8A7-59E8-E99E1EFA473C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\GameIntro\GameIntro_01_JoeTools		1009448
+	206843742	GameIntro_05_JoeTools	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\04\{04003A4E-8F3B-5F10-8DDD-E87175241B5E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\GameIntro\GameIntro_05_JoeTools		1377600
+	290675538	GameIntro_07_FreeQuency	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\0F\{0FDB0FA7-4FFA-073F-8636-4B6E86B8EBBF}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\GameIntro\GameIntro_07_FreeQuency		388220
+	354181712	GameIntro_06_JoeTools	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\F6\{F66F7792-E0F4-02BA-E19D-9B843F123669}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\GameIntro\GameIntro_06_JoeTools		1208288
+	555064223	GameIntro_04_FreeQuency	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\A7\{A7502015-FDDB-4759-DC90-87EDF88477E0}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\GameIntro\GameIntro_04_FreeQuency		1594740
+	606801207	GameIntro_03_JoeTools	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\8C\{8C2077A6-1EAA-983C-4E53-689710F1E8E8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\GameIntro\GameIntro_03_JoeTools		379212
+	651965916	GameIntro_02_FreeQuency	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\44\{443D421F-325B-CBCF-37C3-8B7358C51DB7}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\GameIntro\GameIntro_02_FreeQuency		640644
 

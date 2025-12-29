@@ -3,12 +3,27 @@
 	<Events>
 		<WorkUnit Name="Music" ID="{761AC304-39E8-49DA-BEFE-A50C3CAE180C}" OwnerID="{0C820000-6E07-4B57-8F6E-69E488B2BE04}" PersistMode="Nested">
 			<ChildrenList>
-				<Event Name="playTitleMusic" ID="{92881F73-1D62-4723-A8D4-97D3E37B52B1}">
+				<Event Name="playNonDGMusic" ID="{92881F73-1D62-4723-A8D4-97D3E37B52B1}">
 					<ChildrenList>
 						<Action Name="" ID="{698AD094-DACF-4FD4-BB5A-A2E9DAB9EF2C}" ShortID="610336098">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Title" ID="{22B9F8F6-DB7A-47AE-80D2-7D2855D5D828}" WorkUnitID="{0FD42189-253F-46C2-A37B-D511CEECE91A}"/>
+									<ObjectRef Name="Switch" ID="{68796810-0741-4591-BCB0-26136ED2ECE0}" WorkUnitID="{0FD42189-253F-46C2-A37B-D511CEECE91A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="setTitleOnDelay" ID="{D734DCB5-A7B5-414A-84FD-3534C06B427B}">
+					<ChildrenList>
+						<Action Name="" ID="{83586D81-3F5A-40B4-8B7C-1D0A7FA0E01E}" ShortID="630037227">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+								<Property Name="Delay" Type="Real64" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Title" ID="{BFEAA640-0667-4AD8-A139-B8978B1F17D1}" WorkUnitID="{B69FA23A-1C75-48C2-9F49-690521E56080}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

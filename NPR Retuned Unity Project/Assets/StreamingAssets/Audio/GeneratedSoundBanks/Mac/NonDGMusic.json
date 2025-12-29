@@ -1,0 +1,156 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2562797778",
+    "Type": "User",
+    "GUID": "{BFB26C9A-8977-4905-AA23-380990C460D2}",
+    "Language": "SFX",
+    "Hash": "{8A2276AA-D41B-7A39-1C0C-A653A624702D}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\NonDGMusic",
+    "ShortName": "NonDGMusic",
+    "Path": "NonDGMusic.bnk",
+    "Media": [
+     {
+      "Id": "89188517",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "NPR_MSC_Dialogue_Melody02.wav",
+      "CachePath": "1B/{1BDA698F-167F-DCF4-93EC-583276A122BD}.wem"
+     },
+     {
+      "Id": "242738599",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "NPR_MSC_Dialogue_Melody01.wav",
+      "CachePath": "B6/{B6EA4608-00B4-DD6C-3BE2-C21535EB6BA2}.wem"
+     },
+     {
+      "Id": "332490141",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "NPR_MSC_Title_Intro.wav",
+      "CachePath": "1C/{1CCCBB3B-8C01-1B90-70CF-2E7C2EFD8AF0}.wem"
+     },
+     {
+      "Id": "790816521",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "NPR_MSC_Title_Main.wav",
+      "CachePath": "15/{15EF6773-7921-FC3F-F6F3-D6A49048F4A7}.wem"
+     },
+     {
+      "Id": "952804119",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "NPR_MSC_Dialogue_Base.wav",
+      "CachePath": "28/{28810AE0-CFF4-7BCB-5A7B-7E7D94BCA259}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "4119203132",
+      "Name": "playNonDGMusic",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\playNonDGMusic",
+      "GUID": "{92881F73-1D62-4723-A8D4-97D3E37B52B1}",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2562797778",
+         "Id": "3930136735",
+         "GUID": "{35F1E1ED-C167-4C8F-B5D1-1FD6754DB88A}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "89188517"
+         },
+         {
+          "Id": "242738599"
+         },
+         {
+          "Id": "952804119"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2562797778",
+         "Id": "3705726509",
+         "GUID": "{BFEAA640-0667-4AD8-A139-B8978B1F17D1}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "332490141"
+         },
+         {
+          "Id": "790816521"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "Id": "119700305",
+      "Name": "setTitleOnDelay",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\setTitleOnDelay",
+      "GUID": "{D734DCB5-A7B5-414A-84FD-3534C06B427B}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "2562797778",
+        "Id": "3705726509",
+        "Name": "Title",
+        "ObjectPath": "\\States\\Default Work Unit\\NonDGMusic\\Title",
+        "GUID": "{BFEAA640-0667-4AD8-A139-B8978B1F17D1}"
+       }
+      ]
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "2562797778",
+      "Name": "NonDGMusic",
+      "ObjectPath": "\\States\\Default Work Unit\\NonDGMusic",
+      "GUID": "{69A83386-D4C7-4B74-89A0-70A53279195A}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\NonDGMusic\\None",
+        "GUID": "{596C0715-ECF8-46D3-B687-8D1A0EA301A9}"
+       },
+       {
+        "Id": "3705726509",
+        "Name": "Title",
+        "ObjectPath": "\\States\\Default Work Unit\\NonDGMusic\\Title",
+        "GUID": "{BFEAA640-0667-4AD8-A139-B8978B1F17D1}"
+       },
+       {
+        "Id": "3930136735",
+        "Name": "Dialogue",
+        "ObjectPath": "\\States\\Default Work Unit\\NonDGMusic\\Dialogue",
+        "GUID": "{35F1E1ED-C167-4C8F-B5D1-1FD6754DB88A}"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{3A0572A2-108C-4AEF-5D9E-A6F6E34C9800}"
+ }
+}

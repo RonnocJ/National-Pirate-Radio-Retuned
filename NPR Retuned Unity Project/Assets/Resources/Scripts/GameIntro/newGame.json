@@ -11,37 +11,37 @@
                         {
                             "speaker": 1,
                             "text": "Listen, you're gonna be fine. \nY- we need this money, alright?",
-                            "wait": 2.0
+                            "wait": 0.25
                         },
                         {
                             "speaker": 0,
                             "text": "This is insane! How am I even \nmaking money off of this? ",
-                            "wait": 2.0
+                            "wait": 1.5
                         },
                         {
                             "speaker": 1,
                             "text": "I'm working on that...",
-                            "wait": 2.0
+                            "wait": 1.0
                         },
                         {
                             "speaker": 0,
                             "text": "And won't the FCC be on my ass? \nHijacking all of the local \nradio stations seems like a surefire \nway to get them to be.",
-                            "wait": 2.0
+                            "wait": 1.0
                         },
                         {
                             "speaker": 1,
-                            "text": "And that's why I need you - \nyou're the best damn driver I\nknow, dodging those clowns will\nbe a cakewalk.",
-                            "wait": 2.0
+                            "text": "And that's why I need you- \nyou're the best damn driver I\nknow, dodging those clowns will\nbe a cakewalk.",
+                            "wait": 1.5
                         },
                         {
                             "speaker": 1,
                             "text": "You just go out there,  keep \nthe CD player fed and happy, \nand do some badass driving.",
-                            "wait": 2.0
+                            "wait": 0.5
                         },
                         {
                             "speaker": 0,
                             "text": "What could possibly go wrong?",
-                            "wait": 2.0
+                            "wait": 1.5
                         }
                     ]
                 }

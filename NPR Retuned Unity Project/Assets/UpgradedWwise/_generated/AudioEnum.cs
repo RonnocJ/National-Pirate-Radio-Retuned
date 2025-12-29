@@ -28,7 +28,8 @@ public enum AudioEvent {
     playTireSqueal = -292689192,
     playTrumpetFireFull = 549296393,
     playVanEngine = -1864301904,
-    playTitleMusic = 718394488,
+    playNonDGMusic = -175764164,
+    setTitleOnDelay = 119700305,
     playGameIntro = -1402311191,
 }
 
@@ -40,6 +41,9 @@ public enum AudioState {
     ID_JoeTools_BREAK_Neutral = 670611050,
     ID_JoeTools_BREAK_None = 748895195,
     ID_JoeTools_BREAK_Happy = 1427264549,
+    NonDGMusic_BREAK_None = 748895196,
+    NonDGMusic_BREAK_Title = -589240787,
+    NonDGMusic_BREAK_Dialogue = -364830561,
 }
 
 /// <summary>
@@ -101,6 +105,6 @@ public enum AudioSoundbank {
     Global = 1465331116,
     LevelSFX = 1900718590,
     VanSFX = 1939123861,
-    Title = -589240787,
+    NonDGMusic = -1732169518,
     Dialogue = -364830561,
 }

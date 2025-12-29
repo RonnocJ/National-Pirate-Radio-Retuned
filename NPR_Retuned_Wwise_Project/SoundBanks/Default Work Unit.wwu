@@ -21,9 +21,9 @@
 						<GameSyncRef Name="BRD" ID="{62DA2B9A-6C14-4B94-9D20-8E6AB8BD9B3D}" WorkUnitID="{68E0CA90-7FC1-4FF4-9F44-2DD1902406F0}" Origin="Manual"/>
 					</GameSyncExclusionList>
 				</SoundBank>
-				<SoundBank Name="Title" ID="{BFB26C9A-8977-4905-AA23-380990C460D2}">
+				<SoundBank Name="NonDGMusic" ID="{BFB26C9A-8977-4905-AA23-380990C460D2}">
 					<ObjectInclusionList>
-						<ObjectRef Name="playTitleMusic" ID="{92881F73-1D62-4723-A8D4-97D3E37B52B1}" WorkUnitID="{761AC304-39E8-49DA-BEFE-A50C3CAE180C}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Music" ID="{761AC304-39E8-49DA-BEFE-A50C3CAE180C}" WorkUnitID="{761AC304-39E8-49DA-BEFE-A50C3CAE180C}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

@@ -32,6 +32,9 @@ public class TitleButtons : Interactable
         switch (type)
         {
             case TButtonType.Play:
+                
+                AudioManager.root.StopSound(AudioEvent.playNonDGMusic, GameSceneManager.root.gameObject, 1, 0.5f);
+
                 if (PlayerStats.root.NewGame && GameManager.root.CurrentGState == GameState.Title)
                 {
                     StartCoroutine(NonDgUI.root.FadeToBlack(true, GameState.Level));
@@ -41,9 +44,13 @@ public class TitleButtons : Interactable
                     StartCoroutine(NonDgUI.root.ToTalkTransition());
                 }
                 else StartCoroutine(NonDgUI.root.FadeToBlack(true, GameState.Shop));
+
                 break;
+
             case TButtonType.Quit:
+
                 Application.Quit();
+
                 break;
         }
     }

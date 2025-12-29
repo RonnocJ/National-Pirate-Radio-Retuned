@@ -119,6 +119,11 @@
 				<RandomSequenceContainer Name="GameIntro" ID="{AD2479E1-BD7C-48C1-AD5D-5F645D599264}" ShortID="102743822">
 					<PropertyList>
 						<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>8</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -279,11 +284,137 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="GameIntro_02_FreeQuency" ID="{89407DA5-FF18-45EA-81C6-8672435D4FE8}">
+									<PropertyList>
+										<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>GameIntro_02_FreeQuency.wav</AudioFile>
 									<MediaIDList>
 										<MediaID ID="651965916"/>
 									</MediaIDList>
+									<ObjectLists>
+										<ObjectList Name="Markers">
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{DC9FBB1B-7A8F-4606-AAD1-FEB3965B04C8}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.15"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{E6BFAA4C-BDF9-438E-A7A2-AE7E27A4C184}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="0.181828412142667"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{152E6EC7-9343-4799-9C95-C967B0861C03}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.9"/>
+															<Property Name="Time" Type="Real64" Value="0.3409282727675"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{987A8A04-7A19-412C-B2B5-E51B998BD42A}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="1.40538210218603"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{AEC718E9-9229-4788-A5AF-F6CE2304907C}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.05"/>
+															<Property Name="Time" Type="Real64" Value="1.52281295169484"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{B3BCDE6F-5CF6-4C68-81B1-F5E0DC15866A}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.05"/>
+															<Property Name="Time" Type="Real64" Value="1.58342242240906"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{55B0A386-B5AC-4200-9469-9B77B94DACEF}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="1.76903892647136"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{8E690CBC-0EAE-49C0-9339-BB736373D7FC}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.5"/>
+															<Property Name="Time" Type="Real64" Value="1.89404595981945"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{E488728B-8582-4088-AC7A-5B358C4286E0}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.25"/>
+															<Property Name="Time" Type="Real64" Value="2.28800751946189"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{93BC4D8A-0AF1-4954-B2B2-BC775546EE1F}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.15"/>
+															<Property Name="Time" Type="Real64" Value="2.51908112655986"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{03211471-4ED9-4373-92E0-25F21FED1F95}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.2"/>
+															<Property Name="Time" Type="Real64" Value="2.81076420437206"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{D39D5D15-FA66-472E-A563-3E58F279DF6B}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="2.68954526294361"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
@@ -301,11 +432,57 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="GameIntro_03_JoeTools" ID="{E71BEB85-EB07-490B-99B2-E4F3BE89B705}">
+									<PropertyList>
+										<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>GameIntro_03_JoeTools.wav</AudioFile>
 									<MediaIDList>
 										<MediaID ID="606801207"/>
 									</MediaIDList>
+									<ObjectLists>
+										<ObjectList Name="Markers">
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{CD9F13ED-6349-4B3D-8C02-B74E4B91F13E}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.5"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{BC0AE44F-5309-4E6B-9122-919C93F41432}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.4"/>
+															<Property Name="Time" Type="Real64" Value="0.569665948640216"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{A25A43AD-44AF-4370-86CC-E249E49305B2}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.25"/>
+															<Property Name="Time" Type="Real64" Value="1.10793298672546"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{5BC24D40-76B7-4392-87C3-3B51A3386339}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.4"/>
+															<Property Name="Time" Type="Real64" Value="1.37930928509344"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
@@ -323,11 +500,268 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="GameIntro_04_FreeQuency" ID="{47F972C7-CFC9-4691-A02D-FEFB97FAE951}">
+									<PropertyList>
+										<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>GameIntro_04_FreeQuency.wav</AudioFile>
 									<MediaIDList>
 										<MediaID ID="555064223"/>
 									</MediaIDList>
+									<ObjectLists>
+										<ObjectList Name="Markers">
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{6187CDFE-2299-4E0B-827F-67EAD8DD7277}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.15"/>
+															<Property Name="Time" Type="Real64" Value="0.0472734578316525"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{7A4CB680-6762-439B-A298-1015F62E84D5}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.2"/>
+															<Property Name="Time" Type="Real64" Value="0.240003708991467"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{30DE98EE-E18A-421B-BAA9-1FE9220542F0}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.2"/>
+															<Property Name="Time" Type="Real64" Value="0.443643219650893"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{3F1A2EF1-5454-4ADC-8835-A2F521C98495}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.8"/>
+															<Property Name="Time" Type="Real64" Value="0.683646928642359"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{5F4EF3B4-1400-461F-A622-0E76CFC6AEB3}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.15"/>
+															<Property Name="Time" Type="Real64" Value="1.46547719278123"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{1C494177-70A7-4A6A-A2C3-75113FD53F3A}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.15"/>
+															<Property Name="Time" Type="Real64" Value="1.66184386377425"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{6793876D-6AB8-401D-B605-ACA05F3C3AD8}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.4"/>
+															<Property Name="Time" Type="Real64" Value="1.94184819093096"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{CF2E7A3D-DEFD-4706-B4E7-2FF6B32D2D7A}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.4"/>
+															<Property Name="Time" Type="Real64" Value="2.3418543725834"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{A610D40C-1224-4778-94EB-10D9CB6770A3}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.5"/>
+															<Property Name="Time" Type="Real64" Value="3.57460069603957"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{00AF3E1F-FAB0-4D18-B299-B98311E0EE21}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.25"/>
+															<Property Name="Time" Type="Real64" Value="4.08006305285493"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{269C6369-2667-458A-A901-CF0D4792DDC4}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.075"/>
+															<Property Name="Time" Type="Real64" Value="4.27642972384795"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{A79FE347-CDC5-445E-BCAA-3B4AEC8AED8E}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="4.39643157834368"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{0FBB50DF-203F-4D40-B3B4-C001D757A922}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.275"/>
+															<Property Name="Time" Type="Real64" Value="4.51279701300621"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{4314BBAA-E981-4449-825D-F0148D2BD82D}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.65"/>
+															<Property Name="Time" Type="Real64" Value="4.89098467565943"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{4CFA30F5-20A2-4FA3-BDFF-A555ABB8F577}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.4"/>
+															<Property Name="Time" Type="Real64" Value="5.38917419280839"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{83DB79E6-4256-4A2E-B8E9-25ACF5DFEE8E}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.15"/>
+															<Property Name="Time" Type="Real64" Value="5.81827173312646"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{0B125078-833F-429E-B6B2-55D048CCC627}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="6.00372914461987"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{CCF68C61-D313-4A5F-A484-1D7C28809C4D}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="6.11645815944919"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{E4782719-E8EE-4B98-A1B4-26AFDFF7A69C}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.8"/>
+															<Property Name="Time" Type="Real64" Value="6.2146414949457"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{858A578C-8F34-442E-A4DA-6F0AD60D71D4}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.2"/>
+															<Property Name="Time" Type="Real64" Value="7.07647299541506"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{F9B7B950-CBD1-4A5A-951B-4D8A2D4D77E0}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="7.28374892590769"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{54AA1094-3E46-4CBF-965B-72AB8AAAB882}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.15"/>
+															<Property Name="Time" Type="Real64" Value="7.41102362006983"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{910DD4D9-BF91-4309-9CBF-BE6DBA444FE0}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.15"/>
+															<Property Name="Time" Type="Real64" Value="7.60739029106285"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{C930D5E1-6125-4314-96C7-759D7AA4155E}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="7.79648412238946"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{AD7EBAFE-76C9-48CA-800D-C90FF548100C}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.2"/>
+															<Property Name="Time" Type="Real64" Value="7.91648597688519"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
@@ -345,11 +779,218 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="GameIntro_05_JoeTools" ID="{8CA98370-20AE-40F8-AE82-37D71FA79F2F}">
+									<PropertyList>
+										<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>GameIntro_05_JoeTools.wav</AudioFile>
 									<MediaIDList>
 										<MediaID ID="206843742"/>
 									</MediaIDList>
+									<ObjectLists>
+										<ObjectList Name="Markers">
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{14D8070E-9C59-4C24-B848-DDFC27038D25}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.4"/>
+															<Property Name="Time" Type="Real64" Value="0.00760212633196848"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{8E2ED2D6-AFA4-4FCF-8F55-130B9406705B}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.25"/>
+															<Property Name="Time" Type="Real64" Value="0.615772232889447"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{C74FD50B-9DBF-4B2E-A192-9BC1E8923F62}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.25"/>
+															<Property Name="Time" Type="Real64" Value="0.908454096670234"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{358B45F3-BA2D-410D-A33D-CAE23B4A1D70}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="1.15932426562519"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{59C56251-8197-4BE9-AC37-DCAF7DABDD5D}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.3"/>
+															<Property Name="Time" Type="Real64" Value="1.31136679226456"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{54D725E8-3B77-4ABA-94C5-F2E7BE743A4E}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.4"/>
+															<Property Name="Time" Type="Real64" Value="1.60784971921133"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{DE80272C-4313-41DD-9A28-206FC2BA53EA}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="2.4050363304773"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{585DA69E-FC17-4EC6-B176-AA972BCBFB27}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.15"/>
+															<Property Name="Time" Type="Real64" Value="2.51561271348775"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{1E7C0E25-AC4E-4F31-9E87-BE78B690E43E}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.2"/>
+															<Property Name="Time" Type="Real64" Value="2.80933123085926"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{BF124832-261A-43AD-944A-4053B096962F}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.25"/>
+															<Property Name="Time" Type="Real64" Value="3.17561549958138"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{8996BF76-B7AE-49A8-8363-B16EFFFFD713}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.2"/>
+															<Property Name="Time" Type="Real64" Value="3.4831560648292"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{861AFFF0-C96D-45E5-ADF1-1A93F92BB410}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="3.80797418992239"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{9B5D0315-7085-4513-8B1E-D977F2D48573}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.4"/>
+															<Property Name="Time" Type="Real64" Value="3.94273915671638"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{8E97D2DB-E11B-46D4-B1C2-03081F639D79}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.2"/>
+															<Property Name="Time" Type="Real64" Value="4.78588407717107"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{9976395D-D0A9-4582-BFD8-F08197662CD7}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.3"/>
+															<Property Name="Time" Type="Real64" Value="5.00358133122289"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{DC6AC892-527E-4288-8597-92882F6D1B54}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.35"/>
+															<Property Name="Time" Type="Real64" Value="5.28693331268717"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{223EDCFB-14DB-4324-9CA2-F6A30FA26B9A}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="5.71541679685267"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{F996B915-3A42-407F-BB73-9073F32503E5}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.05"/>
+															<Property Name="Time" Type="Real64" Value="5.85709278758481"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{3B8FDD51-BDDA-41D2-A9BB-7D1ABD44B33A}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.05"/>
+															<Property Name="Time" Type="Real64" Value="5.91969181433039"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{B3513CF0-567A-45F5-8025-CFA4A78883DA}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.7"/>
+															<Property Name="Time" Type="Real64" Value="6.17994041411713"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
@@ -367,11 +1008,187 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="GameIntro_06_JoeTools" ID="{BA58EB7A-1D3D-41E5-A834-726ADD50CB64}">
+									<PropertyList>
+										<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>GameIntro_06_JoeTools.wav</AudioFile>
 									<MediaIDList>
 										<MediaID ID="354181712"/>
 									</MediaIDList>
+									<ObjectLists>
+										<ObjectList Name="Markers">
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{AD188E0B-E900-4495-8471-5ECD07D63925}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.4"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{DF1C0096-4FF5-44D5-8EE8-67DCD3823B4D}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.2"/>
+															<Property Name="Time" Type="Real64" Value="0.406134194876866"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{6CB77472-205E-4D93-A767-BE4DC2760D89}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.15"/>
+															<Property Name="Time" Type="Real64" Value="0.857731172762336"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{0862261B-C861-4EAA-8359-F6DE31F954D7}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.2"/>
+															<Property Name="Time" Type="Real64" Value="1.02442804379389"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{2668AE37-B0D5-4038-A3BF-61F71CDE233D}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.35"/>
+															<Property Name="Time" Type="Real64" Value="1.29114303744437"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{7B07DDAE-DE71-4334-A03F-4301EABB804C}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.2"/>
+															<Property Name="Time" Type="Real64" Value="2.03643209840195"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{990E0FD0-A7E0-42EF-BB69-78F726D914DC}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="2.28691575134192"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{7279D80C-A41A-4C84-87A3-9B829E175C52}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.15"/>
+															<Property Name="Time" Type="Real64" Value="2.4071479047531"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{6C2A3F91-8787-4A48-AA75-112BCF0FD4F8}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.2"/>
+															<Property Name="Time" Type="Real64" Value="2.67767024992827"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{58B91A8C-C532-47F1-B9AF-36C992A51D24}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.15"/>
+															<Property Name="Time" Type="Real64" Value="2.98576514304443"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{BFC9D877-3009-4FD4-B5AE-E6C986A70C37}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="3.17362788274941"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{F4EE145E-762E-439B-9D7D-AA5CF2554AF9}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.5"/>
+															<Property Name="Time" Type="Real64" Value="3.33644225716039"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{682A741D-1AD6-49EA-9484-240BAF449CFA}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="4.15802863880349"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{59A0EB96-76B6-4D18-9292-4BA148460FE2}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="4.27074628262647"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{58809529-3319-4A20-BEC4-7D7A0ADD7E16}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="4.38095908992006"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{0847DB25-CD24-43C6-8EE4-8F1FA23274F7}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.8"/>
+															<Property Name="Time" Type="Real64" Value="4.65398627162463"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{D6A64154-531D-4B10-A3F5-9C8C8F8328F9}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.6"/>
+															<Property Name="Time" Type="Real64" Value="5.32528246150374"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
@@ -389,11 +1206,68 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="GameIntro_07_FreeQuency" ID="{C1815925-1B91-483A-8F12-5E829A8C098E}">
+									<PropertyList>
+										<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>GameIntro_07_FreeQuency.wav</AudioFile>
 									<MediaIDList>
 										<MediaID ID="290675538"/>
 									</MediaIDList>
+									<ObjectLists>
+										<ObjectList Name="Markers">
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{6C668C54-672E-46A3-A8E6-DB8FF1866493}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.1"/>
+															<Property Name="Time" Type="Real64" Value="0.0390287651257081"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{B6F80569-57D9-403D-8FC9-BD0A5DC5211B}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.15"/>
+															<Property Name="Time" Type="Real64" Value="0.238764210180803"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{B985AABF-D270-4B53-8262-439B953B3C1E}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.45"/>
+															<Property Name="Time" Type="Real64" Value="0.427020606669513"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{55948AFD-8732-45F5-AE95-CDF40830FE95}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.25"/>
+															<Property Name="Time" Type="Real64" Value="1.13872161778537"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{79860B61-5872-4F2B-B1DD-C4B3420787D5}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="0.35"/>
+															<Property Name="Time" Type="Real64" Value="1.36371096968651"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>

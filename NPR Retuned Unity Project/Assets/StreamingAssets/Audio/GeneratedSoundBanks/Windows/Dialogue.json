@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{97B030DB-62AA-4D6C-8AE2-BE4A82928E59}",
     "Language": "SFX",
-    "Hash": "{299733BE-BC15-5EB3-981E-AC39D73ABF46}",
+    "Hash": "{66847691-8463-A33D-74E2-87FED17B5F5E}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Dialogue",
     "ShortName": "Dialogue",
     "Path": "Dialogue.bnk",
@@ -21,7 +21,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "GameIntro_01_JoeTools.wav",
-      "CachePath": "8C/{8C4E316C-5152-A093-4F62-DDFB64999A26}.wem"
+      "CachePath": "D0/{D06CF4B6-1FDA-E8A7-59E8-E99E1EFA473C}.wem"
      },
      {
       "Id": "206843742",
@@ -29,7 +29,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "GameIntro_05_JoeTools.wav",
-      "CachePath": "8F/{8F9A2105-A294-39CD-39B0-8C92CD45AB44}.wem"
+      "CachePath": "04/{04003A4E-8F3B-5F10-8DDD-E87175241B5E}.wem"
      },
      {
       "Id": "290675538",
@@ -37,7 +37,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "GameIntro_07_FreeQuency.wav",
-      "CachePath": "13/{13936DD1-6A73-5A98-3F7E-DDA9ECAEADE9}.wem"
+      "CachePath": "0F/{0FDB0FA7-4FFA-073F-8636-4B6E86B8EBBF}.wem"
      },
      {
       "Id": "354181712",
@@ -45,7 +45,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "GameIntro_06_JoeTools.wav",
-      "CachePath": "43/{43F97B52-4218-D753-045C-951E369E1BA6}.wem"
+      "CachePath": "F6/{F66F7792-E0F4-02BA-E19D-9B843F123669}.wem"
      },
      {
       "Id": "555064223",
@@ -53,7 +53,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "GameIntro_04_FreeQuency.wav",
-      "CachePath": "C4/{C43BF954-5261-1CD2-73E6-8B285F4A6B38}.wem"
+      "CachePath": "A7/{A7502015-FDDB-4759-DC90-87EDF88477E0}.wem"
      },
      {
       "Id": "606801207",
@@ -61,7 +61,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "GameIntro_03_JoeTools.wav",
-      "CachePath": "C0/{C01510CA-3ADA-2449-806C-681E6AF17CFF}.wem"
+      "CachePath": "8C/{8C2077A6-1EAA-983C-4E53-689710F1E8E8}.wem"
      },
      {
       "Id": "651965916",
@@ -69,7 +69,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "GameIntro_02_FreeQuency.wav",
-      "CachePath": "F7/{F704F25C-C976-E574-7677-9E8A0C386AC2}.wem"
+      "CachePath": "44/{443D421F-325B-CBCF-37C3-8B7358C51DB7}.wem"
      }
     ],
     "Events": [
@@ -108,6 +108,6 @@
     ]
    }
   ],
-  "FileHash": "{08CA41BD-895F-559A-BCB8-67DFE5E0DE95}"
+  "FileHash": "{C3B91D72-B220-9FA1-8BAF-B8D490281001}"
  }
 }

@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{3F9C3E3E-BBAC-8DB5-1599-466E8EBD3736}",
+    "Hash": "{1D18E5A8-256E-1D95-6014-E1CFC4803A53}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -200,6 +200,32 @@
         "Name": "Happy",
         "ObjectPath": "\\States\\Default Work Unit\\IntroDialogue\\ID_JoeTools\\Happy",
         "GUID": "{9A8324D3-19C5-43BB-BF27-9FD66DB0895B}"
+       }
+      ]
+     },
+     {
+      "Id": "2562797778",
+      "Name": "NonDGMusic",
+      "ObjectPath": "\\States\\Default Work Unit\\NonDGMusic",
+      "GUID": "{69A83386-D4C7-4B74-89A0-70A53279195A}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\NonDGMusic\\None",
+        "GUID": "{596C0715-ECF8-46D3-B687-8D1A0EA301A9}"
+       },
+       {
+        "Id": "3705726509",
+        "Name": "Title",
+        "ObjectPath": "\\States\\Default Work Unit\\NonDGMusic\\Title",
+        "GUID": "{BFEAA640-0667-4AD8-A139-B8978B1F17D1}"
+       },
+       {
+        "Id": "3930136735",
+        "Name": "Dialogue",
+        "ObjectPath": "\\States\\Default Work Unit\\NonDGMusic\\Dialogue",
+        "GUID": "{35F1E1ED-C167-4C8F-B5D1-1FD6754DB88A}"
        }
       ]
      }
@@ -781,6 +807,6 @@
     ]
    }
   ],
-  "FileHash": "{42997F06-F983-60AA-FF72-180EEF49E65E}"
+  "FileHash": "{11986DA7-7430-C940-1B16-49D8F3591320}"
  }
 }

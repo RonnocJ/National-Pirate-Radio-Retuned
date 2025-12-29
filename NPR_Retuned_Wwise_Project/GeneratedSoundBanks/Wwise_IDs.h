@@ -26,17 +26,18 @@ namespace AK
         static const AkUniqueID PLAYMAGNETEXPLODE = 580489224U;
         static const AkUniqueID PLAYMAGNETFLOAT = 276583697U;
         static const AkUniqueID PLAYMOUSECLICK = 436537884U;
+        static const AkUniqueID PLAYNONDGMUSIC = 4119203132U;
         static const AkUniqueID PLAYPINBOARDEJECT = 578532127U;
         static const AkUniqueID PLAYPINBOARDINSERT = 1197348043U;
         static const AkUniqueID PLAYROTORLOOP = 2715042163U;
         static const AkUniqueID PLAYTIRESQUEAL = 4002278104U;
-        static const AkUniqueID PLAYTITLEMUSIC = 718394488U;
         static const AkUniqueID PLAYTRUMPETFIREFULL = 549296393U;
         static const AkUniqueID PLAYTTSVOICE = 1507170084U;
         static const AkUniqueID PLAYVANENGINE = 2430665392U;
         static const AkUniqueID PLAYWINDAMBIENCE = 628329353U;
         static const AkUniqueID RESUMEALL = 3240900869U;
         static const AkUniqueID SETSTATIC = 185187129U;
+        static const AkUniqueID SETTITLEONDELAY = 119700305U;
         static const AkUniqueID STOPALL = 3086540886U;
     } // namespace EVENTS
 
@@ -53,6 +54,18 @@ namespace AK
                 static const AkUniqueID NONE = 748895195U;
             } // namespace STATE
         } // namespace ID_JOETOOLS
+
+        namespace NONDGMUSIC
+        {
+            static const AkUniqueID GROUP = 2562797778U;
+
+            namespace STATE
+            {
+                static const AkUniqueID DIALOGUE = 3930136735U;
+                static const AkUniqueID NONE = 748895195U;
+                static const AkUniqueID TITLE = 3705726509U;
+            } // namespace STATE
+        } // namespace NONDGMUSIC
 
     } // namespace STATES
 
@@ -124,9 +137,9 @@ namespace AK
         static const AkUniqueID GLOBAL = 1465331116U;
         static const AkUniqueID LEVELSFX = 1900718590U;
         static const AkUniqueID LIH = 444705608U;
+        static const AkUniqueID NONDGMUSIC = 2562797778U;
         static const AkUniqueID SHOP = 251412225U;
         static const AkUniqueID SOW = 544238342U;
-        static const AkUniqueID TITLE = 3705726509U;
         static const AkUniqueID VANSFX = 1939123861U;
         static const AkUniqueID WLZ = 1030097862U;
     } // namespace BANKS

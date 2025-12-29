@@ -143,7 +143,7 @@ public class DialoguePlayer : Singleton<DialoguePlayer>
 
         yield return new WaitForSeconds((float)line.wait);
 
-        AudioManager.root.PlaySound(dialogueAudio, talker.gameObject, 0, new AudioCallback(HandleWordMarkerCallback, AkCallbackType.AK_Marker | AkCallbackType.AK_EndOfEvent));
+        AudioManager.root.PlaySound(dialogueAudio, talker.gameObject, 0, new AudioCallback(WordMarkerCallback, AkCallbackType.AK_Marker | AkCallbackType.AK_EndOfEvent));
 
         talker.SetTalking(true);
 
@@ -153,13 +153,20 @@ public class DialoguePlayer : Singleton<DialoguePlayer>
 
         ResetWordSyncState();
     }
-    private void HandleWordMarkerCallback(AkCallbackType type, AkCallbackInfo info)
+    private void WordMarkerCallback(AkCallbackType type, AkCallbackInfo info)
     {
         if (!_waitingOnMarkers) return;
 
         if (type == AkCallbackType.AK_EndOfEvent)
         {
-            CompleteWordSyncTyping();
+            if (_activeVisibleCharacters < _activeFullLineText.Length)
+            {
+                textBody.SetText(_activeFullLineText, 0f, false, _activeVisibleCharacters);
+                _activeVisibleCharacters = _activeFullLineText.Length;
+            }
+
+            _waitingOnMarkers = false;
+
             return;
         }
 
@@ -195,22 +202,6 @@ public class DialoguePlayer : Singleton<DialoguePlayer>
         textBody.SetText(nextSlice, charDelay, false, _activeVisibleCharacters);
         _activeVisibleCharacters = wordEnd;
     }
-    private void CompleteWordSyncTyping()
-    {
-        if (string.IsNullOrEmpty(_activeFullLineText))
-        {
-            _waitingOnMarkers = false;
-            return;
-        }
-
-        if (_activeVisibleCharacters < _activeFullLineText.Length)
-        {
-            textBody.SetText(_activeFullLineText, 0f, false, _activeVisibleCharacters);
-            _activeVisibleCharacters = _activeFullLineText.Length;
-        }
-
-        _waitingOnMarkers = false;
-    }
     private void ResetWordSyncState()
     {
         _activeWordMatches = null;
@@ -223,6 +214,8 @@ public class DialoguePlayer : Singleton<DialoguePlayer>
     {
         TalkerL.EndDialogue();
         TalkerR.EndDialogue();
+
+        AudioManager.root.PlaySound(AudioEvent.setTitleOnDelay);
 
         GameSceneManager.root.Invoke("LoadTitle", 2.5f);
     }

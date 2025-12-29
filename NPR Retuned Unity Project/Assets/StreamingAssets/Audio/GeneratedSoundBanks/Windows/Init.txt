@@ -1,10 +1,14 @@
 State Group	ID	Name			Wwise Object Path	Notes
 	200428098	ID_JoeTools			\Default Work Unit\IntroDialogue\ID_JoeTools	
+	2562797778	NonDGMusic			\Default Work Unit\NonDGMusic	
 
 State	ID	Name	State Group			Notes
 	670611050	Neutral	ID_JoeTools			
 	748895195	None	ID_JoeTools			
 	1427264549	Happy	ID_JoeTools			
+	748895195	None	NonDGMusic			
+	3705726509	Title	NonDGMusic			
+	3930136735	Dialogue	NonDGMusic			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	504532776	Brick			\Factory Acoustic Textures\Textures\Brick	

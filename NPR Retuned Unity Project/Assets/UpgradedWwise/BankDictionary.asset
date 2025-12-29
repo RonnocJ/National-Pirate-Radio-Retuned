@@ -82,9 +82,12 @@ MonoBehaviour:
   - eventName: playVanEngine
     bankName: VanSFX
     eventId: 2430665392
-  - eventName: playTitleMusic
-    bankName: Title
-    eventId: 718394488
+  - eventName: playNonDGMusic
+    bankName: NonDGMusic
+    eventId: 4119203132
+  - eventName: setTitleOnDelay
+    bankName: NonDGMusic
+    eventId: 119700305
   - eventName: playGameIntro
     bankName: Dialogue
     eventId: 2892656105

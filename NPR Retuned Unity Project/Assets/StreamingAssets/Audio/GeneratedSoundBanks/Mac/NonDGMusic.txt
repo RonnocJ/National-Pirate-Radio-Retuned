@@ -1,0 +1,19 @@
+Event	ID	Name			Wwise Object Path	Notes
+	119700305	setTitleOnDelay			\Default Work Unit\Music\setTitleOnDelay	
+	4119203132	playNonDGMusic			\Default Work Unit\Music\playNonDGMusic	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	2562797778	NonDGMusic			\Default Work Unit\NonDGMusic	
+
+State	ID	Name	State Group			Notes
+	748895195	None	NonDGMusic			
+	3705726509	Title	NonDGMusic			
+	3930136735	Dialogue	NonDGMusic			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	89188517	Melody	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\1B\{1BDA698F-167F-DCF4-93EC-583276A122BD}.wem		\Interactive Music Hierarchy\Default Work Unit\NonDGSongs\Switch\Dialogue\BaseLoop\Melody		8850100
+	242738599	Melody	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\B6\{B6EA4608-00B4-DD6C-3BE2-C21535EB6BA2}.wem		\Interactive Music Hierarchy\Default Work Unit\NonDGSongs\Switch\Dialogue\BaseLoop\Melody		8587956
+	332490141	NPR_MSC_Title_Intro	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\1C\{1CCCBB3B-8C01-1B90-70CF-2E7C2EFD8AF0}.wem		\Interactive Music Hierarchy\Default Work Unit\NonDGSongs\Switch\Title\Intro\NPR_MSC_Title_Intro		6228660
+	790816521	NPR_MSC_Title_Main	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\15\{15EF6773-7921-FC3F-F6F3-D6A49048F4A7}.wem		\Interactive Music Hierarchy\Default Work Unit\NonDGSongs\Switch\Title\Main\NPR_MSC_Title_Main		26675892
+	952804119	NPR_MSC_Dialogue_Base	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\28\{28810AE0-CFF4-7BCB-5A7B-7E7D94BCA259}.wem		\Interactive Music Hierarchy\Default Work Unit\NonDGSongs\Switch\Dialogue\BaseLoop\NPR_MSC_Dialogue_Base		9112244
+

@@ -4,6 +4,13 @@
 		<WorkUnit Name="Default Work Unit" ID="{B69FA23A-1C75-48C2-9F49-690521E56080}" PersistMode="Standalone">
 			<ChildrenList>
 				<WorkUnit Name="IntroDialogue" ID="{5B9EB50C-A59A-4AA6-AC16-AF3E96292C43}" PersistMode="Reference"/>
+				<StateGroup Name="NonDGMusic" ID="{69A83386-D4C7-4B74-89A0-70A53279195A}">
+					<ChildrenList>
+						<State Name="None" ID="{596C0715-ECF8-46D3-B687-8D1A0EA301A9}"/>
+						<State Name="Title" ID="{BFEAA640-0667-4AD8-A139-B8978B1F17D1}"/>
+						<State Name="Dialogue" ID="{35F1E1ED-C167-4C8F-B5D1-1FD6754DB88A}"/>
+					</ChildrenList>
+				</StateGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</States>

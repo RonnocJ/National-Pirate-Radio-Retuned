@@ -1,7 +1,0 @@
-Event	ID	Name			Wwise Object Path	Notes
-	718394488	playTitleMusic			\Default Work Unit\Music\playTitleMusic	
-
-In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	451930117	NPR_MSC_TitleIntro	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\5F\{5F969E7F-0766-E7E0-9449-20484D39327A}.wem		\Interactive Music Hierarchy\Default Work Unit\NonDGSongs\Title\NPR_MSC_TitleIntro\NPR_MSC_TitleIntro		7545372
-	913225190	NPR_MSC_TitleLoop	Y:\Desktop\GitHub\National-Pirate-Radio-Retuned\NPR_Retuned_Wwise_Project\.cache\C8\{C8292DA2-1C80-4F2D-5A95-17489CC42592}.wem		\Interactive Music Hierarchy\Default Work Unit\NonDGSongs\Title\NPR_MSC_TitleLoop\NPR_MSC_TitleLoop		23274012
-

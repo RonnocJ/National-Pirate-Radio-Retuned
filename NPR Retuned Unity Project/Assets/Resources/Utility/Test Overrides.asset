@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e533c6db67a394d298096bb40d2c968e, type: 3}
   m_Name: Test Overrides
   m_EditorClassIdentifier: Assembly-CSharp::TestOverrides
-  saveProgress: 0
+  saveProgress: 1
   immortal: 0
   SavedProfiles:
   - name: mainProfile

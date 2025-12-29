@@ -20,28 +20,28 @@ MonoBehaviour:
       Lines:
       - Speaker: 1
         Line: "Listen, you're gonna be fine. \nY- we need this money, alright?"
-        Wait: 2
+        Wait: 0.25
       - Speaker: 0
         Line: "This is insane! How am I even \nmaking money off of this? "
-        Wait: 2
+        Wait: 1.5
       - Speaker: 1
         Line: I'm working on that...
-        Wait: 2
+        Wait: 1
       - Speaker: 0
         Line: "And won't the FCC be on my ass? \nHijacking all of the local \nradio
           stations seems like a surefire \nway to get them to be."
-        Wait: 2
+        Wait: 1
       - Speaker: 1
-        Line: "And that's why I need you - \nyou're the best damn driver I\nknow,
+        Line: "And that's why I need you- \nyou're the best damn driver I\nknow,
           dodging those clowns will\nbe a cakewalk."
-        Wait: 2
+        Wait: 1.5
       - Speaker: 1
         Line: "You just go out there,  keep \nthe CD player fed and happy, \nand
           do some badass driving."
-        Wait: 2
+        Wait: 0.5
       - Speaker: 0
         Line: What could possibly go wrong?
-        Wait: 2
+        Wait: 1.5
   SaveFolderRelative: GameIntro
   OutputFileName: newGame
   LastLoadedFilePath: /Users/connorjohnson/Desktop/GitHub/National-Pirate-Radio-Retuned/NPR

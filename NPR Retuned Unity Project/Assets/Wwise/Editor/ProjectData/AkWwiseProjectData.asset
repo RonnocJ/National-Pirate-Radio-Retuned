@@ -434,7 +434,7 @@ MonoBehaviour:
     ParentPath: SoundBanks/Default Work Unit
     guid: cf21b4d077fd20469610511af75159b4
     GuidInternal: 
-    m_lastTime: -8584347207505173665
+    m_lastTime: -8584346543137743496
     List:
     - name: Dialogue
       guid: db30b097aa626c4d8ae2be4a82928e59
@@ -478,6 +478,20 @@ MonoBehaviour:
         ObjectType: 7
         guid: a6a832f109ce2b43878f6b7b36947d3f
       Path: SoundBanks/Default Work Unit/LevelSFX
+    - name: NonDGMusic
+      guid: 9a6cb2bf77890549aa23380990c460d2
+      id: 2562797778
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cf21b4d077fd20469610511af75159b4
+      - ElementName: NonDGMusic
+        ObjectType: 7
+        guid: 9a6cb2bf77890549aa23380990c460d2
+      Path: SoundBanks/Default Work Unit/NonDGMusic
     - name: Shop
       guid: 3cf940166495ca4b831d0fc4c39b78bb
       id: 251412225
@@ -492,20 +506,6 @@ MonoBehaviour:
         ObjectType: 7
         guid: 3cf940166495ca4b831d0fc4c39b78bb
       Path: SoundBanks/Default Work Unit/Shop
-    - name: Title
-      guid: 9a6cb2bf77890549aa23380990c460d2
-      id: 3705726509
-      PathAndIcons:
-      - ElementName: SoundBanks
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: cf21b4d077fd20469610511af75159b4
-      - ElementName: Title
-        ObjectType: 7
-        guid: 9a6cb2bf77890549aa23380990c460d2
-      Path: SoundBanks/Default Work Unit/Title
     - name: VanSFX
       guid: 743f0c507055f44c9f796d6e719a305f
       id: 1939123861
@@ -1269,11 +1269,11 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/Music
     guid: 04c31a76e839da49befea50c3cae180c
     GuidInternal: 
-    m_lastTime: -8584405865742433305
+    m_lastTime: -8584346543665387153
     List:
-    - name: playTitleMusic
+    - name: playNonDGMusic
       guid: 731f8892621d2347a8d497d3e37b52b1
-      id: 718394488
+      id: 4119203132
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -1284,10 +1284,30 @@ MonoBehaviour:
       - ElementName: Music
         ObjectType: 12
         guid: 04c31a76e839da49befea50c3cae180c
-      - ElementName: playTitleMusic
+      - ElementName: playNonDGMusic
         ObjectType: 3
         guid: 731f8892621d2347a8d497d3e37b52b1
-      Path: Events/Default Work Unit/Music/playTitleMusic
+      Path: Events/Default Work Unit/Music/playNonDGMusic
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: setTitleOnDelay
+      guid: b5dc34d7b5a74a4184fd3534c06b427b
+      id: 119700305
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 0000820c076e574b8f6e69e488b2be04
+      - ElementName: Music
+        ObjectType: 12
+        guid: 04c31a76e839da49befea50c3cae180c
+      - ElementName: setTitleOnDelay
+        ObjectType: 3
+        guid: b5dc34d7b5a74a4184fd3534c06b427b
+      Path: Events/Default Work Unit/Music/setTitleOnDelay
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -1865,8 +1885,74 @@ MonoBehaviour:
     ParentPath: States/Default Work Unit
     guid: 3aa29fb6751cc2489f49690521e56080
     GuidInternal: 
-    m_lastTime: -8584439945951434240
-    List: []
+    m_lastTime: -8584346550147304108
+    List:
+    - name: NonDGMusic
+      guid: 8633a869c7d4744b89a070a53279195a
+      id: 2562797778
+      PathAndIcons:
+      - ElementName: States
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 3aa29fb6751cc2489f49690521e56080
+      - ElementName: NonDGMusic
+        ObjectType: 9
+        guid: 8633a869c7d4744b89a070a53279195a
+      Path: States/Default Work Unit/NonDGMusic
+      values:
+      - name: Dialogue
+        guid: ede1f13567c18f4cb5d11fd6754db88a
+        id: 3930136735
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3aa29fb6751cc2489f49690521e56080
+        - ElementName: NonDGMusic
+          ObjectType: 9
+          guid: 8633a869c7d4744b89a070a53279195a
+        - ElementName: Dialogue
+          ObjectType: 8
+          guid: ede1f13567c18f4cb5d11fd6754db88a
+      - name: None
+        guid: 15076c59f8ecd346b6878d1a0ea301a9
+        id: 748895195
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3aa29fb6751cc2489f49690521e56080
+        - ElementName: NonDGMusic
+          ObjectType: 9
+          guid: 8633a869c7d4744b89a070a53279195a
+        - ElementName: None
+          ObjectType: 8
+          guid: 15076c59f8ecd346b6878d1a0ea301a9
+      - name: Title
+        guid: 40a6eabf6706d84aa139b8978b1f17d1
+        id: 3705726509
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3aa29fb6751cc2489f49690521e56080
+        - ElementName: NonDGMusic
+          ObjectType: 9
+          guid: 8633a869c7d4744b89a070a53279195a
+        - ElementName: Title
+          ObjectType: 8
+          guid: 40a6eabf6706d84aa139b8978b1f17d1
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   - PhysicalPath: States/IntroDialogue.wwu
     PathAndIcons:
     - ElementName: States

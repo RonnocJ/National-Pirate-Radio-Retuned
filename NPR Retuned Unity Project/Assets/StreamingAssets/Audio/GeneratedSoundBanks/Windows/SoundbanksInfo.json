@@ -802,7 +802,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{9442413D-2AD1-6153-F330-BE659423C659}",
+    "Hash": "{2A2AFC42-BFD1-BD28-E155-93DCAE35796C}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -992,6 +992,32 @@
         "Name": "Happy",
         "ObjectPath": "\\States\\Default Work Unit\\IntroDialogue\\ID_JoeTools\\Happy",
         "GUID": "{9A8324D3-19C5-43BB-BF27-9FD66DB0895B}"
+       }
+      ]
+     },
+     {
+      "Id": "2562797778",
+      "Name": "NonDGMusic",
+      "ObjectPath": "\\States\\Default Work Unit\\NonDGMusic",
+      "GUID": "{69A83386-D4C7-4B74-89A0-70A53279195A}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\NonDGMusic\\None",
+        "GUID": "{596C0715-ECF8-46D3-B687-8D1A0EA301A9}"
+       },
+       {
+        "Id": "3705726509",
+        "Name": "Title",
+        "ObjectPath": "\\States\\Default Work Unit\\NonDGMusic\\Title",
+        "GUID": "{BFEAA640-0667-4AD8-A139-B8978B1F17D1}"
+       },
+       {
+        "Id": "3930136735",
+        "Name": "Dialogue",
+        "ObjectPath": "\\States\\Default Work Unit\\NonDGMusic\\Dialogue",
+        "GUID": "{35F1E1ED-C167-4C8F-B5D1-1FD6754DB88A}"
        }
       ]
      }
@@ -2853,45 +2879,145 @@
     ]
    },
    {
-    "Id": "3705726509",
+    "Id": "2562797778",
     "Type": "User",
     "GUID": "{BFB26C9A-8977-4905-AA23-380990C460D2}",
     "Language": "SFX",
-    "Hash": "{6F02BFBA-7CB7-1DCC-BA8B-96A22728A5A2}",
-    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Title",
-    "ShortName": "Title",
-    "Path": "Title.bnk",
+    "Hash": "{8A2276AA-D41B-7A39-1C0C-A653A624702D}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\NonDGMusic",
+    "ShortName": "NonDGMusic",
+    "Path": "NonDGMusic.bnk",
     "Media": [
      {
-      "Id": "451930117",
+      "Id": "89188517",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "NPR_MSC_TitleIntro.wav",
-      "CachePath": "5F/{5F969E7F-0766-E7E0-9449-20484D39327A}.wem"
+      "ShortName": "NPR_MSC_Dialogue_Melody02.wav",
+      "CachePath": "1B/{1BDA698F-167F-DCF4-93EC-583276A122BD}.wem"
      },
      {
-      "Id": "913225190",
+      "Id": "242738599",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "NPR_MSC_TitleLoop.wav",
-      "CachePath": "C8/{C8292DA2-1C80-4F2D-5A95-17489CC42592}.wem"
+      "ShortName": "NPR_MSC_Dialogue_Melody01.wav",
+      "CachePath": "B6/{B6EA4608-00B4-DD6C-3BE2-C21535EB6BA2}.wem"
+     },
+     {
+      "Id": "332490141",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "NPR_MSC_Title_Intro.wav",
+      "CachePath": "1C/{1CCCBB3B-8C01-1B90-70CF-2E7C2EFD8AF0}.wem"
+     },
+     {
+      "Id": "790816521",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "NPR_MSC_Title_Main.wav",
+      "CachePath": "15/{15EF6773-7921-FC3F-F6F3-D6A49048F4A7}.wem"
+     },
+     {
+      "Id": "952804119",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "NPR_MSC_Dialogue_Base.wav",
+      "CachePath": "28/{28810AE0-CFF4-7BCB-5A7B-7E7D94BCA259}.wem"
      }
     ],
     "Events": [
      {
-      "Id": "718394488",
-      "Name": "playTitleMusic",
-      "ObjectPath": "\\Events\\Default Work Unit\\Music\\playTitleMusic",
+      "Id": "4119203132",
+      "Name": "playNonDGMusic",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\playNonDGMusic",
       "GUID": "{92881F73-1D62-4723-A8D4-97D3E37B52B1}",
       "DurationType": "Infinite",
-      "MediaRefs": [
+      "SwitchContainers": [
        {
-        "Id": "451930117"
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2562797778",
+         "Id": "3930136735",
+         "GUID": "{35F1E1ED-C167-4C8F-B5D1-1FD6754DB88A}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "89188517"
+         },
+         {
+          "Id": "242738599"
+         },
+         {
+          "Id": "952804119"
+         }
+        ]
        },
        {
-        "Id": "913225190"
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "2562797778",
+         "Id": "3705726509",
+         "GUID": "{BFEAA640-0667-4AD8-A139-B8978B1F17D1}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "332490141"
+         },
+         {
+          "Id": "790816521"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "Id": "119700305",
+      "Name": "setTitleOnDelay",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\setTitleOnDelay",
+      "GUID": "{D734DCB5-A7B5-414A-84FD-3534C06B427B}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "2562797778",
+        "Id": "3705726509",
+        "Name": "Title",
+        "ObjectPath": "\\States\\Default Work Unit\\NonDGMusic\\Title",
+        "GUID": "{BFEAA640-0667-4AD8-A139-B8978B1F17D1}"
+       }
+      ]
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "2562797778",
+      "Name": "NonDGMusic",
+      "ObjectPath": "\\States\\Default Work Unit\\NonDGMusic",
+      "GUID": "{69A83386-D4C7-4B74-89A0-70A53279195A}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\NonDGMusic\\None",
+        "GUID": "{596C0715-ECF8-46D3-B687-8D1A0EA301A9}"
+       },
+       {
+        "Id": "3705726509",
+        "Name": "Title",
+        "ObjectPath": "\\States\\Default Work Unit\\NonDGMusic\\Title",
+        "GUID": "{BFEAA640-0667-4AD8-A139-B8978B1F17D1}"
+       },
+       {
+        "Id": "3930136735",
+        "Name": "Dialogue",
+        "ObjectPath": "\\States\\Default Work Unit\\NonDGMusic\\Dialogue",
+        "GUID": "{35F1E1ED-C167-4C8F-B5D1-1FD6754DB88A}"
        }
       ]
      }
@@ -2902,7 +3028,7 @@
     "Type": "User",
     "GUID": "{97B030DB-62AA-4D6C-8AE2-BE4A82928E59}",
     "Language": "SFX",
-    "Hash": "{299733BE-BC15-5EB3-981E-AC39D73ABF46}",
+    "Hash": "{66847691-8463-A33D-74E2-87FED17B5F5E}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Dialogue",
     "ShortName": "Dialogue",
     "Path": "Dialogue.bnk",
@@ -2913,7 +3039,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "GameIntro_01_JoeTools.wav",
-      "CachePath": "8C/{8C4E316C-5152-A093-4F62-DDFB64999A26}.wem"
+      "CachePath": "D0/{D06CF4B6-1FDA-E8A7-59E8-E99E1EFA473C}.wem"
      },
      {
       "Id": "206843742",
@@ -2921,7 +3047,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "GameIntro_05_JoeTools.wav",
-      "CachePath": "8F/{8F9A2105-A294-39CD-39B0-8C92CD45AB44}.wem"
+      "CachePath": "04/{04003A4E-8F3B-5F10-8DDD-E87175241B5E}.wem"
      },
      {
       "Id": "290675538",
@@ -2929,7 +3055,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "GameIntro_07_FreeQuency.wav",
-      "CachePath": "13/{13936DD1-6A73-5A98-3F7E-DDA9ECAEADE9}.wem"
+      "CachePath": "0F/{0FDB0FA7-4FFA-073F-8636-4B6E86B8EBBF}.wem"
      },
      {
       "Id": "354181712",
@@ -2937,7 +3063,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "GameIntro_06_JoeTools.wav",
-      "CachePath": "43/{43F97B52-4218-D753-045C-951E369E1BA6}.wem"
+      "CachePath": "F6/{F66F7792-E0F4-02BA-E19D-9B843F123669}.wem"
      },
      {
       "Id": "555064223",
@@ -2945,7 +3071,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "GameIntro_04_FreeQuency.wav",
-      "CachePath": "C4/{C43BF954-5261-1CD2-73E6-8B285F4A6B38}.wem"
+      "CachePath": "A7/{A7502015-FDDB-4759-DC90-87EDF88477E0}.wem"
      },
      {
       "Id": "606801207",
@@ -2953,7 +3079,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "GameIntro_03_JoeTools.wav",
-      "CachePath": "C0/{C01510CA-3ADA-2449-806C-681E6AF17CFF}.wem"
+      "CachePath": "8C/{8C2077A6-1EAA-983C-4E53-689710F1E8E8}.wem"
      },
      {
       "Id": "651965916",
@@ -2961,7 +3087,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "GameIntro_02_FreeQuency.wav",
-      "CachePath": "F7/{F704F25C-C976-E574-7677-9E8A0C386AC2}.wem"
+      "CachePath": "44/{443D421F-325B-CBCF-37C3-8B7358C51DB7}.wem"
      }
     ],
     "Events": [
@@ -3000,6 +3126,6 @@
     ]
    }
   ],
-  "FileHash": "{3A1B2D01-4C86-4B98-CA4A-E1755CA4A4E0}"
+  "FileHash": "{496F7B16-50DD-6308-FB0C-94B3140146B8}"
  }
 }
